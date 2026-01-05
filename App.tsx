@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { 
   Linkedin, Github, Mail, ArrowUpRight, GraduationCap, Briefcase, 
   Trophy, Command, Search, Home, Eye, EyeOff, MapPin, FileText,
-  Terminal, GitBranch, Zap, Code
+  Terminal, GitBranch, Zap, Code, Container
 } from 'lucide-react';
 
 // --- Icons / Logos ---
@@ -10,6 +10,12 @@ import {
 const LogoCodeNeura = () => (
   <div className="w-12 h-12 bg-[#1a1a1a] rounded-lg flex items-center justify-center shrink-0 border border-[#333]">
     <Trophy className="text-yellow-500 w-6 h-6" />
+  </div>
+);
+
+const LogoTournament = () => (
+  <div className="w-12 h-12 bg-[#1a1a1a] rounded-lg flex items-center justify-center shrink-0 border border-[#333]">
+    <Trophy className="text-zinc-400 w-6 h-6" />
   </div>
 );
 
@@ -27,7 +33,7 @@ const LogoGithub = () => (
 
 const LogoDocker = () => (
   <div className="w-12 h-12 bg-[#1a1a1a] rounded-lg flex items-center justify-center shrink-0 border border-[#333]">
-    <div className="text-blue-500 font-bold text-xs">DOCKER</div>
+    <Container className="text-blue-500 w-6 h-6" />
   </div>
 );
 
@@ -189,14 +195,16 @@ export default function App() {
           {/* Base: Deep Black/Navy */}
           <div className="absolute inset-0 bg-[#020617]" />
           
-          {/* Glow: Soft radial glow center-left, very subtle indigo/midnight blue */}
-          <div className="absolute inset-0 bg-[radial-gradient(circle_at_0%_50%,_rgba(49,46,129,0.15),_rgba(2,6,23,0)_55%)]" />
+          {/* Layer 1: Cool white/blue light source from top-left */}
+          <div className="absolute inset-0 bg-[radial-gradient(circle_at_20%_0%,_rgba(56,189,248,0.1),_rgba(2,6,23,0)_50%)]" />
+
+          {/* Layer 2: Subtle Ambient Blue Glow (replacing purple) */}
+          <div className="absolute inset-0 bg-[radial-gradient(circle_at_0%_50%,_rgba(14,165,233,0.05),_rgba(2,6,23,0)_60%)]" />
         </div>
       )}
 
       {/* Navbar */}
-      <nav className="fixed top-0 left-0 right-0 z-40 flex items-center justify-between px-6 py-6 md:px-12 max-w-5xl mx-auto w-full mix-blend-difference">
-        <div className="text-zinc-400 font-medium text-lg">~</div>
+      <nav className="fixed top-0 left-0 right-0 z-40 flex items-center justify-end px-6 py-6 md:px-12 max-w-5xl mx-auto w-full mix-blend-difference">
         <div className="hidden md:flex items-center gap-6">
             <button onClick={() => scrollToSection('home')} className="text-sm font-medium text-zinc-400 hover:text-white transition-colors bg-zinc-900/50 px-3 py-1.5 rounded-full border border-zinc-800/50">Home</button>
             <button onClick={() => scrollToSection('achievements')} className="text-sm font-medium text-zinc-400 hover:text-white transition-colors">Achievements</button>
@@ -282,7 +290,19 @@ export default function App() {
       <div className="max-w-4xl mx-auto px-6 pt-32 md:pt-40 relative z-10" id="home">
         
         {/* Header / Profile Section */}
-        <div className="flex flex-col md:flex-row md:justify-between md:items-start gap-12 mb-24">
+        <div className="flex flex-col md:flex-row-reverse md:justify-between md:items-start gap-8 md:gap-12 mb-24">
+          
+          <div className="shrink-0">
+            <div className="w-32 h-32 md:w-40 md:h-40 rounded-full overflow-hidden border-2 border-white/5 bg-zinc-900 relative">
+               <img 
+                 src={imgSrc}
+                 onError={handleImgError}
+                 alt="Dhanush D Prabhu" 
+                 className="w-full h-full object-cover opacity-90 hover:opacity-100 transition-opacity duration-300"
+               />
+            </div>
+          </div>
+
           <div className="flex-1">
             <h1 className="text-4xl md:text-5xl font-bold text-white tracking-tight mb-2">
               Dhanush D Prabhu
@@ -314,16 +334,6 @@ export default function App() {
             </div>
           </div>
 
-          <div className="shrink-0">
-            <div className="w-32 h-32 md:w-40 md:h-40 rounded-full overflow-hidden border-2 border-white/5 bg-zinc-900 relative">
-               <img 
-                 src={imgSrc}
-                 onError={handleImgError}
-                 alt="Dhanush D Prabhu" 
-                 className="w-full h-full object-cover opacity-90 hover:opacity-100 transition-opacity duration-300"
-               />
-            </div>
-          </div>
         </div>
 
         {/* Achievements Section (Formerly Experience) */}
@@ -334,10 +344,17 @@ export default function App() {
           <div className="flex flex-col gap-4">
             <ExperienceCard 
               icon={<LogoCodeNeura />} 
-              company="CodeNeura - Tech-a-Thon" 
-              role="First Place Winner"
+              company="First Place – CodeNeura (Inter-College Tech-a-Thon)" 
+              role="Issued by Lal Bahadur Arts, Science and S B Solabanna Shetty Commerce College, Sagara"
+              date="Nov 2025"
+              description="Associated with P.E.S. Institute of Advanced Management Studies, Guddadakere. Secured 1st place in CodeNeura, an inter-college Tech-a-Thon conducted by Sagara LBS College, Sagara. The competition evaluated problem-solving ability, coding efficiency, and practical technical implementation under strict time constraints, competing against teams from multiple colleges." 
+            />
+            <ExperienceCard 
+              icon={<LogoTournament />} 
+              company="Runner-Up – College Coding Tournament" 
+              role="Inter-college coding competition"
               date="2024"
-              description="Demonstrated problem solving and coding skills in a competitive environment." 
+              description="Secured runner-up position in a college-level coding tournament focused on logical problem-solving and coding accuracy under time constraints." 
             />
           </div>
         </section>
@@ -349,12 +366,12 @@ export default function App() {
           </h2>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
             <ProjectCard 
-              icon={<LogoLinux />}
+              icon={<LogoBash />}
               title="Linux System Health Auditor"
               description="Shell script based tool to audit CPU, memory, disk usage, and running processes on Linux systems."
             />
             <ProjectCard 
-              icon={<LogoGithub />}
+              icon={<LogoGHActions />}
               title="CI/CD Pipeline"
               description="Automated build and test workflows using GitHub Actions for a sample application."
             />
