@@ -1,16 +1,60 @@
 import React, { useState, useEffect } from 'react';
 import { 
   Linkedin, Github, Mail, ArrowUpRight, GraduationCap, Briefcase, 
-  Trophy, FileText, Command, Search, Home, Folder, Eye, EyeOff
+  Trophy, Command, Search, Home, Eye, EyeOff, MapPin, FileText,
+  Terminal, GitBranch, Zap, Code
 } from 'lucide-react';
 
 // --- Icons / Logos ---
 
 const LogoCodeNeura = () => (
-  <div className="w-10 h-10 bg-yellow-500/10 rounded-md flex items-center justify-center shrink-0 border border-yellow-500/20">
-    <Trophy className="text-yellow-500 w-5 h-5" />
+  <div className="w-12 h-12 bg-[#1a1a1a] rounded-lg flex items-center justify-center shrink-0 border border-[#333]">
+    <Trophy className="text-yellow-500 w-6 h-6" />
   </div>
 );
+
+const LogoLinux = () => (
+  <div className="w-12 h-12 bg-[#1a1a1a] rounded-lg flex items-center justify-center shrink-0 border border-[#333]">
+    <div className="text-white font-bold text-xs">LINUX</div>
+  </div>
+);
+
+const LogoGithub = () => (
+  <div className="w-12 h-12 bg-[#1a1a1a] rounded-lg flex items-center justify-center shrink-0 border border-[#333]">
+    <Github className="text-white w-6 h-6" />
+  </div>
+);
+
+const LogoDocker = () => (
+  <div className="w-12 h-12 bg-[#1a1a1a] rounded-lg flex items-center justify-center shrink-0 border border-[#333]">
+    <div className="text-blue-500 font-bold text-xs">DOCKER</div>
+  </div>
+);
+
+const LogoBash = () => (
+  <div className="w-12 h-12 bg-[#1a1a1a] rounded-lg flex items-center justify-center shrink-0 border border-[#333]">
+    <Terminal className="text-green-500 w-6 h-6" />
+  </div>
+);
+
+const LogoPython = () => (
+  <div className="w-12 h-12 bg-[#1a1a1a] rounded-lg flex items-center justify-center shrink-0 border border-[#333]">
+    <div className="text-yellow-400 font-bold text-xs">PY</div>
+  </div>
+);
+
+const LogoGit = () => (
+  <div className="w-12 h-12 bg-[#1a1a1a] rounded-lg flex items-center justify-center shrink-0 border border-[#333]">
+    <GitBranch className="text-orange-500 w-6 h-6" />
+  </div>
+);
+
+const LogoGHActions = () => (
+  <div className="w-12 h-12 bg-[#1a1a1a] rounded-lg flex items-center justify-center shrink-0 border border-[#333]">
+    <Zap className="text-blue-400 w-6 h-6" />
+  </div>
+);
+
 
 // --- Components ---
 
@@ -18,43 +62,45 @@ interface ExperienceCardProps {
   icon: React.ReactNode;
   company: string;
   role: string;
+  description?: string;
+  date?: string;
 }
 
-const ExperienceCard: React.FC<ExperienceCardProps> = ({ icon, company, role }) => {
+const ExperienceCard: React.FC<ExperienceCardProps> = ({ icon, company, role, description, date }) => {
   return (
-    <div className="flex items-center gap-4 p-4 rounded-xl border border-white/5 bg-white/5 hover:bg-white/10 transition-colors cursor-default">
+    <div className="flex items-center gap-4 p-4 rounded-xl border border-white/5 bg-[#0a0a0a] hover:bg-[#111] transition-colors cursor-default group">
       {icon}
-      <div className="flex flex-col">
-        <h3 className="font-bold text-slate-100 text-sm md:text-base">{company}</h3>
-        <p className="text-slate-400 text-xs md:text-sm font-medium">{role}</p>
+      <div className="flex flex-col flex-1">
+        <div className="flex justify-between items-start">
+            <h3 className="font-semibold text-zinc-100 text-base">{company}</h3>
+            {date && <span className="text-xs text-zinc-500">{date}</span>}
+        </div>
+        <p className="text-zinc-400 text-sm">{role}</p>
+        {description && <p className="text-zinc-500 text-xs mt-1">{description}</p>}
       </div>
     </div>
   );
 };
 
 interface ProjectCardProps {
+  icon: React.ReactNode;
   title: string;
   description: string;
   linkText?: string;
-  hasGithub?: boolean;
 }
 
-const ProjectCard: React.FC<ProjectCardProps> = ({ title, description, linkText = "GitHub", hasGithub = true }) => {
+const ProjectCard: React.FC<ProjectCardProps> = ({ icon, title, description, linkText = "GitHub" }) => {
   return (
-    <div className="flex flex-col justify-between p-6 rounded-xl border border-white/5 bg-white/5 hover:border-white/10 transition-colors h-full">
-      <div>
-        <h3 className="font-bold text-slate-100 text-lg mb-3">{title}</h3>
-        <p className="text-slate-400 text-sm leading-relaxed mb-6">{description}</p>
-      </div>
-      <div className="flex items-center justify-between mt-auto">
-        <a href="#" className="flex items-center gap-1 text-xs font-bold text-white hover:text-emerald-400 transition-colors">
-          {linkText} <ArrowUpRight className="w-3 h-3" />
-        </a>
-        {hasGithub && (
-          <a href="#" className="text-slate-400 hover:text-white transition-colors">
-            <Github className="w-5 h-5" />
-          </a>
-        )}
+    <div className="flex items-start gap-4 p-4 rounded-xl border border-white/5 bg-[#0a0a0a] hover:bg-[#111] transition-colors cursor-default h-full group">
+      {icon}
+      <div className="flex flex-col flex-1">
+        <h3 className="font-semibold text-zinc-100 text-base mb-1 group-hover:text-emerald-400 transition-colors">{title}</h3>
+        <p className="text-zinc-500 text-sm leading-relaxed mb-3">{description}</p>
+        <div className="flex items-center mt-auto">
+           <span className="text-xs font-medium text-zinc-400 flex items-center gap-1 group-hover:text-zinc-200 transition-colors">
+             {linkText} <ArrowUpRight className="w-3 h-3" />
+           </span>
+        </div>
       </div>
     </div>
   );
@@ -65,7 +111,7 @@ const SocialButton: React.FC<{ icon: React.ReactNode; href?: string }> = ({ icon
     href={href}
     target="_blank"
     rel="noreferrer"
-    className="w-10 h-10 rounded-lg bg-white/5 border border-white/5 flex items-center justify-center text-slate-400 hover:bg-white/10 hover:text-white transition-all"
+    className="w-10 h-10 rounded-lg bg-[#111] border border-white/5 flex items-center justify-center text-zinc-400 hover:bg-[#222] hover:text-white transition-all hover:scale-105"
   >
     {icon}
   </a>
@@ -73,10 +119,24 @@ const SocialButton: React.FC<{ icon: React.ReactNode; href?: string }> = ({ icon
 
 // --- Main App ---
 
-const App: React.FC = () => {
+export default function App() {
   const [isCmdOpen, setIsCmdOpen] = useState(false);
   const [showBlobs, setShowBlobs] = useState(true);
   const [searchQuery, setSearchQuery] = useState("");
+  
+  // Image loading state with fallback chain
+  const [imgSrc, setImgSrc] = useState("/profile.jpg");
+  
+  const handleImgError = () => {
+    // Fallback chain: jpg -> png -> jpeg -> github
+    if (imgSrc === "/profile.jpg") {
+      setImgSrc("/profile.png");
+    } else if (imgSrc === "/profile.png") {
+      setImgSrc("/profile.jpeg");
+    } else {
+      setImgSrc("https://avatars.githubusercontent.com/u/169132950?v=4");
+    }
+  };
 
   useEffect(() => {
     const handleKeyDown = (e: KeyboardEvent) => {
@@ -104,9 +164,11 @@ const App: React.FC = () => {
   const menuItems = [
     { type: 'header', label: 'Pages' },
     { icon: <Home className="w-4 h-4" />, label: 'Home', action: () => scrollToSection('home'), shortcut: 'h' },
+    { icon: <Trophy className="w-4 h-4" />, label: 'Achievements', action: () => scrollToSection('achievements'), shortcut: 'a' },
     { icon: <Briefcase className="w-4 h-4" />, label: 'Projects', action: () => scrollToSection('projects'), shortcut: 'p' },
+    { icon: <Code className="w-4 h-4" />, label: 'Skills', action: () => scrollToSection('skills'), shortcut: 's' },
     { type: 'header', label: 'Actions' },
-    { icon: showBlobs ? <EyeOff className="w-4 h-4" /> : <Eye className="w-4 h-4" />, label: 'Toggle Circles', action: () => { setShowBlobs(!showBlobs); setIsCmdOpen(false); }, shortcut: 't c' },
+    { icon: showBlobs ? <EyeOff className="w-4 h-4" /> : <Eye className="w-4 h-4" />, label: 'Toggle Background', action: () => { setShowBlobs(!showBlobs); setIsCmdOpen(false); }, shortcut: 't b' },
     { type: 'header', label: 'Socials' },
     { icon: <Linkedin className="w-4 h-4" />, label: 'LinkedIn', action: () => window.open('https://www.linkedin.com/in/dhanushdprabhu/', '_blank') },
     { icon: <Github className="w-4 h-4" />, label: 'GitHub', action: () => window.open('https://github.com/iamdevdhanush', '_blank') },
@@ -119,57 +181,67 @@ const App: React.FC = () => {
   });
 
   return (
-    <div className="min-h-screen bg-slate-950 text-slate-200 selection:bg-emerald-500/30 selection:text-emerald-100 pb-20 relative">
+    <div className="min-h-screen bg-[#020617] text-zinc-200 selection:bg-zinc-800 selection:text-white pb-20 relative font-sans overflow-x-hidden">
       
-      {/* Background Gradients */}
+      {/* Background - Minimal, modern dark gradient */}
       {showBlobs && (
-        <div className="fixed inset-0 z-0 pointer-events-none transition-opacity duration-700 ease-in-out">
-          {/* Top Left - Purple/Pink glow */}
-          <div className="absolute top-[-10%] left-[-10%] w-[600px] h-[600px] bg-purple-600/20 rounded-full blur-[120px]" />
-          {/* Top Right - Blue/Cyan glow */}
-          <div className="absolute top-[5%] right-[-10%] w-[500px] h-[500px] bg-blue-600/10 rounded-full blur-[120px]" />
-          {/* Bottom Left - Subtle Emerald/Teal hint */}
-          <div className="absolute bottom-[-10%] left-[10%] w-[400px] h-[400px] bg-emerald-600/5 rounded-full blur-[100px]" />
+        <div className="fixed inset-0 z-0 pointer-events-none">
+          {/* Base: Deep Black/Navy */}
+          <div className="absolute inset-0 bg-[#020617]" />
+          
+          {/* Glow: Soft radial glow center-left, very subtle indigo/midnight blue */}
+          <div className="absolute inset-0 bg-[radial-gradient(circle_at_0%_50%,_rgba(49,46,129,0.15),_rgba(2,6,23,0)_55%)]" />
         </div>
       )}
+
+      {/* Navbar */}
+      <nav className="fixed top-0 left-0 right-0 z-40 flex items-center justify-between px-6 py-6 md:px-12 max-w-5xl mx-auto w-full mix-blend-difference">
+        <div className="text-zinc-400 font-medium text-lg">~</div>
+        <div className="hidden md:flex items-center gap-6">
+            <button onClick={() => scrollToSection('home')} className="text-sm font-medium text-zinc-400 hover:text-white transition-colors bg-zinc-900/50 px-3 py-1.5 rounded-full border border-zinc-800/50">Home</button>
+            <button onClick={() => scrollToSection('achievements')} className="text-sm font-medium text-zinc-400 hover:text-white transition-colors">Achievements</button>
+            <button onClick={() => scrollToSection('projects')} className="text-sm font-medium text-zinc-400 hover:text-white transition-colors">Projects</button>
+            <button onClick={() => scrollToSection('skills')} className="text-sm font-medium text-zinc-400 hover:text-white transition-colors">Skills</button>
+        </div>
+      </nav>
 
       {/* Floating Command Button */}
       <button
         onClick={() => setIsCmdOpen(true)}
-        className="fixed bottom-6 right-6 z-40 w-12 h-12 bg-slate-900 border border-slate-700 rounded-xl flex items-center justify-center text-slate-400 hover:text-white hover:border-slate-500 transition-all shadow-xl hover:shadow-2xl hover:scale-105 active:scale-95"
+        className="fixed bottom-8 right-8 z-40 p-3 bg-zinc-900 border border-zinc-800 rounded-lg text-zinc-400 hover:text-white hover:border-zinc-700 transition-all shadow-2xl hover:scale-105 active:scale-95"
         aria-label="Open Command Palette"
       >
-        <Command className="w-6 h-6" />
+        <Command className="w-5 h-5" />
       </button>
 
       {/* Command Palette Overlay */}
       {isCmdOpen && (
         <div className="fixed inset-0 z-50 flex items-start justify-center pt-[15vh] px-4">
-          <div className="absolute inset-0 bg-black/60 backdrop-blur-sm" onClick={() => setIsCmdOpen(false)} />
-          <div className="relative w-full max-w-lg bg-slate-900 border border-slate-800 rounded-xl shadow-2xl overflow-hidden animate-in fade-in zoom-in-95 duration-200">
+          <div className="absolute inset-0 bg-black/80 backdrop-blur-sm" onClick={() => setIsCmdOpen(false)} />
+          <div className="relative w-full max-w-xl bg-[#0a0a0a] border border-zinc-800 rounded-xl shadow-2xl overflow-hidden animate-in fade-in zoom-in-95 duration-200">
             {/* Search Input */}
-            <div className="flex items-center px-4 py-3 border-b border-slate-800">
-              <Search className="w-5 h-5 text-slate-500 mr-3" />
+            <div className="flex items-center px-4 py-3 border-b border-zinc-800">
+              <Search className="w-4 h-4 text-zinc-500 mr-3" />
               <input 
                 autoFocus
                 type="text"
-                placeholder="Type a command or search..."
-                className="flex-1 bg-transparent border-none outline-none text-slate-200 placeholder-slate-500 text-sm"
+                placeholder="Type a command..."
+                className="flex-1 bg-transparent border-none outline-none text-zinc-200 placeholder-zinc-600 text-sm h-6"
                 value={searchQuery}
                 onChange={(e) => setSearchQuery(e.target.value)}
               />
-              <span className="text-xs text-slate-500 font-mono border border-slate-700 px-1.5 py-0.5 rounded bg-slate-800">esc</span>
+              <div className="text-[10px] text-zinc-600 font-mono bg-zinc-900 px-1.5 py-0.5 rounded border border-zinc-800">ESC</div>
             </div>
             
             {/* Menu Items */}
-            <div className="max-h-[60vh] overflow-y-auto py-2">
+            <div className="max-h-[60vh] overflow-y-auto p-2">
               {filteredItems.map((item, index) => {
                 if (item.type === 'header') {
                   const nextItemIndex = filteredItems.findIndex((i, idx) => idx > index && i.type !== 'header');
                   if (nextItemIndex === -1 && index !== filteredItems.length - 1) return null;
                    
                   return (
-                    <div key={`header-${index}`} className="px-4 py-2 text-[10px] uppercase tracking-wider font-semibold text-slate-600 mt-2 first:mt-0">
+                    <div key={`header-${index}`} className="px-3 py-2 text-[10px] uppercase tracking-wider font-medium text-zinc-600 mt-2 first:mt-0 ml-1">
                       {item.label}
                     </div>
                   );
@@ -179,16 +251,16 @@ const App: React.FC = () => {
                   <button
                     key={`item-${index}`}
                     onClick={item.action}
-                    className="w-full flex items-center justify-between px-4 py-3 text-sm text-slate-300 hover:bg-slate-800 hover:text-white transition-colors group cursor-default"
+                    className="w-full flex items-center justify-between px-3 py-2 text-sm text-zinc-400 hover:bg-zinc-900 hover:text-zinc-100 rounded-lg transition-colors group cursor-default"
                   >
                     <div className="flex items-center gap-3">
-                      <span className="text-slate-500 group-hover:text-slate-300">{item.icon}</span>
+                      <span className="text-zinc-500 group-hover:text-zinc-400">{item.icon}</span>
                       <span>{item.label}</span>
                     </div>
                     {item.shortcut && (
                       <div className="flex gap-1">
                         {item.shortcut.split(' ').map(key => (
-                          <span key={key} className="text-xs bg-slate-800 text-slate-500 px-1.5 py-0.5 rounded border border-slate-700 group-hover:border-slate-600 group-hover:text-slate-400 font-mono">
+                          <span key={key} className="text-[10px] bg-zinc-900 text-zinc-500 px-1.5 py-0.5 rounded border border-zinc-800 group-hover:border-zinc-700 font-mono uppercase">
                             {key}
                           </span>
                         ))}
@@ -198,7 +270,7 @@ const App: React.FC = () => {
                 );
               })}
               {filteredItems.length === 0 && (
-                 <div className="px-4 py-8 text-center text-sm text-slate-500">
+                 <div className="px-4 py-8 text-center text-sm text-zinc-600">
                    No results found.
                  </div>
               )}
@@ -207,108 +279,177 @@ const App: React.FC = () => {
         </div>
       )}
 
-      <div className="max-w-3xl mx-auto px-6 pt-20 md:pt-32 relative z-10" id="home">
+      <div className="max-w-4xl mx-auto px-6 pt-32 md:pt-40 relative z-10" id="home">
         
         {/* Header / Profile Section */}
-        <div className="flex flex-col-reverse md:flex-row md:justify-between md:items-start gap-8 mb-16">
-          <div className="flex-1 space-y-6">
-            <div>
-              <h1 className="text-4xl md:text-5xl font-bold text-white tracking-tight mb-4">
-                Dhanush D Prabhu
-              </h1>
-              <p className="text-slate-400 font-medium text-sm md:text-base max-w-lg leading-relaxed">
-                DevOps Engineer (Entry-level)
-              </p>
-              <p className="text-slate-400 text-sm leading-relaxed max-w-lg mt-4">
-                I’m a BCA student learning DevOps by working close to Linux systems, automation, and infrastructure basics. 
-                I focus on understanding how systems behave, how they fail, and how to fix them—rather than just collecting tools.
-                This site documents what I’m building, experimenting with, and learning in public.
-              </p>
-            </div>
+        <div className="flex flex-col md:flex-row md:justify-between md:items-start gap-12 mb-24">
+          <div className="flex-1">
+            <h1 className="text-4xl md:text-5xl font-bold text-white tracking-tight mb-2">
+              Dhanush D Prabhu
+            </h1>
+            <h2 className="text-lg md:text-xl text-zinc-400 font-medium mb-6">
+              DevOps Engineer • BCA Student
+            </h2>
 
-            <div className="space-y-2 text-xs md:text-sm text-slate-500">
-               <div className="flex items-center gap-2">
-                 <GraduationCap className="w-4 h-4 text-purple-400" />
-                 <span>Bachelor of Computer Applications (BCA) - 2027</span>
+            <div className="space-y-3 mb-8">
+               <div className="flex items-start gap-3 text-zinc-500 text-sm">
+                 <GraduationCap className="w-4 h-4 mt-0.5 text-zinc-600" />
+                 <span>Bachelor of Computer Applications (2027)</span>
                </div>
-               <div className="flex items-center gap-2">
-                 <Briefcase className="w-4 h-4 text-red-400" />
-                 <span>P.E.S. Institute of Advanced Management Studies</span>
+               <div className="flex items-start gap-3 text-zinc-500 text-sm">
+                 <MapPin className="w-4 h-4 mt-0.5 text-zinc-600" />
+                 <span>Shimoga, Karnataka, India</span>
+               </div>
+               <div className="flex items-start gap-3 text-zinc-500 text-sm">
+                 <Briefcase className="w-4 h-4 mt-0.5 text-zinc-600" />
+                 <span>Aspiring DevOps & Cloud Engineer</span>
                </div>
             </div>
 
-            <div className="flex items-center gap-3 pt-2">
+            <div className="flex items-center gap-3">
               <SocialButton icon={<Github className="w-4 h-4" />} href="https://github.com/iamdevdhanush" />
               <SocialButton icon={<Linkedin className="w-4 h-4" />} href="https://www.linkedin.com/in/dhanushdprabhu/" />
               <SocialButton icon={<Mail className="w-4 h-4" />} href="mailto:dhanushdprabhu18@gmail.com" />
+              <SocialButton icon={<FileText className="w-4 h-4" />} href="/resume.pdf" />
             </div>
           </div>
 
           <div className="shrink-0">
-            <div className="w-24 h-24 md:w-32 md:h-32 rounded-full overflow-hidden border-2 border-white/10 bg-slate-800">
-               {/* Profile Image */}
+            <div className="w-32 h-32 md:w-40 md:h-40 rounded-full overflow-hidden border-2 border-white/5 bg-zinc-900 relative">
                <img 
-                 src="https://avatars.githubusercontent.com/u/198190059?v=4" 
+                 src={imgSrc}
+                 onError={handleImgError}
                  alt="Dhanush D Prabhu" 
-                 className="w-full h-full object-cover opacity-80 hover:opacity-100 transition-opacity"
+                 className="w-full h-full object-cover opacity-90 hover:opacity-100 transition-opacity duration-300"
                />
             </div>
           </div>
         </div>
 
-        {/* Experience Section */}
+        {/* Achievements Section (Formerly Experience) */}
         <section className="mb-20" id="achievements">
-          <h2 className="text-xl font-bold text-white mb-6 flex items-center gap-2">
+          <h2 className="text-2xl font-bold text-zinc-100 mb-8">
             Achievements
           </h2>
-          <div className="flex flex-col gap-3">
+          <div className="flex flex-col gap-4">
             <ExperienceCard 
               icon={<LogoCodeNeura />} 
-              company="CodeNeura (Inter-College Tech-a-Thon)" 
-              role="First Place" 
+              company="CodeNeura - Tech-a-Thon" 
+              role="First Place Winner"
+              date="2024"
+              description="Demonstrated problem solving and coding skills in a competitive environment." 
             />
           </div>
         </section>
 
         {/* Projects Section */}
         <section className="mb-20" id="projects">
-          <h2 className="text-xl font-bold text-white mb-6">
+          <h2 className="text-2xl font-bold text-zinc-100 mb-8">
             Projects
           </h2>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
             <ProjectCard 
+              icon={<LogoLinux />}
               title="Linux System Health Auditor"
-              description="Audits CPU, memory, disk usage, running processes, and open ports on a Linux system."
+              description="Shell script based tool to audit CPU, memory, disk usage, and running processes on Linux systems."
             />
             <ProjectCard 
-              title="CI/CD Pipeline (Learning Project)"
-              description="Automates basic build and test workflows for a sample application using GitHub Actions."
+              icon={<LogoGithub />}
+              title="CI/CD Pipeline"
+              description="Automated build and test workflows using GitHub Actions for a sample application."
             />
             <ProjectCard 
-              title="Dockerized Application (Learning Lab)"
-              description="Containerized a simple application to understand image building and runtime behavior."
+              icon={<LogoDocker />}
+              title="Dockerized App Lab"
+              description="Containerization of a web application to understand image building layers and runtime behavior."
             />
           </div>
         </section>
 
-        {/* Contact Section */}
-        <section className="mb-12 pt-8 border-t border-white/5" id="contact">
-          <h2 className="text-xl font-bold text-white mb-4">Contact</h2>
-          <p className="text-slate-400 text-sm mb-6">
-            You can reach out to me via email at <a href="mailto:dhanushdprabhu18@gmail.com" className="text-emerald-400 hover:underline">dhanushdprabhu18@gmail.com</a>, connect with me on <a href="https://www.linkedin.com/in/dhanushdprabhu/" className="text-emerald-400 hover:underline">LinkedIn</a>, or <a href="/resume.pdf" target="_blank" className="text-emerald-400 hover:underline">download my resume</a>.
-          </p>
+        {/* Skills Section */}
+        <section className="mb-20" id="skills">
+          <h2 className="text-2xl font-bold text-zinc-100 mb-8">
+            Skills
+          </h2>
           
-          <div className="flex items-center gap-3">
-              <SocialButton icon={<Github className="w-3.5 h-3.5" />} href="https://github.com/iamdevdhanush" />
-              <SocialButton icon={<Linkedin className="w-3.5 h-3.5" />} href="https://www.linkedin.com/in/dhanushdprabhu/" />
-              <SocialButton icon={<Mail className="w-3.5 h-3.5" />} href="mailto:dhanushdprabhu18@gmail.com" />
-              <SocialButton icon={<FileText className="w-3.5 h-3.5" />} href="/resume.pdf" />
+          <div className="flex flex-wrap gap-3 mb-8">
+            <LogoLinux />
+            <LogoBash />
+            <LogoPython />
+            <LogoGit />
+            <LogoGithub />
+            <LogoGHActions />
+            <LogoDocker />
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-x-12 gap-y-8 text-sm">
+            <div>
+              <h3 className="font-semibold text-zinc-100 mb-2">Linux</h3>
+              <ul className="space-y-1 text-zinc-500">
+                <li>- Comfortable working in the terminal on Ubuntu</li>
+                <li>- Basic understanding of filesystems, processes, and permissions</li>
+              </ul>
+            </div>
+
+            <div>
+              <h3 className="font-semibold text-zinc-100 mb-2">Shell Scripting (Bash)</h3>
+              <ul className="space-y-1 text-zinc-500">
+                <li>- Writing small to medium Bash scripts for automation</li>
+                <li>- Using core utilities for system inspection and reporting</li>
+              </ul>
+            </div>
+
+            <div>
+              <h3 className="font-semibold text-zinc-100 mb-2">Python</h3>
+              <ul className="space-y-1 text-zinc-500">
+                <li>- Using Python for scripting and small automation tasks</li>
+                <li>- Writing simple programs to support DevOps-related workflows</li>
+              </ul>
+            </div>
+
+            <div>
+              <h3 className="font-semibold text-zinc-100 mb-2">Git & Version Control</h3>
+              <ul className="space-y-1 text-zinc-500">
+                <li>- Daily use of Git for personal and learning projects</li>
+                <li>- Comfortable with branching, commits, and basic history inspection</li>
+              </ul>
+            </div>
+
+            <div>
+              <h3 className="font-semibold text-zinc-100 mb-2">CI/CD (Learning)</h3>
+              <ul className="space-y-1 text-zinc-500">
+                <li>- Building basic pipelines using GitHub Actions</li>
+                <li>- Understanding workflow structure, steps, and failures</li>
+              </ul>
+            </div>
+
+            <div>
+              <h3 className="font-semibold text-zinc-100 mb-2">Containers (Learning)</h3>
+              <ul className="space-y-1 text-zinc-500">
+                <li>- Building and running Docker images</li>
+                <li>- Understanding container basics and image structure</li>
+              </ul>
+            </div>
+
+            <div>
+              <h3 className="font-semibold text-zinc-100 mb-2">General</h3>
+              <ul className="space-y-1 text-zinc-500">
+                <li>- Debugging issues step by step</li>
+                <li>- Learning by breaking and fixing systems</li>
+              </ul>
+            </div>
           </div>
         </section>
+
+        {/* Footer */}
+        <footer className="pt-8 border-t border-white/5 flex flex-col md:flex-row justify-between items-center gap-4 text-xs text-zinc-600 mb-8">
+          <p>© 2025 Dhanush D Prabhu.</p>
+          <div className="flex gap-4">
+            <span>Built with React & Tailwind</span>
+          </div>
+        </footer>
 
       </div>
     </div>
   );
-};
-
-export default App;
+}
