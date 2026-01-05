@@ -187,19 +187,19 @@ export default function App() {
   });
 
   return (
-    <div className="min-h-screen bg-[#020617] text-zinc-200 selection:bg-zinc-800 selection:text-white pb-20 relative font-sans overflow-x-hidden">
+    <div className="min-h-screen bg-black text-zinc-200 selection:bg-zinc-800 selection:text-white pb-20 relative font-sans overflow-x-hidden">
       
       {/* Background - Minimal, modern dark gradient */}
       {showBlobs && (
         <div className="fixed inset-0 z-0 pointer-events-none">
-          {/* Base: Deep Black/Navy */}
-          <div className="absolute inset-0 bg-[#020617]" />
+          {/* Base: Pure Black */}
+          <div className="absolute inset-0 bg-black" />
           
-          {/* Layer 1: Cool white/blue light source from top-left */}
-          <div className="absolute inset-0 bg-[radial-gradient(circle_at_20%_0%,_rgba(56,189,248,0.1),_rgba(2,6,23,0)_50%)]" />
+          {/* Layer 1: Cool white/blue light source from top-left - More subtle */}
+          <div className="absolute inset-0 bg-[radial-gradient(circle_at_20%_0%,_rgba(56,189,248,0.08),_rgba(0,0,0,0)_50%)]" />
 
-          {/* Layer 2: Subtle Ambient Blue Glow (replacing purple) */}
-          <div className="absolute inset-0 bg-[radial-gradient(circle_at_0%_50%,_rgba(14,165,233,0.05),_rgba(2,6,23,0)_60%)]" />
+          {/* Layer 2: Subtle Ambient Blue Glow (replacing purple) - More subtle */}
+          <div className="absolute inset-0 bg-[radial-gradient(circle_at_0%_50%,_rgba(14,165,233,0.03),_rgba(0,0,0,0)_60%)]" />
         </div>
       )}
 
@@ -344,10 +344,9 @@ export default function App() {
           <div className="flex flex-col gap-4">
             <ExperienceCard 
               icon={<LogoCodeNeura />} 
-              company="First Place – CodeNeura (Inter-College Tech-a-Thon)" 
-              role="Issued by Lal Bahadur Arts, Science and S B Solabanna Shetty Commerce College, Sagara"
-              date="Nov 2025"
-              description="Associated with P.E.S. Institute of Advanced Management Studies, Guddadakere. Secured 1st place in CodeNeura, an inter-college Tech-a-Thon conducted by Sagara LBS College, Sagara. The competition evaluated problem-solving ability, coding efficiency, and practical technical implementation under strict time constraints, competing against teams from multiple colleges." 
+              company="First Place – CodeNeura" 
+              role="Issued by LBS College, Sagara"
+              description="The competition evaluated problem-solving ability, coding efficiency, and practical technical implementation under strict time constraints, competing against teams from multiple colleges." 
             />
             <ExperienceCard 
               icon={<LogoTournament />} 
