@@ -70,9 +70,11 @@ interface ExperienceCardProps {
   role: string;
   description?: string;
   date?: string;
+  link?: string;
+  linkText?: string;
 }
 
-const ExperienceCard: React.FC<ExperienceCardProps> = ({ icon, company, role, description, date }) => {
+const ExperienceCard: React.FC<ExperienceCardProps> = ({ icon, company, role, description, date, link, linkText }) => {
   return (
     <div className="flex items-center gap-4 p-4 rounded-xl border border-white/5 bg-[#0a0a0a] hover:bg-[#111] transition-colors cursor-default group">
       {icon}
@@ -83,6 +85,16 @@ const ExperienceCard: React.FC<ExperienceCardProps> = ({ icon, company, role, de
         </div>
         <p className="text-zinc-400 text-sm">{role}</p>
         {description && <p className="text-zinc-500 text-xs mt-1">{description}</p>}
+        {link && (
+          <a 
+            href={link}
+            target="_blank"
+            rel="noreferrer"
+            className="text-zinc-500 hover:text-zinc-300 text-xs mt-2 block w-fit transition-colors"
+          >
+            Read more → {linkText}
+          </a>
+        )}
       </div>
     </div>
   );
@@ -370,6 +382,8 @@ export default function App() {
               company="First Place – CodeNeura" 
               role="Issued by LBS College, Sagara"
               description="The competition evaluated problem-solving ability, coding efficiency, and practical technical implementation under strict time constraints, competing against teams from multiple colleges." 
+              link="https://www.linkedin.com/posts/dhanushdprabhu_neura2025-codingcompetition-firstplace-activity-7391068108612071425-zN4C"
+              linkText="LinkedIn"
             />
             <ExperienceCard 
               icon={<LogoTournament />} 
