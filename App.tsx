@@ -287,8 +287,8 @@ export default function App() {
         </div>
       )}
 
-      {/* Reduced padding from pt-32 md:pt-40 to pt-24 md:pt-32 */}
-      <div className="max-w-4xl mx-auto px-6 pt-24 md:pt-32 relative z-10" id="home">
+      {/* Reduced padding from pt-24 md:pt-32 to pt-12 md:pt-20 */}
+      <div className="max-w-4xl mx-auto px-6 pt-12 md:pt-20 relative z-10" id="home">
         
         {/* Header / Profile Section */}
         <div className="flex flex-col md:flex-row-reverse md:justify-between md:items-start gap-8 md:gap-12 mb-24">
