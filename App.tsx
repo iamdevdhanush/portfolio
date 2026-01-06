@@ -405,6 +405,29 @@ export default function App() {
           </div>
         </section>
 
+        {/* DevOps Practice Section */}
+        <section className="mb-20" id="devops-practice">
+          <h2 className="text-2xl font-bold text-zinc-100 mb-8">
+            DevOps Practice
+          </h2>
+          <div className="flex flex-col gap-4 text-sm text-zinc-500 leading-relaxed">
+            <p>
+              I maintain a public DevOps practice repository where I document hands-on learning across Linux, shell scripting, Git, CI/CD, and container fundamentals.
+            </p>
+            <p>
+              This repository focuses on practice, experiments, and understanding system behavior rather than claiming production experience.
+            </p>
+            <a 
+              href="https://github.com/iamdevdhanush/Devops"
+              target="_blank" 
+              rel="noreferrer"
+              className="text-zinc-400 hover:text-zinc-200 transition-colors inline-block mt-2"
+            >
+              Read more → https://github.com/iamdevdhanush/Devops
+            </a>
+          </div>
+        </section>
+
         {/* Skills Section */}
         <section className="mb-20" id="skills">
           <h2 className="text-2xl font-bold text-zinc-100 mb-8">
