@@ -186,6 +186,7 @@ export default function App() {
     { icon: <Home className="w-4 h-4" />, label: 'Home', action: () => scrollToSection('home'), shortcut: 'h' },
     { icon: <Trophy className="w-4 h-4" />, label: 'Achievements', action: () => scrollToSection('achievements'), shortcut: 'a' },
     { icon: <Briefcase className="w-4 h-4" />, label: 'Projects', action: () => scrollToSection('projects'), shortcut: 'p' },
+    { icon: <Terminal className="w-4 h-4" />, label: 'DevOps Practice', action: () => scrollToSection('devops-practice'), shortcut: 'd' },
     { icon: <Code className="w-4 h-4" />, label: 'Skills', action: () => scrollToSection('skills'), shortcut: 's' },
     { type: 'header', label: 'Actions' },
     { icon: showBlobs ? <EyeOff className="w-4 h-4" /> : <Eye className="w-4 h-4" />, label: 'Toggle Background', action: () => { setShowBlobs(!showBlobs); setIsCmdOpen(false); }, shortcut: 't b' },
@@ -218,30 +219,32 @@ export default function App() {
       )}
 
       {/* Navbar */}
-      <nav className="fixed top-0 left-0 right-0 z-50 flex items-center justify-end px-6 py-6 md:px-12 max-w-5xl mx-auto w-full mix-blend-difference">
+      <nav className="fixed top-0 left-0 right-0 z-50 flex items-center justify-end px-6 py-6 md:px-12 max-w-5xl mx-auto w-full">
         <button 
-          className="md:hidden text-zinc-400 hover:text-white transition-colors p-2"
+          className="md:hidden text-zinc-300 hover:text-white transition-colors p-2 bg-zinc-900/50 backdrop-blur-md rounded-lg border border-white/10"
           onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
           aria-label="Toggle Menu"
         >
           {isMobileMenuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
         </button>
 
-        <div className="hidden md:flex items-center gap-6">
-            <button onClick={() => scrollToSection('home')} className="text-sm font-medium text-zinc-400 hover:text-white transition-colors bg-zinc-900/50 px-3 py-1.5 rounded-full border border-zinc-800/50">Home</button>
-            <button onClick={() => scrollToSection('achievements')} className="text-sm font-medium text-zinc-400 hover:text-white transition-colors">Achievements</button>
-            <button onClick={() => scrollToSection('projects')} className="text-sm font-medium text-zinc-400 hover:text-white transition-colors">Projects</button>
-            <button onClick={() => scrollToSection('skills')} className="text-sm font-medium text-zinc-400 hover:text-white transition-colors">Skills</button>
+        <div className="hidden md:flex items-center gap-1 bg-zinc-900/50 backdrop-blur-md border border-white/10 rounded-full p-1 pl-2 pr-2">
+            <button onClick={() => scrollToSection('home')} className="text-sm font-medium text-zinc-200 hover:text-white transition-colors bg-white/10 px-4 py-1.5 rounded-full border border-white/5 shadow-sm">Home</button>
+            <button onClick={() => scrollToSection('achievements')} className="text-sm font-medium text-zinc-400 hover:text-white transition-colors px-4 py-1.5">Achievements</button>
+            <button onClick={() => scrollToSection('projects')} className="text-sm font-medium text-zinc-400 hover:text-white transition-colors px-4 py-1.5">Projects</button>
+            <button onClick={() => scrollToSection('devops-practice')} className="text-sm font-medium text-zinc-400 hover:text-white transition-colors px-4 py-1.5">Practice</button>
+            <button onClick={() => scrollToSection('skills')} className="text-sm font-medium text-zinc-400 hover:text-white transition-colors px-4 py-1.5">Skills</button>
         </div>
       </nav>
 
       {/* Mobile Menu Overlay */}
       {isMobileMenuOpen && (
-        <div className="fixed inset-0 z-40 bg-black pt-24 px-6 md:hidden animate-in slide-in-from-top-10 duration-200">
-           <div className="flex flex-col gap-8 text-2xl font-medium text-zinc-400">
+        <div className="fixed inset-0 z-40 bg-black/95 backdrop-blur-xl pt-24 px-6 md:hidden animate-in slide-in-from-top-5 duration-200">
+           <div className="flex flex-col gap-6 text-xl font-medium text-zinc-400">
               <button onClick={() => scrollToSection('home')} className="text-left hover:text-white transition-colors border-b border-white/5 pb-4">Home</button>
               <button onClick={() => scrollToSection('achievements')} className="text-left hover:text-white transition-colors border-b border-white/5 pb-4">Achievements</button>
               <button onClick={() => scrollToSection('projects')} className="text-left hover:text-white transition-colors border-b border-white/5 pb-4">Projects</button>
+              <button onClick={() => scrollToSection('devops-practice')} className="text-left hover:text-white transition-colors border-b border-white/5 pb-4">DevOps Practice</button>
               <button onClick={() => scrollToSection('skills')} className="text-left hover:text-white transition-colors border-b border-white/5 pb-4">Skills</button>
            </div>
         </div>
