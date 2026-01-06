@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { 
   Linkedin, Github, Mail, ArrowUpRight, GraduationCap, Briefcase, 
   Trophy, Command, Search, Home, Eye, EyeOff, MapPin, FileText,
-  Terminal, GitBranch, Zap, Code, Container
+  Terminal, GitBranch, Zap, Code, Container, Menu, X
 } from 'lucide-react';
 
 // --- Icons / Logos ---
@@ -129,6 +129,7 @@ export default function App() {
   const [isCmdOpen, setIsCmdOpen] = useState(false);
   const [showBlobs, setShowBlobs] = useState(true);
   const [searchQuery, setSearchQuery] = useState("");
+  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   
   // Image loading state with fallback chain
   const [imgSrc, setImgSrc] = useState("/profile.jpg");
@@ -164,6 +165,7 @@ export default function App() {
     if (element) {
       element.scrollIntoView({ behavior: 'smooth' });
       setIsCmdOpen(false);
+      setIsMobileMenuOpen(false);
     }
   };
 
@@ -204,7 +206,15 @@ export default function App() {
       )}
 
       {/* Navbar */}
-      <nav className="fixed top-0 left-0 right-0 z-40 flex items-center justify-end px-6 py-6 md:px-12 max-w-5xl mx-auto w-full mix-blend-difference">
+      <nav className="fixed top-0 left-0 right-0 z-50 flex items-center justify-end px-6 py-6 md:px-12 max-w-5xl mx-auto w-full mix-blend-difference">
+        <button 
+          className="md:hidden text-zinc-400 hover:text-white transition-colors p-2"
+          onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
+          aria-label="Toggle Menu"
+        >
+          {isMobileMenuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
+        </button>
+
         <div className="hidden md:flex items-center gap-6">
             <button onClick={() => scrollToSection('home')} className="text-sm font-medium text-zinc-400 hover:text-white transition-colors bg-zinc-900/50 px-3 py-1.5 rounded-full border border-zinc-800/50">Home</button>
             <button onClick={() => scrollToSection('achievements')} className="text-sm font-medium text-zinc-400 hover:text-white transition-colors">Achievements</button>
@@ -212,6 +222,18 @@ export default function App() {
             <button onClick={() => scrollToSection('skills')} className="text-sm font-medium text-zinc-400 hover:text-white transition-colors">Skills</button>
         </div>
       </nav>
+
+      {/* Mobile Menu Overlay */}
+      {isMobileMenuOpen && (
+        <div className="fixed inset-0 z-40 bg-black pt-24 px-6 md:hidden animate-in slide-in-from-top-10 duration-200">
+           <div className="flex flex-col gap-8 text-2xl font-medium text-zinc-400">
+              <button onClick={() => scrollToSection('home')} className="text-left hover:text-white transition-colors border-b border-white/5 pb-4">Home</button>
+              <button onClick={() => scrollToSection('achievements')} className="text-left hover:text-white transition-colors border-b border-white/5 pb-4">Achievements</button>
+              <button onClick={() => scrollToSection('projects')} className="text-left hover:text-white transition-colors border-b border-white/5 pb-4">Projects</button>
+              <button onClick={() => scrollToSection('skills')} className="text-left hover:text-white transition-colors border-b border-white/5 pb-4">Skills</button>
+           </div>
+        </div>
+      )}
 
       {/* Floating Command Button */}
       <button
