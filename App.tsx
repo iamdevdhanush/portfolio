@@ -143,16 +143,14 @@ export default function App() {
   const [searchQuery, setSearchQuery] = useState("");
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   
-  // Image loading state with fallback chain
-  const [imgSrc, setImgSrc] = useState("/profile.jpg");
+  // Image loading state with optimized fallback chain
+  // Prioritize remote GitHub avatar since local assets are likely missing in this environment
+  const [imgSrc, setImgSrc] = useState("https://github.com/iamdevdhanush.png");
   
   const handleImgError = () => {
-    // Fallback chain: jpg -> png -> jpeg -> github
-    if (imgSrc === "/profile.jpg") {
-      setImgSrc("/profile.png");
-    } else if (imgSrc === "/profile.png") {
-      setImgSrc("/profile.jpeg");
-    } else {
+    // If the main shortcut URL fails, try the direct avatar ID URL
+    // This prevents infinite loops by checking the current src
+    if (imgSrc === "https://github.com/iamdevdhanush.png") {
       setImgSrc("https://avatars.githubusercontent.com/u/169132950?v=4");
     }
   };
@@ -336,6 +334,7 @@ export default function App() {
                  src={imgSrc}
                  onError={handleImgError}
                  alt="Dhanush D Prabhu" 
+                 loading="eager"
                  className="w-full h-full object-cover opacity-90 hover:opacity-100 transition-opacity duration-300"
                />
             </div>
