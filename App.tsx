@@ -142,6 +142,7 @@ export default function App() {
   const [showBlobs, setShowBlobs] = useState(true);
   const [searchQuery, setSearchQuery] = useState("");
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  const [activeSection, setActiveSection] = useState("home");
   
   // Image loading state with optimized fallback chain
   // Prioritize remote GitHub avatar since local assets are likely missing in this environment
@@ -170,14 +171,49 @@ export default function App() {
     return () => document.removeEventListener('keydown', handleKeyDown);
   }, []);
 
+  // Scroll Spy to update active section
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            setActiveSection(entry.target.id);
+          }
+        });
+      },
+      { 
+        // Trigger when the section crosses the middle of the viewport
+        rootMargin: '-50% 0px -50% 0px' 
+      }
+    );
+
+    const sections = ['home', 'achievements', 'projects', 'devops-practice', 'skills'];
+    sections.forEach((id) => {
+      const element = document.getElementById(id);
+      if (element) observer.observe(element);
+    });
+
+    return () => observer.disconnect();
+  }, []);
+
   const scrollToSection = (id: string) => {
     const element = document.getElementById(id);
     if (element) {
+      // Manually set active section for immediate feedback
+      setActiveSection(id);
       element.scrollIntoView({ behavior: 'smooth' });
       setIsCmdOpen(false);
       setIsMobileMenuOpen(false);
     }
   };
+
+  const navItems = [
+    { id: 'home', label: 'Home' },
+    { id: 'achievements', label: 'Achievements' },
+    { id: 'projects', label: 'Projects' },
+    { id: 'devops-practice', label: 'Practice' },
+    { id: 'skills', label: 'Skills' },
+  ];
 
   const menuItems = [
     { type: 'header', label: 'Pages' },
@@ -227,11 +263,21 @@ export default function App() {
         </button>
 
         <div className="hidden md:flex items-center gap-1 bg-zinc-900/50 backdrop-blur-md border border-white/10 rounded-full p-1 pl-2 pr-2">
-            <button onClick={() => scrollToSection('home')} className="text-sm font-medium text-zinc-200 hover:text-white transition-colors bg-white/10 px-4 py-1.5 rounded-full border border-white/5 shadow-sm">Home</button>
-            <button onClick={() => scrollToSection('achievements')} className="text-sm font-medium text-zinc-400 hover:text-white transition-colors px-4 py-1.5">Achievements</button>
-            <button onClick={() => scrollToSection('projects')} className="text-sm font-medium text-zinc-400 hover:text-white transition-colors px-4 py-1.5">Projects</button>
-            <button onClick={() => scrollToSection('devops-practice')} className="text-sm font-medium text-zinc-400 hover:text-white transition-colors px-4 py-1.5">Practice</button>
-            <button onClick={() => scrollToSection('skills')} className="text-sm font-medium text-zinc-400 hover:text-white transition-colors px-4 py-1.5">Skills</button>
+            {navItems.map((item) => (
+              <button
+                key={item.id}
+                onClick={() => scrollToSection(item.id)}
+                className={`
+                  relative px-4 py-1.5 rounded-full text-sm font-medium transition-all duration-300
+                  hover:scale-105 active:scale-95
+                  ${activeSection === item.id 
+                    ? 'bg-white/10 text-white shadow-sm border border-white/5' 
+                    : 'text-zinc-400 hover:text-zinc-200 hover:bg-white/5 border border-transparent'}
+                `}
+              >
+                {item.label}
+              </button>
+            ))}
         </div>
       </nav>
 
