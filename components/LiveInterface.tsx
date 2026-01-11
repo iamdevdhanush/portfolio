@@ -1,6 +1,6 @@
 import React, { useState, useEffect, useRef, useCallback } from 'react';
 import { GoogleGenAI, LiveServerMessage, Modality } from '@google/genai';
-import { Mic, MicOff, Video, VideoOff, Power, RefreshCw, Volume2, Camera, AlertCircle } from 'lucide-react';
+import { Mic, MicOff, Video, VideoOff, Power, RefreshCw, Volume2, Camera } from 'lucide-react';
 import { ConnectionState, LogMessage } from '../types';
 import { createBlob, decodeAudioData, base64ToBytes, blobToBase64 } from '../services/audioUtils';
 import AudioVisualizer from './AudioVisualizer';
@@ -72,11 +72,6 @@ const LiveInterface: React.FC = () => {
   const connect = async () => {
     try {
       setError(null);
-
-      if (!navigator.mediaDevices || !navigator.mediaDevices.getUserMedia) {
-         throw new Error("Your browser does not support media devices.");
-      }
-
       setConnectionState(ConnectionState.CONNECTING);
       addLog('Initializing connection...', 'system', 'info');
 
@@ -99,18 +94,7 @@ const LiveInterface: React.FC = () => {
       setOutputAnalyserState(outputAnalyser);
 
       // 3. Get Microphone Stream
-      let stream: MediaStream;
-      try {
-        stream = await navigator.mediaDevices.getUserMedia({ audio: true });
-      } catch (err) {
-        if (err instanceof DOMException) {
-            if (err.name === 'NotAllowedError') throw new Error("Microphone permission denied. Please check your browser settings.");
-            if (err.name === 'NotFoundError') throw new Error("No microphone found.");
-            if (err.name === 'NotReadableError') throw new Error("Microphone is currently in use by another application.");
-        }
-        throw err;
-      }
-
+      const stream = await navigator.mediaDevices.getUserMedia({ audio: true });
       const source = inputCtx.createMediaStreamSource(stream);
       
       // Connect source -> analyser -> scriptProcessor -> destination (muted)
@@ -122,7 +106,7 @@ const LiveInterface: React.FC = () => {
       scriptProcessor.connect(inputCtx.destination);
 
       // 4. Initialize Gemini API
-      if (!process.env.API_KEY) throw new Error("API Key is missing in environment variables.");
+      if (!process.env.API_KEY) throw new Error("API Key is missing");
       
       const ai = new GoogleGenAI({ apiKey: process.env.API_KEY });
       aiRef.current = ai;
@@ -206,16 +190,9 @@ const LiveInterface: React.FC = () => {
             cleanupAudio();
           },
           onerror: (err) => {
-            console.error("Session Error:", err);
+            console.error(err);
             setConnectionState(ConnectionState.ERROR);
-            let errorMessage = "Connection error occurred.";
-            if (err instanceof ErrorEvent) {
-                errorMessage = err.message;
-            } else if (err instanceof Error) {
-                errorMessage = err.message;
-            }
-            setError(errorMessage);
-            addLog(`Error: ${errorMessage}`, 'system', 'error');
+            setError("Connection error occurred.");
             cleanupAudio();
           }
         }
@@ -226,14 +203,7 @@ const LiveInterface: React.FC = () => {
     } catch (e) {
       console.error(e);
       setConnectionState(ConnectionState.ERROR);
-      
-      let msg = e instanceof Error ? e.message : "Failed to connect";
-      if (msg.includes("403") || msg.includes("401")) {
-          msg = "Authentication failed. Please check your API key.";
-      }
-      
-      setError(msg);
-      addLog(`Error: ${msg}`, 'system', 'error');
+      setError(e instanceof Error ? e.message : "Failed to connect");
       cleanupAudio();
     }
   };
@@ -241,6 +211,12 @@ const LiveInterface: React.FC = () => {
   const disconnect = async () => {
     if (sessionPromiseRef.current) {
       const session = await sessionPromiseRef.current;
+      // There isn't an explicit 'disconnect' method documented in the simplified guide, 
+      // but closing the socket or stopping usage is implied. 
+      // The SDK usually handles close via `session.close()` if available, or we just stop sending.
+      // Assuming session has a close method based on standard WebSocket practices in these SDKs.
+      // If not, we rely on the `cleanupAudio` and reloading/unmounting.
+      // Checking type definition from prompt: `session.close()` is mentioned in "Live API Rules".
       try {
           session.close();
       } catch (e) {
@@ -287,15 +263,7 @@ const LiveInterface: React.FC = () => {
          } catch (e) {
            console.error("Camera access failed", e);
            setIsCameraOn(false);
-           
-           let msg = "Failed to access camera";
-           if (e instanceof DOMException) {
-              if (e.name === 'NotAllowedError') msg = "Camera permission denied";
-              if (e.name === 'NotFoundError') msg = "No camera found";
-              if (e.name === 'NotReadableError') msg = "Camera is busy";
-           }
-           addLog(msg, 'system', 'error');
-           // Show temporary error in UI if critical, otherwise log is sufficient for non-fatal feature failure
+           addLog("Failed to access camera", 'system', 'error');
          }
        };
        startVideo();
@@ -313,7 +281,7 @@ const LiveInterface: React.FC = () => {
         videoRef.current.srcObject = null;
       }
     }
-  }, [isCameraOn, connectionState, addLog]); // added addLog to deps
+  }, [isCameraOn, connectionState]);
 
   // Clean up on unmount
   useEffect(() => {
@@ -340,12 +308,7 @@ const LiveInterface: React.FC = () => {
                 {connectionState}
               </span>
            </div>
-           {error && (
-             <div className="flex items-center space-x-2 bg-red-500/10 px-3 py-1.5 rounded-full border border-red-500/20">
-               <AlertCircle className="w-4 h-4 text-red-400" />
-               <span className="text-xs text-red-400 font-medium">{error}</span>
-             </div>
-           )}
+           {error && <span className="text-xs text-red-400">{error}</span>}
         </div>
 
         {/* Central Visualization Area */}

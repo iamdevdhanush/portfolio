@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useMemo, useCallback } from 'react';
 import { 
   Linkedin, Github, Mail, ArrowUpRight, GraduationCap, Briefcase, 
   Trophy, Command, Search, Home, Eye, EyeOff, MapPin, FileText,
@@ -142,80 +142,32 @@ export default function App() {
   const [showBlobs, setShowBlobs] = useState(true);
   const [searchQuery, setSearchQuery] = useState("");
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
-  const [activeSection, setActiveSection] = useState("home");
+  const [selectedIndex, setSelectedIndex] = useState(0);
   
-  // Image loading state with optimized fallback chain
-  // Prioritize remote GitHub avatar since local assets are likely missing in this environment
-  const [imgSrc, setImgSrc] = useState("https://github.com/iamdevdhanush.png");
+  // Image loading state with fallback chain
+  const [imgSrc, setImgSrc] = useState("/profile.jpg");
   
   const handleImgError = () => {
-    // If the main shortcut URL fails, try the direct avatar ID URL
-    // This prevents infinite loops by checking the current src
-    if (imgSrc === "https://github.com/iamdevdhanush.png") {
+    // Fallback chain: jpg -> png -> jpeg -> github
+    if (imgSrc === "/profile.jpg") {
+      setImgSrc("/profile.png");
+    } else if (imgSrc === "/profile.png") {
+      setImgSrc("/profile.jpeg");
+    } else {
       setImgSrc("https://avatars.githubusercontent.com/u/169132950?v=4");
     }
   };
 
-  useEffect(() => {
-    const handleKeyDown = (e: KeyboardEvent) => {
-      if ((e.metaKey || e.ctrlKey) && e.key === 'k') {
-        e.preventDefault();
-        setIsCmdOpen(prev => !prev);
-      }
-      if (e.key === 'Escape') {
-        setIsCmdOpen(false);
-      }
-    };
-
-    document.addEventListener('keydown', handleKeyDown);
-    return () => document.removeEventListener('keydown', handleKeyDown);
-  }, []);
-
-  // Scroll Spy to update active section
-  useEffect(() => {
-    const observer = new IntersectionObserver(
-      (entries) => {
-        entries.forEach((entry) => {
-          if (entry.isIntersecting) {
-            setActiveSection(entry.target.id);
-          }
-        });
-      },
-      { 
-        // Trigger when the section crosses the middle of the viewport
-        rootMargin: '-50% 0px -50% 0px' 
-      }
-    );
-
-    const sections = ['home', 'achievements', 'projects', 'devops-practice', 'skills'];
-    sections.forEach((id) => {
-      const element = document.getElementById(id);
-      if (element) observer.observe(element);
-    });
-
-    return () => observer.disconnect();
-  }, []);
-
-  const scrollToSection = (id: string) => {
+  const scrollToSection = useCallback((id: string) => {
     const element = document.getElementById(id);
     if (element) {
-      // Manually set active section for immediate feedback
-      setActiveSection(id);
       element.scrollIntoView({ behavior: 'smooth' });
       setIsCmdOpen(false);
       setIsMobileMenuOpen(false);
     }
-  };
+  }, []);
 
-  const navItems = [
-    { id: 'home', label: 'Home' },
-    { id: 'achievements', label: 'Achievements' },
-    { id: 'projects', label: 'Projects' },
-    { id: 'devops-practice', label: 'Practice' },
-    { id: 'skills', label: 'Skills' },
-  ];
-
-  const menuItems = [
+  const menuItems = useMemo(() => [
     { type: 'header', label: 'Pages' },
     { icon: <Home className="w-4 h-4" />, label: 'Home', action: () => scrollToSection('home'), shortcut: 'h' },
     { icon: <Trophy className="w-4 h-4" />, label: 'Achievements', action: () => scrollToSection('achievements'), shortcut: 'a' },
@@ -223,17 +175,86 @@ export default function App() {
     { icon: <Terminal className="w-4 h-4" />, label: 'DevOps Practice', action: () => scrollToSection('devops-practice'), shortcut: 'd' },
     { icon: <Code className="w-4 h-4" />, label: 'Skills', action: () => scrollToSection('skills'), shortcut: 's' },
     { type: 'header', label: 'Actions' },
-    { icon: showBlobs ? <EyeOff className="w-4 h-4" /> : <Eye className="w-4 h-4" />, label: 'Toggle Background', action: () => { setShowBlobs(!showBlobs); setIsCmdOpen(false); }, shortcut: 't b' },
+    { icon: showBlobs ? <EyeOff className="w-4 h-4" /> : <Eye className="w-4 h-4" />, label: 'Toggle Background', action: () => { setShowBlobs(prev => !prev); setIsCmdOpen(false); }, shortcut: 'b' },
     { type: 'header', label: 'Socials' },
     { icon: <Linkedin className="w-4 h-4" />, label: 'LinkedIn', action: () => window.open('https://www.linkedin.com/in/dhanushdprabhu/', '_blank') },
     { icon: <Github className="w-4 h-4" />, label: 'GitHub', action: () => window.open('https://github.com/iamdevdhanush', '_blank') },
     { icon: <Mail className="w-4 h-4" />, label: 'Email', action: () => window.open('mailto:dhanushdprabhu18@gmail.com', '_blank') },
-  ];
+  ], [scrollToSection, showBlobs]);
 
-  const filteredItems = menuItems.filter(item => {
-    if (item.type === 'header') return true;
-    return item.label?.toLowerCase().includes(searchQuery.toLowerCase());
-  });
+  // Filter items for display
+  const filteredItems = useMemo(() => {
+    return menuItems.filter(item => {
+      if (searchQuery) {
+          // If searching, hide headers and only show matching items
+          return item.type !== 'header' && item.label.toLowerCase().includes(searchQuery.toLowerCase());
+      }
+      return true; // Show everything if no search
+    });
+  }, [menuItems, searchQuery]);
+
+  // Get only actionable items for navigation
+  const navigableItems = useMemo(() => {
+    return filteredItems.filter(item => item.type !== 'header');
+  }, [filteredItems]);
+
+  useEffect(() => {
+    setSelectedIndex(0);
+  }, [searchQuery, isCmdOpen]);
+
+  useEffect(() => {
+    const handleKeyDown = (e: KeyboardEvent) => {
+      // Toggle Command Palette
+      if ((e.metaKey || e.ctrlKey) && e.key === 'k') {
+        e.preventDefault();
+        setIsCmdOpen(prev => !prev);
+        return;
+      }
+
+      // Close on Escape
+      if (e.key === 'Escape') {
+        setIsCmdOpen(false);
+        return;
+      }
+
+      // Navigation when Palette is Open
+      if (isCmdOpen) {
+          if (e.key === 'ArrowDown') {
+              e.preventDefault();
+              setSelectedIndex(prev => (prev + 1) % navigableItems.length);
+          } else if (e.key === 'ArrowUp') {
+              e.preventDefault();
+              setSelectedIndex(prev => (prev - 1 + navigableItems.length) % navigableItems.length);
+          } else if (e.key === 'Enter') {
+              e.preventDefault();
+              const item = navigableItems[selectedIndex];
+              if (item && item.action) {
+                  item.action();
+                  // Close palette for navigation actions
+                  if (item.label !== 'LinkedIn' && item.label !== 'GitHub' && item.label !== 'Email') {
+                      setIsCmdOpen(false);
+                  }
+              }
+          }
+          return;
+      }
+
+      // Global Shortcuts (only if not typing in an input)
+      if (['INPUT', 'TEXTAREA'].includes(document.activeElement?.tagName || '')) {
+        return;
+      }
+
+      const key = e.key.toLowerCase();
+      const item = menuItems.find(i => i.shortcut === key);
+      if (item && item.action) {
+          e.preventDefault();
+          item.action();
+      }
+    };
+
+    window.addEventListener('keydown', handleKeyDown);
+    return () => window.removeEventListener('keydown', handleKeyDown);
+  }, [isCmdOpen, navigableItems, selectedIndex, menuItems]);
 
   return (
     <div className="min-h-screen bg-black text-zinc-200 selection:bg-zinc-800 selection:text-white pb-20 relative font-sans overflow-x-hidden">
@@ -263,21 +284,11 @@ export default function App() {
         </button>
 
         <div className="hidden md:flex items-center gap-1 bg-zinc-900/50 backdrop-blur-md border border-white/10 rounded-full p-1 pl-2 pr-2">
-            {navItems.map((item) => (
-              <button
-                key={item.id}
-                onClick={() => scrollToSection(item.id)}
-                className={`
-                  relative px-4 py-1.5 rounded-full text-sm font-medium transition-all duration-300
-                  hover:scale-105 active:scale-95
-                  ${activeSection === item.id 
-                    ? 'bg-white/10 text-white shadow-sm border border-white/5' 
-                    : 'text-zinc-400 hover:text-zinc-200 hover:bg-white/5 border border-transparent'}
-                `}
-              >
-                {item.label}
-              </button>
-            ))}
+            <button onClick={() => scrollToSection('home')} className="text-sm font-medium text-zinc-200 hover:text-white transition-colors bg-white/10 px-4 py-1.5 rounded-full border border-white/5 shadow-sm">Home</button>
+            <button onClick={() => scrollToSection('achievements')} className="text-sm font-medium text-zinc-400 hover:text-white transition-colors px-4 py-1.5">Achievements</button>
+            <button onClick={() => scrollToSection('projects')} className="text-sm font-medium text-zinc-400 hover:text-white transition-colors px-4 py-1.5">Projects</button>
+            <button onClick={() => scrollToSection('devops-practice')} className="text-sm font-medium text-zinc-400 hover:text-white transition-colors px-4 py-1.5">Practice</button>
+            <button onClick={() => scrollToSection('skills')} className="text-sm font-medium text-zinc-400 hover:text-white transition-colors px-4 py-1.5">Skills</button>
         </div>
       </nav>
 
@@ -314,16 +325,22 @@ export default function App() {
               <input 
                 autoFocus
                 type="text"
-                placeholder="Type a command..."
+                placeholder="Type a command or search..."
                 className="flex-1 bg-transparent border-none outline-none text-zinc-200 placeholder-zinc-600 text-sm h-6"
                 value={searchQuery}
                 onChange={(e) => setSearchQuery(e.target.value)}
               />
-              <div className="text-[10px] text-zinc-600 font-mono bg-zinc-900 px-1.5 py-0.5 rounded border border-zinc-800">ESC</div>
+              <div className="hidden sm:flex items-center gap-2">
+                  <div className="text-[10px] text-zinc-500 font-mono">
+                     <span className="bg-zinc-900 px-1.5 py-0.5 rounded border border-zinc-800 mr-1">↑</span>
+                     <span className="bg-zinc-900 px-1.5 py-0.5 rounded border border-zinc-800">↓</span> to navigate
+                  </div>
+                  <div className="text-[10px] text-zinc-600 font-mono bg-zinc-900 px-1.5 py-0.5 rounded border border-zinc-800">ESC</div>
+              </div>
             </div>
             
             {/* Menu Items */}
-            <div className="max-h-[60vh] overflow-y-auto p-2">
+            <div className="max-h-[60vh] overflow-y-auto p-2 scrollbar-hide">
               {filteredItems.map((item, index) => {
                 if (item.type === 'header') {
                   const nextItemIndex = filteredItems.findIndex((i, idx) => idx > index && i.type !== 'header');
@@ -336,23 +353,47 @@ export default function App() {
                   );
                 }
                 
+                // Determine if this item is selected
+                // We need to map the visual index to the navigable index to determine highlighting
+                // or just verify if this item is the one at navigableItems[selectedIndex]
+                const isSelected = navigableItems[selectedIndex] === item;
+
                 return (
                   <button
                     key={`item-${index}`}
-                    onClick={item.action}
-                    className="w-full flex items-center justify-between px-3 py-2 text-sm text-zinc-400 hover:bg-zinc-900 hover:text-zinc-100 rounded-lg transition-colors group cursor-default"
+                    onClick={() => {
+                        if (item.action) {
+                            item.action();
+                            // Close if it's navigation
+                            if (item.label !== 'LinkedIn' && item.label !== 'GitHub' && item.label !== 'Email') {
+                                setIsCmdOpen(false);
+                            }
+                        }
+                    }}
+                    onMouseEnter={() => {
+                        // Optional: Update selection on mouse hover
+                        const navIndex = navigableItems.indexOf(item);
+                        if (navIndex !== -1) setSelectedIndex(navIndex);
+                    }}
+                    className={`w-full flex items-center justify-between px-3 py-2 text-sm rounded-lg transition-colors group cursor-pointer ${
+                        isSelected 
+                            ? 'bg-zinc-800 text-white' 
+                            : 'text-zinc-400 hover:bg-zinc-900 hover:text-zinc-100'
+                    }`}
                   >
                     <div className="flex items-center gap-3">
-                      <span className="text-zinc-500 group-hover:text-zinc-400">{item.icon}</span>
+                      <span className={`${isSelected ? 'text-zinc-300' : 'text-zinc-500'}`}>{item.icon}</span>
                       <span>{item.label}</span>
                     </div>
                     {item.shortcut && (
                       <div className="flex gap-1">
-                        {item.shortcut.split(' ').map(key => (
-                          <span key={key} className="text-[10px] bg-zinc-900 text-zinc-500 px-1.5 py-0.5 rounded border border-zinc-800 group-hover:border-zinc-700 font-mono uppercase">
-                            {key}
+                          <span className={`text-[10px] px-1.5 py-0.5 rounded border font-mono uppercase ${
+                              isSelected 
+                                ? 'bg-zinc-700 text-zinc-300 border-zinc-600' 
+                                : 'bg-zinc-900 text-zinc-500 border-zinc-800'
+                          }`}>
+                            {item.shortcut}
                           </span>
-                        ))}
                       </div>
                     )}
                   </button>
@@ -380,7 +421,6 @@ export default function App() {
                  src={imgSrc}
                  onError={handleImgError}
                  alt="Dhanush D Prabhu" 
-                 loading="eager"
                  className="w-full h-full object-cover opacity-90 hover:opacity-100 transition-opacity duration-300"
                />
             </div>
