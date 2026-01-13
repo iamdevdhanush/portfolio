@@ -61,6 +61,13 @@ const LogoGHActions = () => (
   </div>
 );
 
+const LogoAWS = () => (
+  <div className="w-12 h-12 bg-[#1a1a1a] rounded-lg flex items-center justify-center shrink-0 border border-[#333]">
+    <div className="text-[#FF9900] font-bold text-xs tracking-wide">
+      AWS
+    </div>
+  </div>
+);
 
 // --- Components ---
 
@@ -469,6 +476,7 @@ export default function App() {
               icon={<LogoCodeNeura />} 
               company="First Place – CodeNeura" 
               role="Issued by LBS College, Sagara"
+              date="2025-NOV"
               description="The competition evaluated problem-solving ability, coding efficiency, and practical technical implementation under strict time constraints, competing against teams from multiple colleges." 
               link="https://www.linkedin.com/posts/dhanushdprabhu_neura2025-codingcompetition-firstplace-activity-7391068108612071425-zN4C"
               linkText="LinkedIn"
@@ -477,7 +485,7 @@ export default function App() {
               icon={<LogoTournament />} 
               company="Runner-Up – College Coding Tournament" 
               role="Inter-college coding competition"
-              date="2024"
+              date="2025-JAN"
               description="Secured runner-up position in a college-level coding tournament focused on logical problem-solving and coding accuracy under time constraints." 
             />
           </div>
@@ -490,11 +498,11 @@ export default function App() {
           </h2>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
             <ProjectCard 
-              icon={<LogoBash />}
-              title="Linux System Health Auditor"
-              description="Shell script based tool to audit CPU, memory, disk usage, and running processes on Linux systems."
+              icon={<LogoAWS />}
+              title="AWS EC2 Automation using Shell Script"
+              description="Automated AWS EC2 provisioning using Bash and AWS CLI with secure IAM authentication, region-aware resource validation, and production-grade error handling."
             />
-            <ProjectCard 
+            <ProjectCard
               icon={<LogoGHActions />}
               title="CI/CD Pipeline"
               description="Automated build and test workflows using GitHub Actions for a sample application."
@@ -544,6 +552,7 @@ export default function App() {
             <LogoGithub />
             <LogoGHActions />
             <LogoDocker />
+            <LogoAWS/>
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-2 gap-x-12 gap-y-8 text-sm">
@@ -607,7 +616,7 @@ export default function App() {
 
         {/* Footer */}
         <footer className="pt-8 border-t border-white/5 flex flex-col md:flex-row justify-between items-center gap-4 text-xs text-zinc-600 mb-8">
-          <p>© 2025 Dhanush D Prabhu.</p>
+          <p>© 2026 Dhanush D Prabhu.</p>
           <div className="flex gap-4">
             <span>Built with React & Tailwind</span>
           </div>
