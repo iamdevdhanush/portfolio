@@ -13,16 +13,16 @@ const Header: React.FC = () => {
         </div>
         
         <nav className="hidden md:flex items-center space-x-8">
-          <a href="#achievements" className="text-sm font-medium text-slate-400 hover:text-white transition-colors">Achievements</a>
-          <a href="#projects" className="text-sm font-medium text-slate-400 hover:text-white transition-colors">Projects</a>
-          <a href="#skills" className="text-sm font-medium text-slate-400 hover:text-white transition-colors">Skills</a>
+          <a href="#achievements" className="text-sm font-medium text-zinc-300 hover:text-white transition-colors">Achievements</a>
+          <a href="#projects" className="text-sm font-medium text-zinc-300 hover:text-white transition-colors">Projects</a>
+          <a href="#skills" className="text-sm font-medium text-zinc-300 hover:text-white transition-colors">Skills</a>
         </nav>
 
         <div className="flex items-center space-x-4">
-          <a href="https://github.com/iamdevdhanush" target="_blank" className="text-slate-400 hover:text-white transition-colors hover:scale-110 transform duration-200">
+          <a href="https://github.com/iamdevdhanush" target="_blank" className="text-zinc-300 hover:text-white transition-colors hover:scale-110 transform duration-200">
             <Github className="w-5 h-5" />
           </a>
-          <a href="https://www.linkedin.com/in/dhanushdprabhu/" target="_blank" className="text-slate-400 hover:text-white transition-colors hover:scale-110 transform duration-200">
+          <a href="https://www.linkedin.com/in/dhanushdprabhu/" target="_blank" className="text-zinc-300 hover:text-white transition-colors hover:scale-110 transform duration-200">
             <Linkedin className="w-5 h-5" />
           </a>
         </div>
