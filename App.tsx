@@ -77,6 +77,14 @@ const LogoLinux = () => (
   </div>
 );
 
+const LogoAWSConsole = () => (
+  <div className="w-12 h-12 bg-[#1a1a1a] rounded-lg flex flex-col items-center justify-center shrink-0 border border-[#333]">
+    <div className="text-[#FF9900] font-bold text-xs">AWS</div>
+    <div className="text-gray-400 text-[8px] leading-none">Console</div>
+  </div>
+);
+
+
 const LogoGithub = () => (
   <div className="w-12 h-12 bg-[#1a1a1a] rounded-lg flex items-center justify-center shrink-0 border border-[#333]">
     <Github className="text-white w-6 h-6" />
@@ -113,10 +121,12 @@ const LogoGHActions = () => (
   </div>
 );
 
-const AppleIcon: React.FC<React.SVGProps<SVGSVGElement>> = (props) => (
-    <svg viewBox="0 0 24 24" fill="currentColor" {...props}>
-      <path d="M17.228 12.01c.009-2.284-1.743-3.83-3.633-3.83-1.854 0-3.125 1.25-3.9 1.25-.774 0-1.78-.99-2.923-.99-1.59 0-3.003 1.48-3.003 3.92 0 2.885 2.213 6.64 3.939 6.64.71 0 1.134-.73 2.107-.73.972 0 1.355.73 2.126.73 1.95 0 3.19-2.45 3.19-2.45s-1.32-1.55-1.329-3.54zM15.332 5.09c.731-.91 1.22-2.18.99-3.09-.81.06-1.93.63-2.65 1.52-.64.78-1.25 2.05-.99 2.91.91.12 1.92-.56 2.65-1.34z" />
-    </svg>
+const LogoKubernetes = () => (
+  <div className="w-12 h-12 bg-[#1a1a1a] rounded-lg flex items-center justify-center shrink-0 border border-[#333]">
+    <div className="text-[#326CE5] font-bold text-xs tracking-wide">
+      K8S
+    </div>
+  </div>
 );
 
 
@@ -201,7 +211,7 @@ const ProjectCard: React.FC<ProjectCardProps> = ({ title, descriptions, readMore
         )}
         {appleLink && (
           <a href={appleLink} target="_blank" rel="noopener noreferrer" className="text-zinc-300 hover:text-white transition-transform duration-200 hover:-translate-y-0.5">
-            <AppleIcon className="w-5 h-5" />
+           
           </a>
         )}
       </div>
@@ -724,8 +734,10 @@ export default function App() {
               <LogoPython />
               <LogoGit />
               <LogoGithub />
+              <LogoAWSConsole/>
               <LogoGHActions />
               <LogoDocker />
+              <LogoKubernetes/>
             </div>
 
             <div className="grid grid-cols-1 md:grid-cols-2 gap-x-12 gap-y-8 text-sm">
