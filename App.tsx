@@ -31,7 +31,11 @@ const projects = [
         'Ensured idempotent execution for safe re-running of the script.',
         'Managed security groups and key pairs programmatically.'
       ],
-      researchImpact: 'This tool serves as a practical example of Infrastructure as Code (IaC) principles using native shell scripting. It simplifies repetitive DevOps tasks, reduces manual error, and provides a foundational template for more complex cloud automation workflows without relying on external libraries.'
+      researchImpact: 'This tool serves as a practical example of Infrastructure as Code (IaC) principles using native shell scripting. It simplifies repetitive DevOps tasks, reduces manual error, and provides a foundational template for more complex cloud automation workflows without relying on external libraries.',
+      images: [
+        "https://images.unsplash.com/photo-1629654297299-c8506221ca97?q=80&w=1974&auto=format&fit=crop", 
+        "https://images.unsplash.com/photo-1667372393119-c81c0e28a7f9?q=80&w=1932&auto=format&fit=crop"
+      ]
     },
     {
       slug: 'python-cicd-github-actions',
@@ -53,7 +57,8 @@ const projects = [
         'Automated the process of building and pushing Docker images to Docker Hub using secrets for authentication.',
         'Established a foundation for blue-green or canary deployments by separating build and deployment jobs.'
       ],
-      researchImpact: 'This project provides a hands-on implementation of modern DevOps practices. It showcases how to leverage GitHub Actions and Docker to create a reliable and efficient CI/CD pipeline, which is crucial for increasing development velocity, improving code quality, and ensuring consistent application deployments.'
+      researchImpact: 'This project provides a hands-on implementation of modern DevOps practices. It showcases how to leverage GitHub Actions and Docker to create a reliable and efficient CI/CD pipeline, which is crucial for increasing development velocity, improving code quality, and ensuring consistent application deployments.',
+      images: []
     }
   ];
 
@@ -267,6 +272,14 @@ export default function App() {
       window.history.pushState(null, '', `#${id}`);
     } catch (e) {
       console.warn("Navigation state update failed", e);
+    }
+
+    // Check if we are navigating TO a project
+    if (id.startsWith('/project/')) {
+        const slug = id.replace('/project/', '');
+        setCurrentProjectSlug(slug);
+        window.scrollTo(0, 0);
+        return;
     }
     
     // If we are currently on a project page, we need to reset the state to go back to main view.
@@ -605,7 +618,7 @@ export default function App() {
       )}
 
       {projectToShow ? (
-        <ProjectDetailPage project={projectToShow} onNavigate={(id) => performSafeNavigation(id)} />
+        <ProjectDetailPage project={projectToShow} allProjects={projects} onNavigate={(id) => performSafeNavigation(id)} />
       ) : (
         <div className="max-w-4xl mx-auto px-6 pt-12 md:pt-20 relative z-10">
         

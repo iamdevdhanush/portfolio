@@ -1,6 +1,6 @@
-import React from 'react';
+import React, { useMemo } from 'react';
 import { 
-  Linkedin, Github, Mail, FileText, ExternalLink
+  Linkedin, Github, Mail, FileText, ExternalLink, ArrowLeft, ArrowRight
 } from 'lucide-react';
 
 // --- Type Definitions ---
@@ -19,6 +19,7 @@ type Project = {
     longDescription: string;
     technicalAchievements: string[];
     researchImpact: string;
+    images?: string[];
 };
 
 // --- Child Components ---
@@ -36,9 +37,33 @@ const SocialButton: React.FC<{ icon: React.ReactNode; href?: string }> = ({ icon
 
 // --- Main Component ---
 
-const ProjectDetailPage: React.FC<{ project: Project; onNavigate: (id: string) => void }> = ({ project, onNavigate }) => {
+const ProjectDetailPage: React.FC<{ project: Project; allProjects: Project[]; onNavigate: (id: string) => void }> = ({ project, allProjects, onNavigate }) => {
+  
+  const relatedProjects = useMemo(() => {
+        if (!allProjects) return [];
+        return allProjects
+            .filter(p => p.slug !== project.slug)
+            .map(p => ({
+                ...p,
+                overlap: p.tags.filter(tag => project.tags.includes(tag)).length
+            }))
+            .filter(p => p.overlap > 0)
+            .sort((a, b) => b.overlap - a.overlap)
+            .slice(0, 2);
+    }, [project, allProjects]);
+
   return (
     <div className="max-w-4xl mx-auto px-6 pt-24 md:pt-32 pb-20 relative z-10 animate-in fade-in duration-300">
+      
+      {/* Back Button */}
+      <button 
+        onClick={() => onNavigate('projects')}
+        className="group mb-6 inline-flex items-center gap-2 text-sm text-zinc-400 hover:text-white transition-colors"
+      >
+        <ArrowLeft className="w-4 h-4 transition-transform group-hover:-translate-x-1" />
+        Back to projects
+      </button>
+
       {/* Breadcrumbs */}
       <div className="flex items-center gap-2 text-sm text-zinc-400 mb-8 font-mono">
         <a 
@@ -105,7 +130,49 @@ const ProjectDetailPage: React.FC<{ project: Project; onNavigate: (id: string) =
           <p>{project.researchImpact}</p>
         </div>
       </div>
+
+      {/* Gallery */}
+      {project.images && project.images.length > 0 && (
+          <div className="mt-12">
+            <h3 className="font-bold text-xl text-white mb-6">Gallery</h3>
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+              {project.images.map((img, idx) => (
+                <div key={idx} className="rounded-xl overflow-hidden border border-white/10 bg-zinc-900/50 group">
+                  <img src={img} alt={`${project.title} screenshot ${idx + 1}`} className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" />
+                </div>
+              ))}
+            </div>
+          </div>
+      )}
       
+      {/* Related Projects */}
+      {relatedProjects.length > 0 && (
+            <div className="mt-16 pt-12 border-t border-white/5">
+                <h3 className="text-2xl font-bold text-white mb-6">Related Projects</h3>
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                        {relatedProjects.map(p => (
+                            <button
+                            key={p.slug}
+                            onClick={() => {
+                                window.scrollTo(0,0);
+                                onNavigate('/project/' + p.slug);
+                            }}
+                            className="flex flex-col text-left p-6 rounded-xl border border-white/5 bg-zinc-900/30 hover:bg-zinc-900 hover:border-zinc-700 transition-all duration-300 group cursor-pointer"
+                            >
+                            <div className="flex items-center justify-between w-full mb-3">
+                                <div className="p-2 rounded-lg bg-black border border-zinc-800 text-zinc-400 group-hover:text-white transition-colors">
+                                    {p.icon}
+                                </div>
+                                <ArrowRight className="w-5 h-5 text-zinc-600 group-hover:text-white transition-colors -translate-x-2 opacity-0 group-hover:translate-x-0 group-hover:opacity-100" />
+                            </div>
+                            <h4 className="font-semibold text-zinc-200 group-hover:text-white text-lg mb-2">{p.title}</h4>
+                            <p className="text-sm text-zinc-400 line-clamp-2">{p.subtitle}</p>
+                            </button>
+                        ))}
+                </div>
+            </div>
+      )}
+
       {/* Footer social links */}
       <div className="mt-24 pt-8 border-t border-white/5 flex justify-center items-center gap-4">
         <SocialButton icon={<Github className="w-4 h-4" />} href="https://github.com/iamdevdhanush" />
