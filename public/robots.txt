@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://iamdevdhanush.github.io/portfolio/sitemap.xml

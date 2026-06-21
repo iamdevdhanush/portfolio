@@ -1,4 +1,5 @@
 import React, { useMemo } from 'react';
+import { useNavigate } from 'react-router-dom';
 import { Github, Linkedin, Mail, ExternalLink, ArrowLeft, ArrowRight } from 'lucide-react';
 import SocialButton from './SocialButton';
 import type { Project } from '../types';
@@ -6,10 +7,11 @@ import type { Project } from '../types';
 interface ProjectDetailPageProps {
   project: Project;
   allProjects: Project[];
-  onNavigate: (id: string) => void;
 }
 
-const ProjectDetailPage: React.FC<ProjectDetailPageProps> = ({ project, allProjects, onNavigate }) => {
+const ProjectDetailPage: React.FC<ProjectDetailPageProps> = ({ project, allProjects }) => {
+  const navigate = useNavigate();
+
   const relatedProjects = useMemo(() => {
     if (!allProjects) return [];
     return allProjects
@@ -23,7 +25,7 @@ const ProjectDetailPage: React.FC<ProjectDetailPageProps> = ({ project, allProje
   return (
     <div className="max-w-4xl mx-auto px-6 pt-24 md:pt-32 pb-20 relative z-10 animate-in fade-in duration-300">
       <button
-        onClick={() => onNavigate('projects')}
+        onClick={() => navigate('/#projects')}
         className="group mb-6 inline-flex items-center gap-2 text-sm text-zinc-400 hover:text-white transition-colors"
       >
         <ArrowLeft className="w-4 h-4 transition-transform group-hover:-translate-x-1" />
@@ -31,16 +33,15 @@ const ProjectDetailPage: React.FC<ProjectDetailPageProps> = ({ project, allProje
       </button>
 
       <div className="flex items-center gap-2 text-sm text-zinc-400 mb-8 font-mono">
-        <a href="#home" onClick={(e) => { e.preventDefault(); onNavigate('home'); }}
+        <a href="/" onClick={(e) => { e.preventDefault(); navigate('/'); }}
           className="text-zinc-400 hover:text-white transition-colors cursor-pointer">~</a>
         <span>/</span>
-        <a href="#projects" onClick={(e) => { e.preventDefault(); onNavigate('projects'); }}
+        <a href="/#projects" onClick={(e) => { e.preventDefault(); navigate('/#projects'); }}
           className="text-zinc-400 hover:text-white transition-colors cursor-pointer">Projects</a>
         <span>/</span>
         <span className="text-green-400">{project.slug}</span>
       </div>
 
-      {/* Header */}
       <div className="flex items-start gap-6 mb-6">
         <div className="w-16 h-16 bg-[#1a1a1a] rounded-lg flex items-center justify-center shrink-0 border border-[#333]">
           {project.icon}
@@ -57,7 +58,6 @@ const ProjectDetailPage: React.FC<ProjectDetailPageProps> = ({ project, allProje
         </span>
       )}
 
-      {/* Tags */}
       <div className="flex flex-wrap gap-2 mb-8">
         {project.tags.map(tag => (
           <span key={tag} className="bg-zinc-800 text-zinc-300 text-xs font-medium px-3 py-1 rounded-full border border-zinc-700">
@@ -66,7 +66,6 @@ const ProjectDetailPage: React.FC<ProjectDetailPageProps> = ({ project, allProje
         ))}
       </div>
 
-      {/* Links */}
       <div className="flex flex-wrap items-center gap-4 mb-12">
         {project.githubLink && (
           <a href={project.githubLink} target="_blank" rel="noopener noreferrer"
@@ -85,15 +84,12 @@ const ProjectDetailPage: React.FC<ProjectDetailPageProps> = ({ project, allProje
         )}
       </div>
 
-      {/* Content */}
       <div className="space-y-10 text-zinc-300 leading-relaxed">
-        {/* Overview */}
         <div>
           <h2 className="text-xl font-bold text-white mb-4">Overview</h2>
           <p className="text-sm">{project.longDescription}</p>
         </div>
 
-        {/* Problem Statement */}
         {project.problemStatement && (
           <div>
             <h2 className="text-xl font-bold text-white mb-4">Problem Statement</h2>
@@ -101,13 +97,12 @@ const ProjectDetailPage: React.FC<ProjectDetailPageProps> = ({ project, allProje
           </div>
         )}
 
-        {/* Architecture */}
         <div>
           <h2 className="text-xl font-bold text-white mb-4">Architecture</h2>
           <div className="bg-[#0a0a0a] border border-white/5 rounded-xl p-6">
             <div className="flex flex-wrap gap-6">
               <div className="flex-1 min-w-[200px]">
-                <h4 className="text-xs font-semibold text-zinc-400 uppercase tracking-wider mb-3">Stack</h4>
+                <h3 className="text-xs font-semibold text-zinc-400 uppercase tracking-wider mb-3">Stack</h3>
                 <div className="flex flex-wrap gap-2">
                   {project.tags.map(tag => (
                     <span key={tag} className="text-xs text-zinc-300 bg-zinc-800/50 border border-zinc-700/50 rounded-full px-2.5 py-1">
@@ -117,7 +112,7 @@ const ProjectDetailPage: React.FC<ProjectDetailPageProps> = ({ project, allProje
                 </div>
               </div>
               <div className="flex-1 min-w-[200px]">
-                <h4 className="text-xs font-semibold text-zinc-400 uppercase tracking-wider mb-3">Key Capabilities</h4>
+                <h3 className="text-xs font-semibold text-zinc-400 uppercase tracking-wider mb-3">Key Capabilities</h3>
                 <ul className="space-y-1.5">
                   {project.highlights.map((h, i) => (
                     <li key={i} className="text-xs text-zinc-400 flex items-start gap-2">
@@ -131,7 +126,6 @@ const ProjectDetailPage: React.FC<ProjectDetailPageProps> = ({ project, allProje
           </div>
         </div>
 
-        {/* Technical Achievements */}
         <div>
           <h2 className="text-xl font-bold text-white mb-4">Technical Achievements</h2>
           <ul className="list-disc list-outside pl-5 space-y-2 text-sm text-zinc-300">
@@ -141,7 +135,6 @@ const ProjectDetailPage: React.FC<ProjectDetailPageProps> = ({ project, allProje
           </ul>
         </div>
 
-        {/* Challenges */}
         {project.challenges && project.challenges.length > 0 && (
           <div>
             <h2 className="text-xl font-bold text-white mb-4">Challenges</h2>
@@ -153,7 +146,6 @@ const ProjectDetailPage: React.FC<ProjectDetailPageProps> = ({ project, allProje
           </div>
         )}
 
-        {/* Key Features */}
         {project.keyFeatures && project.keyFeatures.length > 0 && (
           <div>
             <h2 className="text-xl font-bold text-white mb-4">Key Features</h2>
@@ -172,7 +164,6 @@ const ProjectDetailPage: React.FC<ProjectDetailPageProps> = ({ project, allProje
           </div>
         )}
 
-        {/* Gallery */}
         {project.images && project.images.length > 0 && (
           <div>
             <h2 className="text-xl font-bold text-white mb-6">Screenshots</h2>
@@ -180,7 +171,7 @@ const ProjectDetailPage: React.FC<ProjectDetailPageProps> = ({ project, allProje
               {project.images.map((img, idx) => (
                 <div key={idx} className="rounded-xl overflow-hidden border border-white/10 bg-zinc-900/50 group">
                   <img src={img} alt={`${project.title} screenshot ${idx + 1}`}
-                    className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" />
+                    className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" loading="lazy" />
                 </div>
               ))}
             </div>
@@ -188,15 +179,14 @@ const ProjectDetailPage: React.FC<ProjectDetailPageProps> = ({ project, allProje
         )}
       </div>
 
-      {/* Related Projects */}
       {relatedProjects.length > 0 && (
         <div className="mt-16 pt-12 border-t border-white/5">
-          <h3 className="text-xl font-bold text-white mb-6">Related Projects</h3>
+          <h2 className="text-xl font-bold text-white mb-6">Related Projects</h2>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
             {relatedProjects.map(p => (
               <button
                 key={p.slug}
-                onClick={() => { window.scrollTo(0, 0); onNavigate('/project/' + p.slug); }}
+                onClick={() => { window.scrollTo(0, 0); navigate('/project/' + p.slug); }}
                 className="flex flex-col text-left p-6 rounded-xl border border-white/5 bg-zinc-900/30 hover:bg-zinc-900 hover:border-zinc-700 transition-all duration-300 group cursor-pointer"
               >
                 <div className="flex items-center justify-between w-full mb-3">
@@ -205,7 +195,7 @@ const ProjectDetailPage: React.FC<ProjectDetailPageProps> = ({ project, allProje
                   </div>
                   <ArrowRight className="w-5 h-5 text-zinc-600 group-hover:text-white transition-colors -translate-x-2 opacity-0 group-hover:translate-x-0 group-hover:opacity-100" />
                 </div>
-                <h4 className="font-semibold text-zinc-200 group-hover:text-white text-lg mb-2">{p.title}</h4>
+                <h3 className="font-semibold text-zinc-200 group-hover:text-white text-lg mb-2">{p.title}</h3>
                 <p className="text-sm text-zinc-400 line-clamp-2">{p.subtitle}</p>
               </button>
             ))}
@@ -213,7 +203,6 @@ const ProjectDetailPage: React.FC<ProjectDetailPageProps> = ({ project, allProje
         </div>
       )}
 
-      {/* Footer social links */}
       <div className="mt-24 pt-8 border-t border-white/5 flex justify-center items-center gap-4">
         <SocialButton icon={<Github className="w-4 h-4" />} href="https://github.com/iamdevdhanush" />
         <SocialButton icon={<Linkedin className="w-4 h-4" />} href="https://www.linkedin.com/in/dhanushdprabhu/" />
