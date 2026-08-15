@@ -1,0 +1,1063 @@
+==================================================
+PORTFOLIO PROFILE
+==================================================
+
+LAST EXTRACTED: 2026-08-09
+
+Source folder: D:\portfolio
+Git repo: github.com/iamdevdhanush/portfolio (branch: main, 27 commits)
+Extracted by reading: package.json, metadata.json, README.md, types.ts, App.tsx,
+index.tsx, index.html, vite.config.ts, tsconfig.json, data/*.ts(x),
+components/*.tsx, pages/*.tsx, public/* (sitemap.xml, robots.txt, og-image.svg,
+googleb33062b576f224d9.html), two resume PDFs, and git history (older site
+versions).
+
+==================================================
+1. BASIC INFORMATION
+==================================================
+
+Name: Dhanush D Prabhu
+Preferred Name: Dhanush (given name "Dhanush", family name "Prabhu")
+Location: Shimoga / Shivamogga, Karnataka, India
+Email: dhanushdprabhu18@gmail.com
+Phone: +91 7624828817 (also written +91 76248 28817)
+GitHub: https://github.com/iamdevdhanush
+LinkedIn: https://www.linkedin.com/in/dhanushdprabhu/
+Twitter/X: @dhanushdprabhu (mentioned in SEO config and meta tags)
+Portfolio:
+  - https://iamdevdhanush.github.io/portfolio  (used everywhere in the site
+    config: canonical, sitemap.xml, robots.txt, og:url)
+  - https://dhanushdprabhu.vercel.app  (listed in resume "Dhanush_D_Prabhu_Resume.pdf"
+    header) -> CONTRADICTION, see section 17
+Other relevant links:
+  - GitHub avatar ID used as image fallback: https://avatars.githubusercontent.com/u/169132950
+  - Resume file in repo: Dhanush D Prabhu.pdf and Dhanush_D_Prabhu_Resume.pdf
+  - Google Search Console ownership file: public/googleb33062b576f224d9.html
+    (token: googleb33062b576f224d9.html)
+
+==================================================
+2. PERSONAL / PROFESSIONAL SUMMARY
+==================================================
+
+Different self-descriptions exist across files (see contradictions section 17).
+The most complete summary is in "Dhanush_D_Prabhu_Resume.pdf":
+
+"Backend & AI Systems Engineer building production-grade services in Python,
+FastAPI, and PostgreSQL, containerized with Docker. Experienced designing
+distributed systems and AI-powered platforms, from data pipelines to deployment.
+Leads engineering teams through full-stack hackathon builds, owning architecture
+end to end."
+
+From the About section of the current website (components/AboutSection.tsx):
+- Builds backend systems and AI-powered applications.
+- Focus on designing APIs, managing data pipelines, and deploying containerized
+  services.
+- Primary stack: Python, FastAPI, PostgreSQL, Docker.
+- Has led teams across multiple hackathons, building full-stack solutions under
+  tight deadlines.
+- Projects range from multi-agent AI platforms for safety analytics to
+  distributed monitoring systems for energy intelligence.
+- Currently exploring distributed systems, system design, and production-grade
+  backend architecture.
+
+Taglines used:
+- "Backend Developer · AI Systems Builder" (Hero + og-image)
+- "Backend & AI Systems Engineer" (resume PDF)
+- "DevOps Engineer (Entry-level)" (metadata.json)
+- "DevOps Engineer • BCA Student" / "Aspiring DevOps & Cloud Engineer"
+  (older portfolio version, git commit 269a054)
+
+==================================================
+3. EDUCATION
+==================================================
+
+Institution: PES Institute of Advanced Management Studies (PES IAMS)
+Degree: Bachelor of Computer Applications (BCA)
+Field: Computer Applications
+Start Date: 2024 (September 2024 per resume PDF)
+Expected Graduation: 2027 (Hero shows "Bachelor of Computer Applications (2027)";
+resume PDF: "Sep 2024 – May 2027")
+CGPA/GPA: 8.53 / 10 (stated in resume "Dhanush_D_Prabhu_Resume.pdf")
+Relevant Coursework: Not listed in any file. Skill sections mention DSA,
+Operating Systems, DBMS, Networking, Database Design, Distributed Systems as
+learned concepts (resume PDF), but no explicit coursework list.
+Other Academic Information: Student status is actively acknowledged (site shows
+BCA student in Hero; "DevOps Engineer • BCA Student" in old version).
+
+==================================================
+4. TECHNICAL SKILLS
+==================================================
+
+NOTE: Distinguish between skills claimed in skill lists, skills evidenced by
+project data, and skills evidenced by the codebase itself.
+
+Skill → Where/how it is used (evidence):
+
+Programming Languages:
+- Python → Backend language for GreenOps (resume + project data); primary language
+  in skill lists
+- SQL → PostgreSQL schema design (GreenOps project data)
+- JavaScript → Listed in resume 2 skills; used to build this portfolio (React/TS)
+- TypeScript → This portfolio is built with TypeScript; listed in Avana V2 tech stack
+- Bash → AWS EC2 automation project (old portfolio + resume 1); listed in resume 2 skills
+- Shell scripting → AWS EC2 Automation project (old version)
+
+Backend:
+- FastAPI → Backend for Avana V2 and GreenOps (project data + resumes)
+- Flask → Listed in skills; used in Python CI/CD demo project (old portfolio:
+  "python-cicd-github-actions")
+- REST APIs → Listed in skills; GreenOps is "JWT-authenticated REST API"
+- JWT Authentication → GreenOps security implementation (project data + resume)
+- Express.js → Backend for Little Heartbeat (project data)
+
+Frontend:
+- React → Frontend for Avana V2, Little Heartbeat; this portfolio itself is React
+- TypeScript → Avana V2 + this portfolio
+- TailwindCSS → Avana V2 + this portfolio (Tailwind loaded via CDN in index.html)
+- HTML/CSS → Implied; this portfolio
+
+AI / ML:
+- Gemini AI → Claimed for Avana V2 (multi-agent workflows) and Little Heartbeat
+  (intelligent response generation); NOT evidenced in this repository's code.
+  Note: the repo declares the @google/genai npm package and a GEMINI_API_KEY
+  env placeholder in vite.config.ts, but no source file actually imports or
+  calls the Gemini SDK. "Gemini AI" usage in projects would need verification
+  via the project repos.
+- Multi-agent AI workflows → Avana V2 architecture claim (project data + resume)
+- Geocoding pipeline → Avana V2 (resume 2 only, not in site project data)
+- Risk scoring engine → Avana V2 (resume 2 + site project data)
+
+Databases:
+- PostgreSQL → Database for Avana V2 and GreenOps (project data + resumes)
+- PostGIS → Geospatial analytics in Avana V2 (project data + resume)
+- SQLAlchemy → Listed in skills and Avana V2/GreenOps tags context
+
+Cloud:
+- AWS EC2 → AWS EC2 automation via shell scripts (resume 1 + old portfolio
+  project "AWS-EC2-Automation-Using-Shell-Script"; NOT in current site)
+- AWS CLI / IAM → Within the AWS EC2 automation project (old portfolio)
+- Vercel → Listed as portfolio host in resume 2 (dhanushdprabhu.vercel.app)
+
+DevOps:
+- Docker → Containerization for Avana V2 (claimed), GreenOps (multi-stage Docker
+  builds / Docker Compose), python-cicd demo project
+- GitHub Actions → CI/CD pipeline project (old portfolio); listed in skills
+- Linux → Listed in skills; "Comfortable working in the terminal on Ubuntu"
+  (old portfolio DevOps Practice section)
+- CI/CD → python-cicd-github-actions project (old portfolio)
+- Kubernetes → Logo was listed in old portfolio skills row; no project evidence
+  in current site. Treat as exploratory.
+
+Cybersecurity:
+- JWT Authentication → GreenOps
+- No dedicated cybersecurity section/claims in files.
+
+Frameworks:
+- FastAPI, Flask (backend); React, Express.js (web); Vite (build tool for this
+  portfolio); react-router-dom (routing in this portfolio)
+
+Libraries:
+- lucide-react (icons in this portfolio)
+- @google/genai (declared dependency, not used in this repo's source)
+- Pytest (used in python-cicd demo project, old portfolio)
+
+Developer Tools:
+- Git, GitHub → Used for this portfolio + project repos; "daily use of Git"
+  (old portfolio)
+- Postman → Listed in skills
+- Figma → Listed in skills
+- Visual Studio Code → Implied only, not stated
+
+Other:
+- Process monitoring → GreenOps/energy monitoring (resume 1: "Linux, Process
+  Monitoring")
+- Data Structures & Algorithms, Operating Systems, DBMS, Networking, Database
+  Design, Distributed Systems → Listed as concepts in resume 2
+- AWS EC2 Automation → DevOps skill category in resume 1
+
+==================================================
+5. PROJECTS
+==================================================
+
+NOTE: The CURRENT website (data/projects.tsx) lists exactly 3 projects.
+Git history shows an OLDER version (commit 269a054) that featured 2 different
+DevOps projects, which are no longer on the site but appear in resume 1.
+Both sets are included below.
+
+--------------------------------------------------
+PROJECT: Avana V2  (FLAGSHIP - current site)
+--------------------------------------------------
+Project Type: AI-powered safety intelligence platform (hackathon project)
+Status: Featured flagship; badge "Top 5 National AI Hackathon Finalist"
+Repository: https://github.com/iamdevdhanush/avana-v2
+Live Demo: None listed (liveLink not set); resume says it was "deployed for live
+demo" at the hackathon itself
+Date/Year: Not stated (no explicit date found; associated with the national
+hackathon, year unknown)
+
+ONE-LINE DESCRIPTION:
+An AI-powered urban safety intelligence platform that converts public incident
+reports and community reports into structured safety insights, geospatial
+analytics, and route recommendations.
+
+PROBLEM:
+Urban safety information is scattered across disparate sources, making it hard
+for individuals to assess risks in their environment. Existing solutions lack
+real-time analysis, geospatial context, and intelligent route recommendations.
+
+SOLUTION:
+A multi-agent AI system that ingests incident data, normalizes/enriches it,
+geocodes it, scores area risk in real time, and presents interactive safety
+heatmaps and safe-route recommendations through a React dashboard.
+
+KEY FEATURES:
+- Multi-agent AI orchestration pipeline for automated incident analysis
+- Interactive geospatial safety heatmaps with real-time updates
+- Intelligent safe-route recommendation engine
+- Incident data aggregation, normalization, and enrichment
+- Risk scoring with configurable weight parameters
+
+TECHNOLOGIES ACTUALLY USED (as claimed in project data):
+- FastAPI (backend services)
+- PostgreSQL (storage) + PostGIS (geospatial queries)
+- React + TypeScript + TailwindCSS (frontend dashboard)
+- Docker (deployment)
+- Gemini AI (agent workflows)
+
+ARCHITECTURE / TECHNICAL DETAILS:
+- Multi-agent AI system architected with FastAPI + Gemini AI for coordinated
+  task processing (site claims)
+- Geospatial queries via PostGIS for location-based analytics
+- Scalable incident extraction pipeline handling both structured and
+  unstructured data
+- Real-time safety heatmap rendering with optimized database aggregation
+- Risk scoring algorithms based on multiple data dimensions
+- Resume 2 adds: geocoding pipeline translating incident data to coordinates;
+  scalable FastAPI backend for concurrent multi-agent + geospatial workloads;
+  React intelligence dashboard for real-time visualization
+
+AI / ML COMPONENT:
+- Multi-agent AI workflows (Gemini AI) to process and structure unstructured
+  incident reports
+- Automated incident extraction pipeline
+- Risk scoring engine (quantify + rank area-level safety risk in real time)
+- NOTE: no actual AI code exists in this repository; AI details come from
+  project descriptions and would need verification against the avana-v2 repo.
+
+BACKEND: FastAPI services; JWT/Auth not mentioned for this project.
+
+FRONTEND: React-based intelligence dashboard for real-time safety insight
+visualization.
+
+DEPLOYMENT: Docker; deployed for live demo at the national hackathon. Hosting
+target unknown.
+
+NOTABLE TECHNICAL WORK:
+- Orchestrating multiple AI agents under strict time constraints
+- Optimizing geospatial queries for real-time heatmap rendering over large areas
+- Normalizing varied incident data formats from multiple sources into one schema
+- Led architecture and technical direction for a cross-functional team from
+  system design through final deployment (resume 2)
+- Delivered final technical presentation to hackathon judges
+
+MEASURABLE RESULTS:
+- Top 5 Finalist at National Level AI Hackathon (SJBIT Bengaluru)
+- Competition had 100+ teams across Karnataka (resume 2)
+
+--------------------------------------------------
+PROJECT: GreenOps
+--------------------------------------------------
+Project Type: Distributed infrastructure / machine monitoring platform
+Status: Listed on current site
+Repository: https://github.com/iamdevdhanush/greenops
+Live Demo: None listed
+Date/Year: Not stated
+
+ONE-LINE DESCRIPTION:
+A distributed monitoring platform for telemetry ingestion, heartbeat tracking,
+and energy consumption analytics.
+
+PROBLEM:
+Infrastructure monitoring tools often lack energy awareness and are too complex
+for small to medium deployments; there is a need for a lightweight,
+energy-conscious monitoring solution.
+
+SOLUTION:
+Agent-server architecture where machines register automatically and stream
+telemetry to a FastAPI backend that tracks heartbeats, machine states, and
+energy usage, exposed through a JWT-authenticated API and containerized with
+Docker.
+
+KEY FEATURES:
+- Distributed telemetry ingestion with concurrent stream handling
+- Real-time heartbeat monitoring and alerting
+- Energy consumption dashboards and analytics
+- JWT-authenticated REST API
+- Docker-based deployment and scaling
+
+TECHNOLOGIES ACTUALLY USED:
+- Python, FastAPI, PostgreSQL, Docker, JWT
+
+ARCHITECTURE / TECHNICAL DETAILS (from resume 1 + 2 + site):
+- Agent-server architecture; machines auto-register using hardware fingerprint
+  and authenticated tokens (resume 1)
+- 60-second heartbeat monitoring with timeout-based offline detection handling
+  intermittent network loss (resume 1)
+- Machine lifecycle state tracking: ACTIVE / IDLE / OFFLINE from persisted
+  heartbeat timestamps (resume 1 + 2)
+- Inactivity analysis estimating energy wastage from idle duration intervals
+  (resume 1)
+- Normalized PostgreSQL schema for high-frequency time-series telemetry writes
+  (resume 2)
+- Energy and uptime monitoring via SQL aggregation over telemetry data
+  (resume 2)
+- JWT authentication middleware securing agent communication (resume 2)
+- Docker Compose one-command deployment of backend + database (resume 2)
+- Multi-stage Docker builds (site project data)
+
+AI / ML COMPONENT: None.
+
+BACKEND: FastAPI; JWT middleware; telemetry ingestion + heartbeat APIs.
+
+FRONTEND: None described (site lists "energy consumption dashboards"; no
+frontend framework named).
+
+DEPLOYMENT: Docker / Docker Compose containerized stack.
+
+NOTABLE TECHNICAL WORK:
+- Handling concurrent telemetry streams from hundreds of distributed agents
+  (challenge listed)
+- Efficient time-series storage design for energy analytics
+- Secure authentication without performance compromise
+
+MEASURABLE RESULTS: None stated.
+
+NOTE ON TITLE VARIATION:
+- Site: "Distributed Infrastructure Monitoring & Energy Intelligence"
+- Resume 2: "Distributed Monitoring & Energy Intelligence Platform"
+- Resume 1: "Distributed Machine Monitoring & Energy Analysis Platform"
+
+--------------------------------------------------
+PROJECT: Little Heartbeat
+--------------------------------------------------
+Project Type: AI-assisted community support platform (hackathon project)
+Status: Listed on current site
+Repository: https://github.com/iamdevdhanush/little-heartbeat
+Live Demo: None listed
+Date/Year: Not stated; badge "Runner-Up State Level Hackathon" (GMIT Davangere)
+Team role: Team Leader (resume 2)
+
+ONE-LINE DESCRIPTION:
+An AI-assisted support platform with community features, built within a 24-hour
+state-level hackathon, using AI to triage and respond to queries.
+
+PROBLEM:
+Community support platforms often lack intelligent triage and response
+capabilities, making it hard for users to get timely help.
+
+SOLUTION:
+Full-stack app with React frontend, Express.js backend, Supabase for real-time
+data, and Gemini AI for intelligent response generation and query triage.
+
+KEY FEATURES:
+- AI-assisted query triage and response generation
+- Real-time community discussion threads
+- User profiles and support history
+- Responsive design for cross-platform access
+
+TECHNOLOGIES ACTUALLY USED:
+- React, Express.js, Supabase, Gemini AI
+
+ARCHITECTURE / TECHNICAL DETAILS:
+- Full-stack application delivered within 24 hours (site + resume)
+- Supabase subscriptions for real-time community features
+- Responsive UI for desktop and mobile
+
+AI / ML COMPONENT: Gemini AI for intelligent response generation and query
+triage.
+
+BACKEND: Express.js + Supabase.
+
+FRONTEND: React.
+
+DEPLOYMENT: Not stated.
+
+NOTABLE TECHNICAL WORK:
+- Complete full-stack delivery within a 24-hour hackathon timeframe
+- Integrating AI responses while maintaining natural conversation flow
+
+MEASURABLE RESULTS:
+- Runner-Up at State Level Hackathon (GMIT Davangere)
+
+CONTRADICTION (see section 17): Site calls this a general "community support
+platform"; resume 2 calls it an "AI-assisted pregnancy support platform with
+community engagement features".
+
+--------------------------------------------------
+PROJECT: AWS EC2 Automation with Shell Scripting  (OLDER VERSION - not on current site)
+--------------------------------------------------
+Project Type: DevOps / Infrastructure automation tool
+Repository: https://github.com/iamdevdhanush/AWS-EC2-Automation-Using-Shell-Script
+Status: Was featured on the older portfolio (commit 269a054); still present in
+resume 1
+Date/Year: Not stated
+
+ONE-LINE DESCRIPTION:
+A Bash script automating the AWS EC2 instance lifecycle (create, monitor,
+terminate) using the AWS CLI.
+
+KEY FEATURES / TECHNICAL DETAILS (from old portfolio):
+- Modular script to launch, stop, and terminate EC2 instances
+- Dynamic checks for AWS CLI configuration and IAM permissions
+- Safeguards to prevent accidental deletion of non-project resources
+- Logic to auto-select Free Tier-eligible AMIs and instance types (cost control)
+- Idempotent execution for safe re-running
+- Programmatic management of security groups and key pairs
+- Handles region mismatches and IAM permission validation
+- Safe cleanup mechanism
+- Described as a practical example of Infrastructure as Code (IaC) using native
+  shell scripting without external libraries
+
+TECHNOLOGIES: Bash, Shell scripting, AWS, AWS CLI, EC2, IAM
+
+NOTABLE TECHNICAL WORK: Robust error handling; Free Tier limits to prevent
+unexpected costs.
+
+MEASURABLE RESULTS: None stated.
+
+--------------------------------------------------
+PROJECT: Python CI/CD with GitHub Actions  (OLDER VERSION - not on current site)
+--------------------------------------------------
+Project Type: DevOps / CI-CD pipeline demo
+Repository: https://github.com/iamdevdhanush/python-cicd-github-actions
+Status: Was featured on the older portfolio (commit 269a054); not on current
+site, not in resumes
+Date/Year: Not stated
+
+ONE-LINE DESCRIPTION:
+An automated CI/CD pipeline for a Python Flask app using Docker and GitHub
+Actions (build, test, publish).
+
+KEY FEATURES / TECHNICAL DETAILS (from old portfolio):
+- Multi-stage YAML workflow in GitHub Actions for build, test, publish
+- Pytest unit tests run on every commit
+- Multi-stage Dockerfile for a lightweight, secure final image
+- Automated build + push of Docker images to Docker Hub using secrets
+- Foundation for blue-green/canary deployments by separating build and deploy jobs
+
+TECHNOLOGIES: Python, Flask, Docker, GitHub Actions, CI/CD, Pytest
+
+MEASURABLE RESULTS: None stated.
+
+--------------------------------------------------
+PROJECT: Devops practice repository  (NOT a formal project - learning repo)
+--------------------------------------------------
+Repository: https://github.com/iamdevdhanush/Devops
+Status: Referenced in old portfolio (commit 269a054) as a public DevOps practice
+repo
+Description (old portfolio): documents hands-on learning across Linux, shell
+scripting, Git, CI/CD, and container fundamentals. Explicitly framed as
+"practice, experiments, and understanding system behavior rather than claiming
+production experience."
+
+==================================================
+6. EXPERIENCE
+==================================================
+
+No formal work experience was found in any file.
+Role descriptors found (NOT employment):
+- "DevOps Engineer (Entry-level)" (metadata.json)
+- "Backend & AI Systems Engineer" (resume 2, self-title)
+- "Backend Developer · AI Systems Builder" (site)
+- Team leader roles at hackathons (Avana V2, Little Heartbeat) - see section 7
+- Old portfolio: "Aspiring DevOps & Cloud Engineer"
+
+==================================================
+7. HACKATHONS & COMPETITIONS
+==================================================
+
+Event: National Level AI Hackathon (SJBIT Bengaluru)
+Project: Avana V2
+Position/Result: Top 5 Finalist (of 100+ teams across Karnataka)
+Year: Not stated
+Organization: SJBIT Bengaluru
+What I built: Multi-agent AI safety intelligence platform
+Technologies: FastAPI, PostgreSQL, PostGIS, React, TypeScript, TailwindCSS,
+Docker, Gemini AI
+Evidence: components/HackathonsSection.tsx, components/AchievementStrip.tsx,
+data/projects.tsx, resume 2, og-image.svg ("Top 5 National AI Hackathon Finalist")
+
+Event: State Level Hackathon (GMIT Davangere)
+Project: Little Heartbeat
+Position/Result: Runner-Up
+Year: Not stated
+Organization: GMIT Davangere
+What I built: AI-assisted community support platform (team leader)
+Technologies: React, Express.js, Supabase, Gemini AI
+Evidence: HackathonsSection.tsx, AchievementStrip.tsx, data/projects.tsx,
+resume 2
+
+Event: EY Techathon (corporate/national hackathon by EY)
+Project: Not stated
+Position/Result: Selected to Round 2 (Round 2 Qualifier)
+Year: Not stated
+Organization: EY
+What I built: Not stated
+Evidence: HackathonsSection.tsx, AchievementStrip.tsx, resume 1 + 2
+
+Event: CodeNeura Inter-College Tech-a-Thon
+Project: Not stated
+Position/Result: 1st Place (Winner)
+Year: 2025-NOV (date from old portfolio ExperienceCard)
+Organization: LBS College, Sagara
+What I built: Not stated; competition evaluated problem-solving ability, coding
+efficiency, and practical technical implementation under time constraints
+Evidence: HackathonsSection.tsx, AchievementStrip.tsx, resume 1 + 2, old
+portfolio (git 269a054) including LinkedIn post link:
+https://www.linkedin.com/posts/dhanushdprabhu_neura2025-codingcompetition-firstplace-activity-7391068108612071425-zN4C
+
+Event: Competitive Programming Tournament (college-level)
+Project: Not stated
+Position/Result: Runner-Up
+Year: 2025-JAN (date from old portfolio ExperienceCard)
+Organization: Not stated (inter-college coding competition)
+What I built: N/A - logical problem solving and coding accuracy under time
+constraints
+Evidence: resume 1 ("Runner-Up – Competitive Programming Tournament"); old
+portfolio (git 269a054) "Runner-Up – College Coding Tournament"
+
+Event: Green IT System Development Competition
+Project: Not stated
+Position/Result: Winner / 1st Place
+Year: Not stated
+Organization: Not stated
+What I built: Not stated (theme: Green IT)
+Evidence: resume 1 ("Winner – Green IT System Development Competition"),
+resume 2 ("1st Place – Green IT System Development Competition")
+
+Leadership (stated): "Led engineering teams across 3+ hackathons, owning
+architecture decisions and technical direction end to end" (resume 2 +
+HackathonsSection.tsx)
+
+==================================================
+8. ACHIEVEMENTS
+==================================================
+
+Achievement: Top 5 Finalist — National Level AI Hackathon
+Date: Unknown
+Context: SJBIT Bengaluru, 100+ teams across Karnataka; built Avana V2
+Evidence/source: HackathonsSection.tsx, AchievementStrip.tsx, resume 2,
+og-image.svg
+
+Achievement: Runner-Up — State Level Hackathon
+Date: Unknown
+Context: GMIT Davangere; built Little Heartbeat
+Evidence/source: HackathonsSection.tsx, AchievementStrip.tsx, resume 2
+
+Achievement: 1st Place — CodeNeura Inter-College Tech-a-Thon
+Date: 2025-NOV (old portfolio)
+Context: LBS College, Sagara
+Evidence/source: resume 1+2, old portfolio (git 269a054), LinkedIn post
+
+Achievement: 1st Place / Winner — Green IT System Development Competition
+Date: Unknown
+Context: Unknown
+Evidence/source: resume 1 + resume 2
+
+Achievement: Selected for Round 2 — EY Techathon
+Date: Unknown
+Context: National-level corporate hackathon
+Evidence/source: resume 1 + resume 2, AchievementStrip.tsx
+
+Achievement: Runner-Up — Competitive Programming / College Coding Tournament
+Date: 2025-JAN (old portfolio)
+Context: Inter-college coding competition
+Evidence/source: resume 1, old portfolio (git 269a054)
+
+Achievement: CGPA 8.53/10 (BCA, as of resume 2)
+Date: Resume 2 (undated file)
+Evidence/source: Dhanush_D_Prabhu_Resume.pdf
+
+Achievement: Open-source PR contributions to external repos (2025–Present)
+Date: 2025–Present
+Context: "Submitted reviewed pull requests modifying existing source code in
+external repositories"; "worked through maintainer feedback cycles to reach
+mergeable changes"
+Evidence/source: resume 1. No specific PRs/repos listed.
+
+==================================================
+9. OPEN SOURCE CONTRIBUTIONS
+==================================================
+
+General claim (resume 1, "GitHub Contributions 2025 – Present"):
+- Submitted reviewed pull requests modifying existing source code in external
+  repositories
+- Interpreted unfamiliar project structures to implement compatible fixes
+- Worked through maintainer feedback cycles to reach mergeable changes
+
+Specific repositories (all the author's own projects):
+- github.com/iamdevdhanush/portfolio (this site)
+- github.com/iamdevdhanush/avana-v2
+- github.com/iamdevdhanush/greenops
+- github.com/iamdevdhanush/little-heartbeat
+- github.com/iamdevdhanush/AWS-EC2-Automation-Using-Shell-Script
+- github.com/iamdevdhanush/python-cicd-github-actions
+- github.com/iamdevdhanush/Devops
+
+NO specific PR links, issue numbers, upstream repo names, or merged-contribution
+records are present in the folder. Needs verification.
+
+==================================================
+10. CERTIFICATIONS
+==================================================
+
+None found in any file. (Competition results exist, but no course/credential
+certificates were discovered.)
+
+==================================================
+11. TECHNICAL INTERESTS
+==================================================
+
+Recurring themes from the files:
+- Backend / API engineering (FastAPI, Flask, REST)
+- AI-powered / multi-agent systems (Gemini AI, AI-assisted apps)
+- Distributed systems & monitoring (GreenOps, "currently exploring distributed
+  systems, system design" - AboutSection)
+- DevOps / cloud automation (Docker, GitHub Actions, AWS EC2, CI/CD)
+- Geospatial analytics (PostGIS, safety heatmaps)
+- Energy / Green IT awareness (GreenOps energy analytics, Green IT competition)
+- Hackathon engineering / rapid full-stack delivery
+
+==================================================
+12. CURRENT TECHNICAL PROFILE
+==================================================
+
+Based ONLY on in-folder evidence. Deliberately conservative.
+
+Strongest areas:
+- Python backend development (FastAPI) — evidenced by project data and resumes
+- API design + JWT-secured REST APIs (GreenOps, skills lists)
+- PostgreSQL schema design (GreenOps "designed normalized PostgreSQL schemas";
+  skills)
+- Docker / containerization (GreenOps Docker Compose, multi-stage builds;
+  python-cicd project)
+- Frontend with React + TypeScript (this portfolio is a working React/TS app;
+  Avana V2 + Little Heartbeat)
+- Hackathon execution / team leadership (3+ hackathons led, two placements)
+
+Intermediate areas:
+- PostGIS / geospatial queries (Avana V2; site-level claim, needs verification
+  against repo)
+- AI integration with Gemini (claimed in 2 projects; no code in this repo)
+- CI/CD with GitHub Actions (older demo project)
+- AWS EC2 automation with Bash (older project)
+- Supabase realtime (Little Heartbeat)
+- Bash/shell scripting (AWS project)
+
+Beginner / exploratory areas (self-described "learning" in old portfolio):
+- Kubernetes (logo only; no project)
+- CI/CD (was labeled "Learning")
+- Containers fundamentals (was labeled "Learning")
+- System design / distributed systems ("currently exploring" - AboutSection)
+
+Frequently used technologies (across project data + this codebase):
+Python, FastAPI, PostgreSQL, Docker, React, TypeScript, TailwindCSS, JWT,
+Gemini AI (claimed), Git/GitHub.
+
+Technologies mentioned but not demonstrated in this folder:
+- Kubernetes
+- AWS (beyond EC2 Bash automation project which lives in git history, not the
+  current site)
+- @google/genai / GEMINI_API_KEY (dependency declared + importmap entry, but
+  never imported in source; leftover from AI Studio template)
+- Flask (in skills; used only in the older python-cicd demo)
+- SQLAlchemy (skills list + project tags; no code evidence here)
+- Postman, Figma (skills list only)
+
+==================================================
+13. PROJECT THEMES
+==================================================
+
+Themes actually supported by the files:
+- AI / AI-Assisted Applications (Avana V2 multi-agent; Little Heartbeat AI
+  responses; resume summary "AI Systems")
+- Safety / Urban Intelligence (Avana V2 - safety analytics, heatmaps,
+  safe-route)
+- Monitoring & Observability (GreenOps - telemetry, heartbeats, machine states)
+- Energy / Green IT (GreenOps energy analytics; Green IT competition win)
+- DevOps / Automation (Docker, GitHub Actions, AWS EC2 automation, Devops repo)
+- Distributed Systems (GreenOps agent-server architecture; "currently exploring
+  distributed systems")
+- Geospatial Analytics (PostGIS, heatmaps, geocoding)
+- Hackathon / Rapid Prototyping (all 3 current projects are hackathon builds)
+- Community / Social Support (Little Heartbeat)
+- Developer Tooling / CI-CD (older projects)
+
+==================================================
+14. LINKS & IDENTIFIERS
+==================================================
+
+GitHub repositories (found in files):
+- https://github.com/iamdevdhanush (profile)
+- https://github.com/iamdevdhanush/portfolio (this repo; origin remote)
+- https://github.com/iamdevdhanush/avana-v2
+- https://github.com/iamdevdhanush/greenops
+- https://github.com/iamdevdhanush/little-heartbeat
+- https://github.com/iamdevdhanush/AWS-EC2-Automation-Using-Shell-Script
+  (older version)
+- https://github.com/iamdevdhanush/python-cicd-github-actions (older version)
+- https://github.com/iamdevdhanush/Devops (learning repo)
+
+Live deployments:
+- https://iamdevdhanush.github.io/portfolio (canonical, sitemap, robots)
+- https://dhanushdprabhu.vercel.app (resume 2 only)
+- https://ai.studio/apps/drive/1Kw2YTqoZcaHD5SGtE8tO-QGt-T7R-98c (AI Studio app
+  link in README - looks like template leftover, NOT a real portfolio link)
+
+LinkedIn:
+- https://www.linkedin.com/in/dhanushdprabhu/
+- LinkedIn post about CodeNeura win:
+  https://www.linkedin.com/posts/dhanushdprabhu_neura2025-codingcompetition-firstplace-activity-7391068108612071425-zN4C
+
+Email: dhanushdprabhu18@gmail.com
+Phone: +91 7624828817
+Twitter/X handle: @dhanushdprabhu (SEO config only)
+GitHub avatar ID (profile image fallback): u/169132950
+
+==================================================
+15. PORTFOLIO CONTENT WORTH REUSING
+==================================================
+
+Underlying facts (not wording) that a new portfolio should reuse:
+
+Personal / brand:
+- Name + location (Shivamogga, Karnataka, India) + BCA student (2027) status
+- "Backend Developer · AI Systems Builder" positioning
+- Email / GitHub / LinkedIn / phone
+
+About (factual content):
+- Builds backend systems and AI-powered apps; APIs, data pipelines, containerized
+  services; Python/FastAPI/PostgreSQL/Docker
+- Led teams across multiple hackathons under tight deadlines
+- Exploring distributed systems, system design, production-grade architecture
+
+Avana V2 story (most reusable):
+- National top-5 finalist among 100+ teams
+- Multi-agent AI workflows; incident extraction pipeline; geocoding pipeline;
+  risk scoring engine; safety heatmaps on PostGIS; safe-route intelligence
+- Led architecture end to end; live demo deployed; presented to judges
+- Problems solved: orchestrating agents under deadlines, optimizing geospatial
+  queries, normalizing varied data formats
+
+GreenOps story:
+- Agent-server monitoring architecture; hardware-fingerprint registration;
+  60-second heartbeats; ACTIVE/IDLE/OFFLINE state machine; energy-wastage
+  analysis; Docker Compose one-command deployment
+
+Little Heartbeat story:
+- 24-hour full-stack build; Runner-Up state hackathon; AI query triage +
+  realtime community threads (verify pregnancy-support framing vs community
+  framing)
+
+DevOps angle (from older version + resumes):
+- AWS EC2 automation (IaC via shell), GitHub Actions CI/CD with Docker Hub,
+  Python/Flask pipeline with Pytest
+- Public DevOps practice repo, explicitly framed as learning
+  (useful honesty signal for a junior profile)
+
+Achievements set (confirmed across at least 2 sources):
+- Top 5 national AI hackathon, Runner-Up state hackathon, CodeNeura 1st
+  (Nov 2025), Green IT 1st, EY Techathon Round 2, College coding tournament
+  runner-up (Jan 2025)
+
+Education metric: CGPA 8.53/10, BCA 2024–2027, PES Institute of Advanced
+Management Studies
+
+Open source: reviewed PRs merged into external repos since 2025 (specifics
+unavailable)
+
+==================================================
+16. INFORMATION NOT FOUND
+==================================================
+
+- Formal work experience / internships / jobs (no section anywhere)
+- Exact dates for all hackathons (only CodeNeura 2025-NOV and coding tournament
+  2025-JAN are dated; EY Techathon, national hackathon, state hackathon, Green
+  IT competition have no dates)
+- Years/dates for all three current projects
+- Live demo URLs for any project
+- Project screenshots (images arrays are empty in data/projects.tsx)
+- College name for most hackathon host institutions beyond what's stated
+  (SJBIT, GMIT, LBS are named)
+- Coursework list, hobbies, languages spoken
+- Any certifications or course credentials
+- Specific PR/issue links for open-source contributions
+- Current GitHub repo stats (stars, followers, etc.)
+- Testimonials or quotes
+- Personal website domain ownership details (only Google verification token
+  file exists)
+- Any quantitative metrics (users, requests, performance numbers) for projects
+
+==================================================
+17. CONTRADICTIONS / OUTDATED INFORMATION
+==================================================
+
+1. Job title / positioning
+   Information: Self-description differs across files
+   Source A: metadata.json — "DevOps Engineer (Entry-level)"
+   Source B: site Hero/SEO — "Backend Developer · AI Systems Builder"
+   Source C: resume 2 — "Backend & AI Systems Engineer"
+   Source D: old portfolio — "DevOps Engineer • BCA Student" / "Aspiring DevOps
+   & Cloud Engineer"
+   Likely current value: "Backend Developer · AI Systems Builder" (current site)
+   or "Backend & AI Systems Engineer" (newest resume). DevOps framing appears to
+   be from older versions.
+   Reason: Files were created at different times; metadata.json and old
+   portfolio predate the current positioning.
+
+2. Portfolio host URL
+   Information: Primary portfolio URL
+   Source A: site config (data/seo.ts siteUrl), index.html canonical,
+   sitemap.xml, robots.txt — https://iamdevdhanush.github.io/portfolio
+   Source B: resume 2 header — https://dhanushdprabhu.vercel.app
+   Likely current value: Unknown - need to check which is live/active.
+   Reason: Vercel URL only appears in resume 2; all site metadata points to
+   GitHub Pages. Google Search Console verification file exists for the
+   domain (token: googleb33062b576f224d9.html).
+
+3. Little Heartbeat — purpose/domain
+   Information: What the platform actually supports
+   Source A: site project data + SEO — "AI-assisted community support platform"
+   Source B: resume 2 — "AI-assisted pregnancy support platform with community
+   engagement features"
+   Likely current value: Unknown; pregnancy support may be the accurate domain
+   (more specific), or may have been generalized for the portfolio.
+   Reason: resume 2 is more specific.
+
+4. GreenOps — description wording
+   Information: Platform scope
+   Source A: site — "Distributed Infrastructure Monitoring & Energy Intelligence"
+   Source B: resume 2 — "Distributed Monitoring & Energy Intelligence Platform"
+   Source C: resume 1 — "Distributed Machine Monitoring & Energy Analysis Platform"
+   Likely current value: Energy-focused distributed monitoring (semantics; no
+   real conflict beyond wording).
+
+5. README is a template leftover
+   Information: README describes an "AI Studio app"
+   Source A: README.md — "Run and deploy your AI Studio app", link to
+   ai.studio/apps/drive/..., instructions to set GEMINI_API_KEY
+   Source B: actual code — it is a React/Vite portfolio with no AI Studio
+   runtime or Gemini usage
+   Likely current value: The README is stale boilerplate from an AI Studio
+   template and should NOT be trusted as project documentation.
+   Reason: Content mismatch with the actual app.
+
+6. Projects list changed between versions
+   Information: Which projects belong to the portfolio
+   Source A: current site (data/projects.tsx) — Avana V2, GreenOps, Little
+   Heartbeat
+   Source B: old site (git 269a054) + resume 1 — AWS EC2 Automation, Python
+   CI/CD with GitHub Actions (plus Devops practice repo)
+   Likely current value: The 3 current projects are the active set; the two
+   DevOps projects appear to have been dropped from the site but remain valid
+   evidence of DevOps skills.
+   Reason: Site was rewritten (commit c9dc17b) with a new project set.
+
+7. Achievement naming — Green IT competition
+   Information: "Winner" vs "1st Place"
+   Source A: resume 1 — "Winner – Green IT System Development Competition"
+   Source B: resume 2 — "1st Place – Green IT System Development Competition"
+   Likely current value: Same achievement, wording difference only.
+
+8. Achievement naming — competitive programming
+   Information: "Competitive Programming Tournament" vs "College Coding Tournament"
+   Source A: resume 1 — "Runner-Up – Competitive Programming Tournament"
+   Source B: old portfolio — "Runner-Up – College Coding Tournament"
+   Likely current value: Same event (Jan 2025), wording difference.
+
+9. Dependencies / lockfile drift
+   Information: @google/genai version
+   Source A: package.json — "^1.34.0"
+   Source B: package-lock.json — resolved 1.52.0
+   Likely current value: Installed version 1.52.0; irrelevant because the
+   package is unused.
+
+10. Education dates
+    Information: BCA duration
+    Source A: Hero — "Bachelor of Computer Applications (2027)"
+    Source B: resume 2 — "Sep 2024 – May 2027"
+    Likely current value: Sep 2024 – May 2027 (expected graduation 2027).
+    Reason: resume is more precise.
+
+==================================================
+18. NEEDS VERIFICATION
+==================================================
+
+Manually check before using in a new portfolio:
+- [ ] Which portfolio URL is live: iamdevdhanush.github.io/portfolio or
+      dhanushdprabhu.vercel.app?
+- [ ] Is "Little Heartbeat" a pregnancy-support platform or a general community
+      support platform?
+- [ ] Confirm Avana V2's "Top 5 National AI Hackathon" details (SJBIT Bengaluru,
+      100+ teams, exact year/date).
+- [ ] Confirm Little Heartbeat runner-up details (GMIT Davangere, exact
+      year/date).
+- [ ] Confirm EY Techathon Round 2 qualification details (year, challenge, project).
+- [ ] Confirm CodeNeura win date (old portfolio says 2025-NOV) and the LinkedIn
+      post link still works.
+- [ ] Confirm coding tournament runner-up date (old portfolio says 2025-JAN).
+- [ ] Confirm Green IT competition name, date, and organizer.
+- [ ] Confirm CGPA 8.53/10 is current.
+- [ ] Confirm BCA expected graduation (May 2027?) and current CGPA.
+- [ ] Open-source PRs: which repos, which PRs/commits, are they merged? Add links.
+- [ ] Verify whether @google/genai / Gemini AI is actually used in avana-v2 and
+      little-heartbeat repos (no AI code in this repo).
+- [ ] Confirm current tech stack claims against the project repos
+      (avana-v2, greenops, little-heartbeat) - PostGIS, Docker, JWT, etc.
+- [ ] Add dates/years for all projects.
+- [ ] Whether the two older DevOps projects (AWS EC2 automation, Python CI/CD)
+      should be re-included.
+- [ ] Check that profile.jpg is the correct, current photo (used in Hero with
+      fallbacks to profile.png/profile.jpeg/GitHub avatar).
+- [ ] Confirm phone number formatting (7624828817) is current and correct.
+- [ ] Whether "DevOps Engineer" or "Backend/AI Engineer" is the preferred
+      career identity (files disagree).
+- [ ] Domain/Google Search Console setup status (verification token file exists
+      but no custom domain URL was found).
+
+==================================================
+19. RAW SOURCE MAP
+==================================================
+
+For every important extracted fact, source file paths:
+
+BASIC INFO
+- Name/location/email/degree/2027: components/Hero.tsx
+- Email: components/Hero.tsx, ContactSection.tsx, CommandPalette.tsx,
+  ProjectDetailPage.tsx, both resumes
+- Phone: Dhanush D Prabhu.pdf, Dhanush_D_Prabhu_Resume.pdf
+- GitHub/LinkedIn: components/Hero.tsx, ContactSection.tsx,
+  CommandPalette.tsx, ProjectDetailPage.tsx, data/structuredData.ts
+- Twitter: data/seo.ts, index.html
+- Portfolio URL (GH Pages): data/seo.ts, index.html (canonical),
+  public/sitemap.xml, public/robots.txt
+- Portfolio URL (Vercel): Dhanush_D_Prabhu_Resume.pdf
+- Avatar fallback: components/Hero.tsx
+- Google verification: public/googleb33062b576f224d9.html
+
+PROFESSIONAL SUMMARY
+- Resume 2 summary: Dhanush_D_Prabhu_Resume.pdf
+- About content: components/AboutSection.tsx
+- Taglines: components/Hero.tsx, data/seo.ts, data/structuredData.ts,
+  metadata.json, og-image.svg
+
+EDUCATION
+- BCA + institution + years: Dhanush_D_Prabhu_Resume.pdf (Sep 2024–May 2027),
+  Dhanush D Prabhu.pdf (2024–2027), components/Hero.tsx (2027)
+- CGPA 8.53/10: Dhanush_D_Prabhu_Resume.pdf
+- alumniOf (BCA): data/structuredData.ts
+
+SKILLS
+- data/skills.ts, Dhanush_D_Prabhu_Resume.pdf, Dhanush D Prabhu.pdf,
+  old portfolio skills section (git commit 269a054)
+- GEMINI_API_KEY / genai: package.json, index.html (importmap),
+  vite.config.ts, README.md
+- Kubernetes logo only: old portfolio (git 269a054)
+
+PROJECTS (current)
+- data/projects.tsx, data/seo.ts (projectSEO), data/structuredData.ts
+  (projectSchema), public/sitemap.xml
+- Avana V2 extra details: Dhanush_D_Prabhu_Resume.pdf
+- GreenOps extra details: Dhanush D Prabhu.pdf, Dhanush_D_Prabhu_Resume.pdf
+- Little Heartbeat extra details: Dhanush_D_Prabhu_Resume.pdf
+
+PROJECTS (older, git history)
+- AWS EC2 Automation: old App.tsx at commit 269a054, Dhanush D Prabhu.pdf
+- Python CI/CD: old App.tsx at commit 269a054
+- Devops practice repo: old App.tsx at commit 269a054
+
+HACKATHONS / ACHIEVEMENTS
+- components/HackathonsSection.tsx, components/AchievementStrip.tsx
+- resume 1 + resume 2
+- CodeNeura date + LinkedIn post: old App.tsx at commit 269a054
+- Tournament date (2025-JAN): old App.tsx at commit 269a054
+- og-image.svg (top 5 finalist)
+
+OPEN SOURCE
+- resume 1 (GitHub Contributions 2025–Present section)
+
+CONTACT
+- components/ContactSection.tsx, components/CommandPalette.tsx,
+  components/Hero.tsx
+
+SITE ARCHITECTURE (evidence of frontend skill)
+- App.tsx, index.tsx, index.html, vite.config.ts, tsconfig.json,
+  package.json, components/SEO.tsx, components/CommandPalette.tsx,
+  components/ProjectDetailPage.tsx, pages/HomePage.tsx, pages/ProjectPage.tsx
+
+DEPLOYMENT
+- vite.config.ts (GitHub Pages base not set; dev port 3000), public/sitemap.xml,
+  public/robots.txt, README.md (AI Studio leftover)
+
+==================================================
+FINAL SECTION: PORTFOLIO BUILD BRIEF
+==================================================
+
+WHO I AM:
+Dhanush D Prabhu, a BCA student (PES Institute of Advanced Management Studies,
+2024–2027, CGPA 8.53/10) based in Shivamogga, Karnataka, India, positioning
+himself as a Backend Developer / AI Systems Builder. Self-taught builder who has
+led engineering teams in multiple hackathons. No formal work experience recorded
+in the files.
+
+WHAT I BUILD:
+Backend services and AI-powered applications using Python, FastAPI, PostgreSQL,
+Docker, and React. Demonstrated builds: an AI safety-intelligence platform
+(multi-agent analysis, geospatial risk scoring, safe routes), a distributed
+monitoring/energy-intelligence platform (telemetry, heartbeats, energy analysis),
+and an AI-assisted community support app. Older work includes AWS EC2 automation
+and GitHub Actions CI/CD pipelines.
+
+MY STRONGEST TECHNICAL AREAS (evidence-based):
+Python/FastAPI backend development, REST + JWT-secured APIs, PostgreSQL schema
+design, Docker containerization, React/TypeScript frontend, and hackathon
+engineering/team leadership.
+
+MY BEST PROJECTS:
+1. Avana V2 — Top 5 finalist (100+ teams) at a national AI hackathon; multi-agent
+   AI + PostGIS geospatial safety analytics. Flagship.
+2. GreenOps — distributed telemetry/heartbeat/energy monitoring, Docker Compose.
+3. Little Heartbeat — 24-hour full-stack build, runner-up at a state hackathon.
+
+MY BIGGEST ACHIEVEMENTS:
+Top 5 National AI Hackathon finalist; Runner-Up State Level Hackathon; 1st Place
+CodeNeura Inter-College Tech-a-Thon (Nov 2025); 1st Place Green IT System
+Development Competition; EY Techathon Round 2 qualifier; CGPA 8.53/10.
+
+MY OPEN-SOURCE WORK:
+Reviewed pull requests merged into external repositories (2025–present), plus
+his own public repos (portfolio, avana-v2, greenops, little-heartbeat, Devops,
+AWS EC2 automation, python-cicd). No specific PR links available — must be added.
+
+MY CURRENT CAREER DIRECTION:
+Entry-level backend / AI-systems engineering with strong DevOps interest.
+Currently exploring distributed systems, system design, and production-grade
+backend architecture. Seeking roles implied: backend developer, AI systems
+builder, entry-level DevOps.
+
+MY MOST IMPORTANT LINKS:
+- GitHub: github.com/iamdevdhanush
+- LinkedIn: linkedin.com/in/dhanushdprabhu
+- Portfolio: iamdevdhanush.github.io/portfolio (verify vs dhanushdprabhu.vercel.app)
+- Email: dhanushdprabhu18@gmail.com
+
+WHAT A NEW PORTFOLIO SHOULD HIGHLIGHT:
+- The Avana V2 flagship story (multi-agent AI, geospatial analytics, top-5
+  national finish among 100+ teams, end-to-end leadership).
+- The hackathon track record and team-leadership experience.
+- Measurable education credential (CGPA 8.53/10, BCA 2027).
+- Honest skill depth: strong Python/FastAPI/PostgreSQL/Docker/React; explicitly
+  learning distributed systems, system design, containers, and cloud.
+- Fix contradictions before publishing: portfolio URL, Little Heartbeat's
+  domain (community vs pregnancy support), and consistent job-title framing.
+- Add dates, live demos, and open-source PR links where currently missing.
