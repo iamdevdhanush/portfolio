@@ -31,6 +31,10 @@ const Hero: React.FC<HeroProps> = ({ onNavigate }) => {
             src={imgSrc}
             onError={handleImgError}
             alt="Dhanush D Prabhu"
+            width="160"
+            height="160"
+            fetchPriority="high"
+            decoding="async"
             className="w-full h-full object-cover opacity-90 hover:opacity-100 transition-opacity duration-300"
           />
         </div>
@@ -41,7 +45,7 @@ const Hero: React.FC<HeroProps> = ({ onNavigate }) => {
           Dhanush D Prabhu
         </h1>
         <h2 className="text-lg md:text-xl text-zinc-300 font-medium mb-4">
-          Backend Developer · AI Systems Builder
+          AI Engineer & Software Developer
         </h2>
         <p className="text-sm text-zinc-400 leading-relaxed mb-6 max-w-xl">
           Building intelligent systems using Python, FastAPI, PostgreSQL, Docker, and modern web technologies.

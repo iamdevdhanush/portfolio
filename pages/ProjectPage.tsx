@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect, useMemo } from 'react';
 import { useParams, Navigate } from 'react-router-dom';
 import SEO from '../components/SEO';
 import ProjectDetailPage from '../components/ProjectDetailPage';
@@ -11,23 +11,29 @@ const ProjectPage: React.FC = () => {
   const project = projects.find(p => p.slug === slug);
   const seo = slug ? projectSEO[slug] : undefined;
 
+  const jsonLd = useMemo(() => {
+    if (!project) return [];
+    return [
+      projectSchema(project),
+      breadcrumbSchema([
+        { name: 'Home', url: '/' },
+        { name: 'Projects', url: '/#projects' },
+        { name: project.title, url: `/project/${project.slug}` },
+      ]),
+    ];
+  }, [project]);
+
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, [slug]);
+
   if (!project || !seo) {
     return <Navigate to="/" replace />;
   }
 
   return (
     <>
-      <SEO
-        {...seo}
-        jsonLd={[
-          projectSchema(project),
-          breadcrumbSchema([
-            { name: 'Home', url: '/' },
-            { name: 'Projects', url: '/#projects' },
-            { name: project.title, url: `/project/${project.slug}` },
-          ]),
-        ]}
-      />
+      <SEO {...seo} jsonLd={jsonLd} />
       <ProjectDetailPage project={project} allProjects={projects} />
     </>
   );

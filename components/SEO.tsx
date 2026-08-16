@@ -14,14 +14,20 @@ export default function SEO({ title, description, ogTitle, ogDescription, canoni
     if (ogTitle) setMeta('og:title', ogTitle, 'property');
     if (ogDescription) setMeta('og:description', ogDescription, 'property');
     setMeta('og:image', siteConfig.defaultOgImage, 'property');
+    setMeta('og:image:type', 'image/svg+xml', 'property');
+    setMeta('og:image:width', '1200', 'property');
+    setMeta('og:image:height', '630', 'property');
+    setMeta('og:image:alt', ogTitle || title, 'property');
     setMeta('og:url', siteConfig.siteUrl + (canonical || '/'), 'property');
     setMeta('og:type', 'website', 'property');
+    setMeta('og:locale', 'en_US', 'property');
     setMeta('og:site_name', siteConfig.name, 'property');
 
     setMeta('twitter:card', 'summary_large_image');
     setMeta('twitter:title', ogTitle || title);
     setMeta('twitter:description', ogDescription || description);
     setMeta('twitter:image', siteConfig.defaultOgImage);
+    setMeta('twitter:image:alt', ogTitle || title);
     setMeta('twitter:site', siteConfig.twitterHandle);
 
     if (canonical) {

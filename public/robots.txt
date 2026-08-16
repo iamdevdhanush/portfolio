@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://iamdevdhanush.github.io/portfolio/sitemap.xml
+Sitemap: https://dhanushdprabhu.is-a.dev/sitemap.xml

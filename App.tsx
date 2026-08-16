@@ -80,19 +80,21 @@ export default function App() {
         <Command className="w-5 h-5" />
       </button>
 
-      <Routes>
-        <Route
-          path="/"
-          element={
-            <HomePage
-              onNavigate={performSafeNavigation}
-              onSectionChange={setActiveSection}
-            />
-          }
-        />
-        <Route path="/project/:slug" element={<ProjectPage />} />
-        <Route path="*" element={<NavigateToHome />} />
-      </Routes>
+      <main>
+        <Routes>
+          <Route
+            path="/"
+            element={
+              <HomePage
+                onNavigate={performSafeNavigation}
+                onSectionChange={setActiveSection}
+              />
+            }
+          />
+          <Route path="/project/:slug" element={<ProjectPage />} />
+          <Route path="*" element={<NavigateToHome />} />
+        </Routes>
+      </main>
     </div>
   );
 }
@@ -100,7 +102,7 @@ export default function App() {
 function NavigateToHome() {
   return (
     <div className="max-w-4xl mx-auto px-6 pt-32 relative z-10 text-center">
-      <p className="text-zinc-400">Page not found. <a href="/" className="text-blue-400 hover:text-blue-300">Return home.</a></p>
+      <h1 className="text-base font-normal text-zinc-400">Page not found. <a href="/" className="text-blue-400 hover:text-blue-300">Return home.</a></h1>
     </div>
   );
 }

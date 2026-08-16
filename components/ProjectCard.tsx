@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import { ArrowUpRight, Code, ExternalLink } from 'lucide-react';
 import type { Project } from '../types';
 
@@ -7,20 +8,18 @@ interface ProjectCardProps {
   onNavigate: (id: string) => void;
 }
 
-const ProjectCard: React.FC<ProjectCardProps> = ({ project, onNavigate }) => {
-  const handleClick = () => {
-    onNavigate('/project/' + project.slug);
-  };
+const ProjectCard: React.FC<ProjectCardProps> = ({ project }) => {
+  const projectPath = '/project/' + project.slug;
 
   return (
     <div className={`bg-gradient-to-b from-zinc-900 to-black border border-zinc-800 rounded-2xl p-8 flex flex-col h-full group transition-[transform,border-color] duration-300 hover:border-zinc-700 hover:-translate-y-1 relative ${project.isFlagship ? 'md:col-span-2' : ''}`}>
-      <button
-        onClick={handleClick}
+      <Link
+        to={projectPath}
         aria-label={`View project: ${project.title}`}
         className="absolute top-5 right-5 w-8 h-8 flex items-center justify-center bg-zinc-100 text-black rounded-full opacity-0 group-hover:opacity-100 transition-[opacity,transform] duration-300 transform -translate-y-2 group-hover:translate-y-0 hover:scale-110"
       >
         <ExternalLink className="w-4 h-4" />
-      </button>
+      </Link>
 
       {project.badge && (
         <span className="inline-flex items-center gap-1.5 text-[10px] font-medium uppercase tracking-wider text-yellow-500 bg-yellow-500/10 border border-yellow-500/20 rounded-full px-3 py-1 mb-4 w-fit">
@@ -65,13 +64,13 @@ const ProjectCard: React.FC<ProjectCardProps> = ({ project, onNavigate }) => {
       )}
 
       <div className="flex items-center gap-4 mt-auto pt-4 border-t border-zinc-800/50 text-sm font-medium">
-        <button
-          onClick={handleClick}
+        <Link
+          to={projectPath}
           className="text-zinc-300 hover:text-white transition-colors flex items-center gap-1.5"
         >
           Read More
           <ArrowUpRight className="w-4 h-4" />
-        </button>
+        </Link>
         {project.githubLink && (
           <a
             href={project.githubLink}

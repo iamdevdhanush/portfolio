@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useMemo } from 'react';
 import { useLocation } from 'react-router-dom';
 import SEO from '../components/SEO';
 import Hero from '../components/Hero';
@@ -21,6 +21,8 @@ interface HomePageProps {
 
 const HomePage: React.FC<HomePageProps> = ({ onNavigate, onSectionChange }) => {
   const location = useLocation();
+
+  const jsonLd = useMemo(() => [personSchema(), websiteSchema()], []);
 
   useEffect(() => {
     const hash = location.hash.replace('#', '');
@@ -51,7 +53,7 @@ const HomePage: React.FC<HomePageProps> = ({ onNavigate, onSectionChange }) => {
 
   return (
     <>
-      <SEO {...homeSEO} jsonLd={[personSchema(), websiteSchema()]} />
+      <SEO {...homeSEO} jsonLd={jsonLd} />
       <div className="max-w-4xl mx-auto px-6 pt-12 md:pt-20 relative z-10">
         <Hero onNavigate={onNavigate} />
         <AchievementStrip />

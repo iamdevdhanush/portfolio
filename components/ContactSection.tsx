@@ -10,10 +10,10 @@ const ContactSection = () => {
           Interested in collaborating or discussing opportunities? I'm always open to conversations about backend engineering, AI systems, and building things that matter.
         </p>
         <div className="flex items-center justify-center gap-4 mb-8">
-          <SocialButton icon={<Mail className="w-5 h-5" />} href="mailto:dhanushdprabhu18@gmail.com" />
-          <SocialButton icon={<Github className="w-5 h-5" />} href="https://github.com/iamdevdhanush" />
-          <SocialButton icon={<Linkedin className="w-5 h-5" />} href="https://www.linkedin.com/in/dhanushdprabhu/" />
-          <SocialButton icon={<FileText className="w-5 h-5" />} href="/Dhanush D Prabhu.pdf" />
+          <SocialButton icon={<Mail className="w-5 h-5" />} href="mailto:dhanushdprabhu18@gmail.com" label="Email" />
+          <SocialButton icon={<Github className="w-5 h-5" />} href="https://github.com/iamdevdhanush" label="GitHub" />
+          <SocialButton icon={<Linkedin className="w-5 h-5" />} href="https://www.linkedin.com/in/dhanushdprabhu/" label="LinkedIn" />
+          <SocialButton icon={<FileText className="w-5 h-5" />} href="/Dhanush D Prabhu.pdf" label="Resume" />
         </div>
         <a
           href="mailto:dhanushdprabhu18@gmail.com"

@@ -29,7 +29,7 @@ const AchievementStrip = () => {
       <div className="bg-[#0a0a0a] border border-white/5 rounded-2xl p-6 md:p-8">
         <div className="flex items-center gap-2 mb-6">
           <Star className="w-4 h-4 text-zinc-400" />
-          <span className="text-xs font-medium text-zinc-400 uppercase tracking-wider">Competition Record</span>
+          <h2 className="text-xs font-medium text-zinc-400 uppercase tracking-wider">Competition Record</h2>
         </div>
         <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
           {achievements.map((item, index) => (

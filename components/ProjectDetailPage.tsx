@@ -1,5 +1,5 @@
 import React, { useMemo } from 'react';
-import { useNavigate } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import { Github, Linkedin, Mail, ExternalLink, ArrowLeft, ArrowRight } from 'lucide-react';
 import SocialButton from './SocialButton';
 import type { Project } from '../types';
@@ -10,8 +10,6 @@ interface ProjectDetailPageProps {
 }
 
 const ProjectDetailPage: React.FC<ProjectDetailPageProps> = ({ project, allProjects }) => {
-  const navigate = useNavigate();
-
   const relatedProjects = useMemo(() => {
     if (!allProjects) return [];
     return allProjects
@@ -24,20 +22,20 @@ const ProjectDetailPage: React.FC<ProjectDetailPageProps> = ({ project, allProje
 
   return (
     <div className="max-w-4xl mx-auto px-6 pt-24 md:pt-32 pb-20 relative z-10 animate-in fade-in duration-300">
-      <button
-        onClick={() => navigate('/#projects')}
+      <Link
+        to="/#projects"
         className="group mb-6 inline-flex items-center gap-2 text-sm text-zinc-400 hover:text-white transition-colors"
       >
         <ArrowLeft className="w-4 h-4 transition-transform group-hover:-translate-x-1" />
         Back to projects
-      </button>
+      </Link>
 
       <div className="flex items-center gap-2 text-sm text-zinc-400 mb-8 font-mono">
-        <a href="/" onClick={(e) => { e.preventDefault(); navigate('/'); }}
-          className="text-zinc-400 hover:text-white transition-colors cursor-pointer">~</a>
+        <Link to="/"
+          className="text-zinc-400 hover:text-white transition-colors cursor-pointer">~</Link>
         <span>/</span>
-        <a href="/#projects" onClick={(e) => { e.preventDefault(); navigate('/#projects'); }}
-          className="text-zinc-400 hover:text-white transition-colors cursor-pointer">Projects</a>
+        <Link to="/#projects"
+          className="text-zinc-400 hover:text-white transition-colors cursor-pointer">Projects</Link>
         <span>/</span>
         <span className="text-green-400">{project.slug}</span>
       </div>
@@ -184,9 +182,9 @@ const ProjectDetailPage: React.FC<ProjectDetailPageProps> = ({ project, allProje
           <h2 className="text-xl font-bold text-white mb-6">Related Projects</h2>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
             {relatedProjects.map(p => (
-              <button
+              <Link
                 key={p.slug}
-                onClick={() => { window.scrollTo(0, 0); navigate('/project/' + p.slug); }}
+                to={'/project/' + p.slug}
                 className="flex flex-col text-left p-6 rounded-xl border border-white/5 bg-zinc-900/30 hover:bg-zinc-900 hover:border-zinc-700 transition-all duration-300 group cursor-pointer"
               >
                 <div className="flex items-center justify-between w-full mb-3">
@@ -197,7 +195,7 @@ const ProjectDetailPage: React.FC<ProjectDetailPageProps> = ({ project, allProje
                 </div>
                 <h3 className="font-semibold text-zinc-200 group-hover:text-white text-lg mb-2">{p.title}</h3>
                 <p className="text-sm text-zinc-400 line-clamp-2">{p.subtitle}</p>
-              </button>
+              </Link>
             ))}
           </div>
         </div>

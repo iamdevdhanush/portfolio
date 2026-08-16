@@ -8,16 +8,16 @@ export interface SEOData {
 
 export const siteConfig = {
   name: 'Dhanush D Prabhu',
-  siteUrl: 'https://iamdevdhanush.github.io/portfolio',
-  defaultOgImage: '/og-image.svg',
+  siteUrl: 'https://dhanushdprabhu.is-a.dev',
+  defaultOgImage: 'https://dhanushdprabhu.is-a.dev/og-image.svg',
   twitterHandle: '@dhanushdprabhu',
 };
 
 export const homeSEO: SEOData = {
-  title: 'Dhanush D Prabhu | Backend Developer | AI Systems Builder',
-  description: 'Portfolio of Dhanush D Prabhu featuring AI systems, FastAPI applications, distributed monitoring platforms, hackathon-winning projects, and backend engineering work.',
-  ogTitle: 'Dhanush D Prabhu — Backend Developer & AI Systems Builder',
-  ogDescription: 'Building intelligent systems using Python, FastAPI, PostgreSQL, Docker, and modern web technologies.',
+  title: 'Dhanush D Prabhu | AI Engineer & Software Developer',
+  description: 'Portfolio of Dhanush D Prabhu, an AI engineer and software developer. Features AI platforms, FastAPI backends, distributed monitoring systems, and hackathon-winning projects.',
+  ogTitle: 'Dhanush D Prabhu — AI Engineer & Software Developer',
+  ogDescription: 'Building intelligent systems with Python, FastAPI, PostgreSQL, Docker, and modern web technologies.',
   canonical: '/',
 };
 
