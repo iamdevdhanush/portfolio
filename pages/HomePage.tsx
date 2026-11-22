@@ -103,12 +103,12 @@ const HomePage: React.FC<HomePageProps> = ({ onNavigate, onSectionChange }) => {
         </div>
 
         {/* 4. About: Light Warm Paper */}
-        <div className="max-w-6xl mx-auto px-5 sm:px-8">
+        <div className="max-w-6xl mx-auto px-4 sm:px-8">
           <AboutSection />
         </div>
 
         {/* 5 & 6. Hackathons & Skills: Light Warm Paper */}
-        <div className="max-w-6xl mx-auto px-5 sm:px-8">
+        <div className="max-w-6xl mx-auto px-4 sm:px-8">
           <HackathonsSection />
           <SkillsSection />
         </div>

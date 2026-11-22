@@ -18,21 +18,21 @@ const AchievementStrip: React.FC = () => {
   };
 
   return (
-    <section id="achievements" className="w-full px-5 sm:px-8 pt-16 md:pt-20 pb-20 md:pb-24 bg-[#151515] text-[#FAF7F0] ink-grain scroll-mt-20">
+    <section id="achievements" className="w-full px-4 sm:px-8 pt-10 sm:pt-14 md:pt-16 pb-14 sm:pb-20 md:pb-24 bg-[#151515] text-[#FAF7F0] ink-grain scroll-mt-20">
       <div className="max-w-6xl mx-auto">
         
         {/* Section Header */}
         <ScrollReveal direction="up" distance={16} duration={500}>
-          <div className="flex flex-col md:flex-row md:items-end justify-between gap-4 mb-12 pb-6 border-b border-[#2A2A2A]">
+          <div className="flex flex-col md:flex-row md:items-end justify-between gap-3 sm:gap-4 mb-8 sm:mb-12 pb-4 sm:pb-6 border-b border-[#2A2A2A]">
             <div>
-              <div className="flex items-center gap-2 mb-2 font-mono text-xs uppercase tracking-widest text-[#F04B16]">
+              <div className="flex items-center gap-2 mb-1.5 sm:mb-2 font-mono text-[11px] sm:text-xs uppercase tracking-widest text-[#F04B16]">
                 <span className="w-2 h-2 rounded-full bg-[#F04B16]" />
                 <span>Verified Honors // 2024–2026</span>
               </div>
-              <h2 className="font-display text-4xl sm:text-6xl md:text-7xl text-[#FAF7F0] tracking-tight uppercase">
+              <h2 className="font-display text-3xl sm:text-5xl md:text-7xl text-[#FAF7F0] tracking-tight uppercase">
                 Visual Award Archive
               </h2>
-              <p className="font-serif italic text-base sm:text-lg text-[#8A877F] mt-1">
+              <p className="font-serif italic text-sm sm:text-base md:text-lg text-[#8A877F] mt-1">
                 Documented competition records from collegiate, state, and national hackathons.
               </p>
             </div>
@@ -42,8 +42,8 @@ const AchievementStrip: React.FC = () => {
           </div>
         </ScrollReveal>
 
-        {/* Visual Award Archive Grid with Standardized Aspect Ratios & Sleek Plaques */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+        {/* Visual Award Archive Grid */}
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6">
           {achievementsData.map((item, idx) => {
             const shortDesc = conciseDescriptions[item.id] || item.subtitle;
             const hasPhoto = item.id === 'codeneura';
@@ -61,11 +61,11 @@ const AchievementStrip: React.FC = () => {
                   tabIndex={0}
                   role="button"
                   aria-label={`Open verified case study for ${item.eventName}`}
-                  className="group h-full bg-[#090909] border border-[#2A2A2A] hover:border-[#F04B16] rounded-xl p-5 sm:p-6 flex flex-col justify-between transition-all duration-300 cursor-pointer focus:outline-none focus:ring-2 focus:ring-[#F04B16] hover:-translate-y-1"
+                  className="group h-full bg-[#090909] border border-[#2A2A2A] hover:border-[#F04B16] rounded-xl p-4 sm:p-6 flex flex-col justify-between transition-all duration-300 cursor-pointer focus:outline-none focus:ring-2 focus:ring-[#F04B16] hover:-translate-y-1"
                 >
                   <div>
-                    {/* Consistent Aspect Ratio Visual Banner (Zero broken images) */}
-                    <div className="relative w-full aspect-[16/10] rounded-lg overflow-hidden border border-[#2A2A2A] bg-[#151515] mb-4 flex items-center justify-center">
+                    {/* Consistent Aspect Ratio Visual Banner */}
+                    <div className="relative w-full aspect-[16/10] rounded-lg overflow-hidden border border-[#2A2A2A] bg-[#151515] mb-3 sm:mb-4 flex items-center justify-center">
                       {hasPhoto ? (
                         <>
                           <img
@@ -77,25 +77,25 @@ const AchievementStrip: React.FC = () => {
                             className="w-full h-full object-cover grayscale contrast-110 group-hover:grayscale-0 group-hover:scale-105 transition-all duration-500"
                           />
                           <div className="absolute inset-0 bg-gradient-to-t from-[#090909] via-transparent to-transparent pointer-events-none" />
-                          <div className="absolute bottom-2 left-3 right-3 flex items-center justify-between text-[11px] font-mono text-[#FAF7F0]">
+                          <div className="absolute bottom-2 left-2.5 right-2.5 flex items-center justify-between text-[10px] sm:text-[11px] font-mono text-[#FAF7F0]">
                             <span>Dhanush D Prabhu</span>
-                            <span className="text-[#F04B16] font-bold">1st Place Winner</span>
+                            <span className="text-[#F04B16] font-bold">1st Place</span>
                           </div>
                         </>
                       ) : (
                         /* Archival Certificate Plaque Visual */
-                        <div className="w-full h-full flex flex-col items-center justify-center p-4 bg-gradient-to-b from-[#181818] via-[#121212] to-[#0d0d0d] text-center relative group-hover:from-[#1f1917] transition-colors">
-                          <div className="w-10 h-10 rounded-full bg-[#F04B16]/10 border border-[#F04B16]/40 flex items-center justify-center text-[#F04B16] mb-2 group-hover:scale-110 group-hover:bg-[#F04B16]/20 transition-all">
+                        <div className="w-full h-full flex flex-col items-center justify-center p-3 sm:p-4 bg-gradient-to-b from-[#181818] via-[#121212] to-[#0d0d0d] text-center relative group-hover:from-[#1f1917] transition-colors">
+                          <div className="w-8 h-8 sm:w-10 sm:h-10 rounded-full bg-[#F04B16]/10 border border-[#F04B16]/40 flex items-center justify-center text-[#F04B16] mb-1.5 group-hover:scale-110 group-hover:bg-[#F04B16]/20 transition-all">
                             {item.award.includes('1st') ? (
-                              <Trophy className="w-4 h-4 text-[#F04B16]" />
+                              <Trophy className="w-3.5 h-3.5 sm:w-4 sm:h-4 text-[#F04B16]" />
                             ) : (
-                              <Award className="w-4 h-4 text-[#F04B16]" />
+                              <Award className="w-3.5 h-3.5 sm:w-4 sm:h-4 text-[#F04B16]" />
                             )}
                           </div>
                           <span className="font-serif italic text-xs text-[#FAF7F0] font-medium line-clamp-1">
                             {item.organization}
                           </span>
-                          <span className="font-mono text-[10px] text-[#8A877F] uppercase tracking-wider mt-1 flex items-center gap-1">
+                          <span className="font-mono text-[9px] sm:text-[10px] text-[#8A877F] uppercase tracking-wider mt-0.5 sm:mt-1 flex items-center gap-1">
                             <ShieldCheck className="w-3 h-3 text-[#F04B16]" />
                             Official Citation · {item.date}
                           </span>
@@ -104,23 +104,23 @@ const AchievementStrip: React.FC = () => {
                     </div>
 
                     {/* Meta: Award & Year */}
-                    <div className="flex items-center justify-between gap-2 mb-2">
-                      <span className="inline-block px-2.5 py-0.5 rounded font-mono text-[11px] font-bold uppercase tracking-wider bg-[#F04B16] text-[#FAF7F0]">
+                    <div className="flex items-center justify-between gap-2 mb-1.5 sm:mb-2">
+                      <span className="inline-block px-2 py-0.5 rounded font-mono text-[10px] sm:text-[11px] font-bold uppercase tracking-wider bg-[#F04B16] text-[#FAF7F0]">
                         {item.award}
                       </span>
-                      <div className="flex items-center gap-1 font-mono text-xs text-[#8A877F]">
+                      <div className="flex items-center gap-1 font-mono text-[11px] sm:text-xs text-[#8A877F]">
                         <Calendar className="w-3 h-3" />
                         <span>{item.date}</span>
                       </div>
                     </div>
 
                     {/* Competition Name */}
-                    <h3 className="font-serif text-lg sm:text-xl text-[#FAF7F0] group-hover:text-[#F04B16] transition-colors leading-snug mb-1.5">
+                    <h3 className="font-serif text-base sm:text-lg lg:text-xl text-[#FAF7F0] group-hover:text-[#F04B16] transition-colors leading-snug mb-1">
                       {item.eventName}
                     </h3>
 
                     {/* Organization */}
-                    <p className="font-mono text-xs text-[#8A877F] mb-3">
+                    <p className="font-mono text-[11px] sm:text-xs text-[#8A877F] mb-2 sm:mb-3">
                       {item.organization}
                     </p>
 
@@ -131,7 +131,7 @@ const AchievementStrip: React.FC = () => {
                   </div>
 
                   {/* Bottom Action Link */}
-                  <div className="pt-4 mt-4 border-t border-[#2A2A2A] flex items-center justify-between font-mono text-xs text-[#8A877F] group-hover:text-[#F04B16] transition-colors">
+                  <div className="pt-3 sm:pt-4 mt-3 sm:mt-4 border-t border-[#2A2A2A] flex items-center justify-between font-mono text-xs text-[#8A877F] group-hover:text-[#F04B16] transition-colors min-h-[36px]">
                     <span>Inspect Case Study</span>
                     <ArrowUpRight className="w-3.5 h-3.5 transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
                   </div>

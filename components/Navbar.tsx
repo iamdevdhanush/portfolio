@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { ArrowUpRight, FileText } from 'lucide-react';
 
 interface NavbarProps {
@@ -19,6 +19,18 @@ const navItems = [
 const Navbar: React.FC<NavbarProps> = ({ activeSection, onNavigate }) => {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
 
+  // Prevent background scrolling while mobile navigation is open
+  useEffect(() => {
+    if (isMobileMenuOpen) {
+      document.body.style.overflow = 'hidden';
+    } else {
+      document.body.style.overflow = '';
+    }
+    return () => {
+      document.body.style.overflow = '';
+    };
+  }, [isMobileMenuOpen]);
+
   const handleNavClick = (e: React.MouseEvent<HTMLAnchorElement>, id: string) => {
     e.preventDefault();
     setIsMobileMenuOpen(false);
@@ -37,14 +49,14 @@ const Navbar: React.FC<NavbarProps> = ({ activeSection, onNavigate }) => {
   return (
     <>
       {/* Simple, Unobtrusive Editorial Navigation Flush at Top */}
-      <header className="fixed top-0 left-0 right-0 z-50 bg-[#F1EBDD]/90 backdrop-blur-sm border-b border-[#E2DAC8]/70 px-6 sm:px-10 py-4 transition-all duration-300">
+      <header className="fixed top-0 left-0 right-0 z-50 bg-[#F1EBDD]/95 backdrop-blur-md border-b border-[#E2DAC8]/70 px-4 sm:px-8 lg:px-10 py-3 sm:py-4 transition-all duration-300">
         <div className="max-w-6xl mx-auto flex items-center justify-between">
           
-          {/* Small DP. Brand Mark on the Left */}
+          {/* Brand Mark */}
           <a
             href="#home"
             onClick={(e) => handleNavClick(e, 'home')}
-            className="flex items-baseline gap-1.5 py-1 cursor-pointer select-none group"
+            className="flex items-baseline gap-1.5 py-1 cursor-pointer select-none group min-h-[44px] items-center"
             aria-label="Dhanush D Prabhu Home"
           >
             <span className="font-serif font-black text-2xl tracking-tighter text-[#151515]">
@@ -52,7 +64,7 @@ const Navbar: React.FC<NavbarProps> = ({ activeSection, onNavigate }) => {
             </span>
           </a>
 
-          {/* Navigation Aligned to Upper Right */}
+          {/* Desktop Navigation Aligned to Upper Right */}
           <nav
             aria-label="Main Navigation"
             className="hidden md:flex items-center gap-7"
@@ -90,11 +102,11 @@ const Navbar: React.FC<NavbarProps> = ({ activeSection, onNavigate }) => {
             </a>
           </nav>
 
-          {/* Mobile Menu Toggle Button */}
+          {/* Mobile Menu Toggle Button (Min 44x44px Touch Target) */}
           <div className="flex md:hidden items-center">
             <button
               onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-              className="w-10 h-10 flex items-center justify-center text-[#151515] hover:text-[#F04B16] transition-colors"
+              className="w-11 h-11 flex items-center justify-center text-[#151515] hover:text-[#F04B16] transition-colors rounded-lg focus:outline-none focus:ring-1 focus:ring-[#F04B16]"
               aria-label={isMobileMenuOpen ? 'Close Navigation Menu' : 'Open Navigation Menu'}
               aria-expanded={isMobileMenuOpen}
             >
@@ -123,9 +135,9 @@ const Navbar: React.FC<NavbarProps> = ({ activeSection, onNavigate }) => {
 
       {/* Mobile Editorial Navigation Drawer */}
       {isMobileMenuOpen && (
-        <div className="fixed inset-0 z-40 bg-[#F1EBDD]/98 backdrop-blur-2xl pt-24 px-8 md:hidden animate-modal-backdrop flex flex-col justify-between pb-12">
-          <div className="flex flex-col gap-4">
-            <span className="font-mono text-xs uppercase tracking-widest text-[#8A877F] pb-2 border-b border-[#E2DAC8]">
+        <div className="fixed inset-0 z-40 bg-[#F1EBDD] pt-20 px-6 sm:px-8 md:hidden animate-modal-backdrop flex flex-col justify-between pb-8 overflow-y-auto">
+          <div className="flex flex-col gap-2 sm:gap-3">
+            <span className="font-mono text-[11px] uppercase tracking-widest text-[#8A877F] pb-2 border-b border-[#E2DAC8]">
               Table of Contents
             </span>
 
@@ -136,8 +148,8 @@ const Navbar: React.FC<NavbarProps> = ({ activeSection, onNavigate }) => {
                   key={item.id}
                   href={`#${item.id}`}
                   onClick={(e) => handleNavClick(e, item.id)}
-                  style={{ animationDelay: `${idx * 40}ms` }}
-                  className={`flex items-center justify-between text-3xl font-serif py-2 transition-all duration-200 border-b border-[#E2DAC8]/60 cursor-pointer ${
+                  style={{ animationDelay: `${idx * 30}ms` }}
+                  className={`flex items-center justify-between text-2xl sm:text-3xl font-serif py-2.5 transition-all duration-200 border-b border-[#E2DAC8]/60 cursor-pointer min-h-[44px] ${
                     isActive
                       ? 'text-[#F04B16] font-bold'
                       : 'text-[#151515] hover:text-[#F04B16]'
@@ -156,14 +168,14 @@ const Navbar: React.FC<NavbarProps> = ({ activeSection, onNavigate }) => {
             <a
               href="/Dhanush_D_Prabhu_Resume.pdf"
               onClick={handleResumeClick}
-              className="mt-6 px-5 py-3 rounded-lg border border-[#151515] bg-[#151515] text-[#FAF7F0] font-mono text-xs uppercase tracking-wider font-bold flex items-center justify-center gap-2 cursor-pointer shadow-sm"
+              className="mt-4 px-5 py-3 rounded-lg border border-[#151515] bg-[#151515] text-[#FAF7F0] font-mono text-xs uppercase tracking-wider font-bold flex items-center justify-center gap-2 cursor-pointer shadow-sm min-h-[44px]"
             >
               <FileText className="w-4 h-4" />
               <span>Download Resume (PDF)</span>
             </a>
           </div>
 
-          <div className="pt-6 border-t border-[#E2DAC8] text-xs font-mono text-[#8A877F] flex justify-between items-center">
+          <div className="pt-4 border-t border-[#E2DAC8] text-xs font-mono text-[#8A877F] flex justify-between items-center">
             <span>DHANUSH D PRABHU</span>
             <span>SHIMOGA, INDIA</span>
           </div>

@@ -13,9 +13,9 @@ const Hero: React.FC<HeroProps> = ({ onNavigate }) => {
   };
 
   return (
-    <div className="relative pt-16 md:pt-24 pb-0">
+    <div className="relative pt-12 sm:pt-16 md:pt-24 pb-0">
       {/* Hero Content Container */}
-      <div className="max-w-6xl mx-auto px-5 sm:px-8 pb-10 md:pb-14">
+      <div className="max-w-6xl mx-auto px-4 sm:px-8 pb-8 sm:pb-12 md:pb-14">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-10 items-center">
           
           {/* ========================================================= */}
@@ -24,64 +24,64 @@ const Hero: React.FC<HeroProps> = ({ onNavigate }) => {
           <div className="lg:col-span-7 xl:col-span-8 flex flex-col items-start z-10 w-full min-w-0">
             
             {/* Professional Eyebrow */}
-            <div className="hero-enter-1 flex items-center gap-2 mb-3 font-mono text-xs uppercase tracking-widest text-[#8A877F]">
+            <div className="hero-enter-1 flex items-center gap-2 mb-2 sm:mb-3 font-mono text-[11px] sm:text-xs uppercase tracking-widest text-[#8A877F]">
               <span className="w-2 h-2 rounded-full bg-[#F04B16]" />
               <span>AI Engineer & Software Architect</span>
             </div>
 
             {/* Massive Two-Line Name: Staggered Word Reveal with Condensed Display */}
-            <h1 className="font-['Anton',sans-serif] italic text-4xl sm:text-6xl md:text-8xl lg:text-[88px] xl:text-[100px] text-[#151515] tracking-tight leading-[0.9] uppercase mb-4 select-none w-full overflow-visible">
+            <h1 className="font-['Anton',sans-serif] italic text-4xl sm:text-6xl md:text-8xl lg:text-[88px] xl:text-[100px] text-[#151515] tracking-tight leading-[0.9] uppercase mb-3 sm:mb-4 select-none w-full overflow-visible">
               <span className="block w-full overflow-visible">
-                <span className="hero-word-1 inline-block whitespace-nowrap pr-4 sm:pr-6">
+                <span className="hero-word-1 inline-block whitespace-nowrap pr-3 sm:pr-6">
                   DHANUSH D
                 </span>
               </span>
               <span className="block w-full overflow-visible">
-                <span className="hero-word-2 inline-block whitespace-nowrap pr-4 sm:pr-6 text-[#151515] hover:text-[#F04B16] transition-colors duration-300">
+                <span className="hero-word-2 inline-block whitespace-nowrap pr-3 sm:pr-6 text-[#151515] hover:text-[#F04B16] transition-colors duration-300">
                   PRABHU
                 </span>
               </span>
             </h1>
 
             {/* Editorial Serif Statement */}
-            <div className="hero-enter-2 mb-3">
-              <p className="font-serif italic text-2xl sm:text-3xl text-[#151515] leading-snug font-normal max-w-xl">
+            <div className="hero-enter-2 mb-2 sm:mb-3">
+              <p className="font-serif italic text-xl sm:text-2xl md:text-3xl text-[#151515] leading-snug font-normal max-w-xl">
                 Building intelligent systems that solve real-world problems.
               </p>
             </div>
 
             {/* Supporting Text */}
-            <p className="hero-enter-3 font-sans text-sm sm:text-base text-[#151515]/80 leading-relaxed max-w-lg mb-6">
+            <p className="hero-enter-3 font-sans text-xs sm:text-sm md:text-base text-[#151515]/80 leading-relaxed max-w-lg mb-4 sm:mb-6">
               Backend engineering, AI systems, and geospatial intelligence.
             </p>
 
-            {/* Two Restrained CTA Buttons (Mobile-first Touch Friendly) */}
-            <div className="hero-enter-4 flex flex-col sm:flex-row items-stretch sm:items-center gap-3 sm:gap-3.5 mb-6 w-full sm:w-auto">
+            {/* Two Restrained CTA Buttons (Mobile-first Compact Inline Layout) */}
+            <div className="hero-enter-4 flex flex-row items-center gap-2.5 sm:gap-3.5 mb-5 sm:mb-6 w-full sm:w-auto">
               <button
                 onClick={() => onNavigate('projects')}
-                className="px-6 py-3 bg-[#151515] text-[#FAF7F0] hover:bg-[#F04B16] font-mono text-xs font-bold uppercase tracking-wider rounded transition-all duration-200 flex items-center justify-center gap-2 cursor-pointer active:scale-95 shadow-sm min-h-[44px]"
+                className="flex-1 sm:flex-initial px-4 sm:px-6 py-2.5 sm:py-3 bg-[#151515] text-[#FAF7F0] hover:bg-[#F04B16] font-mono text-[11px] sm:text-xs font-bold uppercase tracking-wider rounded transition-all duration-200 flex items-center justify-center gap-1.5 sm:gap-2 cursor-pointer active:scale-95 shadow-sm min-h-[44px]"
               >
                 <span>View Selected Work</span>
-                <ArrowDown className="w-3.5 h-3.5" />
+                <ArrowDown className="w-3.5 h-3.5 shrink-0" />
               </button>
 
               <button
                 onClick={() => onNavigate('contact')}
-                className="px-6 py-3 bg-transparent border border-[#151515] hover:border-[#F04B16] hover:text-[#F04B16] text-[#151515] font-mono text-xs font-bold uppercase tracking-wider rounded transition-all duration-200 cursor-pointer active:scale-95 min-h-[44px] flex items-center justify-center"
+                className="px-4 sm:px-6 py-2.5 sm:py-3 bg-transparent border border-[#151515] hover:border-[#F04B16] hover:text-[#F04B16] text-[#151515] font-mono text-[11px] sm:text-xs font-bold uppercase tracking-wider rounded transition-all duration-200 cursor-pointer active:scale-95 min-h-[44px] flex items-center justify-center shrink-0"
               >
                 <span>Get In Touch</span>
               </button>
             </div>
 
             {/* Location & Academic Metadata */}
-            <div className="hero-enter-5 flex flex-wrap items-center gap-3 sm:gap-4 text-xs font-mono text-[#8A877F] pt-3.5 border-t border-[#E2DAC8] w-full max-w-lg">
+            <div className="hero-enter-5 flex flex-wrap items-center gap-2 sm:gap-4 text-[11px] sm:text-xs font-mono text-[#8A877F] pt-3 border-t border-[#E2DAC8] w-full max-w-lg">
               <div className="flex items-center gap-1.5">
-                <GraduationCap className="w-3.5 h-3.5 text-[#F04B16]" />
+                <GraduationCap className="w-3.5 h-3.5 text-[#F04B16] shrink-0" />
                 <span className="text-[#151515]">PESIAMS (BCA 2024–2027)</span>
               </div>
               <span className="text-[#E2DAC8]">•</span>
               <div className="flex items-center gap-1.5">
-                <MapPin className="w-3.5 h-3.5 text-[#F04B16]" />
+                <MapPin className="w-3.5 h-3.5 text-[#F04B16] shrink-0" />
                 <span>Shimoga, Karnataka, India</span>
               </div>
             </div>
@@ -91,23 +91,23 @@ const Hero: React.FC<HeroProps> = ({ onNavigate }) => {
           {/* ========================================================= */}
           {/* RIGHT: INTEGRATED PHOTOGRAPHIC COLLAGE & GEOMETRIC BACKING */}
           {/* ========================================================= */}
-          <div className="lg:col-span-5 xl:col-span-4 flex justify-center lg:justify-end hero-portrait">
+          <div className="lg:col-span-5 xl:col-span-4 flex justify-center lg:justify-end hero-portrait mt-4 sm:mt-6 lg:mt-0">
             <div className="flex flex-col items-center sm:items-end">
               
-              {/* Layered Composition Box */}
-              <div className="relative w-[270px] sm:w-[310px] md:w-[340px] h-[340px] sm:h-[390px] md:h-[420px]">
+              {/* Layered Composition Box: Compact and responsive on mobile */}
+              <div className="relative w-[230px] sm:w-[280px] md:w-[320px] h-[280px] sm:h-[350px] md:h-[400px]">
                 
                 {/* 1. Vermilion-Orange Geometric Shape Backing */}
-                <div className="absolute right-1 sm:right-3 top-2 w-[240px] sm:w-[280px] md:w-[300px] h-[310px] sm:h-[360px] md:h-[390px] bg-[#F04B16] rounded-sm -rotate-2 shadow-md z-0 transition-transform duration-500 hover:-rotate-1" />
+                <div className="absolute right-1 sm:right-3 top-2 w-[210px] sm:w-[250px] md:w-[290px] h-[250px] sm:h-[320px] md:h-[370px] bg-[#F04B16] rounded-sm -rotate-2 shadow-md z-0 transition-transform duration-500 hover:-rotate-1" />
 
                 {/* 2. Black Circular Graphic Behind the Subject */}
-                <div className="absolute -left-3 sm:-left-5 top-8 w-44 sm:w-52 h-44 sm:h-52 rounded-full bg-[#151515] z-0 opacity-95 pointer-events-none" />
+                <div className="absolute -left-3 sm:-left-5 top-6 sm:top-8 w-36 sm:w-48 h-36 sm:h-48 rounded-full bg-[#151515] z-0 opacity-95 pointer-events-none" />
 
                 {/* 3. Subtle Warm Paper Layer Behind */}
-                <div className="absolute -left-1 bottom-4 w-40 sm:w-48 h-40 sm:h-48 bg-[#FAF7F0] border border-[#E2DAC8] rounded-sm rotate-2 z-0 shadow-sm opacity-80" />
+                <div className="absolute -left-1 bottom-3 sm:bottom-4 w-32 sm:w-44 h-32 sm:h-44 bg-[#FAF7F0] border border-[#E2DAC8] rounded-sm rotate-2 z-0 shadow-sm opacity-80" />
 
                 {/* 4. Main Portrait: Clean, Natural Contrast & Clear Visibility with Mask Reveal */}
-                <div className="hero-portrait-reveal absolute left-3 sm:left-5 top-5 w-[240px] sm:w-[280px] md:w-[300px] h-[310px] sm:h-[360px] md:h-[390px] z-10 overflow-hidden rounded-sm border border-[#151515] shadow-xl bg-[#E2DAC8] group">
+                <div className="hero-portrait-reveal absolute left-2.5 sm:left-4 top-4 sm:top-5 w-[210px] sm:w-[250px] md:w-[290px] h-[250px] sm:h-[320px] md:h-[370px] z-10 overflow-hidden rounded-sm border border-[#151515] shadow-xl bg-[#E2DAC8] group">
                   <img
                     src={imgSrc}
                     onError={handleImgError}
@@ -123,11 +123,11 @@ const Hero: React.FC<HeroProps> = ({ onNavigate }) => {
                   <div className="absolute inset-0 bg-gradient-to-t from-[#151515]/70 via-transparent to-transparent pointer-events-none" />
                   
                   {/* Subtle Identification Meta */}
-                  <div className="absolute bottom-2.5 left-3 right-3 flex items-center justify-between pointer-events-none text-white/90">
-                    <span className="font-mono text-[10px] tracking-wider uppercase font-semibold">
+                  <div className="absolute bottom-2 left-2.5 right-2.5 flex items-center justify-between pointer-events-none text-white/90">
+                    <span className="font-mono text-[9px] sm:text-[10px] tracking-wider uppercase font-semibold">
                       Dhanush D Prabhu
                     </span>
-                    <span className="font-mono text-[9px] text-[#F04B16] font-bold">
+                    <span className="font-mono text-[8px] sm:text-[9px] text-[#F04B16] font-bold">
                       ARCHIVE // 2026
                     </span>
                   </div>
@@ -135,12 +135,12 @@ const Hero: React.FC<HeroProps> = ({ onNavigate }) => {
 
               </div>
 
-              {/* 5. Intentionally Attached Signature Plaque (Below Image, Not Randomly Floating Over) */}
-              <div className="w-[270px] sm:w-[310px] md:w-[340px] mt-2.5 pt-2 border-t border-[#E2DAC8]/80 flex items-center justify-between text-xs">
-                <span className="font-hand text-xl sm:text-2xl text-[#151515] select-none">
+              {/* 5. Intentionally Attached Signature Plaque */}
+              <div className="w-[230px] sm:w-[280px] md:w-[320px] mt-2 pt-2 border-t border-[#E2DAC8]/80 flex items-center justify-between text-xs">
+                <span className="font-hand text-lg sm:text-2xl text-[#151515] select-none">
                   ✦ Dhanush D Prabhu
                 </span>
-                <span className="font-mono text-[10px] text-[#8A877F] uppercase tracking-wider">
+                <span className="font-mono text-[9px] sm:text-[10px] text-[#8A877F] uppercase tracking-wider">
                   STUDIO ARCHIVE
                 </span>
               </div>
