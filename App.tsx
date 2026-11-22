@@ -111,11 +111,11 @@ export default function App() {
 
 function NavigateToHome() {
   return (
-    <div className="max-w-4xl mx-auto px-6 pt-36 pb-20 relative z-10 text-center text-[#929292] font-mono">
-      <h1 className="text-xl font-bold text-[#F5F2ED] mb-3">404 // Target Route Not Found</h1>
-      <p className="text-sm mb-6">The requested resource could not be resolved in this system space.</p>
+    <div className="max-w-4xl mx-auto px-6 pt-36 pb-20 relative z-10 text-center text-[#929292]">
+      <h1 className="text-2xl font-bold text-[#F5F2ED] mb-3">Page Not Found</h1>
+      <p className="text-sm mb-6">The requested page could not be located.</p>
       <a href="/" className="px-5 py-2.5 bg-[#F28C28] text-[#0B0C0E] text-xs font-semibold rounded-lg hover:bg-[#FA9E42] transition-colors inline-block">
-        Return to Root Coordinates
+        Return to Home
       </a>
     </div>
   );

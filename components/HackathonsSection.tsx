@@ -1,65 +1,81 @@
 import React from 'react';
-import { Users, Timer, Compass, Terminal } from 'lucide-react';
 import ScrollReveal from './ScrollReveal';
 
 const HackathonsSection: React.FC = () => {
-  const leadershipFacets = [
+  const leadershipPrinciples = [
     {
-      icon: <Users className="w-5 h-5 text-[#F28C28]" />,
-      title: 'Architectural Scoping & Delegation',
-      description: 'Establishing API contracts, data schemas, and sprint checkpoints early. Dividing responsibilities across frontend, backend, and database to keep team members unblocked.'
+      num: '01',
+      title: 'Architectural Scoping & Schema Contracts',
+      narrative:
+        'In the opening two hours of a 24–48 hour sprint, I lock down API contracts, database schemas, and service boundaries. Establishing explicit interfaces early eliminates blocking dependencies between backend, frontend, and database team members.'
     },
     {
-      icon: <Timer className="w-5 h-5 text-[#F28C28]" />,
-      title: 'Decisions Under Time Constraints',
-      description: 'Making pragmatic engineering trade-offs during 24–48 hour competitions. Prioritizing core computational functionality over non-essential features, with robust handling on primary user paths.'
+      num: '02',
+      title: 'Decisive Triage Under Time Limits',
+      narrative:
+        'Hackathon constraints force ruthless engineering triage. I prioritize rock-solid execution on core computational pipelines over shallow feature sets. Defending an application with zero runtime exceptions always beats presenting unfinished ambition.'
     },
     {
-      icon: <Terminal className="w-5 h-5 text-[#F28C28]" />,
-      title: 'Working Full-Stack Deployments',
-      description: 'Containerizing services with Docker Compose so that judging panels evaluate a working, reproducible deployment rather than concept slides.'
+      num: '03',
+      title: 'Dockerized Reproducible Deployments',
+      narrative:
+        'I enforce containerization with Docker Compose from the start. When jury evaluation begins, judges interact with a live, running full-stack deployment rather than pitch slides or simulated mocks.'
     },
     {
-      icon: <Compass className="w-5 h-5 text-[#F28C28]" />,
-      title: 'Technical Presentation',
-      description: 'Articulating system design, geospatial query mechanics, and data flow to evaluation panels clearly, defending technical architectural choices with confidence.'
+      num: '04',
+      title: 'Defending Architectural Decisions',
+      narrative:
+        'Technical presentations require clear, confident articulation of design choices—explaining spatial query optimization, multi-agent pipelines, or database normalization trade-offs with verifiable clarity.'
     }
   ];
 
   return (
     <section id="hackathons" className="mb-24 md:mb-32 scroll-mt-28">
-      {/* Clean Header */}
+      {/* Clean Editorial Header */}
       <ScrollReveal direction="up" distance={16} duration={500}>
         <div className="flex flex-col md:flex-row md:items-end justify-between gap-4 mb-10 pb-4 border-b border-[#292929]">
           <div>
+            <div className="flex items-center gap-3 mb-2">
+              <span className="w-5 h-[2px] bg-[#F28C28]" />
+              <span className="text-xs uppercase tracking-widest text-[#F28C28] font-semibold">
+                Engineering Leadership
+              </span>
+            </div>
             <h2 className="text-2xl sm:text-3xl font-bold text-[#F5F2ED] tracking-tight">
-              Hackathons & Leadership
+              Execution Under Crucible Constraints
             </h2>
-            <p className="text-sm text-[#929292] mt-1">
-              Experience leading teams, making architectural decisions, and delivering working solutions under strict deadlines.
-            </p>
           </div>
+          <span className="text-xs text-[#929292]">
+            Lessons from collegiate, state, and national hackathon leadership
+          </span>
         </div>
       </ScrollReveal>
 
-      {/* Leadership Facets Grid */}
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
-        {leadershipFacets.map((facet, idx) => (
-          <ScrollReveal key={idx} delay={idx * 75} direction="up" distance={18} duration={550}>
-            <div
-              className="bg-[#111214] border border-[#292929] hover:border-[#F28C28]/40 rounded-2xl p-6 sm:p-7 transition-all duration-300 hover:-translate-y-1 hover:shadow-xl hover:shadow-[#F28C28]/5 flex items-start gap-4 h-full group"
-            >
-              <div className="w-10 h-10 rounded-xl bg-[#171719] border border-[#292929] flex items-center justify-center shrink-0 text-[#F28C28]">
-                {facet.icon}
-              </div>
-              <div>
-                <h3 className="font-semibold text-base text-[#F5F2ED] mb-1.5 group-hover:text-[#F28C28] transition-colors">
-                  {facet.title}
+      {/* Narrative Lead Paragraph */}
+      <ScrollReveal direction="up" distance={18} duration={600} delay={60}>
+        <div className="mb-12 max-w-3xl">
+          <p className="text-base sm:text-lg text-[#929292] leading-relaxed">
+            In competitive 24 to 48-hour sprints, software architecture either holds up under pressure or collapses. Leading teams in these environments requires quick, pragmatic triage: establishing system contracts early, avoiding speculative complexity, and shipping verifiable code.
+          </p>
+        </div>
+      </ScrollReveal>
+
+      {/* Asymmetric Numbered Narrative Matrix (Zero Cards, Zero Boxed Icons) */}
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-x-12 gap-y-10 border-t border-[#292929] pt-8">
+        {leadershipPrinciples.map((item, idx) => (
+          <ScrollReveal key={item.num} delay={idx * 75} direction="up" distance={16} duration={500}>
+            <div className="space-y-3 group">
+              <div className="flex items-center gap-3">
+                <span className="text-sm font-mono text-[#F28C28] font-bold">
+                  {item.num}.
+                </span>
+                <h3 className="text-base font-semibold text-[#F5F2ED] group-hover:text-[#F28C28] transition-colors">
+                  {item.title}
                 </h3>
-                <p className="text-xs sm:text-sm text-[#929292] leading-relaxed">
-                  {facet.description}
-                </p>
               </div>
+              <p className="text-xs sm:text-sm text-[#929292] leading-relaxed pl-7">
+                {item.narrative}
+              </p>
             </div>
           </ScrollReveal>
         ))}

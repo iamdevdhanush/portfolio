@@ -21,71 +21,65 @@ const ContactSection: React.FC = () => {
   };
 
   return (
-    <section id="contact" className="mb-20 scroll-mt-28">
-      {/* Clean Header */}
-      <ScrollReveal direction="up" distance={16} duration={500}>
-        <div className="flex flex-col md:flex-row md:items-end justify-between gap-4 mb-10 pb-4 border-b border-[#292929]">
-          <div>
-            <h2 className="text-2xl sm:text-3xl font-bold text-[#F5F2ED] tracking-tight">
-              Contact
-            </h2>
-            <p className="text-sm text-[#929292] mt-1">
-              Open to conversations about backend engineering, AI systems, and opportunities.
-            </p>
+    <section id="contact" className="mb-24 scroll-mt-28">
+      {/* Full-Width Open Editorial Layout (Zero Boxed Containers) */}
+      <ScrollReveal direction="up" distance={20} duration={600}>
+        <div className="pt-12 pb-8 border-t border-[#292929]">
+          
+          <div className="flex items-center gap-3 mb-4">
+            <span className="w-5 h-[2px] bg-[#F28C28]" />
+            <span className="text-xs uppercase tracking-widest text-[#F28C28] font-semibold">
+              Get in Touch
+            </span>
           </div>
-        </div>
-      </ScrollReveal>
 
-      {/* Main Contact Card */}
-      <ScrollReveal direction="up" distance={22} duration={650} delay={80}>
-        <div className="bg-[#111214] border border-[#292929] rounded-2xl p-8 sm:p-12 text-center flex flex-col items-center">
-          <h3 className="text-2xl sm:text-3xl font-bold text-[#F5F2ED] tracking-tight max-w-xl mb-4 leading-tight">
-            Interested in collaborating or discussing opportunities?
-          </h3>
+          <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-[#F5F2ED] tracking-tight leading-tight max-w-2xl mb-4">
+            Let's build something dependable.
+          </h2>
 
-          <p className="text-sm sm:text-base text-[#929292] max-w-lg mb-8 leading-relaxed font-normal">
-            I am always open to conversations with engineers, teams, and founders working on high-impact systems.
+          <p className="text-sm sm:text-base text-[#929292] max-w-xl leading-relaxed mb-8">
+            Always open to conversations regarding backend engineering, AI pipelines, system architecture, and new opportunities.
           </p>
 
-          {/* Email Block */}
-          <div className="flex flex-col sm:flex-row items-center gap-3 mb-8 w-full max-w-md">
+          {/* Email Interaction Block */}
+          <div className="flex flex-wrap items-center gap-4 mb-10">
             <a
               href={`mailto:${email}`}
-              className="flex-1 w-full sm:w-auto px-5 py-3 rounded-xl bg-[#171719] border border-[#292929] hover:border-[#F28C28]/60 text-xs sm:text-sm text-[#F5F2ED] hover:text-[#F28C28] transition-colors flex items-center justify-center gap-2 group active:scale-95"
+              className="inline-flex items-center gap-2.5 px-6 py-3.5 bg-[#F28C28] text-[#0B0C0E] text-xs font-bold uppercase tracking-wider rounded-xl hover:bg-[#FA9E42] transition-colors active:scale-95 shadow-md shadow-[#F28C28]/15"
             >
-              <Mail className="w-4 h-4 text-[#F28C28]" />
+              <Mail className="w-4 h-4" />
               <span>{email}</span>
-              <ArrowUpRight className="w-3.5 h-3.5 text-[#929292] group-hover:text-[#F28C28] transition-colors" />
+              <ArrowUpRight className="w-3.5 h-3.5" />
             </a>
 
             <button
               onClick={handleCopyEmail}
-              className="w-full sm:w-auto px-4 py-3 rounded-xl bg-[#171719] border border-[#292929] hover:border-[#F28C28]/60 text-xs text-[#929292] hover:text-[#F5F2ED] transition-colors flex items-center justify-center gap-2 cursor-pointer min-h-[44px] active:scale-95"
+              className="px-5 py-3.5 rounded-xl border border-[#292929] hover:border-[#F28C28]/50 text-xs font-medium text-[#F5F2ED] hover:text-[#F28C28] transition-colors flex items-center gap-2 cursor-pointer active:scale-95 min-h-[44px]"
               aria-label="Copy email address"
             >
               {copied ? (
                 <>
                   <Check className="w-4 h-4 text-emerald-400" />
-                  <span className="text-emerald-400 font-medium">Copied</span>
+                  <span className="text-emerald-400">Copied</span>
                 </>
               ) : (
                 <>
-                  <Copy className="w-4 h-4" />
-                  <span>Copy</span>
+                  <Copy className="w-4 h-4 text-[#929292]" />
+                  <span>Copy Address</span>
                 </>
               )}
             </button>
           </div>
 
-          {/* Social and Resume Links */}
-          <div className="flex flex-wrap items-center justify-center gap-3 pt-6 border-t border-[#292929] w-full max-w-lg">
+          {/* Inline Links */}
+          <div className="pt-6 border-t border-[#292929]/70 flex flex-wrap items-center gap-6 text-xs text-[#929292]">
             <a
               href="https://github.com/iamdevdhanush"
               target="_blank"
               rel="noopener noreferrer"
-              className="px-4 py-2.5 rounded-xl bg-[#171719] border border-[#292929] hover:border-[#F28C28]/40 text-xs text-[#F5F2ED] hover:text-[#F28C28] transition-colors flex items-center gap-2"
+              className="hover:text-[#F28C28] transition-colors flex items-center gap-1.5 font-medium"
             >
-              <Github className="w-4 h-4 text-[#F28C28]" />
+              <Github className="w-3.5 h-3.5 text-[#F28C28]" />
               <span>GitHub</span>
             </a>
 
@@ -93,21 +87,22 @@ const ContactSection: React.FC = () => {
               href="https://www.linkedin.com/in/dhanushdprabhu/"
               target="_blank"
               rel="noopener noreferrer"
-              className="px-4 py-2.5 rounded-xl bg-[#171719] border border-[#292929] hover:border-[#F28C28]/40 text-xs text-[#F5F2ED] hover:text-[#F28C28] transition-colors flex items-center gap-2"
+              className="hover:text-[#F28C28] transition-colors flex items-center gap-1.5 font-medium"
             >
-              <Linkedin className="w-4 h-4 text-[#F28C28]" />
+              <Linkedin className="w-3.5 h-3.5 text-[#F28C28]" />
               <span>LinkedIn</span>
             </a>
 
             <a
               href="/Dhanush_D_Prabhu_Resume.pdf"
               onClick={handleResumeClick}
-              className="px-4 py-2.5 rounded-xl bg-[#F28C28] text-[#0B0C0E] hover:bg-[#FA9E42] text-xs font-semibold transition-colors flex items-center gap-2 shadow-md shadow-[#F28C28]/10"
+              className="hover:text-[#F28C28] transition-colors flex items-center gap-1.5 font-medium"
             >
-              <FileText className="w-4 h-4" />
-              <span>Resume</span>
+              <FileText className="w-3.5 h-3.5 text-[#F28C28]" />
+              <span>Download Resume</span>
             </a>
           </div>
+
         </div>
       </ScrollReveal>
     </section>

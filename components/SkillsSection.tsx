@@ -1,69 +1,55 @@
 import React from 'react';
 import { skillCategories } from '../data/skills';
-import { Server, Layout, Database, Terminal, Wrench } from 'lucide-react';
 import ScrollReveal from './ScrollReveal';
 
 const SkillsSection: React.FC = () => {
-  const getCategoryIcon = (category: string) => {
-    switch (category) {
-      case 'Backend':
-        return <Server className="w-4 h-4 text-[#F28C28]" />;
-      case 'Frontend':
-        return <Layout className="w-4 h-4 text-[#F28C28]" />;
-      case 'Databases':
-        return <Database className="w-4 h-4 text-[#F28C28]" />;
-      case 'DevOps':
-        return <Terminal className="w-4 h-4 text-[#F28C28]" />;
-      case 'Tools':
-        return <Wrench className="w-4 h-4 text-[#F28C28]" />;
-      default:
-        return <Server className="w-4 h-4 text-[#F28C28]" />;
-    }
-  };
-
   return (
     <section id="skills" className="mb-24 md:mb-32 scroll-mt-28">
-      {/* Clean Header */}
+      {/* Clean Editorial Header */}
       <ScrollReveal direction="up" distance={16} duration={500}>
         <div className="flex flex-col md:flex-row md:items-end justify-between gap-4 mb-10 pb-4 border-b border-[#292929]">
           <div>
+            <div className="flex items-center gap-3 mb-2">
+              <span className="w-5 h-[2px] bg-[#F28C28]" />
+              <span className="text-xs uppercase tracking-widest text-[#F28C28] font-semibold">
+                Technical Repertoire
+              </span>
+            </div>
             <h2 className="text-2xl sm:text-3xl font-bold text-[#F5F2ED] tracking-tight">
-              Skills
+              Technologies & Infrastructure
             </h2>
-            <p className="text-sm text-[#929292] mt-1">
-              Core technologies, frameworks, and developer tooling.
-            </p>
           </div>
+          <span className="text-xs text-[#929292]">
+            Core languages, frameworks, databases, and tooling
+          </span>
         </div>
       </ScrollReveal>
 
-      {/* Grid of 5 Skill Categories */}
-      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-5">
+      {/* Typography-Led Editorial Skill Matrix (Zero Cards, Zero Icons, Zero Fake Percentages) */}
+      <div className="border-t border-[#292929]">
         {skillCategories.map((cat, idx) => (
-          <ScrollReveal key={cat.category} delay={idx * 65} direction="up" distance={18} duration={550}>
-            <div
-              className="bg-[#111214] border border-[#292929] hover:border-[#F28C28]/40 rounded-2xl p-5 flex flex-col justify-between transition-all duration-300 hover:-translate-y-1 hover:shadow-xl hover:shadow-[#F28C28]/5 group h-full"
-            >
-              <div>
-                <div className="flex items-center gap-2 mb-4 pb-3 border-b border-[#292929]">
-                  <div className="w-7 h-7 rounded-lg bg-[#171719] border border-[#292929] flex items-center justify-center">
-                    {getCategoryIcon(cat.category)}
-                  </div>
-                  <h3 className="text-xs font-semibold uppercase tracking-wider text-[#F5F2ED] group-hover:text-[#F28C28] transition-colors">
-                    {cat.category}
-                  </h3>
-                </div>
+          <ScrollReveal key={cat.category} delay={idx * 60} direction="up" distance={14} duration={500}>
+            <div className="py-5 border-b border-[#292929] flex flex-col sm:flex-row sm:items-center justify-between gap-3 group hover:bg-[#111214]/40 px-2 sm:px-4 rounded-lg transition-colors">
+              {/* Category Name */}
+              <div className="sm:w-1/3 flex items-center gap-2">
+                <span className="w-1.5 h-1.5 rounded-full bg-[#F28C28] opacity-60 group-hover:opacity-100 transition-opacity" />
+                <h3 className="text-xs font-semibold uppercase tracking-wider text-[#F5F2ED] group-hover:text-[#F28C28] transition-colors">
+                  {cat.category}
+                </h3>
+              </div>
 
-                <div className="flex flex-col gap-2">
-                  {cat.items.map((item) => (
-                    <div
-                      key={item}
-                      className="flex items-center justify-between px-3 py-2 rounded-lg bg-[#171719] border border-[#292929] text-xs text-[#F5F2ED] hover:border-[#F28C28]/50 hover:text-[#F28C28] transition-colors"
-                    >
-                      <span>{item}</span>
-                    </div>
-                  ))}
-                </div>
+              {/* Technologies List with Subtle Typographic Separators */}
+              <div className="sm:w-2/3 flex flex-wrap items-center gap-x-3 gap-y-1.5 text-xs sm:text-sm text-[#929292]">
+                {cat.items.map((item, itemIdx) => (
+                  <React.Fragment key={item}>
+                    <span className="text-[#F5F2ED]/90 hover:text-[#F28C28] transition-colors">
+                      {item}
+                    </span>
+                    {itemIdx < cat.items.length - 1 && (
+                      <span className="text-[#292929] select-none">•</span>
+                    )}
+                  </React.Fragment>
+                ))}
               </div>
             </div>
           </ScrollReveal>
