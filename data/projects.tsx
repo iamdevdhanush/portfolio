@@ -8,7 +8,7 @@ export const projects: Project[] = [
     title: 'Avana V2',
     subtitle: 'Multi-Agent Intelligence Platform for Safety Analytics',
     description: 'An AI-powered safety intelligence platform featuring multi-agent workflows, geospatial analytics, and real-time risk scoring.',
-    longDescription: 'Avana V2 is a comprehensive safety intelligence platform built with a FastAPI backend and React frontend. It leverages multi-agent AI workflows to process incident reports, extract actionable intelligence, and provide geospatial safety analytics. The platform features interactive safety heatmaps, risk scoring algorithms, and safe-route intelligence to help users make informed decisions about their environment. The system was architected to handle real-time data ingestion from multiple sources, process it through specialized AI agents, and present actionable insights through an intuitive geospatial interface.',
+    longDescription: 'Avana V2 is a safety intelligence platform built with a FastAPI backend, PostgreSQL/PostGIS database, and React frontend. It synthesizes unstructured incident reports into structured geospatial intelligence, rendering real-time safety heatmaps and algorithmic safe-route navigation corridors to protect citizens.',
     icon: <BrainCircuit className="w-8 h-8 text-zinc-400" />,
     tags: ['FastAPI', 'PostgreSQL', 'PostGIS', 'React', 'TypeScript', 'TailwindCSS', 'Docker', 'Gemini AI'],
     githubLink: 'https://github.com/iamdevdhanush/avana-v2',
@@ -40,17 +40,61 @@ export const projects: Project[] = [
       'Incident data aggregation, normalization, and enrichment',
       'Risk scoring with configurable weight parameters'
     ],
-    isFlagship: true
+    isFlagship: true,
+    architectureFlow: [
+      {
+        step: '01',
+        label: 'Multi-Source Ingestion',
+        tech: 'FastAPI / Async REST',
+        description: 'Receives unstructured incident reports and real-time alert payloads via asynchronous non-blocking endpoints.',
+      },
+      {
+        step: '02',
+        label: 'Agent Normalization',
+        tech: 'Gemini AI Pipeline',
+        description: 'Specialized LLM agent parses incident narrative to extract standardized severity levels, hazard tags, and spatial entities.',
+      },
+      {
+        step: '03',
+        label: 'Spatial Indexing',
+        tech: 'PostGIS / GIST R-Tree',
+        description: 'PostgreSQL geometry columns indexed with GIST R-Tree enable sub-second spatial radius aggregation and density clustering.',
+      },
+      {
+        step: '04',
+        label: 'Heatmap & Safe Corridors',
+        tech: 'React / Leaflet & Vectors',
+        description: 'Renders dynamic risk density heatmaps and computes algorithmic safe transit corridors avoiding active hazard zones.',
+      },
+    ],
+    engineeringDecisions: [
+      {
+        decision: 'PostGIS R-Tree Spatial Indexing over In-Memory Kd-Trees',
+        rationale: 'Leverages database-level persistence and standard OpenGIS spatial operations (ST_DWithin, ST_ClusterKMeans) directly in SQL queries.',
+        tradeOff: 'Slightly higher storage footprint in PostgreSQL, offset by zero memory bottleneck in the Python application layer.',
+      },
+      {
+        decision: 'Stateless FastAPI Endpoints with Asynchronous Agent Workers',
+        rationale: 'Isolates ingestion latency from LLM extraction duration to prevent client request backpressure under load.',
+        tradeOff: 'Requires persistent job status tracking for client-side resolution.',
+      },
+    ],
+    outcomeAndLearnings: [
+      'Selected as Top 5 Finalist out of 100+ collegiate engineering teams at the National Level AI Hackathon (SJBIT Bengaluru).',
+      'Sub-second spatial querying validated across dense localized point clusters using PostGIS spatial indexing.',
+      'Containerizing the full stack with Docker Compose ensured consistent evaluation before live judging panels.',
+    ],
   },
   {
     slug: 'greenops',
     title: 'GreenOps',
     subtitle: 'Distributed Infrastructure Monitoring & Energy Intelligence',
     description: 'A distributed monitoring system for telemetry ingestion, heartbeat tracking, and energy consumption analytics.',
-    longDescription: 'GreenOps is a distributed infrastructure monitoring platform designed for telemetry ingestion and energy intelligence. Built with Python and FastAPI, it provides real-time heartbeat tracking, system state monitoring, and energy consumption analytics. The platform uses JWT-based authentication for secure access and Docker for consistent deployment across environments. GreenOps demonstrates a practical approach to monitoring distributed systems while incorporating energy awareness into infrastructure management.',
+    longDescription: 'GreenOps is a distributed infrastructure monitoring platform built with Python, FastAPI, and PostgreSQL. It tracks distributed machine states through high-frequency heartbeats, analyzes workload lifecycle transitions (ACTIVE / IDLE / OFFLINE), and quantifies unallocated compute energy waste to automate server scaling.',
     icon: <BarChart3 className="w-8 h-8 text-zinc-400" />,
     tags: ['Python', 'FastAPI', 'PostgreSQL', 'Docker', 'JWT'],
     githubLink: 'https://github.com/iamdevdhanush/greenops',
+    badge: '1st Place Winner — Green IT Competition',
     highlights: [
       'Distributed monitoring with telemetry ingestion from multiple sources',
       'Real-time heartbeat tracking and system state monitoring',
@@ -77,16 +121,59 @@ export const projects: Project[] = [
       'Energy consumption dashboards and analytics',
       'JWT-authenticated REST API',
       'Docker-based deployment and scaling'
-    ]
+    ],
+    architectureFlow: [
+      {
+        step: '01',
+        label: 'Metric Collector Agent',
+        tech: 'Python Daemon',
+        description: 'Lightweight background service samples system CPU, RAM, and active process state at regular heartbeat intervals.',
+      },
+      {
+        step: '02',
+        label: 'Telemetry Ingestion Hub',
+        tech: 'FastAPI / TimescaleDB',
+        description: 'Concurrent asynchronous ingestion endpoint validates JWT headers and streams metrics into append-only time-series tables.',
+      },
+      {
+        step: '03',
+        label: 'Lifecycle State Machine',
+        tech: 'ACTIVE / IDLE / OFFLINE',
+        description: 'State transition model evaluates machine heartbeats to track continuous idle duration and compute energy wastage.',
+      },
+      {
+        step: '04',
+        label: 'Scaling Optimization Engine',
+        tech: 'Predictive Scheduling',
+        description: 'Computes estimated power waste and generates automated scaling recommendations to de-provision unused instances.',
+      },
+    ],
+    engineeringDecisions: [
+      {
+        decision: 'Explicit Machine Lifecycle State Machine (ACTIVE / IDLE / OFFLINE)',
+        rationale: 'Accurately quantifies unallocated compute capacity without relying on erratic instantaneous CPU utilization spikes.',
+        tradeOff: 'Requires dependable heartbeats every 30 seconds to maintain accurate state freshness.',
+      },
+      {
+        decision: 'JWT Middleware Authentication on Telemetry Endpoints',
+        rationale: 'Protects ingestion pipelines against spoofed machine metrics while minimizing cryptographic validation overhead.',
+        tradeOff: 'Requires periodic token renewal on long-running edge collector daemons.',
+      },
+    ],
+    outcomeAndLearnings: [
+      'Awarded 1st Place in the Green IT System Development Competition for practical energy analytics.',
+      'Demonstrated measurable idle compute identification across multi-machine simulated workloads.',
+      'Reinforced that simple, deterministic state machines often outperform complex heuristic models for uptime tracking.',
+    ],
   },
   {
     slug: 'little-heartbeat',
     title: 'Little Heartbeat',
     subtitle: 'AI-Assisted Community Support Platform',
     description: 'An AI-powered support platform with community features, built for a state-level hackathon.',
-    longDescription: 'Little Heartbeat is an AI-assisted community support platform developed during a state-level hackathon. It provides a space for community members to seek and offer support, with AI-powered assistance to help triage and respond to queries. Built with React and Express.js, the platform uses Supabase for real-time data management and Gemini AI for intelligent response generation. The project secured the runner-up position in a competitive state-level hackathon.',
+    longDescription: 'Little Heartbeat is an emergency triage and community support platform developed during a 24-hour state-level hackathon. Combining React, Express.js, Supabase Realtime, and Gemini AI, it enables rapid incident submission, automated severity classification, and instant peer volunteer coordination.',
     icon: <MessageSquareQuote className="w-8 h-8 text-zinc-400" />,
-    tags: ['React', 'Express.js', 'Supabase', 'Gemini AI'],
+    tags: ['React', 'Express.js', 'Supabase', 'Gemini AI', 'WebSockets'],
     githubLink: 'https://github.com/iamdevdhanush/little-heartbeat',
     badge: 'Runner-Up State Level Hackathon',
     highlights: [
@@ -111,6 +198,49 @@ export const projects: Project[] = [
       'Real-time community discussion threads',
       'User profiles and support history',
       'Responsive design for cross-platform access'
-    ]
+    ],
+    architectureFlow: [
+      {
+        step: '01',
+        label: 'Incident Submission',
+        tech: 'React / TypeScript',
+        description: 'Citizens submit urgent requests through a mobile-optimized interface with instant client-side validation.',
+      },
+      {
+        step: '02',
+        label: 'Realtime WebSocket Broker',
+        tech: 'Supabase Realtime',
+        description: 'Broadcasts new incoming support requests to active community responders with zero polling latency.',
+      },
+      {
+        step: '03',
+        label: 'AI Triage Classification',
+        tech: 'Gemini AI API',
+        description: 'Categorizes incoming incident narratives by urgency and suggests draft response templates for responders.',
+      },
+      {
+        step: '04',
+        label: 'Volunteer Coordination',
+        tech: 'Express.js & Postgres',
+        description: 'Manages ticket status lifecycle from OPEN to CLAIMED and RESOLVED with audit logging.',
+      },
+    ],
+    engineeringDecisions: [
+      {
+        decision: 'Supabase Realtime Subscriptions over Custom WebSocket Service',
+        rationale: 'Provided instant real-time synchronization with integrated row-level security within the strict 24-hour deadline.',
+        tradeOff: 'Tied real-time message distribution directly to Supabase client library.',
+      },
+      {
+        decision: 'Gemini AI Pre-Triage Classification',
+        rationale: 'Automatically escalates critical medical and hazard tickets to the top of volunteer response queues.',
+        tradeOff: 'Requires cautious prompt tuning to ensure high-priority alerts are never falsely downgraded.',
+      },
+    ],
+    outcomeAndLearnings: [
+      'Secured Runner-Up honors among participating collegiate teams at the GMIT Davangere State Level Hackathon.',
+      'Achieved a fully functioning full-stack application with zero runtime defects during jury review.',
+      'Proved that locking down schema contracts in the first two hours unlocks rapid parallel frontend-backend velocity.',
+    ],
   }
 ];

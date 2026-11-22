@@ -122,6 +122,28 @@
           transform: translateY(0);
         }
       }
+      @keyframes heroWordReveal {
+        0% {
+          opacity: 0;
+          transform: translateY(105%) skewY(2deg);
+        }
+        100% {
+          opacity: 1;
+          transform: translateY(0) skewY(0deg);
+        }
+      }
+      @keyframes portraitMaskReveal {
+        0% {
+          opacity: 0;
+          clip-path: inset(100% 0 0 0);
+          transform: scale(1.04);
+        }
+        100% {
+          opacity: 1;
+          clip-path: inset(0 0 0 0);
+          transform: scale(1);
+        }
+      }
       @keyframes modalEnter {
         from {
           opacity: 0;
@@ -149,20 +171,36 @@
       .animate-modal-backdrop {
         animation: modalBackdrop 0.25s ease-out forwards;
       }
+      .hero-word-wrap {
+        display: inline-block;
+        overflow: hidden;
+        vertical-align: bottom;
+      }
+      .hero-word-1 {
+        display: inline-block;
+        animation: heroWordReveal 800ms cubic-bezier(0.16, 1, 0.3, 1) 60ms backwards;
+      }
+      .hero-word-2 {
+        display: inline-block;
+        animation: heroWordReveal 850ms cubic-bezier(0.16, 1, 0.3, 1) 160ms backwards;
+      }
+      .hero-portrait-reveal {
+        animation: portraitMaskReveal 1000ms cubic-bezier(0.16, 1, 0.3, 1) 180ms backwards;
+      }
       .hero-enter-1 {
         animation: heroFadeUp 600ms cubic-bezier(0.16, 1, 0.3, 1) 40ms backwards;
       }
       .hero-enter-2 {
-        animation: heroFadeUp 650ms cubic-bezier(0.16, 1, 0.3, 1) 120ms backwards;
+        animation: heroFadeUp 650ms cubic-bezier(0.16, 1, 0.3, 1) 220ms backwards;
       }
       .hero-enter-3 {
-        animation: heroFadeUp 650ms cubic-bezier(0.16, 1, 0.3, 1) 200ms backwards;
+        animation: heroFadeUp 650ms cubic-bezier(0.16, 1, 0.3, 1) 280ms backwards;
       }
       .hero-enter-4 {
-        animation: heroFadeUp 700ms cubic-bezier(0.16, 1, 0.3, 1) 280ms backwards;
+        animation: heroFadeUp 700ms cubic-bezier(0.16, 1, 0.3, 1) 340ms backwards;
       }
       .hero-enter-5 {
-        animation: heroFadeUp 700ms cubic-bezier(0.16, 1, 0.3, 1) 360ms backwards;
+        animation: heroFadeUp 700ms cubic-bezier(0.16, 1, 0.3, 1) 400ms backwards;
       }
       @media (prefers-reduced-motion: reduce) {
         *, ::before, ::after {

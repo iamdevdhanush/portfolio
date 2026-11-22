@@ -32,7 +32,7 @@ const ContactSection: React.FC = () => {
             </div>
 
             {/* One Powerful Headline */}
-            <h2 className="font-display text-5xl sm:text-7xl md:text-8xl lg:text-9xl text-[#FAF7F0] tracking-tight leading-[0.92] uppercase mb-4">
+            <h2 className="font-display text-4xl sm:text-6xl md:text-8xl lg:text-9xl text-[#FAF7F0] tracking-tight leading-[0.92] uppercase mb-4">
               Let's Build Something<br />
               <span className="text-[#FAF7F0] hover:text-[#F04B16] transition-colors duration-300">
                 That Matters.

@@ -29,11 +29,15 @@ const Hero: React.FC<HeroProps> = ({ onNavigate }) => {
               <span>AI Engineer & Software Architect</span>
             </div>
 
-            {/* Massive Two-Line Name: Heavy, Condensed, Italic Display */}
-            <h1 className="hero-enter-1 font-['Anton',sans-serif] italic text-5xl sm:text-7xl md:text-8xl lg:text-[92px] xl:text-[104px] text-[#151515] tracking-tight leading-[0.88] uppercase mb-4 select-none">
-              DHANUSH D<br />
-              <span className="text-[#151515] hover:text-[#F04B16] transition-colors duration-300">
-                PRABHU
+            {/* Massive Two-Line Name: Staggered Word Reveal with Condensed Display */}
+            <h1 className="font-['Anton',sans-serif] italic text-4xl sm:text-6xl md:text-8xl lg:text-[92px] xl:text-[104px] text-[#151515] tracking-tight leading-[0.88] uppercase mb-4 select-none">
+              <span className="hero-word-wrap block">
+                <span className="hero-word-1">DHANUSH D</span>
+              </span>
+              <span className="hero-word-wrap block">
+                <span className="hero-word-2 text-[#151515] hover:text-[#F04B16] transition-colors duration-300">
+                  PRABHU
+                </span>
               </span>
             </h1>
 
@@ -49,11 +53,11 @@ const Hero: React.FC<HeroProps> = ({ onNavigate }) => {
               Backend engineering, AI systems, and geospatial intelligence.
             </p>
 
-            {/* Two Restrained CTA Buttons */}
-            <div className="hero-enter-4 flex flex-wrap items-center gap-3.5 mb-6">
+            {/* Two Restrained CTA Buttons (Mobile-first Touch Friendly) */}
+            <div className="hero-enter-4 flex flex-col sm:flex-row items-stretch sm:items-center gap-3 sm:gap-3.5 mb-6 w-full sm:w-auto">
               <button
                 onClick={() => onNavigate('projects')}
-                className="px-6 py-3 bg-[#151515] text-[#FAF7F0] hover:bg-[#F04B16] font-mono text-xs font-bold uppercase tracking-wider rounded transition-all duration-200 flex items-center gap-2 cursor-pointer active:scale-95 shadow-sm"
+                className="px-6 py-3 bg-[#151515] text-[#FAF7F0] hover:bg-[#F04B16] font-mono text-xs font-bold uppercase tracking-wider rounded transition-all duration-200 flex items-center justify-center gap-2 cursor-pointer active:scale-95 shadow-sm min-h-[44px]"
               >
                 <span>View Selected Work</span>
                 <ArrowDown className="w-3.5 h-3.5" />
@@ -61,7 +65,7 @@ const Hero: React.FC<HeroProps> = ({ onNavigate }) => {
 
               <button
                 onClick={() => onNavigate('contact')}
-                className="px-6 py-3 bg-transparent border border-[#151515] hover:border-[#F04B16] hover:text-[#F04B16] text-[#151515] font-mono text-xs font-bold uppercase tracking-wider rounded transition-all duration-200 cursor-pointer active:scale-95"
+                className="px-6 py-3 bg-transparent border border-[#151515] hover:border-[#F04B16] hover:text-[#F04B16] text-[#151515] font-mono text-xs font-bold uppercase tracking-wider rounded transition-all duration-200 cursor-pointer active:scale-95 min-h-[44px] flex items-center justify-center"
               >
                 <span>Get In Touch</span>
               </button>
@@ -100,8 +104,8 @@ const Hero: React.FC<HeroProps> = ({ onNavigate }) => {
                 {/* 3. Subtle Warm Paper Layer Behind */}
                 <div className="absolute -left-1 bottom-4 w-40 sm:w-48 h-40 sm:h-48 bg-[#FAF7F0] border border-[#E2DAC8] rounded-sm rotate-2 z-0 shadow-sm opacity-80" />
 
-                {/* 4. Main Portrait: Clean, Natural Contrast & Clear Visibility */}
-                <div className="absolute left-3 sm:left-5 top-5 w-[240px] sm:w-[280px] md:w-[300px] h-[310px] sm:h-[360px] md:h-[390px] z-10 overflow-hidden rounded-sm border border-[#151515] shadow-xl bg-[#E2DAC8] group">
+                {/* 4. Main Portrait: Clean, Natural Contrast & Clear Visibility with Mask Reveal */}
+                <div className="hero-portrait-reveal absolute left-3 sm:left-5 top-5 w-[240px] sm:w-[280px] md:w-[300px] h-[310px] sm:h-[360px] md:h-[390px] z-10 overflow-hidden rounded-sm border border-[#151515] shadow-xl bg-[#E2DAC8] group">
                   <img
                     src={imgSrc}
                     onError={handleImgError}
@@ -122,7 +126,7 @@ const Hero: React.FC<HeroProps> = ({ onNavigate }) => {
                       Dhanush D Prabhu
                     </span>
                     <span className="font-mono text-[9px] text-[#F04B16] font-bold">
-                      ED. 2026
+                      ARCHIVE // 2026
                     </span>
                   </div>
                 </div>

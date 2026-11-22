@@ -54,7 +54,7 @@ const HackathonsSection: React.FC = () => {
   ];
 
   return (
-    <section id="hackathons" className="py-16 md:py-20 scroll-mt-24">
+    <section id="hackathons" className="py-14 md:py-18 scroll-mt-24">
       {/* Section Header */}
       <ScrollReveal direction="up" distance={16} duration={500}>
         <div className="flex flex-col md:flex-row md:items-end justify-between gap-4 mb-8 pb-6 border-b border-[#E2DAC8]">
@@ -73,19 +73,20 @@ const HackathonsSection: React.FC = () => {
         </div>
       </ScrollReveal>
 
-      {/* Compact Visual Timeline */}
+      {/* Refined Editorial Timeline Table */}
       <div className="border border-[#E2DAC8] rounded-xl bg-[#FAF7F0] overflow-hidden shadow-sm paper-grain divide-y divide-[#E2DAC8]">
         {hackathons.map((item, idx) => (
           <ScrollReveal key={item.event} delay={idx * 40} direction="up" distance={12} duration={450}>
-            <div className="p-4 sm:p-5 hover:bg-[#F1EBDD]/60 transition-colors flex flex-col md:flex-row md:items-center justify-between gap-3 sm:gap-4">
+            <div className="group p-4 sm:p-5 hover:bg-[#F1EBDD]/70 transition-all duration-200 flex flex-col md:flex-row md:items-center justify-between gap-3 sm:gap-4 relative pl-5 sm:pl-6">
               
+              {/* Subtle Active Accent Bar */}
+              <div className="absolute left-0 top-0 bottom-0 w-1 bg-transparent group-hover:bg-[#F04B16] transition-colors" />
+
               {/* Event & Organization */}
               <div className="md:w-5/12 space-y-1">
-                <div className="flex items-center gap-2">
-                  <h3 className="font-serif font-bold text-base sm:text-lg text-[#151515]">
-                    {item.event}
-                  </h3>
-                </div>
+                <h3 className="font-serif font-bold text-base sm:text-lg text-[#151515] group-hover:text-[#F04B16] transition-colors">
+                  {item.event}
+                </h3>
                 <p className="font-mono text-xs text-[#8A877F]">
                   {item.organization}
                 </p>

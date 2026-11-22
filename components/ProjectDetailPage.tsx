@@ -1,6 +1,6 @@
 import React, { useMemo } from 'react';
 import { Link } from 'react-router-dom';
-import { Github, ExternalLink, ArrowLeft, ArrowRight, CheckCircle2, AlertTriangle, Layers } from 'lucide-react';
+import { Github, ExternalLink, ArrowLeft, ArrowRight, CheckCircle2, Layers, Cpu, ShieldCheck, Trophy, GitCommit } from 'lucide-react';
 import SocialButton from './SocialButton';
 import type { Project } from '../types';
 
@@ -21,7 +21,7 @@ const ProjectDetailPage: React.FC<ProjectDetailPageProps> = ({ project, allProje
   }, [project, allProjects]);
 
   return (
-    <div className="max-w-5xl mx-auto px-6 pt-28 md:pt-36 pb-24 relative z-10 animate-fade-in text-[#151515]">
+    <div className="max-w-5xl mx-auto px-5 sm:px-8 pt-28 md:pt-36 pb-24 relative z-10 animate-fade-in text-[#151515]">
       
       {/* Back button */}
       <Link
@@ -41,28 +41,54 @@ const ProjectDetailPage: React.FC<ProjectDetailPageProps> = ({ project, allProje
         <span className="text-[#F04B16] font-semibold">{project.title}</span>
       </nav>
 
-      {/* Project Header Spread */}
+      {/* Hero Header Spread */}
       <div className="border-b border-[#E2DAC8] pb-10 mb-12">
-        <div className="flex items-start gap-5 mb-4">
-          <div className="w-14 h-14 bg-[#FAF7F0] rounded-xl flex items-center justify-center shrink-0 border border-[#E2DAC8] text-[#F04B16] shadow-sm">
-            {project.icon}
-          </div>
-          <div>
-            <h1 className="font-serif text-3xl sm:text-5xl font-bold text-[#151515] tracking-tight">
+        <div className="flex flex-col md:flex-row md:items-start justify-between gap-6 mb-6">
+          <div className="space-y-2">
+            {project.badge && (
+              <span className="inline-flex items-center gap-1.5 text-xs font-mono font-bold uppercase bg-[#F04B16] text-[#FAF7F0] px-3.5 py-1 rounded-full mb-2">
+                <Trophy className="w-3.5 h-3.5" />
+                <span>{project.badge}</span>
+              </span>
+            )}
+            <h1 className="font-serif text-4xl sm:text-6xl md:text-7xl font-bold text-[#151515] tracking-tight">
               {project.title}
             </h1>
-            <p className="font-serif italic text-base sm:text-lg text-[#8A877F] mt-1">{project.subtitle}</p>
+            <p className="font-serif italic text-lg sm:text-xl text-[#8A877F] max-w-2xl">
+              {project.subtitle}
+            </p>
+          </div>
+
+          {/* Repository & Demo Links */}
+          <div className="flex flex-wrap items-center gap-3 shrink-0">
+            {project.githubLink && (
+              <a
+                href={project.githubLink}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center gap-2 px-5 py-2.5 rounded-lg bg-[#151515] text-[#FAF7F0] hover:bg-[#F04B16] font-mono text-xs font-bold uppercase tracking-wider transition-colors shadow-sm"
+              >
+                <Github className="w-4 h-4" />
+                <span>Source Code</span>
+                <ExternalLink className="w-3.5 h-3.5" />
+              </a>
+            )}
+            {project.liveLink && (
+              <a
+                href={project.liveLink}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center gap-2 px-5 py-2.5 rounded-lg bg-[#F04B16] text-[#FAF7F0] hover:bg-[#D93E0D] font-mono text-xs font-bold uppercase tracking-wider transition-colors shadow-sm"
+              >
+                <ExternalLink className="w-4 h-4" />
+                <span>Live System</span>
+              </a>
+            )}
           </div>
         </div>
 
-        {project.badge && (
-          <span className="inline-flex items-center gap-1.5 text-xs font-mono font-bold uppercase bg-[#F04B16] text-[#FAF7F0] px-3.5 py-1 rounded-full mb-6">
-            {project.badge}
-          </span>
-        )}
-
         {/* Stack Tags */}
-        <div className="flex flex-wrap gap-2 mb-8">
+        <div className="flex flex-wrap gap-2">
           {project.tags.map((tag) => (
             <span
               key={tag}
@@ -72,152 +98,173 @@ const ProjectDetailPage: React.FC<ProjectDetailPageProps> = ({ project, allProje
             </span>
           ))}
         </div>
-
-        {/* Repository & Demo Links */}
-        <div className="flex flex-wrap items-center gap-4">
-          {project.githubLink && (
-            <a
-              href={project.githubLink}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="inline-flex items-center gap-2 px-6 py-3 rounded-xl bg-[#151515] text-[#FAF7F0] hover:bg-[#F04B16] font-mono text-xs font-bold uppercase tracking-wider transition-colors shadow-md"
-            >
-              <Github className="w-4 h-4 text-[#FAF7F0]" />
-              <span>Source Repository</span>
-              <ExternalLink className="w-3.5 h-3.5" />
-            </a>
-          )}
-          {project.liveLink && (
-            <a
-              href={project.liveLink}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="inline-flex items-center gap-2 px-6 py-3 rounded-xl bg-[#F04B16] text-[#FAF7F0] hover:bg-[#D93E0D] font-mono text-xs font-bold uppercase tracking-wider transition-colors shadow-md"
-            >
-              <ExternalLink className="w-4 h-4" />
-              <span>Live Deployment</span>
-            </a>
-          )}
-        </div>
       </div>
 
-      {/* Narrative & Architectural Documentation */}
-      <div className="space-y-10 text-[#151515] leading-relaxed">
+      {/* ============================================================ */}
+      {/* 6-PART VISUAL STORYTELLING EDITORIAL CASE STUDY STRUCTURE     */}
+      {/* ============================================================ */}
+      <div className="space-y-12 text-[#151515]">
         
-        {/* Overview */}
-        <div className="bg-[#FAF7F0] border border-[#E2DAC8] rounded-2xl p-6 sm:p-10 shadow-sm paper-grain">
-          <h2 className="font-mono text-xs font-bold uppercase tracking-widest text-[#F04B16] mb-3">
-            System Overview
-          </h2>
-          <p className="font-serif text-base sm:text-lg text-[#151515] leading-relaxed font-normal">
+        {/* 01 — Project Overview */}
+        <section className="bg-[#FAF7F0] border border-[#E2DAC8] rounded-2xl p-6 sm:p-10 shadow-sm paper-grain space-y-4">
+          <div className="flex items-center justify-between pb-3 border-b border-[#E2DAC8]">
+            <span className="font-mono text-xs font-bold uppercase tracking-widest text-[#F04B16]">
+              01 // Project Overview
+            </span>
+            <span className="font-mono text-xs text-[#8A877F]">
+              SYSTEM PROFILE
+            </span>
+          </div>
+          <p className="font-serif text-lg sm:text-xl text-[#151515] leading-relaxed font-normal">
             {project.longDescription}
           </p>
-        </div>
+        </section>
 
-        {/* Problem Statement */}
+        {/* 02 — Problem & Context */}
         {project.problemStatement && (
-          <div className="bg-[#FAF7F0] border border-[#E2DAC8] rounded-2xl p-6 sm:p-10 shadow-sm paper-grain">
-            <h2 className="font-mono text-xs font-bold uppercase tracking-widest text-[#F04B16] mb-3">
-              Problem Statement
-            </h2>
-            <p className="font-sans text-sm sm:text-base text-[#151515]/80 leading-relaxed">
+          <section className="bg-[#FAF7F0] border border-[#E2DAC8] rounded-2xl p-6 sm:p-10 shadow-sm paper-grain space-y-4">
+            <div className="flex items-center justify-between pb-3 border-b border-[#E2DAC8]">
+              <span className="font-mono text-xs font-bold uppercase tracking-widest text-[#F04B16]">
+                02 // Problem & Context
+              </span>
+              <span className="font-mono text-xs text-[#8A877F]">
+                THE CHALLENGE
+              </span>
+            </div>
+            <p className="font-sans text-sm sm:text-base text-[#151515]/85 leading-relaxed">
               {project.problemStatement}
             </p>
-          </div>
-        )}
-
-        {/* Architecture & Stack */}
-        <div className="bg-[#FAF7F0] border border-[#E2DAC8] rounded-2xl p-6 sm:p-10 shadow-sm paper-grain">
-          <div className="flex items-center gap-2 mb-6">
-            <Layers className="w-4 h-4 text-[#F04B16]" />
-            <h2 className="font-mono text-xs font-bold uppercase tracking-widest text-[#F04B16]">
-              Architecture & Stack
-            </h2>
-          </div>
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-            <div className="bg-[#F1EBDD] border border-[#E2DAC8] rounded-xl p-5">
-              <h3 className="font-mono text-xs font-bold uppercase tracking-wider text-[#151515] mb-3">
-                Technologies
-              </h3>
-              <div className="flex flex-wrap gap-2">
-                {project.tags.map((tag) => (
-                  <span
-                    key={tag}
-                    className="font-mono text-xs text-[#151515] bg-[#FAF7F0] border border-[#E2DAC8] rounded px-2.5 py-1"
-                  >
-                    {tag}
-                  </span>
+            {project.challenges && project.challenges.length > 0 && (
+              <div className="pt-2 grid grid-cols-1 md:grid-cols-2 gap-3">
+                {project.challenges.map((c, i) => (
+                  <div key={i} className="p-3.5 bg-[#F1EBDD] border border-[#E2DAC8] rounded-lg text-xs font-sans text-[#151515]/80 flex items-start gap-2.5">
+                    <span className="text-[#F04B16] font-mono font-bold shrink-0">{i + 1}.</span>
+                    <span>{c}</span>
+                  </div>
                 ))}
               </div>
+            )}
+          </section>
+        )}
+
+        {/* 03 — System Architecture (with Visual Pipeline Diagram) */}
+        {project.architectureFlow && project.architectureFlow.length > 0 && (
+          <section className="bg-[#FAF7F0] border border-[#E2DAC8] rounded-2xl p-6 sm:p-10 shadow-sm paper-grain space-y-6">
+            <div className="flex items-center justify-between pb-3 border-b border-[#E2DAC8]">
+              <span className="font-mono text-xs font-bold uppercase tracking-widest text-[#F04B16] flex items-center gap-2">
+                <Layers className="w-4 h-4 text-[#F04B16]" />
+                <span>03 // System Architecture & Pipeline</span>
+              </span>
+              <span className="font-mono text-xs text-[#8A877F]">
+                DATA FLOW
+              </span>
             </div>
 
-            <div className="bg-[#F1EBDD] border border-[#E2DAC8] rounded-xl p-5">
-              <h3 className="font-mono text-xs font-bold uppercase tracking-wider text-[#151515] mb-3">
-                Key Highlights
-              </h3>
-              <ul className="space-y-2">
-                {project.highlights.map((h, i) => (
-                  <li key={i} className="font-sans text-xs sm:text-sm text-[#151515]/80 flex items-start gap-2">
-                    <span className="text-[#F04B16] font-bold mt-0.5">•</span>
-                    <span>{h}</span>
-                  </li>
-                ))}
-              </ul>
+            {/* Visual Architecture Flow Diagram */}
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
+              {project.architectureFlow.map((flow) => (
+                <div key={flow.step} className="p-4 bg-[#F1EBDD] border border-[#E2DAC8] rounded-xl flex flex-col justify-between space-y-3">
+                  <div>
+                    <div className="flex items-center justify-between font-mono text-xs pb-2 border-b border-[#E2DAC8]">
+                      <span className="font-bold text-[#F04B16]">{flow.step}</span>
+                      <span className="text-[10px] text-[#8A877F] uppercase tracking-wider">{flow.tech}</span>
+                    </div>
+                    <h3 className="font-serif font-bold text-base text-[#151515] mt-2 mb-1">
+                      {flow.label}
+                    </h3>
+                    <p className="font-sans text-xs text-[#151515]/75 leading-relaxed">
+                      {flow.description}
+                    </p>
+                  </div>
+                </div>
+              ))}
             </div>
+          </section>
+        )}
+
+        {/* 04 — Engineering Decisions */}
+        {project.engineeringDecisions && project.engineeringDecisions.length > 0 && (
+          <section className="bg-[#FAF7F0] border border-[#E2DAC8] rounded-2xl p-6 sm:p-10 shadow-sm paper-grain space-y-6">
+            <div className="flex items-center justify-between pb-3 border-b border-[#E2DAC8]">
+              <span className="font-mono text-xs font-bold uppercase tracking-widest text-[#F04B16] flex items-center gap-2">
+                <Cpu className="w-4 h-4 text-[#F04B16]" />
+                <span>04 // Engineering Decisions & Trade-Offs</span>
+              </span>
+              <span className="font-mono text-xs text-[#8A877F]">
+                ARCHITECTURAL RIGOR
+              </span>
+            </div>
+
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
+              {project.engineeringDecisions.map((item, idx) => (
+                <div key={idx} className="p-5 bg-[#F1EBDD] border border-[#E2DAC8] rounded-xl space-y-3">
+                  <div className="flex items-start gap-2">
+                    <GitCommit className="w-4 h-4 text-[#F04B16] shrink-0 mt-1" />
+                    <h3 className="font-serif font-bold text-base text-[#151515]">
+                      {item.decision}
+                    </h3>
+                  </div>
+                  <div className="space-y-1.5 text-xs font-sans">
+                    <p className="text-[#151515]/85">
+                      <strong className="text-[#151515] font-semibold">Rationale: </strong>
+                      {item.rationale}
+                    </p>
+                    <p className="text-[#8A877F]">
+                      <strong className="text-[#151515] font-semibold">Trade-Off: </strong>
+                      {item.tradeOff}
+                    </p>
+                  </div>
+                </div>
+              ))}
+            </div>
+          </section>
+        )}
+
+        {/* 05 — Implementation Highlights */}
+        <section className="bg-[#FAF7F0] border border-[#E2DAC8] rounded-2xl p-6 sm:p-10 shadow-sm paper-grain space-y-6">
+          <div className="flex items-center justify-between pb-3 border-b border-[#E2DAC8]">
+            <span className="font-mono text-xs font-bold uppercase tracking-widest text-[#F04B16]">
+              05 // Implementation Highlights
+            </span>
+            <span className="font-mono text-xs text-[#8A877F]">
+              VERIFIED MILESTONES
+            </span>
           </div>
-        </div>
 
-        {/* Technical Achievements */}
-        <div className="bg-[#FAF7F0] border border-[#E2DAC8] rounded-2xl p-6 sm:p-10 shadow-sm paper-grain">
-          <h2 className="font-mono text-xs font-bold uppercase tracking-widest text-[#F04B16] mb-5">
-            Technical Achievements
-          </h2>
           <div className="space-y-3">
             {project.technicalAchievements.map((item, index) => (
               <div key={index} className="flex items-start gap-3 bg-[#F1EBDD] border border-[#E2DAC8] rounded-xl p-4">
                 <CheckCircle2 className="w-4 h-4 text-[#F04B16] shrink-0 mt-0.5" />
-                <span className="font-sans text-xs sm:text-sm text-[#151515] leading-relaxed">{item}</span>
+                <span className="font-sans text-xs sm:text-sm text-[#151515] leading-relaxed">
+                  {item}
+                </span>
               </div>
             ))}
           </div>
-        </div>
+        </section>
 
-        {/* Challenges Solved */}
-        {project.challenges && project.challenges.length > 0 && (
-          <div className="bg-[#FAF7F0] border border-[#E2DAC8] rounded-2xl p-6 sm:p-10 shadow-sm paper-grain">
-            <div className="flex items-center gap-2 mb-4">
-              <AlertTriangle className="w-4 h-4 text-[#F04B16]" />
-              <h2 className="font-mono text-xs font-bold uppercase tracking-widest text-[#F04B16]">
-                Challenges Solved
-              </h2>
+        {/* 06 — Outcome & Learnings */}
+        {project.outcomeAndLearnings && project.outcomeAndLearnings.length > 0 && (
+          <section className="bg-[#FAF7F0] border border-[#E2DAC8] rounded-2xl p-6 sm:p-10 shadow-sm paper-grain space-y-4">
+            <div className="flex items-center justify-between pb-3 border-b border-[#E2DAC8]">
+              <span className="font-mono text-xs font-bold uppercase tracking-widest text-[#F04B16] flex items-center gap-2">
+                <ShieldCheck className="w-4 h-4 text-[#F04B16]" />
+                <span>06 // Outcome & Learnings</span>
+              </span>
+              <span className="font-mono text-xs text-[#8A877F]">
+                CRUCIBLE TAKEAWAYS
+              </span>
             </div>
-            <ul className="space-y-3">
-              {project.challenges.map((item, index) => (
-                <li key={index} className="bg-[#F1EBDD] border border-[#E2DAC8] rounded-xl p-4 font-sans text-xs sm:text-sm text-[#151515]/80">
-                  {item}
-                </li>
-              ))}
-            </ul>
-          </div>
-        )}
 
-        {/* Key Features */}
-        {project.keyFeatures && project.keyFeatures.length > 0 && (
-          <div className="bg-[#FAF7F0] border border-[#E2DAC8] rounded-2xl p-6 sm:p-10 shadow-sm paper-grain">
-            <h2 className="font-mono text-xs font-bold uppercase tracking-widest text-[#F04B16] mb-5">
-              Key Features
-            </h2>
-            <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
-              {project.keyFeatures.map((item, index) => (
-                <div key={index} className="bg-[#F1EBDD] border border-[#E2DAC8] rounded-xl p-4 flex items-start gap-3">
-                  <span className="w-6 h-6 rounded-lg bg-[#FAF7F0] border border-[#E2DAC8] flex items-center justify-center font-mono text-xs text-[#F04B16] shrink-0 font-bold">
-                    {index + 1}
-                  </span>
-                  <span className="font-sans text-xs sm:text-sm text-[#151515]">{item}</span>
+            <div className="space-y-3">
+              {project.outcomeAndLearnings.map((item, idx) => (
+                <div key={idx} className="flex items-start gap-3 p-4 bg-[#F1EBDD] border border-[#E2DAC8] rounded-xl text-xs sm:text-sm font-sans text-[#151515]/90">
+                  <span className="text-[#F04B16] font-mono font-bold shrink-0">•</span>
+                  <span>{item}</span>
                 </div>
               ))}
             </div>
-          </div>
+          </section>
         )}
 
       </div>

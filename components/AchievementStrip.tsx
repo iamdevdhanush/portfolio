@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { ArrowUpRight, Trophy, Calendar, Award } from 'lucide-react';
+import { ArrowUpRight, Trophy, Calendar, Award, ShieldCheck } from 'lucide-react';
 import { achievementsData } from '../data/achievements';
 import AchievementModal from './AchievementModal';
 import ScrollReveal from './ScrollReveal';
@@ -8,7 +8,6 @@ import type { AchievementDetail } from '../types';
 const AchievementStrip: React.FC = () => {
   const [selectedAchievement, setSelectedAchievement] = useState<AchievementDetail | null>(null);
 
-  // One concise sentence per achievement for the visual archive
   const conciseDescriptions: Record<string, string> = {
     'codeneura': 'Awarded 1st place for optimal algorithmic problem-solving and computational complexity under timed constraints.',
     'national-ai-hackathon': 'Selected in the top 5 finalists out of 100+ state engineering teams for Avana V2 spatial intelligence.',
@@ -42,7 +41,7 @@ const AchievementStrip: React.FC = () => {
           </div>
         </ScrollReveal>
 
-        {/* Visual Award Archive Grid */}
+        {/* Visual Award Archive Grid with Standardized Aspect Ratios & Sleek Plaques */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
           {achievementsData.map((item, idx) => {
             const shortDesc = conciseDescriptions[item.id] || item.subtitle;
@@ -61,28 +60,31 @@ const AchievementStrip: React.FC = () => {
                   tabIndex={0}
                   role="button"
                   aria-label={`Open verified case study for ${item.eventName}`}
-                  className="group h-full bg-[#090909] border border-[#2A2A2A] hover:border-[#F04B16] rounded-xl p-5 sm:p-6 flex flex-col justify-between transition-all duration-300 cursor-pointer focus:outline-none focus:ring-2 focus:ring-[#F04B16]"
+                  className="group h-full bg-[#090909] border border-[#2A2A2A] hover:border-[#F04B16] rounded-xl p-5 sm:p-6 flex flex-col justify-between transition-all duration-300 cursor-pointer focus:outline-none focus:ring-2 focus:ring-[#F04B16] hover:-translate-y-1"
                 >
                   <div>
-                    {/* Top Plaque / Photo Banner */}
-                    <div className="relative w-full h-36 rounded-lg overflow-hidden border border-[#2A2A2A] bg-[#151515] mb-4 flex items-center justify-center">
+                    {/* Consistent Aspect Ratio Visual Banner (Zero broken images) */}
+                    <div className="relative w-full aspect-[16/10] rounded-lg overflow-hidden border border-[#2A2A2A] bg-[#151515] mb-4 flex items-center justify-center">
                       {hasPhoto ? (
                         <>
                           <img
                             src="/profile.jpg"
                             alt={`${item.eventName} — Dhanush D Prabhu`}
-                            className="w-full h-full object-cover grayscale contrast-110 group-hover:grayscale-0 transition-all duration-500"
+                            width="400"
+                            height="250"
+                            loading="lazy"
+                            className="w-full h-full object-cover grayscale contrast-110 group-hover:grayscale-0 group-hover:scale-105 transition-all duration-500"
                           />
                           <div className="absolute inset-0 bg-gradient-to-t from-[#090909] via-transparent to-transparent pointer-events-none" />
-                          <div className="absolute bottom-2 left-2.5 right-2.5 flex items-center justify-between text-[11px] font-mono text-[#FAF7F0]">
+                          <div className="absolute bottom-2 left-3 right-3 flex items-center justify-between text-[11px] font-mono text-[#FAF7F0]">
                             <span>Dhanush D Prabhu</span>
-                            <span className="text-[#F04B16] font-bold">1st Place</span>
+                            <span className="text-[#F04B16] font-bold">1st Place Winner</span>
                           </div>
                         </>
                       ) : (
-                        /* Certificate Plaque Graphic (Ensures zero broken image paths) */
-                        <div className="w-full h-full flex flex-col items-center justify-center p-4 bg-gradient-to-b from-[#181818] to-[#101010] text-center relative">
-                          <div className="w-9 h-9 rounded-full bg-[#F04B16]/10 border border-[#F04B16]/40 flex items-center justify-center text-[#F04B16] mb-2 group-hover:scale-110 transition-transform">
+                        /* Archival Certificate Plaque Visual */
+                        <div className="w-full h-full flex flex-col items-center justify-center p-4 bg-gradient-to-b from-[#181818] via-[#121212] to-[#0d0d0d] text-center relative group-hover:from-[#1f1917] transition-colors">
+                          <div className="w-10 h-10 rounded-full bg-[#F04B16]/10 border border-[#F04B16]/40 flex items-center justify-center text-[#F04B16] mb-2 group-hover:scale-110 group-hover:bg-[#F04B16]/20 transition-all">
                             {item.award.includes('1st') ? (
                               <Trophy className="w-4 h-4 text-[#F04B16]" />
                             ) : (
@@ -92,8 +94,9 @@ const AchievementStrip: React.FC = () => {
                           <span className="font-serif italic text-xs text-[#FAF7F0] font-medium line-clamp-1">
                             {item.organization}
                           </span>
-                          <span className="font-mono text-[10px] text-[#8A877F] uppercase tracking-wider mt-0.5">
-                            Official Plaque · {item.date}
+                          <span className="font-mono text-[10px] text-[#8A877F] uppercase tracking-wider mt-1 flex items-center gap-1">
+                            <ShieldCheck className="w-3 h-3 text-[#F04B16]" />
+                            Official Citation · {item.date}
                           </span>
                         </div>
                       )}
@@ -128,7 +131,7 @@ const AchievementStrip: React.FC = () => {
 
                   {/* Bottom Action Link */}
                   <div className="pt-4 mt-4 border-t border-[#2A2A2A] flex items-center justify-between font-mono text-xs text-[#8A877F] group-hover:text-[#F04B16] transition-colors">
-                    <span>View Case Study</span>
+                    <span>Inspect Case Study</span>
                     <ArrowUpRight className="w-3.5 h-3.5 transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
                   </div>
 

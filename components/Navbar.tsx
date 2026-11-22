@@ -64,16 +64,18 @@ const Navbar: React.FC<NavbarProps> = ({ activeSection, onNavigate }) => {
                   key={item.id}
                   href={`#${item.id}`}
                   onClick={(e) => handleNavClick(e, item.id)}
-                  className={`relative text-xs font-mono uppercase tracking-wider transition-colors py-1 cursor-pointer ${
+                  className={`relative text-xs font-mono uppercase tracking-wider py-1 cursor-pointer transition-colors duration-200 ${
                     isActive
                       ? 'text-[#151515] font-bold'
                       : 'text-[#8A877F] hover:text-[#151515]'
                   }`}
                 >
-                  {item.label}
-                  {isActive && (
-                    <span className="absolute -bottom-1 left-0 right-0 h-[2px] bg-[#F04B16]" />
-                  )}
+                  <span>{item.label}</span>
+                  <span
+                    className={`absolute -bottom-1 left-0 right-0 h-[2px] bg-[#F04B16] transition-all duration-300 ${
+                      isActive ? 'opacity-100 scale-x-100' : 'opacity-0 scale-x-0'
+                    }`}
+                  />
                 </a>
               );
             })}

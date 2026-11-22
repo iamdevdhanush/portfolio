@@ -1,5 +1,18 @@
 import type { ReactNode } from 'react';
 
+export interface ArchitectureStep {
+  step: string;
+  label: string;
+  tech: string;
+  description: string;
+}
+
+export interface EngineeringDecision {
+  decision: string;
+  rationale: string;
+  tradeOff: string;
+}
+
 export interface Project {
   slug: string;
   title: string;
@@ -18,6 +31,9 @@ export interface Project {
   challenges?: string[];
   keyFeatures?: string[];
   isFlagship?: boolean;
+  architectureFlow?: ArchitectureStep[];
+  engineeringDecisions?: EngineeringDecision[];
+  outcomeAndLearnings?: string[];
 }
 
 export interface SkillCategory {
