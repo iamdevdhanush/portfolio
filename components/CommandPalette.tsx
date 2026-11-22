@@ -81,8 +81,8 @@ const CommandPalette: React.FC<CommandPaletteProps> = ({ isOpen, onClose, onNavi
 
   return (
     <div className="fixed inset-0 z-50 flex items-start justify-center pt-[12vh] px-4">
-      <div className="absolute inset-0 bg-[#0B0C0E]/85 backdrop-blur-md" onClick={onClose} aria-hidden="true" />
-      <div className="relative w-full max-w-xl bg-[#111214] border border-[#292929] rounded-2xl shadow-2xl overflow-hidden animate-fade-in text-[#F5F2ED]">
+      <div className="absolute inset-0 bg-[#0B0C0E]/85 backdrop-blur-md animate-modal-backdrop" onClick={onClose} aria-hidden="true" />
+      <div className="relative w-full max-w-xl bg-[#111214] border border-[#292929] rounded-2xl shadow-2xl overflow-hidden animate-modal-enter text-[#F5F2ED]">
         {/* Search Input Bar */}
         <div className="flex items-center px-4 py-3.5 border-b border-[#292929] bg-[#171719]/50">
           <Search className="w-4 h-4 text-[#F28C28] mr-3 shrink-0" />

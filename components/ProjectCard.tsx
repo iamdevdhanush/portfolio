@@ -14,9 +14,9 @@ const ProjectCard: React.FC<ProjectCardProps> = ({ project }) => {
   // Render Flagship Layout for Avana V2
   if (project.isFlagship) {
     return (
-      <div className="relative bg-[#111214] border border-[#292929] hover:border-[#F28C28]/60 rounded-2xl p-6 sm:p-8 lg:p-10 transition-all duration-300 hover:shadow-2xl hover:shadow-[#F28C28]/5 overflow-hidden group">
+      <div className="relative bg-[#111214] border border-[#292929] hover:border-[#F28C28]/60 rounded-2xl p-6 sm:p-8 lg:p-10 transition-all duration-300 hover:-translate-y-1.5 hover:shadow-2xl hover:shadow-[#F28C28]/8 overflow-hidden group">
         {/* Topographic Background Contour Elements */}
-        <div className="absolute -right-20 -bottom-20 w-80 h-80 rounded-full border border-[#292929]/40 pointer-events-none group-hover:border-[#F28C28]/20 transition-colors" />
+        <div className="absolute -right-20 -bottom-20 w-80 h-80 rounded-full border border-[#292929]/40 pointer-events-none group-hover:scale-105 group-hover:border-[#F28C28]/25 transition-all duration-500" />
 
         {/* Flagship Badge */}
         <div className="flex flex-wrap items-center justify-between gap-3 mb-6 pb-4 border-b border-[#292929]">
@@ -150,7 +150,7 @@ const ProjectCard: React.FC<ProjectCardProps> = ({ project }) => {
 
                 {/* Central Agent Node Diagram */}
                 <div className="z-10 flex flex-col items-center justify-center my-auto">
-                  <div className="w-12 h-12 rounded-full bg-[#111214] border border-[#F28C28] flex items-center justify-center shadow-lg shadow-[#F28C28]/20">
+                  <div className="w-12 h-12 rounded-full bg-[#111214] border border-[#F28C28] flex items-center justify-center shadow-lg shadow-[#F28C28]/20 group-hover:scale-105 transition-transform duration-500">
                     <Cpu className="w-5 h-5 text-[#F28C28]" />
                   </div>
                   <span className="font-mono text-[10px] text-[#F5F2ED] mt-2 bg-[#111214] px-2 py-0.5 rounded border border-[#292929]">
@@ -184,7 +184,7 @@ const ProjectCard: React.FC<ProjectCardProps> = ({ project }) => {
 
   // Render Secondary Projects (GreenOps & Little Heartbeat)
   return (
-    <div className="bg-[#111214] border border-[#292929] hover:border-[#F28C28]/50 rounded-2xl p-6 sm:p-7 flex flex-col justify-between transition-all duration-300 hover:-translate-y-1 hover:shadow-xl hover:shadow-[#F28C28]/5 group">
+    <div className="bg-[#111214] border border-[#292929] hover:border-[#F28C28]/60 rounded-2xl p-6 sm:p-7 flex flex-col justify-between transition-all duration-300 hover:-translate-y-1.5 hover:shadow-xl hover:shadow-[#F28C28]/8 group h-full">
       <div>
         {/* Card Header */}
         <div className="flex items-start justify-between gap-3 mb-4">

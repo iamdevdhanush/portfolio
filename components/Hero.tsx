@@ -24,7 +24,7 @@ const Hero: React.FC<HeroProps> = ({ onNavigate }) => {
   return (
     <section id="home" className="relative pt-24 md:pt-32 mb-20 md:mb-28 scroll-mt-32">
       {/* Topographic Elevation Coordinate Tag */}
-      <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-[#111214] border border-[#292929] text-[11px] font-mono text-[#929292] mb-8">
+      <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-[#111214] border border-[#292929] text-[11px] font-mono text-[#929292] mb-8 hero-enter-1">
         <span className="w-1.5 h-1.5 rounded-full bg-[#F28C28] animate-pulse" />
         <span className="text-[#F5F2ED] font-medium">INDEX 14°00′N 75°34′E</span>
         <span className="text-[#292929]">|</span>
@@ -36,18 +36,18 @@ const Hero: React.FC<HeroProps> = ({ onNavigate }) => {
       <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-12 items-center">
         {/* Left Column: Editorial Typography & CTAs */}
         <div className="lg:col-span-8 flex flex-col items-start">
-          <h1 className="text-4xl sm:text-5xl md:text-6xl font-extrabold text-[#F5F2ED] tracking-tight leading-[1.08] mb-4">
+          <h1 className="text-4xl sm:text-5xl md:text-6xl font-extrabold text-[#F5F2ED] tracking-tight leading-[1.08] mb-4 hero-enter-2">
             Dhanush D Prabhu
           </h1>
 
-          <div className="flex items-center gap-2 mb-6">
+          <div className="flex items-center gap-2 mb-6 hero-enter-3">
             <span className="h-px w-6 bg-[#F28C28]" />
             <h2 className="text-xl md:text-2xl font-semibold text-[#F28C28] tracking-tight">
               AI Engineer & Software Developer
             </h2>
           </div>
 
-          <p className="text-base sm:text-lg text-[#929292] leading-relaxed max-w-2xl mb-8 font-normal">
+          <p className="text-base sm:text-lg text-[#929292] leading-relaxed max-w-2xl mb-8 font-normal hero-enter-4">
             Building intelligent systems using <span className="text-[#F5F2ED] font-medium">Python</span>,{' '}
             <span className="text-[#F5F2ED] font-medium">FastAPI</span>,{' '}
             <span className="text-[#F5F2ED] font-medium">PostgreSQL</span>,{' '}
@@ -55,19 +55,19 @@ const Hero: React.FC<HeroProps> = ({ onNavigate }) => {
           </p>
 
           {/* Action CTAs */}
-          <div className="flex flex-wrap items-center gap-4 mb-10 w-full sm:w-auto">
+          <div className="flex flex-wrap items-center gap-4 mb-10 w-full sm:w-auto hero-enter-5">
             <button
               onClick={() => onNavigate('projects')}
-              className="w-full sm:w-auto px-6 py-3 bg-[#F28C28] text-[#0B0C0E] text-sm font-semibold rounded-xl hover:bg-[#FA9E42] transition-all duration-200 shadow-lg shadow-[#F28C28]/20 flex items-center justify-center gap-2 group cursor-pointer"
+              className="w-full sm:w-auto px-6 py-3 bg-[#F28C28] text-[#0B0C0E] text-sm font-semibold rounded-xl hover:bg-[#FA9E42] transition-all duration-300 shadow-lg shadow-[#F28C28]/20 flex items-center justify-center gap-2 group cursor-pointer active:scale-95"
             >
               <span>View Projects</span>
-              <ArrowRight className="w-4 h-4 transition-transform group-hover:translate-x-1" />
+              <ArrowRight className="w-4 h-4 transition-transform duration-300 group-hover:translate-x-1" />
             </button>
 
             <a
               href="/Dhanush_D_Prabhu_Resume.pdf"
               onClick={handleResumeClick}
-              className="w-full sm:w-auto px-6 py-3 bg-[#171719] border border-[#292929] text-[#F5F2ED] text-sm font-medium rounded-xl hover:bg-[#111214] hover:border-[#F28C28]/40 hover:text-[#F28C28] transition-all duration-200 flex items-center justify-center gap-2 cursor-pointer"
+              className="w-full sm:w-auto px-6 py-3 bg-[#171719] border border-[#292929] text-[#F5F2ED] text-sm font-medium rounded-xl hover:bg-[#111214] hover:border-[#F28C28]/40 hover:text-[#F28C28] transition-all duration-300 flex items-center justify-center gap-2 cursor-pointer active:scale-95"
             >
               <FileText className="w-4 h-4 text-[#F28C28]" />
               <span>Download Resume</span>
@@ -75,7 +75,7 @@ const Hero: React.FC<HeroProps> = ({ onNavigate }) => {
           </div>
 
           {/* Contextual Badges & Social Links */}
-          <div className="pt-6 border-t border-[#292929] w-full flex flex-col sm:flex-row sm:items-center justify-between gap-4">
+          <div className="pt-6 border-t border-[#292929] w-full flex flex-col sm:flex-row sm:items-center justify-between gap-4 hero-enter-6">
             <div className="flex flex-wrap items-center gap-4 text-xs text-[#929292]">
               <div className="flex items-center gap-1.5">
                 <GraduationCap className="w-4 h-4 text-[#F28C28]" />
@@ -97,7 +97,7 @@ const Hero: React.FC<HeroProps> = ({ onNavigate }) => {
         </div>
 
         {/* Right Column: Framed Editorial Portrait with Topographic Aesthetics */}
-        <div className="lg:col-span-4 flex justify-center lg:justify-end">
+        <div className="lg:col-span-4 flex justify-center lg:justify-end hero-portrait">
           <div className="relative group">
             {/* Topographic Contour Accents around Portrait */}
             <div className="absolute -inset-2 rounded-2xl border border-[#292929] pointer-events-none opacity-60 group-hover:border-[#F28C28]/30 transition-colors" />

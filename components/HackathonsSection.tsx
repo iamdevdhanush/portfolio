@@ -1,5 +1,6 @@
 import React from 'react';
 import { Users, Timer, Compass, Shield, Terminal, ArrowRight, CheckCircle2 } from 'lucide-react';
+import ScrollReveal from './ScrollReveal';
 
 const HackathonsSection: React.FC = () => {
   const leadershipFacets = [
@@ -28,76 +29,81 @@ const HackathonsSection: React.FC = () => {
   return (
     <section id="hackathons" className="mb-24 md:mb-32 scroll-mt-28">
       {/* Editorial Header */}
-      <div className="flex flex-col md:flex-row md:items-end justify-between gap-4 mb-10 pb-4 border-b border-[#292929]">
-        <div>
-          <div className="flex items-center gap-2 mb-2 font-mono text-xs text-[#F28C28] uppercase tracking-widest">
-            <span>04 // HIGH-PRESSURE EXECUTION</span>
-            <span className="w-2 h-px bg-[#F28C28]" />
-            <span>SPRINT LEADERSHIP</span>
+      <ScrollReveal direction="up" distance={16} duration={500}>
+        <div className="flex flex-col md:flex-row md:items-end justify-between gap-4 mb-10 pb-4 border-b border-[#292929]">
+          <div>
+            <div className="flex items-center gap-2 mb-2 font-mono text-xs text-[#F28C28] uppercase tracking-widest">
+              <span>04 // HIGH-PRESSURE EXECUTION</span>
+              <span className="w-2 h-px bg-[#F28C28]" />
+              <span>SPRINT LEADERSHIP</span>
+            </div>
+            <h2 className="text-2xl sm:text-3xl font-extrabold text-[#F5F2ED] tracking-tight">
+              Hackathons & Engineering Leadership
+            </h2>
           </div>
-          <h2 className="text-2xl sm:text-3xl font-extrabold text-[#F5F2ED] tracking-tight">
-            Hackathons & Engineering Leadership
-          </h2>
+          <p className="text-xs sm:text-sm text-[#929292] font-mono max-w-md">
+            Distinct from awards: focusing on real-time collaboration, team delegation, architectural decisions, and shipping complete working systems under extreme constraints.
+          </p>
         </div>
-        <p className="text-xs sm:text-sm text-[#929292] font-mono max-w-md">
-          Distinct from awards: focusing on real-time collaboration, team delegation, architectural decisions, and shipping complete working systems under extreme constraints.
-        </p>
-      </div>
+      </ScrollReveal>
 
       {/* Leadership Stats Strip */}
-      <div className="grid grid-cols-2 md:grid-cols-4 gap-4 mb-8">
-        <div className="bg-[#111214] border border-[#292929] rounded-xl p-4 sm:p-5">
-          <span className="font-mono text-xl sm:text-2xl font-bold text-[#F28C28] block mb-1">
-            3+
-          </span>
-          <span className="text-xs font-mono text-[#F5F2ED] block font-medium">Hackathons Led</span>
-          <span className="text-[11px] text-[#929292]">End-to-end technical direction</span>
-        </div>
+      <ScrollReveal direction="up" distance={18} duration={600} delay={60}>
+        <div className="grid grid-cols-2 md:grid-cols-4 gap-4 mb-8">
+          <div className="bg-[#111214] border border-[#292929] hover:border-[#F28C28]/40 transition-colors rounded-xl p-4 sm:p-5">
+            <span className="font-mono text-xl sm:text-2xl font-bold text-[#F28C28] block mb-1">
+              3+
+            </span>
+            <span className="text-xs font-mono text-[#F5F2ED] block font-medium">Hackathons Led</span>
+            <span className="text-[11px] text-[#929292]">End-to-end technical direction</span>
+          </div>
 
-        <div className="bg-[#111214] border border-[#292929] rounded-xl p-4 sm:p-5">
-          <span className="font-mono text-xl sm:text-2xl font-bold text-[#F28C28] block mb-1">
-            24h – 48h
-          </span>
-          <span className="text-xs font-mono text-[#F5F2ED] block font-medium">Sprint Timeframes</span>
-          <span className="text-[11px] text-[#929292]">Rapid zero-to-one delivery</span>
-        </div>
+          <div className="bg-[#111214] border border-[#292929] hover:border-[#F28C28]/40 transition-colors rounded-xl p-4 sm:p-5">
+            <span className="font-mono text-xl sm:text-2xl font-bold text-[#F28C28] block mb-1">
+              24h – 48h
+            </span>
+            <span className="text-xs font-mono text-[#F5F2ED] block font-medium">Sprint Timeframes</span>
+            <span className="text-[11px] text-[#929292]">Rapid zero-to-one delivery</span>
+          </div>
 
-        <div className="bg-[#111214] border border-[#292929] rounded-xl p-4 sm:p-5">
-          <span className="font-mono text-xl sm:text-2xl font-bold text-[#F28C28] block mb-1">
-            100%
-          </span>
-          <span className="text-xs font-mono text-[#F5F2ED] block font-medium">Live Demos Functional</span>
-          <span className="text-[11px] text-[#929292]">No slide-only presentations</span>
-        </div>
+          <div className="bg-[#111214] border border-[#292929] hover:border-[#F28C28]/40 transition-colors rounded-xl p-4 sm:p-5">
+            <span className="font-mono text-xl sm:text-2xl font-bold text-[#F28C28] block mb-1">
+              100%
+            </span>
+            <span className="text-xs font-mono text-[#F5F2ED] block font-medium">Live Demos Functional</span>
+            <span className="text-[11px] text-[#929292]">No slide-only presentations</span>
+          </div>
 
-        <div className="bg-[#111214] border border-[#292929] rounded-xl p-4 sm:p-5">
-          <span className="font-mono text-xl sm:text-2xl font-bold text-[#F28C28] block mb-1">
-            2x
-          </span>
-          <span className="text-xs font-mono text-[#F5F2ED] block font-medium">State/National Podiums</span>
-          <span className="text-[11px] text-[#929292]">Top 5 Finalist & Runner-Up</span>
+          <div className="bg-[#111214] border border-[#292929] hover:border-[#F28C28]/40 transition-colors rounded-xl p-4 sm:p-5">
+            <span className="font-mono text-xl sm:text-2xl font-bold text-[#F28C28] block mb-1">
+              2x
+            </span>
+            <span className="text-xs font-mono text-[#F5F2ED] block font-medium">State/National Podiums</span>
+            <span className="text-[11px] text-[#929292]">Top 5 Finalist & Runner-Up</span>
+          </div>
         </div>
-      </div>
+      </ScrollReveal>
 
       {/* 4 Leadership Core Pillars */}
       <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
         {leadershipFacets.map((facet, idx) => (
-          <div
-            key={idx}
-            className="bg-[#111214] border border-[#292929] hover:border-[#F28C28]/40 rounded-2xl p-6 sm:p-7 transition-all duration-300 flex items-start gap-4"
-          >
-            <div className="w-11 h-11 rounded-xl bg-[#171719] border border-[#292929] flex items-center justify-center shrink-0 text-[#F28C28]">
-              {facet.icon}
+          <ScrollReveal key={idx} delay={idx * 75} direction="up" distance={18} duration={550}>
+            <div
+              className="bg-[#111214] border border-[#292929] hover:border-[#F28C28]/50 rounded-2xl p-6 sm:p-7 transition-all duration-300 hover:-translate-y-1 hover:shadow-xl hover:shadow-[#F28C28]/5 flex items-start gap-4 h-full group"
+            >
+              <div className="w-11 h-11 rounded-xl bg-[#171719] border border-[#292929] flex items-center justify-center shrink-0 text-[#F28C28] group-hover:scale-110 group-hover:border-[#F28C28]/60 transition-transform duration-300">
+                {facet.icon}
+              </div>
+              <div>
+                <h3 className="font-bold text-base text-[#F5F2ED] mb-1.5 group-hover:text-[#F28C28] transition-colors">
+                  {facet.title}
+                </h3>
+                <p className="text-xs sm:text-sm text-[#929292] leading-relaxed">
+                  {facet.description}
+                </p>
+              </div>
             </div>
-            <div>
-              <h3 className="font-bold text-base text-[#F5F2ED] mb-1.5">
-                {facet.title}
-              </h3>
-              <p className="text-xs sm:text-sm text-[#929292] leading-relaxed">
-                {facet.description}
-              </p>
-            </div>
-          </div>
+          </ScrollReveal>
         ))}
       </div>
     </section>

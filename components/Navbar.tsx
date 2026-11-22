@@ -73,47 +73,64 @@ const Navbar: React.FC<NavbarProps> = ({ activeSection, onNavigate }) => {
         <div className="flex md:hidden items-center gap-2">
           <button
             onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-            className="w-11 h-11 flex items-center justify-center text-[#F5F2ED] bg-[#111214]/90 backdrop-blur-md rounded-full border border-[#292929] hover:border-[#F28C28]/50 transition-colors"
+            className="w-11 h-11 flex items-center justify-center text-[#F5F2ED] bg-[#111214]/90 backdrop-blur-md rounded-full border border-[#292929] hover:border-[#F28C28]/50 transition-all duration-300 active:scale-95"
             aria-label={isMobileMenuOpen ? 'Close Navigation Menu' : 'Open Navigation Menu'}
             aria-expanded={isMobileMenuOpen}
           >
-            {isMobileMenuOpen ? <X className="w-5 h-5 text-[#F28C28]" /> : <Menu className="w-5 h-5" />}
+            <div className="relative w-5 h-5 flex items-center justify-center">
+              <span
+                className={`absolute w-4 h-0.5 bg-current transition-all duration-300 ease-out ${
+                  isMobileMenuOpen ? 'rotate-45 text-[#F28C28]' : '-translate-y-1.5 text-[#F5F2ED]'
+                }`}
+              />
+              <span
+                className={`absolute w-4 h-0.5 bg-current transition-opacity duration-200 ${
+                  isMobileMenuOpen ? 'opacity-0' : 'opacity-100 text-[#F5F2ED]'
+                }`}
+              />
+              <span
+                className={`absolute w-4 h-0.5 bg-current transition-all duration-300 ease-out ${
+                  isMobileMenuOpen ? '-rotate-45 text-[#F28C28]' : 'translate-y-1.5 text-[#F5F2ED]'
+                }`}
+              />
+            </div>
           </button>
         </div>
       </header>
 
       {/* Mobile Navigation Drawer */}
       {isMobileMenuOpen && (
-        <div className="fixed inset-0 z-40 bg-[#0B0C0E]/95 backdrop-blur-xl pt-24 px-6 md:hidden animate-fade-in flex flex-col justify-between pb-10">
+        <div className="fixed inset-0 z-40 bg-[#0B0C0E]/95 backdrop-blur-2xl pt-24 px-6 md:hidden animate-modal-backdrop flex flex-col justify-between pb-10">
           <div className="flex flex-col gap-2">
             <span className="text-[10px] font-mono uppercase tracking-widest text-[#929292] mb-2 px-3">
               Index Coordinates // 14°00′N 75°34′E
             </span>
-            {navItems.map((item) => {
+            {navItems.map((item, idx) => {
               const isActive = activeSection === item.id;
               return (
                 <a
                   key={item.id}
                   href={`#${item.id}`}
                   onClick={(e) => handleNavClick(e, item.id)}
-                  className={`flex items-center justify-between text-lg font-medium px-4 py-3 rounded-xl transition-all duration-200 border cursor-pointer min-h-[44px] ${
+                  style={{ animationDelay: `${idx * 40}ms` }}
+                  className={`flex items-center justify-between text-lg font-medium px-4 py-3 rounded-xl transition-all duration-300 border cursor-pointer min-h-[44px] animate-fade-in ${
                     isActive
-                      ? 'bg-[#171719] text-[#F28C28] border-[#F28C28]/30 font-semibold'
+                      ? 'bg-[#171719] text-[#F28C28] border-[#F28C28]/30 font-semibold shadow-sm'
                       : 'text-[#F5F2ED] border-transparent hover:border-[#292929] hover:bg-[#111214]'
                   }`}
                 >
                   <span>{item.label}</span>
                   {isActive ? (
-                    <span className="w-2 h-2 rounded-full bg-[#F28C28]" />
+                    <span className="w-2 h-2 rounded-full bg-[#F28C28] shadow-sm shadow-[#F28C28]" />
                   ) : (
-                    <ArrowUpRight className="w-4 h-4 text-[#929292]" />
+                    <ArrowUpRight className="w-4 h-4 text-[#929292] transition-transform duration-200 group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
                   )}
                 </a>
               );
             })}
           </div>
 
-          <div className="pt-6 border-t border-[#292929] text-xs text-[#929292] flex justify-between items-center">
+          <div className="pt-6 border-t border-[#292929] text-xs font-mono text-[#929292] flex justify-between items-center">
             <span>Dhanush D Prabhu · AI Systems</span>
             <span className="text-[#F28C28]">BCA 2027</span>
           </div>

@@ -6,10 +6,10 @@ const Background: React.FC = () => {
       {/* Base Canvas */}
       <div className="absolute inset-0 bg-[#0B0C0E]" />
 
-      {/* Subtle Warm Orange Ambient Lighting */}
-      <div className="absolute -top-40 right-1/4 w-[700px] h-[700px] bg-[radial-gradient(circle,_rgba(242,140,40,0.06)_0%,_rgba(11,12,14,0)_70%)] blur-3xl opacity-70" />
-      <div className="absolute top-1/3 -left-40 w-[600px] h-[600px] bg-[radial-gradient(circle,_rgba(242,140,40,0.035)_0%,_rgba(11,12,14,0)_70%)] blur-3xl opacity-60" />
-      <div className="absolute bottom-10 right-10 w-[600px] h-[600px] bg-[radial-gradient(circle,_rgba(242,140,40,0.04)_0%,_rgba(11,12,14,0)_70%)] blur-3xl opacity-60" />
+      {/* Subtle Warm Orange Ambient Lighting with Gentle Breathing Motion */}
+      <div className="absolute -top-40 right-1/4 w-[700px] h-[700px] bg-[radial-gradient(circle,_rgba(242,140,40,0.06)_0%,_rgba(11,12,14,0)_70%)] blur-3xl opacity-70 animate-ambient-breathe" />
+      <div className="absolute top-1/3 -left-40 w-[600px] h-[600px] bg-[radial-gradient(circle,_rgba(242,140,40,0.035)_0%,_rgba(11,12,14,0)_70%)] blur-3xl opacity-60 animate-ambient-breathe [animation-delay:4s]" />
+      <div className="absolute bottom-10 right-10 w-[600px] h-[600px] bg-[radial-gradient(circle,_rgba(242,140,40,0.04)_0%,_rgba(11,12,14,0)_70%)] blur-3xl opacity-60 animate-ambient-breathe [animation-delay:8s]" />
 
       {/* Primary Topographic Contour Map (Full Vector Organic Lines) */}
       <svg

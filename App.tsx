@@ -7,6 +7,8 @@ import CommandPalette from './components/CommandPalette';
 import HomePage from './pages/HomePage';
 import ProjectPage from './pages/ProjectPage';
 
+import { scrollToSection } from './utils/smoothScroll';
+
 export default function App() {
   const [isCmdOpen, setIsCmdOpen] = useState(false);
   const [showBlobs, setShowBlobs] = useState(true);
@@ -25,8 +27,12 @@ export default function App() {
       navigate(id);
       return;
     }
-    navigate('/#' + id);
-  }, [navigate]);
+    if (location.pathname !== '/') {
+      navigate('/#' + id);
+      return;
+    }
+    scrollToSection(id, 88);
+  }, [navigate, location.pathname]);
 
   useEffect(() => {
     const handleKeyDown = (e: KeyboardEvent) => {

@@ -11,6 +11,7 @@ import ContactSection from '../components/ContactSection';
 import Footer from '../components/Footer';
 import { homeSEO } from '../data/seo';
 import { personSchema, websiteSchema } from '../data/structuredData';
+import { scrollToSection } from '../utils/smoothScroll';
 
 const SECTION_IDS = ['home', 'achievements', 'about', 'projects', 'hackathons', 'skills', 'contact'];
 
@@ -27,28 +28,50 @@ const HomePage: React.FC<HomePageProps> = ({ onNavigate, onSectionChange }) => {
   useEffect(() => {
     const hash = location.hash.replace('#', '');
     if (hash && SECTION_IDS.includes(hash)) {
+      // Use refined smooth scroll with header offset
       setTimeout(() => {
-        document.getElementById(hash)?.scrollIntoView({ behavior: 'smooth' });
-      }, 100);
+        scrollToSection(hash, 88);
+      }, 50);
     } else if (!hash) {
-      window.scrollTo(0, 0);
+      window.scrollTo({ top: 0, behavior: 'smooth' });
     }
   }, [location.hash]);
 
   useEffect(() => {
+    // Window scroll boundary detection for top and bottom of page
+    const handleScroll = () => {
+      if (window.scrollY < 120) {
+        onSectionChange('home');
+        return;
+      }
+      if (window.innerHeight + window.scrollY >= document.documentElement.scrollHeight - 60) {
+        onSectionChange('contact');
+      }
+    };
+
+    window.addEventListener('scroll', handleScroll, { passive: true });
+
+    // IntersectionObserver for middle section scrollspy
     const observer = new IntersectionObserver(
       (entries) => {
         entries.forEach((entry) => {
-          if (entry.isIntersecting) onSectionChange(entry.target.id);
+          if (entry.isIntersecting) {
+            onSectionChange(entry.target.id);
+          }
         });
       },
-      { rootMargin: '-40% 0px -40% 0px' }
+      { rootMargin: '-20% 0px -60% 0px' }
     );
-    SECTION_IDS.forEach(id => {
+
+    SECTION_IDS.forEach((id) => {
       const el = document.getElementById(id);
       if (el) observer.observe(el);
     });
-    return () => observer.disconnect();
+
+    return () => {
+      window.removeEventListener('scroll', handleScroll);
+      observer.disconnect();
+    };
   }, [onSectionChange]);
 
   return (

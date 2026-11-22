@@ -32,13 +32,13 @@ const AchievementModal: React.FC<AchievementModalProps> = ({ achievement, onClos
       role="dialog"
       aria-modal="true"
       aria-labelledby="achievement-modal-title"
-      className="fixed inset-0 z-50 overflow-y-auto bg-[#0B0C0E]/90 backdrop-blur-xl flex justify-center items-start p-0 md:p-6 lg:p-10 animate-fade-in"
+      className="fixed inset-0 z-50 overflow-y-auto bg-[#0B0C0E]/90 backdrop-blur-xl flex justify-center items-start p-0 md:p-6 lg:p-10 animate-modal-backdrop"
     >
       {/* Background click to dismiss */}
       <div className="fixed inset-0" onClick={onClose} aria-hidden="true" />
 
       {/* Main Container */}
-      <div className="relative w-full max-w-5xl bg-[#111214] border border-[#292929] md:rounded-2xl shadow-2xl overflow-hidden z-10 my-0 md:my-8 text-[#F5F2ED]">
+      <div className="relative w-full max-w-5xl bg-[#111214] border border-[#292929] md:rounded-2xl shadow-2xl overflow-hidden z-10 my-0 md:my-8 text-[#F5F2ED] animate-modal-enter">
         
         {/* Topographic Contour Header Bar */}
         <div className="sticky top-0 z-20 bg-[#111214]/95 backdrop-blur-md border-b border-[#292929] px-6 py-4 flex items-center justify-between">
