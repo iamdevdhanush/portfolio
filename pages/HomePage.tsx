@@ -2,9 +2,9 @@ import React, { useEffect, useMemo } from 'react';
 import { useLocation } from 'react-router-dom';
 import SEO from '../components/SEO';
 import Hero from '../components/Hero';
+import ProjectsSection from '../components/ProjectsSection';
 import AchievementStrip from '../components/AchievementStrip';
 import AboutSection from '../components/AboutSection';
-import ProjectsSection from '../components/ProjectsSection';
 import HackathonsSection from '../components/HackathonsSection';
 import SkillsSection from '../components/SkillsSection';
 import ContactSection from '../components/ContactSection';
@@ -13,7 +13,7 @@ import { homeSEO } from '../data/seo';
 import { personSchema, websiteSchema } from '../data/structuredData';
 import { scrollToSection } from '../utils/smoothScroll';
 
-const SECTION_IDS = ['home', 'achievements', 'about', 'projects', 'hackathons', 'skills', 'contact'];
+const SECTION_IDS = ['home', 'projects', 'achievements', 'about', 'hackathons', 'skills', 'contact'];
 
 interface HomePageProps {
   onNavigate: (id: string) => void;
@@ -76,21 +76,36 @@ const HomePage: React.FC<HomePageProps> = ({ onNavigate, onSectionChange }) => {
       <SEO {...homeSEO} jsonLd={jsonLd} />
       <div className="relative z-10 w-full overflow-x-hidden">
         
-        {/* 1. Hero: Light Warm Paper */}
-        <div className="max-w-6xl mx-auto px-5 sm:px-8">
+        {/* 1. Hero: Light Warm Paper with bottom torn paper cutting into #151515 */}
+        <section id="home">
           <Hero onNavigate={onNavigate} />
-        </div>
+        </section>
 
-        {/* 2. Achievements: Deep Ink Dark Section (100% Full-Width) */}
+        {/* 2. Work (Featured Projects): Deep Ink #151515 */}
+        <ProjectsSection onNavigate={onNavigate} />
+
+        {/* 3. Achievements: Deep Ink #151515 */}
         <AchievementStrip />
 
-        {/* 3. About: Light Warm Paper */}
+        {/* Organic deckle-edge paper transition from Deep Ink #151515 back to Warm Paper #F1EBDD */}
+        <div className="w-full overflow-hidden leading-none z-20 -mt-1 pointer-events-none" aria-hidden="true">
+          <svg
+            viewBox="0 0 1440 50"
+            fill="none"
+            preserveAspectRatio="none"
+            className="w-full h-8 sm:h-12 md:h-14 text-[#151515]"
+          >
+            <path
+              d="M0,0 L1440,0 L1440,24 C1360,16 1280,31 1200,21 C1110,11 1030,29 940,19 C860,10 780,27 700,18 C610,8 530,26 440,17 C360,9 280,25 200,16 C120,7 60,24 0,15 Z"
+              fill="currentColor"
+            />
+          </svg>
+        </div>
+
+        {/* 4. About: Light Warm Paper */}
         <div className="max-w-6xl mx-auto px-5 sm:px-8">
           <AboutSection />
         </div>
-
-        {/* 4. Projects: Deep Ink Dark Section (100% Full-Width) */}
-        <ProjectsSection onNavigate={onNavigate} />
 
         {/* 5 & 6. Hackathons & Skills: Light Warm Paper */}
         <div className="max-w-6xl mx-auto px-5 sm:px-8">
@@ -98,7 +113,7 @@ const HomePage: React.FC<HomePageProps> = ({ onNavigate, onSectionChange }) => {
           <SkillsSection />
         </div>
 
-        {/* 7 & 8. Contact & Footer: Deep Ink Dark Section (100% Full-Width) */}
+        {/* 7 & 8. Contact & Footer: Deep Ink #090909 */}
         <ContactSection />
         <Footer />
 

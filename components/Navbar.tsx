@@ -36,29 +36,26 @@ const Navbar: React.FC<NavbarProps> = ({ activeSection, onNavigate }) => {
 
   return (
     <>
-      {/* Desktop Editorial Navigation */}
-      <header className="fixed top-0 left-0 right-0 z-50 px-6 py-4 md:py-6 transition-all duration-300">
+      {/* Simple, Unobtrusive Editorial Navigation Flush at Top */}
+      <header className="fixed top-0 left-0 right-0 z-50 bg-[#F1EBDD]/90 backdrop-blur-sm border-b border-[#E2DAC8]/70 px-6 sm:px-10 py-4 transition-all duration-300">
         <div className="max-w-6xl mx-auto flex items-center justify-between">
           
-          {/* Brand Monogram */}
+          {/* Small DP. Brand Mark on the Left */}
           <a
             href="#home"
             onClick={(e) => handleNavClick(e, 'home')}
-            className="group flex items-baseline gap-2 py-1 cursor-pointer select-none"
+            className="flex items-baseline gap-1.5 py-1 cursor-pointer select-none group"
             aria-label="Dhanush D Prabhu Home"
           >
-            <span className="font-serif font-black text-xl tracking-tight text-[#151515] group-hover:text-[#F04B16] transition-colors">
-              DP.
-            </span>
-            <span className="font-mono text-[11px] uppercase tracking-widest text-[#8A877F] hidden sm:inline">
-              Dhanush D Prabhu
+            <span className="font-serif font-black text-2xl tracking-tighter text-[#151515]">
+              DP<span className="text-[#F04B16]">.</span>
             </span>
           </a>
 
-          {/* Desktop Nav Items — Floating Editorial Bar */}
+          {/* Navigation Aligned to Upper Right */}
           <nav
             aria-label="Main Navigation"
-            className="hidden md:flex items-center gap-1 bg-[#FAF7F0]/85 backdrop-blur-md border border-[#E2DAC8] rounded-full px-3 py-1.5 shadow-sm"
+            className="hidden md:flex items-center gap-7"
           >
             {navItems.map((item) => {
               const isActive = activeSection === item.id;
@@ -67,52 +64,51 @@ const Navbar: React.FC<NavbarProps> = ({ activeSection, onNavigate }) => {
                   key={item.id}
                   href={`#${item.id}`}
                   onClick={(e) => handleNavClick(e, item.id)}
-                  className={`relative text-xs font-medium px-3.5 py-1.5 rounded-full transition-all duration-200 cursor-pointer ${
+                  className={`relative text-xs font-mono uppercase tracking-wider transition-colors py-1 cursor-pointer ${
                     isActive
-                      ? 'text-[#FAF7F0] bg-[#151515] font-semibold'
-                      : 'text-[#151515] hover:text-[#F04B16] hover:bg-[#F1EBDD]/60'
+                      ? 'text-[#151515] font-bold'
+                      : 'text-[#8A877F] hover:text-[#151515]'
                   }`}
                 >
                   {item.label}
                   {isActive && (
-                    <span className="absolute -bottom-1 left-1/2 -translate-x-1/2 w-1.5 h-1.5 rounded-full bg-[#F04B16]" />
+                    <span className="absolute -bottom-1 left-0 right-0 h-[2px] bg-[#F04B16]" />
                   )}
                 </a>
               );
             })}
 
-            {/* Resume Button in Navigation */}
+            {/* Outlined Resume Button */}
             <a
               href="/Dhanush_D_Prabhu_Resume.pdf"
               onClick={handleResumeClick}
-              className="ml-1 text-xs font-medium px-3.5 py-1.5 rounded-full bg-[#F04B16] text-[#FAF7F0] hover:bg-[#D93E0D] transition-colors flex items-center gap-1 cursor-pointer"
+              className="ml-2 px-4 py-1.5 rounded border border-[#151515] hover:bg-[#151515] hover:text-[#FAF7F0] text-xs font-mono uppercase tracking-wider transition-colors cursor-pointer"
             >
-              <FileText className="w-3 h-3" />
-              <span>Resume</span>
+              Resume
             </a>
           </nav>
 
-          {/* Mobile Hamburger Button */}
+          {/* Mobile Menu Toggle Button */}
           <div className="flex md:hidden items-center">
             <button
               onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-              className="w-11 h-11 flex items-center justify-center text-[#151515] bg-[#FAF7F0]/90 backdrop-blur-md rounded-xl border border-[#E2DAC8] hover:border-[#F04B16] transition-all duration-200 active:scale-95"
+              className="w-10 h-10 flex items-center justify-center text-[#151515] hover:text-[#F04B16] transition-colors"
               aria-label={isMobileMenuOpen ? 'Close Navigation Menu' : 'Open Navigation Menu'}
               aria-expanded={isMobileMenuOpen}
             >
               <div className="relative w-5 h-5 flex items-center justify-center">
                 <span
-                  className={`absolute w-4 h-0.5 bg-current transition-all duration-300 ease-out ${
+                  className={`absolute w-5 h-0.5 bg-current transition-all duration-300 ease-out ${
                     isMobileMenuOpen ? 'rotate-45 text-[#F04B16]' : '-translate-y-1.5 text-[#151515]'
                   }`}
                 />
                 <span
-                  className={`absolute w-4 h-0.5 bg-current transition-opacity duration-200 ${
+                  className={`absolute w-5 h-0.5 bg-current transition-opacity duration-200 ${
                     isMobileMenuOpen ? 'opacity-0' : 'opacity-100 text-[#151515]'
                   }`}
                 />
                 <span
-                  className={`absolute w-4 h-0.5 bg-current transition-all duration-300 ease-out ${
+                  className={`absolute w-5 h-0.5 bg-current transition-all duration-300 ease-out ${
                     isMobileMenuOpen ? '-rotate-45 text-[#F04B16]' : 'translate-y-1.5 text-[#151515]'
                   }`}
                 />
@@ -123,10 +119,10 @@ const Navbar: React.FC<NavbarProps> = ({ activeSection, onNavigate }) => {
         </div>
       </header>
 
-      {/* Mobile Navigation Drawer with Editorial Styling */}
+      {/* Mobile Editorial Navigation Drawer */}
       {isMobileMenuOpen && (
         <div className="fixed inset-0 z-40 bg-[#F1EBDD]/98 backdrop-blur-2xl pt-24 px-8 md:hidden animate-modal-backdrop flex flex-col justify-between pb-12">
-          <div className="flex flex-col gap-3">
+          <div className="flex flex-col gap-4">
             <span className="font-mono text-xs uppercase tracking-widest text-[#8A877F] pb-2 border-b border-[#E2DAC8]">
               Table of Contents
             </span>
@@ -139,7 +135,7 @@ const Navbar: React.FC<NavbarProps> = ({ activeSection, onNavigate }) => {
                   href={`#${item.id}`}
                   onClick={(e) => handleNavClick(e, item.id)}
                   style={{ animationDelay: `${idx * 40}ms` }}
-                  className={`flex items-center justify-between text-2xl font-serif py-2.5 transition-all duration-200 border-b border-[#E2DAC8]/50 cursor-pointer ${
+                  className={`flex items-center justify-between text-3xl font-serif py-2 transition-all duration-200 border-b border-[#E2DAC8]/60 cursor-pointer ${
                     isActive
                       ? 'text-[#F04B16] font-bold'
                       : 'text-[#151515] hover:text-[#F04B16]'
@@ -147,7 +143,7 @@ const Navbar: React.FC<NavbarProps> = ({ activeSection, onNavigate }) => {
                 >
                   <span>{item.label}</span>
                   {isActive ? (
-                    <span className="w-2 h-2 rounded-full bg-[#F04B16]" />
+                    <span className="w-2.5 h-2.5 rounded-full bg-[#F04B16]" />
                   ) : (
                     <ArrowUpRight className="w-4 h-4 text-[#8A877F]" />
                   )}
@@ -158,7 +154,7 @@ const Navbar: React.FC<NavbarProps> = ({ activeSection, onNavigate }) => {
             <a
               href="/Dhanush_D_Prabhu_Resume.pdf"
               onClick={handleResumeClick}
-              className="mt-4 px-5 py-3 rounded-xl bg-[#F04B16] text-[#FAF7F0] font-sans text-sm font-semibold flex items-center justify-center gap-2 cursor-pointer shadow-md"
+              className="mt-6 px-5 py-3 rounded-lg border border-[#151515] bg-[#151515] text-[#FAF7F0] font-mono text-xs uppercase tracking-wider font-bold flex items-center justify-center gap-2 cursor-pointer shadow-sm"
             >
               <FileText className="w-4 h-4" />
               <span>Download Resume (PDF)</span>

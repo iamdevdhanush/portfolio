@@ -21,10 +21,10 @@ const ContactSection: React.FC = () => {
   };
 
   return (
-    <section id="contact" className="w-full px-5 sm:px-8 py-24 md:py-32 bg-[#090909] text-[#FAF7F0] ink-grain scroll-mt-20">
+    <section id="contact" className="w-full px-5 sm:px-8 pt-16 md:pt-20 pb-16 md:pb-20 bg-[#090909] text-[#FAF7F0] ink-grain scroll-mt-20">
       <div className="max-w-6xl mx-auto">
         <ScrollReveal direction="up" distance={20} duration={600}>
-          <div className="pt-6">
+          <div>
             
             <div className="flex items-center gap-2 mb-4 font-mono text-xs uppercase tracking-widest text-[#F04B16]">
               <span className="w-2 h-2 rounded-full bg-[#F04B16]" />
@@ -39,7 +39,7 @@ const ContactSection: React.FC = () => {
               </span>
             </h2>
 
-            <div className="mb-10 flex flex-col sm:flex-row sm:items-center justify-between gap-4">
+            <div className="mb-8 flex flex-col sm:flex-row sm:items-center justify-between gap-4">
               <p className="font-serif italic text-lg sm:text-xl text-[#8A877F] max-w-xl font-normal leading-relaxed">
                 Open to discussions regarding backend engineering roles, AI system architecture, and new engineering initiatives.
               </p>
@@ -49,19 +49,19 @@ const ContactSection: React.FC = () => {
             </div>
 
             {/* Direct Email Interaction */}
-            <div className="flex flex-wrap items-center gap-4 mb-12">
+            <div className="flex flex-wrap items-center gap-3.5 mb-10">
               <a
                 href={`mailto:${email}`}
-                className="inline-flex items-center gap-2.5 px-7 py-4 bg-[#F04B16] text-[#FAF7F0] hover:bg-[#D93E0D] font-mono text-xs font-bold uppercase tracking-wider rounded-xl transition-colors active:scale-95 shadow-lg shadow-[#F04B16]/20"
+                className="inline-flex items-center gap-2.5 px-6 py-3.5 bg-[#F04B16] text-[#FAF7F0] hover:bg-[#D93E0D] font-mono text-xs font-bold uppercase tracking-wider rounded transition-colors active:scale-95 shadow-lg shadow-[#F04B16]/20"
               >
                 <Mail className="w-4 h-4" />
                 <span>{email}</span>
-                <ArrowUpRight className="w-4 h-4" />
+                <ArrowUpRight className="w-3.5 h-3.5" />
               </a>
 
               <button
                 onClick={handleCopyEmail}
-                className="px-5 py-4 rounded-xl border border-[#2A2A2A] hover:border-[#F04B16] font-mono text-xs text-[#FAF7F0] hover:text-[#F04B16] transition-colors flex items-center gap-2 cursor-pointer active:scale-95 min-h-[48px]"
+                className="px-5 py-3.5 rounded border border-[#2A2A2A] hover:border-[#F04B16] font-mono text-xs text-[#FAF7F0] hover:text-[#F04B16] transition-colors flex items-center gap-2 cursor-pointer active:scale-95 min-h-[44px]"
                 aria-label="Copy email address"
               >
                 {copied ? (
@@ -79,7 +79,7 @@ const ContactSection: React.FC = () => {
             </div>
 
             {/* Inline Connectors */}
-            <div className="pt-8 border-t border-[#2A2A2A] flex flex-wrap items-center gap-8 font-mono text-xs text-[#8A877F]">
+            <div className="pt-6 border-t border-[#2A2A2A] flex flex-wrap items-center gap-6 sm:gap-8 font-mono text-xs text-[#8A877F]">
               <a
                 href="https://github.com/iamdevdhanush"
                 target="_blank"

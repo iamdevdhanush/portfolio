@@ -14,12 +14,12 @@ const ProjectsSection: React.FC<ProjectsSectionProps> = ({ onNavigate: _onNaviga
   const littleHeartbeat = projects.find(p => p.slug === 'little-heartbeat');
 
   return (
-    <section id="projects" className="w-full px-5 sm:px-8 py-24 md:py-32 bg-[#151515] text-[#FAF7F0] ink-grain scroll-mt-20">
+    <section id="projects" className="w-full px-5 sm:px-8 pt-12 md:pt-16 pb-20 md:pb-24 bg-[#151515] text-[#FAF7F0] ink-grain scroll-mt-20">
       <div className="max-w-6xl mx-auto">
         
         {/* Section Header */}
         <ScrollReveal direction="up" distance={16} duration={500}>
-          <div className="flex flex-col md:flex-row md:items-end justify-between gap-4 mb-16 pb-6 border-b border-[#2A2A2A]">
+          <div className="flex flex-col md:flex-row md:items-end justify-between gap-4 mb-12 pb-6 border-b border-[#2A2A2A]">
             <div>
               <div className="flex items-center gap-2 mb-2 font-mono text-xs uppercase tracking-widest text-[#F04B16]">
                 <span className="w-2 h-2 rounded-full bg-[#F04B16]" />
@@ -29,7 +29,7 @@ const ProjectsSection: React.FC<ProjectsSectionProps> = ({ onNavigate: _onNaviga
                 Selected Works
               </h2>
               <p className="font-serif italic text-base sm:text-lg text-[#8A877F] mt-1">
-                Custom backend architectures, spatial analytics, and distributed telemetry.
+                Production architectures, spatial analytics, and distributed telemetry.
               </p>
             </div>
             <div className="text-right hidden md:block font-mono text-xs text-[#8A877F]">
@@ -38,14 +38,14 @@ const ProjectsSection: React.FC<ProjectsSectionProps> = ({ onNavigate: _onNaviga
           </div>
         </ScrollReveal>
 
-        <div className="space-y-20 md:space-y-28">
+        <div className="space-y-16 md:space-y-24">
           
           {/* ============================================================ */}
           {/* 1. AVANA V2 — FULL-WIDTH EDITORIAL FLAGSHIP SPREAD            */}
           {/* ============================================================ */}
           {avana && (
             <ScrollReveal direction="up" distance={22} duration={650}>
-              <div className="border border-[#2A2A2A] hover:border-[#F04B16]/60 rounded-2xl p-6 sm:p-10 lg:p-12 bg-[#090909] transition-all duration-300">
+              <div className="border border-[#2A2A2A] hover:border-[#F04B16]/60 rounded-xl p-6 sm:p-10 lg:p-12 bg-[#090909] transition-all duration-300">
                 
                 {/* Flagship Header */}
                 <div className="flex flex-wrap items-center justify-between gap-4 mb-8 pb-6 border-b border-[#2A2A2A]">
@@ -54,7 +54,7 @@ const ProjectsSection: React.FC<ProjectsSectionProps> = ({ onNavigate: _onNaviga
                       <span className="px-3 py-1 rounded-full text-xs font-mono font-bold uppercase bg-[#F04B16] text-[#FAF7F0]">
                         {avana.badge}
                       </span>
-                      <span className="font-mono text-xs text-[#8A877F]">Flagship Architecture</span>
+                      <span className="font-mono text-xs text-[#8A877F]">Flagship System</span>
                     </div>
                     <h3 className="font-display text-4xl sm:text-6xl lg:text-7xl text-[#FAF7F0] tracking-tight uppercase">
                       {avana.title}
@@ -67,7 +67,7 @@ const ProjectsSection: React.FC<ProjectsSectionProps> = ({ onNavigate: _onNaviga
                   <div className="flex items-center gap-3">
                     <Link
                       to={`/project/${avana.slug}`}
-                      className="px-6 py-3 bg-[#F04B16] text-[#FAF7F0] hover:bg-[#D93E0D] font-mono text-xs font-bold uppercase tracking-wider rounded-xl transition-colors flex items-center gap-2 cursor-pointer active:scale-95 shadow-md shadow-[#F04B16]/20"
+                      className="px-5 py-2.5 bg-[#F04B16] text-[#FAF7F0] hover:bg-[#D93E0D] font-mono text-xs font-bold uppercase tracking-wider rounded transition-colors flex items-center gap-2 cursor-pointer active:scale-95 shadow-md shadow-[#F04B16]/20"
                     >
                       <span>Full Case Study</span>
                       <ArrowUpRight className="w-4 h-4" />
@@ -77,7 +77,7 @@ const ProjectsSection: React.FC<ProjectsSectionProps> = ({ onNavigate: _onNaviga
                         href={avana.githubLink}
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="p-3 rounded-xl border border-[#2A2A2A] hover:border-[#F04B16] text-[#FAF7F0] hover:text-[#F04B16] transition-colors"
+                        className="p-2.5 rounded border border-[#2A2A2A] hover:border-[#F04B16] text-[#FAF7F0] hover:text-[#F04B16] transition-colors"
                         aria-label="View Avana V2 GitHub Repository"
                       >
                         <Github className="w-4 h-4" />
@@ -91,24 +91,30 @@ const ProjectsSection: React.FC<ProjectsSectionProps> = ({ onNavigate: _onNaviga
                   
                   {/* Left: Problem & Capabilities */}
                   <div className="lg:col-span-7 space-y-6">
+                    {/* The Problem */}
                     <div>
-                      <span className="font-mono text-xs uppercase tracking-wider text-[#8A877F] block mb-2 font-bold">
-                        Problem Statement & Context
+                      <span className="font-mono text-xs uppercase tracking-wider text-[#F04B16] block mb-2 font-bold">
+                        The Challenge
                       </span>
                       <p className="font-sans text-sm sm:text-base text-[#FAF7F0]/90 leading-relaxed font-normal">
-                        {avana.description}
+                        {avana.problemStatement || avana.description}
                       </p>
-                      {avana.problemStatement && (
-                        <p className="font-sans text-xs sm:text-sm text-[#8A877F] leading-relaxed mt-2 pt-2 border-t border-[#2A2A2A]">
-                          {avana.problemStatement}
-                        </p>
-                      )}
                     </div>
 
-                    {/* Highlights */}
+                    {/* The Architectural Solution */}
+                    <div className="pt-2">
+                      <span className="font-mono text-xs uppercase tracking-wider text-[#8A877F] block mb-2 font-bold">
+                        The Architectural Solution
+                      </span>
+                      <p className="font-sans text-xs sm:text-sm text-[#8A877F] leading-relaxed">
+                        {avana.description}
+                      </p>
+                    </div>
+
+                    {/* Key Technical Capabilities */}
                     <div>
-                      <span className="font-mono text-xs uppercase tracking-wider text-[#F04B16] font-bold block mb-2.5">
-                        Core Technical Capabilities
+                      <span className="font-mono text-xs uppercase tracking-wider text-[#FAF7F0] font-bold block mb-2.5">
+                        Key Technical Capabilities
                       </span>
                       <div className="space-y-2">
                         {avana.highlights.map((h, i) => (
@@ -138,7 +144,7 @@ const ProjectsSection: React.FC<ProjectsSectionProps> = ({ onNavigate: _onNaviga
                     </div>
                   </div>
 
-                  {/* Right: Authentic Architecture Blueprint Flow */}
+                  {/* Right: Scannable Architecture Flow Blueprint */}
                   <div className="lg:col-span-5 bg-[#151515] border border-[#2A2A2A] rounded-xl p-6 space-y-4">
                     <div className="flex items-center justify-between pb-3 border-b border-[#2A2A2A]">
                       <span className="font-mono text-xs uppercase tracking-wider text-[#FAF7F0] font-bold">
@@ -212,7 +218,7 @@ const ProjectsSection: React.FC<ProjectsSectionProps> = ({ onNavigate: _onNaviga
           {/* ============================================================ */}
           {greenops && (
             <ScrollReveal direction="up" distance={20} duration={600}>
-              <div className="border border-[#2A2A2A] hover:border-[#F04B16]/60 rounded-2xl p-6 sm:p-8 lg:p-10 bg-[#090909] transition-all duration-300">
+              <div className="border border-[#2A2A2A] hover:border-[#F04B16]/60 rounded-xl p-6 sm:p-8 lg:p-10 bg-[#090909] transition-all duration-300">
                 <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
                   
                   {/* Left: Identity & Purpose */}
@@ -326,7 +332,7 @@ const ProjectsSection: React.FC<ProjectsSectionProps> = ({ onNavigate: _onNaviga
           {/* ============================================================ */}
           {littleHeartbeat && (
             <ScrollReveal direction="up" distance={20} duration={600}>
-              <div className="border border-[#2A2A2A] hover:border-[#F04B16]/60 rounded-2xl p-6 sm:p-8 lg:p-10 bg-[#090909] transition-all duration-300">
+              <div className="border border-[#2A2A2A] hover:border-[#F04B16]/60 rounded-xl p-6 sm:p-8 lg:p-10 bg-[#090909] transition-all duration-300">
                 <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
                   
                   {/* Left: Sprint Context */}
@@ -402,7 +408,7 @@ const ProjectsSection: React.FC<ProjectsSectionProps> = ({ onNavigate: _onNaviga
 
         {/* GitHub Colophon Link */}
         <ScrollReveal delay={100} direction="up" distance={14} duration={500}>
-          <div className="mt-16 pt-8 border-t border-[#2A2A2A] flex justify-between items-center font-mono text-xs text-[#8A877F]">
+          <div className="mt-14 pt-8 border-t border-[#2A2A2A] flex justify-between items-center font-mono text-xs text-[#8A877F]">
             <span>More architectural repositories on GitHub</span>
             <a
               href="https://github.com/iamdevdhanush"

@@ -1,5 +1,5 @@
 import React, { useEffect } from 'react';
-import { X, Trophy, Award, MapPin, Calendar, CheckCircle2, ArrowLeft, Image as ImageIcon } from 'lucide-react';
+import { X, Trophy, Award, MapPin, Calendar, CheckCircle2, ArrowLeft, ShieldCheck } from 'lucide-react';
 import type { AchievementDetail } from '../types';
 
 interface AchievementModalProps {
@@ -95,40 +95,67 @@ const AchievementModal: React.FC<AchievementModalProps> = ({ achievement, onClos
             </div>
           </div>
 
-          {/* Photography & Verified Documentation */}
-          <div>
-            <h2 className="font-mono text-xs uppercase tracking-wider text-[#8A877F] mb-4">
-              Verified Event Documentation & Photography
-            </h2>
-
-            <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
-              {/* Personal Photo */}
-              <div className="bg-[#FAF7F0] border border-[#E2DAC8] rounded-xl overflow-hidden p-4">
-                <div className="aspect-[4/3] rounded-lg overflow-hidden bg-[#E2DAC8] border border-[#E2DAC8] mb-3">
-                  <img
-                    src="/profile.jpg"
-                    alt="Dhanush D Prabhu"
-                    className="w-full h-full object-cover"
-                  />
-                </div>
+          {/* Balanced Two-Column Composition: Photo & Official Record Plaque */}
+          <div className="grid grid-cols-1 md:grid-cols-12 gap-6 items-stretch">
+            
+            {/* Left Column: Personal Photographic Portrait */}
+            <div className="md:col-span-5 bg-[#FAF7F0] border border-[#E2DAC8] rounded-xl p-4 flex flex-col justify-between">
+              <div className="aspect-[4/3] rounded-lg overflow-hidden bg-[#E2DAC8] border border-[#E2DAC8] mb-3">
+                <img
+                  src="/profile.jpg"
+                  alt="Dhanush D Prabhu"
+                  className="w-full h-full object-cover"
+                />
+              </div>
+              <div>
                 <p className="font-serif font-bold text-sm text-[#151515]">Dhanush D Prabhu</p>
                 <p className="font-mono text-xs text-[#8A877F]">Lead Engineer & Participant</p>
               </div>
+            </div>
 
-              {/* Event Documentation Frame */}
-              <div className="bg-[#FAF7F0] border border-[#E2DAC8] rounded-xl overflow-hidden p-4 flex flex-col justify-between">
-                <div className="aspect-[4/3] rounded-lg bg-[#FAF7F0] border border-[#E2DAC8] flex flex-col items-center justify-center p-6 text-center mb-3">
-                  <ImageIcon className="w-8 h-8 text-[#8A877F] mb-2 stroke-1" />
-                  <p className="font-sans text-xs text-[#8A877F] max-w-xs">
-                    {achievement.eventPhotos[0]?.caption || 'Official competition record'}
-                  </p>
+            {/* Right Column: Official Typographic Achievement Plaque (No Empty Boxes) */}
+            <div className="md:col-span-7 bg-[#FAF7F0] border border-[#E2DAC8] rounded-xl p-6 flex flex-col justify-between space-y-4">
+              <div className="flex items-center justify-between pb-3 border-b border-[#E2DAC8]">
+                <div className="flex items-center gap-2">
+                  <ShieldCheck className="w-4 h-4 text-[#F04B16]" />
+                  <span className="font-mono text-xs font-bold uppercase tracking-wider text-[#151515]">
+                    Verified Competition Record
+                  </span>
                 </div>
+                <span className="font-mono text-xs text-[#F04B16] font-bold">
+                  {achievement.rank || achievement.badge}
+                </span>
+              </div>
+
+              <div className="space-y-3 font-sans text-xs sm:text-sm">
                 <div>
-                  <p className="font-serif font-bold text-sm text-[#151515]">Event Record</p>
-                  <p className="font-mono text-xs text-[#8A877F]">{achievement.organization}</p>
+                  <span className="font-mono text-[11px] text-[#8A877F] uppercase tracking-wider block">Host Institution</span>
+                  <span className="font-serif font-bold text-base text-[#151515]">{achievement.organization}</span>
+                </div>
+
+                <div>
+                  <span className="font-mono text-[11px] text-[#8A877F] uppercase tracking-wider block">Award Granted</span>
+                  <span className="font-mono text-xs font-bold text-[#F04B16]">{achievement.award}</span>
+                </div>
+
+                <div>
+                  <span className="font-mono text-[11px] text-[#8A877F] uppercase tracking-wider block">Scope & Format</span>
+                  <span className="text-[#151515]/90">{achievement.projectOverview}</span>
                 </div>
               </div>
+
+              <div className="pt-3 border-t border-[#E2DAC8] flex flex-wrap gap-1.5">
+                {achievement.technologies.map((tech) => (
+                  <span
+                    key={tech}
+                    className="font-mono text-[11px] text-[#151515] bg-[#F1EBDD] border border-[#E2DAC8] px-2.5 py-0.5 rounded"
+                  >
+                    {tech}
+                  </span>
+                ))}
+              </div>
             </div>
+
           </div>
 
           {/* Problem Statement & Project Overview */}
@@ -144,56 +171,26 @@ const AchievementModal: React.FC<AchievementModalProps> = ({ achievement, onClos
 
             <div className="bg-[#FAF7F0] border border-[#E2DAC8] rounded-xl p-6">
               <h3 className="font-mono text-xs font-bold uppercase tracking-wider text-[#F04B16] mb-2">
-                Project Overview
+                What Was Built
               </h3>
               <p className="font-sans text-xs sm:text-sm text-[#151515]/90 leading-relaxed">
-                {achievement.projectOverview}
+                {achievement.whatIBuilt}
               </p>
             </div>
           </div>
 
-          {/* What Was Built */}
-          <div className="bg-[#FAF7F0] border border-[#E2DAC8] rounded-xl p-6">
-            <h3 className="font-mono text-xs font-bold uppercase tracking-wider text-[#F04B16] mb-2">
-              What Was Built
-            </h3>
-            <p className="font-sans text-sm sm:text-base text-[#151515] leading-relaxed">
-              {achievement.whatIBuilt}
-            </p>
-          </div>
-
           {/* Individual Contributions & Technologies */}
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-6">
-            <div className="lg:col-span-7 space-y-3">
-              <h3 className="font-mono text-xs font-bold uppercase tracking-wider text-[#8A877F]">
-                Individual Contributions
-              </h3>
-              <div className="space-y-2">
-                {achievement.individualContributions.map((item, idx) => (
-                  <div key={idx} className="flex items-start gap-2.5 bg-[#FAF7F0] border border-[#E2DAC8] rounded-lg p-3">
-                    <CheckCircle2 className="w-4 h-4 text-[#F04B16] shrink-0 mt-0.5" />
-                    <span className="font-sans text-xs sm:text-sm text-[#151515] leading-relaxed">{item}</span>
-                  </div>
-                ))}
-              </div>
-            </div>
-
-            <div className="lg:col-span-5 space-y-3">
-              <h3 className="font-mono text-xs font-bold uppercase tracking-wider text-[#8A877F]">
-                Technologies Used
-              </h3>
-              <div className="bg-[#FAF7F0] border border-[#E2DAC8] rounded-xl p-5">
-                <div className="flex flex-wrap gap-2">
-                  {achievement.technologies.map((tech) => (
-                    <span
-                      key={tech}
-                      className="font-mono px-2.5 py-1 rounded text-xs text-[#151515] bg-[#F1EBDD] border border-[#E2DAC8]"
-                    >
-                      {tech}
-                    </span>
-                  ))}
+          <div className="bg-[#FAF7F0] border border-[#E2DAC8] rounded-xl p-6 space-y-4">
+            <h3 className="font-mono text-xs font-bold uppercase tracking-wider text-[#8A877F]">
+              Individual Technical Contributions
+            </h3>
+            <div className="space-y-2">
+              {achievement.individualContributions.map((item, idx) => (
+                <div key={idx} className="flex items-start gap-2.5 p-2 rounded bg-[#F1EBDD]/50 border border-[#E2DAC8]">
+                  <CheckCircle2 className="w-4 h-4 text-[#F04B16] shrink-0 mt-0.5" />
+                  <span className="font-sans text-xs sm:text-sm text-[#151515] leading-relaxed">{item}</span>
                 </div>
-              </div>
+              ))}
             </div>
           </div>
 
@@ -263,7 +260,7 @@ const AchievementModal: React.FC<AchievementModalProps> = ({ achievement, onClos
         <div className="bg-[#FAF7F0] border-t border-[#E2DAC8] px-6 py-4 flex justify-end">
           <button
             onClick={onClose}
-            className="px-6 py-2.5 bg-[#151515] text-[#FAF7F0] hover:bg-[#F04B16] font-mono text-xs font-bold uppercase rounded-lg transition-colors cursor-pointer"
+            className="px-6 py-2.5 bg-[#151515] text-[#FAF7F0] hover:bg-[#F04B16] font-mono text-xs font-bold uppercase rounded transition-colors cursor-pointer"
           >
             Close Archive
           </button>

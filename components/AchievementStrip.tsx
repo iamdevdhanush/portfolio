@@ -12,12 +12,12 @@ const AchievementStrip: React.FC = () => {
   const timelineEntries = achievementsData.slice(1);
 
   return (
-    <section id="achievements" className="w-full px-5 sm:px-8 py-24 md:py-32 bg-[#151515] text-[#FAF7F0] ink-grain scroll-mt-20">
+    <section id="achievements" className="w-full px-5 sm:px-8 pt-16 md:pt-20 pb-20 md:pb-24 bg-[#151515] text-[#FAF7F0] ink-grain scroll-mt-20">
       <div className="max-w-6xl mx-auto">
         
         {/* Section Header */}
         <ScrollReveal direction="up" distance={16} duration={500}>
-          <div className="flex flex-col md:flex-row md:items-end justify-between gap-4 mb-14 pb-6 border-b border-[#2A2A2A]">
+          <div className="flex flex-col md:flex-row md:items-end justify-between gap-4 mb-12 pb-6 border-b border-[#2A2A2A]">
             <div>
               <div className="flex items-center gap-2 mb-2 font-mono text-xs uppercase tracking-widest text-[#F04B16]">
                 <span className="w-2 h-2 rounded-full bg-[#F04B16]" />
@@ -50,7 +50,7 @@ const AchievementStrip: React.FC = () => {
               tabIndex={0}
               role="button"
               aria-label={`Open detailed case study for ${premierWin.title}`}
-              className="group mb-12 border border-[#2A2A2A] hover:border-[#F04B16] rounded-2xl p-6 sm:p-10 bg-[#090909] transition-all duration-300 cursor-pointer focus:outline-none focus:ring-2 focus:ring-[#F04B16]"
+              className="group mb-12 border border-[#2A2A2A] hover:border-[#F04B16] rounded-xl p-6 sm:p-10 bg-[#090909] transition-all duration-300 cursor-pointer focus:outline-none focus:ring-2 focus:ring-[#F04B16]"
             >
               <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
                 
@@ -93,11 +93,11 @@ const AchievementStrip: React.FC = () => {
 
                 {/* Right: Authentic Photograph Frame */}
                 <div className="lg:col-span-4 flex justify-center lg:justify-end">
-                  <div className="relative w-full max-w-xs aspect-[4/3] rounded-xl overflow-hidden border border-[#2A2A2A] bg-[#151515] group-hover:border-[#F04B16]/60 transition-colors">
+                  <div className="relative w-full max-w-xs aspect-[4/3] rounded-lg overflow-hidden border border-[#2A2A2A] bg-[#151515] group-hover:border-[#F04B16]/60 transition-colors">
                     <img
                       src="/profile.jpg"
                       alt="Dhanush D Prabhu — CodeNeura Winner"
-                      className="w-full h-full object-cover grayscale contrast-110 group-hover:grayscale-0 transition-all duration-500"
+                      className="w-full h-full object-cover grayscale contrast-115 group-hover:grayscale-0 transition-all duration-500"
                     />
                     <div className="absolute inset-0 bg-gradient-to-t from-[#090909]/80 via-transparent to-transparent pointer-events-none" />
                     <div className="absolute bottom-2.5 left-3 right-3 text-left">
@@ -131,7 +131,7 @@ const AchievementStrip: React.FC = () => {
                 tabIndex={0}
                 role="button"
                 aria-label={`Open detailed case study for ${item.title}`}
-                className="group py-6 border-b border-[#2A2A2A] hover:bg-[#090909]/60 px-4 rounded-xl transition-all duration-200 cursor-pointer flex flex-col md:flex-row md:items-center justify-between gap-4 focus:outline-none focus:ring-1 focus:ring-[#F04B16]"
+                className="group py-5 sm:py-6 border-b border-[#2A2A2A] hover:bg-[#090909]/60 px-4 rounded-lg transition-all duration-200 cursor-pointer flex flex-col md:flex-row md:items-center justify-between gap-4 focus:outline-none focus:ring-1 focus:ring-[#F04B16]"
               >
                 {/* Left: Metadata */}
                 <div className="md:w-1/4 shrink-0 space-y-1">

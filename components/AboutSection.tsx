@@ -26,21 +26,21 @@ const AboutSection: React.FC = () => {
   ];
 
   return (
-    <section id="about" className="py-24 md:py-32 scroll-mt-28">
+    <section id="about" className="py-16 md:py-20 scroll-mt-24">
       {/* Section Pre-title */}
       <ScrollReveal direction="up" distance={16} duration={500}>
         <div className="flex items-center gap-3 mb-3 font-mono text-xs uppercase tracking-widest text-[#F04B16]">
           <span className="w-2 h-2 rounded-full bg-[#F04B16]" />
           <span>Essay // Architectural Conviction</span>
         </div>
-        <h2 className="font-serif text-3xl sm:text-5xl md:text-6xl text-[#151515] tracking-tight leading-tight mb-4">
+        <h2 className="font-serif text-3xl sm:text-5xl md:text-6xl text-[#151515] tracking-tight leading-tight mb-3">
           The discipline of building systems that do not break.
         </h2>
       </ScrollReveal>
 
       {/* Editorial Pull-Quote with Handwritten Margin Note */}
       <ScrollReveal direction="up" distance={18} duration={600} delay={60}>
-        <div className="relative my-10 pl-6 sm:pl-8 border-l-4 border-[#F04B16] py-2">
+        <div className="relative my-8 pl-6 sm:pl-8 border-l-4 border-[#F04B16] py-2">
           <p className="font-serif italic text-xl sm:text-2xl md:text-3xl text-[#151515] leading-relaxed max-w-4xl font-normal">
             "Engineering maturity is demonstrated not by speculative abstraction, but by explicit boundaries: normalized data models, stateless handlers, and verifiable container deployments."
           </p>
@@ -51,10 +51,10 @@ const AboutSection: React.FC = () => {
       </ScrollReveal>
 
       {/* Two-Column Editorial Spread */}
-      <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-start mt-12">
+      <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-14 items-start mt-8">
         
         {/* Left Column: Narrative Background & Academic Foundation */}
-        <div className="lg:col-span-6 space-y-6 text-sm sm:text-base text-[#151515]/85 font-sans leading-relaxed">
+        <div className="lg:col-span-6 space-y-5 text-sm sm:text-base text-[#151515]/85 font-sans leading-relaxed">
           <ScrollReveal direction="up" distance={18} duration={550} delay={100}>
             <p>
               I build <strong className="text-[#151515] font-semibold">backend systems</strong> and <strong className="text-[#151515] font-semibold">AI-powered applications</strong>. My work focuses on designing APIs, managing structured data pipelines, and deploying containerized services. I work primarily with Python, FastAPI, PostgreSQL, and Docker.
@@ -75,11 +75,11 @@ const AboutSection: React.FC = () => {
 
           {/* Integrated Academic Foundation (Editorial Stamp) */}
           <ScrollReveal direction="up" distance={18} duration={550} delay={250}>
-            <div className="pt-6 border-t border-[#E2DAC8] space-y-3">
+            <div className="pt-5 border-t border-[#E2DAC8] space-y-2.5">
               <span className="font-mono text-xs uppercase tracking-widest text-[#F04B16] font-bold block">
                 Academic Foundation
               </span>
-              <div className="bg-[#FAF7F0] border border-[#E2DAC8] rounded-xl p-5 space-y-2">
+              <div className="bg-[#FAF7F0] border border-[#E2DAC8] rounded-xl p-4 sm:p-5 space-y-1.5">
                 <p className="font-serif font-bold text-base text-[#151515]">
                   PES Institute of Advanced Management Studies
                 </p>
@@ -98,16 +98,16 @@ const AboutSection: React.FC = () => {
         </div>
 
         {/* Right Column: Four Architectural Focus Pillars */}
-        <div className="lg:col-span-6 space-y-6">
+        <div className="lg:col-span-6 space-y-5">
           <div className="pb-2 font-mono text-xs uppercase tracking-widest text-[#8A877F] border-b border-[#E2DAC8]">
             Core Directives & Focus
           </div>
 
-          <div className="space-y-6">
+          <div className="space-y-5">
             {architecturalPillars.map((item, idx) => (
               <ScrollReveal key={item.num} delay={100 + idx * 75} direction="up" distance={16} duration={500}>
-                <div className="pb-6 border-b border-[#E2DAC8] group">
-                  <div className="flex items-baseline gap-3 mb-2">
+                <div className="pb-5 border-b border-[#E2DAC8] group">
+                  <div className="flex items-baseline gap-3 mb-1.5">
                     <span className="font-mono text-sm text-[#F04B16] font-bold">
                       {item.num} //
                     </span>

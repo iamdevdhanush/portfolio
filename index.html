@@ -30,10 +30,10 @@
     <meta name="twitter:image" content="https://dhanushdprabhu.is-a.dev/og-image.svg" />
     <meta name="twitter:image:alt" content="Dhanush D Prabhu — AI Engineer & Software Developer" />
 
-    {/* Creative Editorial Typographic System: Display + Serif + Body + Technical Mono + Handwritten */}
+    <!-- Primary Editorial Typographic System: Anton + Bebas Neue + Instrument Serif + Playfair Display + DM Sans + IBM Plex Mono + Caveat -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Caveat:wght@400;600;700&family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&family=IBM+Plex+Mono:ital,wght@0,400;0,500;0,600;1,400&family=Playfair+Display:ital,wght@0,400..900;1,400..900&display=swap" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css2?family=Anton&family=Bebas+Neue&family=Caveat:wght@400;600;700&family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&family=IBM+Plex+Mono:ital,wght@0,400;0,500;0,600;1,400&family=Instrument+Serif:ital@0;1&family=Playfair+Display:ital,wght@0,400..900;1,400..900&display=swap" rel="stylesheet" />
     <meta name="google-site-verification" content="PGrn0geeko-CSL9UIY4cr4xpplprVF9vrlkiF4IT0kc" />
 
     <script src="https://cdn.tailwindcss.com"></script>
@@ -57,8 +57,8 @@
                 'ink-border': '#2A2A2A',
               },
               fontFamily: {
-                display: ['"Bebas Neue"', 'sans-serif'],
-                serif: ['"Playfair Display"', 'Georgia', 'serif'],
+                display: ['"Anton"', '"Bebas Neue"', 'sans-serif'],
+                serif: ['"Instrument Serif"', '"Playfair Display"', 'Georgia', 'serif'],
                 sans: ['"DM Sans"', '-apple-system', 'sans-serif'],
                 mono: ['"IBM Plex Mono"', 'monospace'],
                 hand: ['"Caveat"', 'cursive'],
@@ -104,7 +104,6 @@
       ::-webkit-scrollbar-thumb:hover {
         background: #F04B16;
       }
-      /* Subtle print paper texture */
       .paper-grain {
         background-image: radial-gradient(rgba(21, 21, 21, 0.04) 1px, transparent 0);
         background-size: 24px 24px;
@@ -121,16 +120,6 @@
         to {
           opacity: 1;
           transform: translateY(0);
-        }
-      }
-      @keyframes heroScale {
-        from {
-          opacity: 0;
-          transform: scale(0.95) rotate(-2deg);
-        }
-        to {
-          opacity: 1;
-          transform: scale(1) rotate(0deg);
         }
       }
       @keyframes modalEnter {
@@ -174,9 +163,6 @@
       }
       .hero-enter-5 {
         animation: heroFadeUp 700ms cubic-bezier(0.16, 1, 0.3, 1) 360ms backwards;
-      }
-      .hero-portrait {
-        animation: heroScale 800ms cubic-bezier(0.16, 1, 0.3, 1) 160ms backwards;
       }
       @media (prefers-reduced-motion: reduce) {
         *, ::before, ::after {

@@ -30,10 +30,10 @@ const HackathonsSection: React.FC = () => {
   ];
 
   return (
-    <section id="hackathons" className="py-24 md:py-32 scroll-mt-28">
+    <section id="hackathons" className="py-16 md:py-20 scroll-mt-24">
       {/* Section Header */}
       <ScrollReveal direction="up" distance={16} duration={500}>
-        <div className="flex flex-col md:flex-row md:items-end justify-between gap-4 mb-10 pb-6 border-b border-[#E2DAC8]">
+        <div className="flex flex-col md:flex-row md:items-end justify-between gap-4 mb-8 pb-6 border-b border-[#E2DAC8]">
           <div>
             <div className="flex items-center gap-2 mb-2 font-mono text-xs uppercase tracking-widest text-[#F04B16]">
               <span className="w-2 h-2 rounded-full bg-[#F04B16]" />
@@ -51,7 +51,7 @@ const HackathonsSection: React.FC = () => {
 
       {/* Narrative Lead Paragraph */}
       <ScrollReveal direction="up" distance={18} duration={600} delay={60}>
-        <div className="mb-14 max-w-3xl">
+        <div className="mb-10 max-w-3xl">
           <p className="font-serif italic text-lg sm:text-xl text-[#151515]/90 leading-relaxed font-normal">
             In competitive hackathons, software architecture either survives contact with reality or collapses. Leading teams in these high-stress sprints requires rapid, pragmatic triage: locking down system contracts early, containerizing immediately, and shipping verifiable code.
           </p>
@@ -59,10 +59,10 @@ const HackathonsSection: React.FC = () => {
       </ScrollReveal>
 
       {/* Asymmetric Numbered Plates */}
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-x-12 gap-y-10 border-t border-[#E2DAC8] pt-10">
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-x-10 gap-y-8 border-t border-[#E2DAC8] pt-8">
         {leadershipPrinciples.map((item, idx) => (
           <ScrollReveal key={item.num} delay={idx * 75} direction="up" distance={16} duration={500}>
-            <div className="space-y-2.5 group">
+            <div className="space-y-2 group">
               <div className="flex items-baseline gap-3">
                 <span className="font-mono text-sm font-bold text-[#F04B16]">
                   {item.num} //
