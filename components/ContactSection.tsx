@@ -31,24 +31,20 @@ const ContactSection: React.FC = () => {
               <span>Colophon // Direct Communication</span>
             </div>
 
-            {/* Massive Display Statement */}
-            <h2 className="font-display text-5xl sm:text-7xl md:text-8xl lg:text-9xl text-[#FAF7F0] tracking-tight leading-[0.92] uppercase mb-6">
+            {/* One Powerful Headline */}
+            <h2 className="font-display text-5xl sm:text-7xl md:text-8xl lg:text-9xl text-[#FAF7F0] tracking-tight leading-[0.92] uppercase mb-4">
               Let's Build Something<br />
               <span className="text-[#FAF7F0] hover:text-[#F04B16] transition-colors duration-300">
                 That Matters.
               </span>
             </h2>
 
-            <div className="mb-8 flex flex-col sm:flex-row sm:items-center justify-between gap-4">
-              <p className="font-serif italic text-lg sm:text-xl text-[#8A877F] max-w-xl font-normal leading-relaxed">
-                Open to discussions regarding backend engineering roles, AI system architecture, and new engineering initiatives.
-              </p>
-              <span className="font-hand text-2xl text-[#F04B16] -rotate-2 select-none">
-                ✦ available for production engineering
-              </span>
-            </div>
+            {/* One Short Supporting Sentence */}
+            <p className="font-serif italic text-lg sm:text-xl text-[#8A877F] max-w-xl font-normal leading-relaxed mb-8">
+              Open to backend engineering roles, AI systems architecture, and technical collaborations.
+            </p>
 
-            {/* Direct Email Interaction */}
+            {/* Email Contact Action */}
             <div className="flex flex-wrap items-center gap-3.5 mb-10">
               <a
                 href={`mailto:${email}`}
@@ -78,7 +74,7 @@ const ContactSection: React.FC = () => {
               </button>
             </div>
 
-            {/* Inline Connectors */}
+            {/* Direct Channel Connectors */}
             <div className="pt-6 border-t border-[#2A2A2A] flex flex-wrap items-center gap-6 sm:gap-8 font-mono text-xs text-[#8A877F]">
               <a
                 href="https://github.com/iamdevdhanush"

@@ -44,9 +44,9 @@ const Hero: React.FC<HeroProps> = ({ onNavigate }) => {
               </p>
             </div>
 
-            {/* Professional Description */}
+            {/* Supporting Text */}
             <p className="hero-enter-3 font-sans text-sm sm:text-base text-[#151515]/80 leading-relaxed max-w-lg mb-6">
-              Specialized in Python, FastAPI, PostgreSQL, and Docker. Focused on multi-agent AI pipelines, high-throughput backend services, and spatial intelligence platforms.
+              Backend engineering, AI systems, and geospatial intelligence.
             </p>
 
             {/* Two Restrained CTA Buttons */}
