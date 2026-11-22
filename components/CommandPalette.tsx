@@ -29,7 +29,7 @@ const CommandPalette: React.FC<CommandPaletteProps> = ({ isOpen, onClose, onNavi
   }, [searchQuery, isOpen]);
 
   const menuItems: MenuItem[] = useMemo(() => [
-    { type: 'header', label: 'Navigation & Sections' },
+    { type: 'header', label: 'Navigation' },
     { icon: <Home className="w-4 h-4 text-[#F28C28]" />, label: 'Home', action: () => onNavigate('home'), shortcut: 'h' },
     { icon: <Trophy className="w-4 h-4 text-[#F28C28]" />, label: 'Achievements', action: () => onNavigate('achievements'), shortcut: 'a' },
     { icon: <User className="w-4 h-4 text-[#F28C28]" />, label: 'About', action: () => onNavigate('about'), shortcut: 'b' },
@@ -37,12 +37,12 @@ const CommandPalette: React.FC<CommandPaletteProps> = ({ isOpen, onClose, onNavi
     { icon: <Zap className="w-4 h-4 text-[#F28C28]" />, label: 'Hackathons', action: () => onNavigate('hackathons'), shortcut: 'k' },
     { icon: <Code className="w-4 h-4 text-[#F28C28]" />, label: 'Skills', action: () => onNavigate('skills'), shortcut: 's' },
     { icon: <Terminal className="w-4 h-4 text-[#F28C28]" />, label: 'Contact', action: () => onNavigate('contact'), shortcut: 'c' },
-    { type: 'header', label: 'Actions & Viewport' },
-    { icon: showBlobs ? <EyeOff className="w-4 h-4 text-[#F28C28]" /> : <Eye className="w-4 h-4 text-[#F28C28]" />, label: 'Toggle Topographic Contours', action: () => { onToggleBlobs(); onClose(); }, shortcut: 't' },
-    { type: 'header', label: 'Social & Verified Links' },
-    { icon: <Linkedin className="w-4 h-4 text-[#F28C28]" />, label: 'LinkedIn Profile', action: () => window.open('https://www.linkedin.com/in/dhanushdprabhu/', '_blank') },
-    { icon: <Github className="w-4 h-4 text-[#F28C28]" />, label: 'GitHub Repositories', action: () => window.open('https://github.com/iamdevdhanush', '_blank') },
-    { icon: <Mail className="w-4 h-4 text-[#F28C28]" />, label: 'Direct Email', action: () => window.open('mailto:dhanushdprabhu18@gmail.com', '_blank') },
+    { type: 'header', label: 'Settings' },
+    { icon: showBlobs ? <EyeOff className="w-4 h-4 text-[#F28C28]" /> : <Eye className="w-4 h-4 text-[#F28C28]" />, label: 'Toggle Background Pattern', action: () => { onToggleBlobs(); onClose(); }, shortcut: 't' },
+    { type: 'header', label: 'Social' },
+    { icon: <Linkedin className="w-4 h-4 text-[#F28C28]" />, label: 'LinkedIn', action: () => window.open('https://www.linkedin.com/in/dhanushdprabhu/', '_blank') },
+    { icon: <Github className="w-4 h-4 text-[#F28C28]" />, label: 'GitHub', action: () => window.open('https://github.com/iamdevdhanush', '_blank') },
+    { icon: <Mail className="w-4 h-4 text-[#F28C28]" />, label: 'Email', action: () => window.open('mailto:dhanushdprabhu18@gmail.com', '_blank') },
   ], [showBlobs, onNavigate, onClose, onToggleBlobs]);
 
   const filteredItems = useMemo(() => {

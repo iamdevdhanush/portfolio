@@ -6,59 +6,48 @@ export const achievementsData: AchievementDetail[] = [
     title: 'CodeNeura Inter-College Tech-a-Thon',
     subtitle: '1st Place Winner — Algorithmic Problem Solving & Execution',
     eventName: 'CodeNeura Inter-College Tech-a-Thon',
-    award: '1st Place Winner (Gold)',
+    award: '1st Place Winner',
     date: 'November 2025',
     location: 'Sagara, Karnataka, India',
     organization: 'LBS College, Sagara',
     badge: '1st Place Winner',
     rank: 'Winner',
-    highlightStat: 'Top Score Across All Rounds',
-    projectOverview: 'An intensive, multi-round technical competition evaluating advanced algorithmic problem solving, computational complexity optimization, code accuracy, and rapid software prototyping under strict time pressure.',
-    problemStatement: 'Participants were tested on complex combinatorial optimization challenges, edge-case resilience, and building efficient runtime implementations against concealed, high-throughput test cases.',
-    whatIBuilt: 'Engineered high-performance algorithmic solutions in Python and C-style logic optimizing time and space complexity, culminating in a functional technical module completed ahead of deadline with zero syntax or runtime defects.',
+    projectOverview: 'An intensive competitive programming and technical hackathon evaluating algorithmic problem solving, computational complexity, and coding accuracy under time constraints.',
+    problemStatement: 'Solving complex algorithmic problems requiring optimal time and space complexity with strict constraints and edge-case handling.',
+    whatIBuilt: 'Implemented optimized solutions for algorithmic challenges, optimizing graph traversal and memory structures to achieve correct results within time limits.',
     individualContributions: [
-      'Authored optimized algorithmic implementations for graph traversal and dynamic state reduction.',
-      'Designed structured test suites covering edge cases and memory boundary conditions.',
-      'Achieved peak runtime efficiency benchmarks across consecutive competitive rounds.',
-      'Delivered live technical defense and code explanation to the panel of evaluator judges.'
+      'Developed optimized algorithmic implementations for core competition problems.',
+      'Designed structured test cases covering edge and boundary conditions.',
+      'Explained implementation logic and technical trade-offs during live code review.'
     ],
-    technologies: ['Python', 'Data Structures & Algorithms', 'System Architecture', 'Optimization', 'Git'],
+    technologies: ['Python', 'Data Structures & Algorithms', 'Optimization', 'Git'],
     technicalChallenges: [
-      'Tight 45-minute sprint limits per algorithmic phase with zero margin for memory leaks or timeout exceptions.',
-      'Refactoring quadratic time complexity solutions into sub-quadratic linearithmic performance under live clock pressure.',
-      'Maintaining clean, self-documenting code architecture while maximizing raw execution speed.'
+      'Strict time limits per problem round with zero tolerance for syntax or runtime defects.',
+      'Refactoring high-complexity brute-force logic into linearithmic performance.'
     ],
     solutions: [
-      'Leveraged hash-indexed memoization and custom caching structures to eliminate redundant recursive traversals.',
-      'Pre-allocated buffer structures to mitigate garbage collection spikes during dense computational cycles.',
-      'Systematically traced edge scenarios prior to compilation, ensuring first-pass acceptance on judge test harnesses.'
+      'Applied memoization and hash-based lookups to avoid redundant computations.',
+      'Carefully analyzed constraints beforehand to select optimal data structures.'
     ],
     finalResults: [
-      'Secured 1st Place overall in the inter-college tournament.',
-      'Awarded first place trophy and official college honor certificate.',
-      'Recognized by faculty and industry jury for cleanest codebase and optimal execution time.'
+      'Awarded 1st Place in the inter-college competition.',
+      'Official certificate and trophy awarded by LBS College, Sagara.'
     ],
     keyTakeaways: [
-      'Clean architectural discipline under pressure produces fewer defects than hurried ad-hoc coding.',
-      'Deep fundamentals in data structures reliably outperform brute-force shortcuts.',
-      'Clear technical communication during live judge defense is as decisive as code correctness.'
+      'Strong fundamentals in data structures are critical under time pressure.',
+      'Writing test cases before submitting prevents subtle off-by-one errors.'
     ],
     eventPhotos: [
       {
         url: '',
-        caption: 'CodeNeura Tech-a-Thon Championship Stage & Certificate Presentation',
-        isPlaceholder: true
-      },
-      {
-        url: '',
-        caption: 'Live Competitive Round — LBS College Computer Science Labs',
+        caption: 'CodeNeura Tech-a-Thon at LBS College, Sagara',
         isPlaceholder: true
       }
     ],
     personalPhotos: [
       {
         url: '/profile.jpg',
-        caption: 'Dhanush D Prabhu — Winner, CodeNeura Inter-College Tech-a-Thon',
+        caption: 'Dhanush D Prabhu — 1st Place, CodeNeura',
         isPlaceholder: false
       }
     ]
@@ -66,62 +55,51 @@ export const achievementsData: AchievementDetail[] = [
   {
     id: 'national-ai-hackathon',
     title: 'National Level AI Hackathon',
-    subtitle: 'Top 5 Finalist (out of 100+ teams across Karnataka) — SJBIT Bengaluru',
+    subtitle: 'Top 5 Finalist (of 100+ teams across Karnataka) — SJBIT Bengaluru',
     eventName: 'National Level AI Hackathon',
-    award: 'Top 5 Finalist (State-Wide)',
+    award: 'Top 5 Finalist',
     date: '2025',
     location: 'Bengaluru, Karnataka, India',
     organization: 'SJBIT Bengaluru',
-    projectTitle: 'Avana V2 — Urban Safety Intelligence Platform',
+    projectTitle: 'Avana V2',
     badge: 'Top 5 Finalist',
     rank: 'Top 5 / 100+ Teams',
-    highlightStat: 'Top 5 of 100+ Teams',
-    projectOverview: 'Avana V2 is an AI-powered urban safety intelligence platform that ingests unstructured public incident reports, normalizes them via multi-agent pipelines, performs PostGIS geospatial risk scoring, and serves real-time safe-route guidance.',
-    problemStatement: 'Urban safety intelligence is fragmented across disparate municipal reports, social feeds, and local alerts without unified geospatial correlation, making proactive citizen navigation nearly impossible.',
-    whatIBuilt: 'Architected and deployed a complete full-stack solution during the hackathon: a high-throughput FastAPI backend integrated with Gemini AI orchestration, PostGIS spatial queries, Docker containerization, and an interactive React safety dashboard.',
+    projectOverview: 'Avana V2 is an urban safety intelligence platform designed to convert public incident reports into structured insights, geospatial heatmaps, and safe route recommendations.',
+    problemStatement: 'Urban safety information is scattered across disparate sources, making it hard for citizens to evaluate local risks or find safe routes.',
+    whatIBuilt: 'Built and demonstrated the platform at the hackathon: a FastAPI backend with PostGIS spatial queries, multi-agent processing workflows, and a responsive React interface.',
     individualContributions: [
-      'Formulated the overall platform architecture, database schemas, and microservice container topology.',
-      'Engineered the multi-agent orchestration pipeline to parse and categorize heterogeneous incident data.',
-      'Constructed PostGIS spatial query procedures and polygon boundary risk-weighting equations.',
-      'Led team standups, assigned sprint priorities, and presented the live working deployment to jury members.'
+      'Architected the backend services using FastAPI and PostgreSQL with PostGIS.',
+      'Structured the incident normalization pipeline and geospatial query handlers.',
+      'Led the technical presentation and live demonstration to the judging panel.'
     ],
-    technologies: ['Python', 'FastAPI', 'PostgreSQL', 'PostGIS', 'Docker', 'React', 'TypeScript', 'Gemini AI'],
+    technologies: ['Python', 'FastAPI', 'PostgreSQL', 'PostGIS', 'Docker', 'React', 'TypeScript'],
     technicalChallenges: [
-      'Orchestrating concurrent multi-agent LLM analysis streams without exceeding API rate thresholds.',
-      'Executing millisecond-grade spatial bounding box queries over dense urban coordinates in PostGIS.',
-      'Delivering a production-grade, containerized demo within the high-intensity hackathon schedule.'
+      'Coordinating multiple processing tasks within hackathon time constraints.',
+      'Optimizing spatial queries for real-time heatmap aggregation.'
     ],
     solutions: [
-      'Structured asynchronous worker queues with exponential backoff and localized cache layers in FastAPI.',
-      'Designed spatial indexing (GIST) on location geometry tables to accelerate nearest-neighbor radius calculations.',
-      'Pre-built reproducible Docker Compose environments ensuring instantaneous zero-failure staging for judges.'
+      'Implemented spatial indexing on geometry columns in PostgreSQL.',
+      'Containerized backend services with Docker Compose for reliable local deployment.'
     ],
     finalResults: [
-      'Selected among the Top 5 Finalist teams out of 100+ competing engineering institutions across Karnataka.',
-      'Successfully demonstrated live interactive heatmap generation and dynamic route recalculation before judges.',
-      'Flagship project Avana V2 praised for end-to-end technical cohesion and practical public utility.'
+      'Selected among the Top 5 Finalist teams out of 100+ participating engineering teams.',
+      'Demonstrated live working software to the evaluation panel.'
     ],
     keyTakeaways: [
-      'Containerizing the entire stack from minute one eliminates "works on my machine" pitfalls in high-stakes demos.',
-      'Specialized, decoupled AI agents with discrete prompts outperform monolithic general-purpose prompts.',
-      'Spatial database design requires thoughtful indexing to maintain low latency under spatial aggregation.'
+      'Containerizing the application early eliminates deployment discrepancies during live demos.',
+      'Decoupled architecture makes rapid iteration during hackathons significantly safer.'
     ],
     eventPhotos: [
       {
         url: '',
-        caption: 'National AI Hackathon Grand Arena — SJBIT Bengaluru',
-        isPlaceholder: true
-      },
-      {
-        url: '',
-        caption: 'Live Project Demonstration & Judging Booth for Avana V2',
+        caption: 'National AI Hackathon at SJBIT Bengaluru',
         isPlaceholder: true
       }
     ],
     personalPhotos: [
       {
         url: '/profile.jpg',
-        caption: 'Dhanush D Prabhu — Technical Lead, Avana V2',
+        caption: 'Dhanush D Prabhu — Avana V2 Project Lead',
         isPlaceholder: false
       }
     ]
@@ -131,53 +109,42 @@ export const achievementsData: AchievementDetail[] = [
     title: 'State Level Hackathon — GMIT Davangere',
     subtitle: 'Runner-Up — AI-Assisted Community Support Platform',
     eventName: 'State Level Hackathon',
-    award: 'Runner-Up (2nd Place)',
+    award: 'Runner-Up',
     date: '2025',
     location: 'Davangere, Karnataka, India',
     organization: 'GMIT Davangere',
     projectTitle: 'Little Heartbeat',
     badge: 'Runner-Up',
     rank: 'Runner-Up',
-    highlightStat: 'Delivered in 24 Hours',
-    projectOverview: 'Little Heartbeat is a rapid-response community health and advisory platform pairing real-time interactive discussion forums with generative AI query triage and support history tracking.',
-    problemStatement: 'Underrepresented and expectant individuals often struggle to access immediate triage, empathetic advisory guidance, and reliable peer-supported community threads during critical moments.',
-    whatIBuilt: 'Built an end-to-end web service within a 24-hour sprint: integrated Express.js backend services, Supabase live database subscriptions, and intelligent Gemini response prompts behind a fluid React mobile-responsive interface.',
+    projectOverview: 'Little Heartbeat is an AI-assisted community support platform featuring real-time discussion threads and query triage, delivered during a 24-hour hackathon.',
+    problemStatement: 'Users seeking urgent community advice often face delays in triage and finding relevant historical support threads.',
+    whatIBuilt: 'Built an end-to-end full-stack web application with React frontend, Express.js backend, and real-time database subscriptions within 24 hours.',
     individualContributions: [
-      'Served as Team Leader, establishing the technical direction and project milestones from hour zero.',
-      'Implemented backend API endpoints, validation middleware, and generative AI triage hooks.',
-      'Configured Supabase realtime listener channels for instant peer-to-peer thread updates.',
-      'Conducted live product walkthrough and architectural defense during jury evaluations.'
+      'Led team development and managed feature delivery milestones.',
+      'Implemented backend API endpoints and data models.',
+      'Delivered the final product presentation to judges.'
     ],
-    technologies: ['React', 'Express.js', 'Supabase', 'Gemini AI', 'TailwindCSS', 'TypeScript'],
+    technologies: ['React', 'Express.js', 'Supabase', 'TypeScript', 'TailwindCSS'],
     technicalChallenges: [
-      'Strict 24-hour delivery window requiring uncompromising prioritization of core functionality.',
-      'Preventing hallucinations in medical/support advice while ensuring responsive latency.',
-      'Ensuring seamless real-time WebSocket communication across diverse client devices.'
+      'Delivering a complete, working full-stack prototype within a 24-hour sprint.',
+      'Ensuring reliable real-time updates across multiple client connections.'
     ],
     solutions: [
-      'Implemented system-prompt guardrails mandating clarifying disclaimers and emergency hotline redirects.',
-      'Leveraged Supabase managed auth and row-level security policies to eliminate bespoke auth boilerplate.',
-      'Adopted an optimistic UI update model to provide instantaneous client feedback on thread postings.'
+      'Scoped features strictly to the core user journey to guarantee completion.',
+      'Utilized managed real-time subscription infrastructure for reliable messaging.'
     ],
     finalResults: [
-      'Awarded Runner-Up honors among elite collegiate engineering teams from across the state.',
-      'Validated end-to-end working prototype with live multi-user WebSocket chatting during demo.',
-      'Commended by judges for empathetic problem selection and disciplined technical execution.'
+      'Awarded Runner-Up honors at GMIT Davangere.',
+      'Demonstrated a fully functional live prototype during judging.'
     ],
     keyTakeaways: [
-      'Speed in 24-hour hackathons comes from ruthless scope containment and battle-tested building blocks.',
-      'Responsible AI prompting with explicit guardrails is non-negotiable for human-centric applications.',
-      'Real-time collaborative features create an immediate emotional connection during live judging.'
+      'Ruthless feature prioritization is essential when shipping within 24 hours.',
+      'Simple, dependable architectures beat overly complex ones during live evaluations.'
     ],
     eventPhotos: [
       {
         url: '',
-        caption: 'GMIT Davangere State Hackathon Main Auditorium',
-        isPlaceholder: true
-      },
-      {
-        url: '',
-        caption: '24-Hour Sprint Development Floor & Hackathon Showcase',
+        caption: 'State Level Hackathon at GMIT Davangere',
         isPlaceholder: true
       }
     ],
@@ -191,45 +158,42 @@ export const achievementsData: AchievementDetail[] = [
   },
   {
     id: 'ey-techathon',
-    title: 'EY Techathon (Ernst & Young)',
-    subtitle: 'Round 2 Qualifier — National Corporate Innovation Challenge',
+    title: 'EY Techathon',
+    subtitle: 'Round 2 Qualifier — National Innovation Challenge by EY',
     eventName: 'EY Techathon',
     award: 'Round 2 Qualifier',
     date: '2025',
-    location: 'National / Online Assessment & Review',
+    location: 'National / Online',
     organization: 'Ernst & Young (EY)',
     badge: 'Round 2 Qualifier',
-    rank: 'Advanced to Round 2',
-    highlightStat: 'National Corporate Selection',
-    projectOverview: 'A premier national engineering challenge hosted by EY focusing on enterprise-scale technological transformation, cloud resilience, data architecture, and commercial viability.',
-    problemStatement: 'Solving industrial challenges requiring modern distributed data pipelines, enterprise security compliance, and robust computational architectures that scale efficiently across cloud infrastructures.',
-    whatIBuilt: 'Architectural blueprint and technical submission demonstrating modular backend design, containerized deployment workflows, and robust security modeling tailored for enterprise data compliance.',
+    rank: 'Round 2 Qualifier',
+    projectOverview: 'A national engineering challenge by EY focused on enterprise-scale problem solving, cloud architecture, and secure software development.',
+    problemStatement: 'Designing scalable backend architectures that adhere to enterprise security, data compliance, and operational standards.',
+    whatIBuilt: 'Architectural documentation and technical design proposal for modular containerized services with robust authentication boundaries.',
     individualContributions: [
-      'Authored the technical architecture design documentation and container topology diagrams.',
-      'Formulated API security strategies including JWT lifecycle rotation and role-based access control.',
-      'Evaluated cost-performance trade-offs across containerized microservices and database clustering.'
+      'Authored the service architecture and database schema designs.',
+      'Formulated API security strategies including JWT validation and access control.'
     ],
-    technologies: ['Enterprise Architecture', 'FastAPI', 'Docker', 'PostgreSQL', 'Security & RBAC'],
+    technologies: ['FastAPI', 'Docker', 'PostgreSQL', 'API Security'],
     technicalChallenges: [
-      'Complying with stringent enterprise standards for zero-trust security and data isolation.',
-      'Demonstrating scalable data ingestion without prohibitive cloud compute overhead.'
+      'Addressing enterprise requirements for data isolation and access control.',
+      'Balancing performance with strict validation rules.'
     ],
     solutions: [
-      'Designed stateless containerized services behind unified gateway routing with health probes.',
-      'Applied declarative configuration patterns for predictable, reproducible infrastructure definitions.'
+      'Designed stateless service endpoints with standardized error responses.',
+      'Utilized declarative infrastructure configurations for reproducible environments.'
     ],
     finalResults: [
-      'Successfully advanced through Round 1 screening to earn Round 2 Qualifier distinction.',
-      'Recognized among top applicant cohorts nationally for systematic architectural reasoning.'
+      'Qualified for Round 2 in a competitive national corporate hackathon.'
     ],
     keyTakeaways: [
-      'Enterprise software values predictability, auditability, and security as much as raw functionality.',
-      'Clean architectural documentation communicates engineering maturity before code is ever run.'
+      'Security and predictability are primary considerations in enterprise systems.',
+      'Clear documentation is as important as working code.'
     ],
     eventPhotos: [
       {
         url: '',
-        caption: 'EY Techathon National Challenge Portal & Evaluation',
+        caption: 'EY Techathon National Challenge',
         isPlaceholder: true
       }
     ],
@@ -244,54 +208,51 @@ export const achievementsData: AchievementDetail[] = [
   {
     id: 'green-it',
     title: 'Green IT System Development Competition',
-    subtitle: '1st Place Winner — Energy-Aware Computational Architecture',
+    subtitle: '1st Place Winner — Energy-Aware Compute Platform',
     eventName: 'Green IT System Development Competition',
     award: '1st Place Winner',
     date: '2025',
     location: 'Karnataka, India',
-    organization: 'Collegiate Green Computing Initiative',
+    organization: 'Collegiate Competition',
     badge: '1st Place Winner',
     rank: 'Winner',
-    highlightStat: 'Energy Optimization Champion',
-    projectOverview: 'A technical competition focused on architecting sustainable, carbon-efficient compute systems and telemetry platforms to reduce idle energy consumption across distributed server fleets.',
-    problemStatement: 'Compute clusters frequently burn substantial electrical energy during idle or unoptimized standby states without automated telemetry or dynamic power curtailment.',
-    whatIBuilt: 'Formulated the architectural foundations of GreenOps: an agent-server telemetry daemon monitoring machine lifecycle states (ACTIVE / IDLE / OFFLINE) and estimating kilowatt-hour wastage in real time.',
+    projectOverview: 'A technical competition focused on building systems that monitor and reduce server energy consumption during idle states.',
+    problemStatement: 'Distributed servers often consume significant power while idling without visibility or automatic state tracking.',
+    whatIBuilt: 'Created the initial concept and telemetry prototype for GreenOps, tracking machine lifecycle states (ACTIVE / IDLE / OFFLINE) and estimating idle power loss.',
     individualContributions: [
-      'Modeled time-series database schemas for high-frequency telemetry logging with minimal disk I/O.',
-      'Created the algorithmic formula correlating CPU duty cycles and idle intervals with energy loss.',
-      'Presented the environmental and economic impact projections to the evaluation panel.'
+      'Designed the telemetry data schema and heartbeat tracking logic.',
+      'Implemented the time-series aggregation queries for energy estimation.'
     ],
-    technologies: ['Python', 'FastAPI', 'PostgreSQL', 'Docker', 'Time-Series Analytics', 'Telemetry'],
+    technologies: ['Python', 'FastAPI', 'PostgreSQL', 'Docker'],
     technicalChallenges: [
-      'Minimizing the computational footprint of the monitoring agent itself so telemetry does not consume excess power.',
-      'Aggregating irregular heartbeat signals across unreliable network connections.'
+      'Minimizing the agent footprint so monitoring does not consume excess compute.',
+      'Handling intermittent network dropouts in heartbeat tracking.'
     ],
     solutions: [
-      'Wrote an ultra-lightweight daemon using efficient OS-level system metrics with sub-1% CPU consumption.',
-      'Used batched time-series writes and connection pooling to keep database load negligible.'
+      'Engineered lightweight metric collectors with low system overhead.',
+      'Designed database schemas optimized for high-frequency write operations.'
     ],
     finalResults: [
-      'Awarded 1st Place for innovative practical application of Green Computing principles.',
-      'Laid the groundwork for the open-source GreenOps distributed monitoring platform.'
+      'Secured 1st Place in the Green IT System Development Competition.',
+      'Laid the foundation for the open-source GreenOps project.'
     ],
     keyTakeaways: [
-      'Sustainable software engineering is an optimization problem with tangible real-world environmental payback.',
-      'Telemetry tools must be orders of magnitude lighter than the workloads they observe.'
+      'Monitoring software must be lightweight to avoid distorting the metrics it measures.',
+      'Energy-aware engineering has direct real-world economic and operational benefits.'
     ],
     eventPhotos: [
       {
         url: '',
-        caption: 'Green IT System Development Forum & Awards',
+        caption: 'Green IT Competition Showcase',
         isPlaceholder: true
       }
     ],
     personalPhotos: [
       {
         url: '/profile.jpg',
-        caption: 'Dhanush D Prabhu — Winner, Green IT System Development',
+        caption: 'Dhanush D Prabhu — 1st Place Winner',
         isPlaceholder: false
       }
     ]
   }
 ];
-

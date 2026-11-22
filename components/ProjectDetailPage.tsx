@@ -31,31 +31,31 @@ const ProjectDetailPage: React.FC<ProjectDetailPageProps> = ({ project, allProje
         <span className="uppercase tracking-wider">Back to Projects</span>
       </Link>
 
-      {/* Terminal Breadcrumbs */}
-      <div className="flex items-center gap-2 text-xs text-[#929292] mb-8 font-mono bg-[#111214] border border-[#292929] px-3.5 py-1.5 rounded-lg w-fit">
-        <Link to="/" className="hover:text-[#F5F2ED] transition-colors">root</Link>
-        <span className="text-[#292929]">/</span>
-        <Link to="/#projects" className="hover:text-[#F5F2ED] transition-colors">projects</Link>
-        <span className="text-[#292929]">/</span>
-        <span className="text-[#F28C28] font-semibold">{project.slug}</span>
-      </div>
+      {/* Clean Breadcrumbs */}
+      <nav aria-label="Breadcrumb" className="flex items-center gap-2 text-xs text-[#929292] mb-8">
+        <Link to="/" className="hover:text-[#F5F2ED] transition-colors">Home</Link>
+        <span>/</span>
+        <Link to="/#projects" className="hover:text-[#F5F2ED] transition-colors">Projects</Link>
+        <span>/</span>
+        <span className="text-[#F28C28]">{project.title}</span>
+      </nav>
 
       {/* Project Header */}
       <div className="border-b border-[#292929] pb-8 mb-10">
         <div className="flex items-start gap-5 mb-4">
-          <div className="w-14 h-14 bg-[#171719] rounded-xl flex items-center justify-center shrink-0 border border-[#292929] text-[#F28C28]">
+          <div className="w-12 h-12 bg-[#171719] rounded-xl flex items-center justify-center shrink-0 border border-[#292929] text-[#F28C28]">
             {project.icon}
           </div>
           <div>
-            <h1 className="text-3xl sm:text-4xl font-extrabold text-[#F5F2ED] tracking-tight">
+            <h1 className="text-3xl sm:text-4xl font-bold text-[#F5F2ED] tracking-tight">
               {project.title}
             </h1>
-            <p className="text-sm font-mono text-[#929292] mt-1">{project.subtitle}</p>
+            <p className="text-sm text-[#929292] mt-1">{project.subtitle}</p>
           </div>
         </div>
 
         {project.badge && (
-          <span className="inline-flex items-center gap-1.5 text-xs font-mono text-[#F28C28] bg-[#F28C28]/10 border border-[#F28C28]/30 rounded-full px-3 py-1 mb-6">
+          <span className="inline-flex items-center gap-1.5 text-xs font-medium text-[#F28C28] bg-[#F28C28]/10 border border-[#F28C28]/30 rounded-full px-3 py-1 mb-6">
             {project.badge}
           </span>
         )}
@@ -65,7 +65,7 @@ const ProjectDetailPage: React.FC<ProjectDetailPageProps> = ({ project, allProje
           {project.tags.map((tag) => (
             <span
               key={tag}
-              className="bg-[#171719] text-[#F5F2ED] text-xs font-mono px-3 py-1 rounded-md border border-[#292929]"
+              className="bg-[#171719] text-[#F5F2ED] text-xs px-3 py-1 rounded-md border border-[#292929]"
             >
               {tag}
             </span>
@@ -79,7 +79,7 @@ const ProjectDetailPage: React.FC<ProjectDetailPageProps> = ({ project, allProje
               href={project.githubLink}
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center gap-2 px-5 py-2.5 rounded-xl bg-[#171719] border border-[#292929] hover:border-[#F28C28]/50 text-xs font-mono text-[#F5F2ED] hover:text-[#F28C28] transition-colors"
+              className="inline-flex items-center gap-2 px-5 py-2.5 rounded-xl bg-[#171719] border border-[#292929] hover:border-[#F28C28]/50 text-xs text-[#F5F2ED] hover:text-[#F28C28] transition-colors"
             >
               <Github className="w-4 h-4 text-[#F28C28]" />
               <span>Source Code (GitHub)</span>
@@ -94,7 +94,7 @@ const ProjectDetailPage: React.FC<ProjectDetailPageProps> = ({ project, allProje
               className="inline-flex items-center gap-2 px-5 py-2.5 rounded-xl bg-[#F28C28] text-[#0B0C0E] text-xs font-semibold hover:bg-[#FA9E42] transition-colors"
             >
               <ExternalLink className="w-4 h-4" />
-              <span>Live Deployment</span>
+              <span>Live Demo</span>
             </a>
           )}
         </div>
@@ -104,8 +104,8 @@ const ProjectDetailPage: React.FC<ProjectDetailPageProps> = ({ project, allProje
       <div className="space-y-10 text-[#929292] leading-relaxed">
         {/* Overview */}
         <div className="bg-[#111214] border border-[#292929] rounded-2xl p-6 sm:p-8">
-          <h2 className="text-sm font-mono uppercase tracking-widest text-[#F28C28] mb-3">
-            01 // Overview
+          <h2 className="text-sm font-semibold uppercase tracking-wider text-[#F28C28] mb-3">
+            Overview
           </h2>
           <p className="text-sm sm:text-base text-[#F5F2ED] leading-relaxed font-normal">
             {project.longDescription}
@@ -115,8 +115,8 @@ const ProjectDetailPage: React.FC<ProjectDetailPageProps> = ({ project, allProje
         {/* Problem Statement */}
         {project.problemStatement && (
           <div className="bg-[#111214] border border-[#292929] rounded-2xl p-6 sm:p-8">
-            <h2 className="text-sm font-mono uppercase tracking-widest text-[#F28C28] mb-3">
-              02 // Problem Statement
+            <h2 className="text-sm font-semibold uppercase tracking-wider text-[#F28C28] mb-3">
+              Problem Statement
             </h2>
             <p className="text-sm text-[#929292] leading-relaxed">
               {project.problemStatement}
@@ -128,20 +128,20 @@ const ProjectDetailPage: React.FC<ProjectDetailPageProps> = ({ project, allProje
         <div className="bg-[#111214] border border-[#292929] rounded-2xl p-6 sm:p-8">
           <div className="flex items-center gap-2 mb-4">
             <Layers className="w-4 h-4 text-[#F28C28]" />
-            <h2 className="text-sm font-mono uppercase tracking-widest text-[#F28C28]">
-              03 // Architecture & Key Capabilities
+            <h2 className="text-sm font-semibold uppercase tracking-wider text-[#F28C28]">
+              Architecture & Stack
             </h2>
           </div>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
             <div className="bg-[#171719] border border-[#292929] rounded-xl p-5">
-              <h3 className="text-xs font-mono uppercase tracking-wider text-[#F5F2ED] mb-3">
-                Technologies Employed
+              <h3 className="text-xs font-semibold uppercase tracking-wider text-[#F5F2ED] mb-3">
+                Technologies
               </h3>
               <div className="flex flex-wrap gap-2">
                 {project.tags.map((tag) => (
                   <span
                     key={tag}
-                    className="text-xs font-mono text-[#F5F2ED] bg-[#111214] border border-[#292929] rounded px-2.5 py-1"
+                    className="text-xs text-[#F5F2ED] bg-[#111214] border border-[#292929] rounded px-2.5 py-1"
                   >
                     {tag}
                   </span>
@@ -150,13 +150,13 @@ const ProjectDetailPage: React.FC<ProjectDetailPageProps> = ({ project, allProje
             </div>
 
             <div className="bg-[#171719] border border-[#292929] rounded-xl p-5">
-              <h3 className="text-xs font-mono uppercase tracking-wider text-[#F5F2ED] mb-3">
-                Functional Highlights
+              <h3 className="text-xs font-semibold uppercase tracking-wider text-[#F5F2ED] mb-3">
+                Key Highlights
               </h3>
               <ul className="space-y-2">
                 {project.highlights.map((h, i) => (
                   <li key={i} className="text-xs text-[#929292] flex items-start gap-2">
-                    <span className="text-[#F28C28] font-mono mt-0.5">›</span>
+                    <span className="text-[#F28C28] mt-0.5">•</span>
                     <span>{h}</span>
                   </li>
                 ))}
@@ -167,8 +167,8 @@ const ProjectDetailPage: React.FC<ProjectDetailPageProps> = ({ project, allProje
 
         {/* Technical Achievements */}
         <div className="bg-[#111214] border border-[#292929] rounded-2xl p-6 sm:p-8">
-          <h2 className="text-sm font-mono uppercase tracking-widest text-[#F28C28] mb-4">
-            04 // Technical Achievements
+          <h2 className="text-sm font-semibold uppercase tracking-wider text-[#F28C28] mb-4">
+            Technical Achievements
           </h2>
           <div className="space-y-3">
             {project.technicalAchievements.map((item, index) => (
@@ -185,8 +185,8 @@ const ProjectDetailPage: React.FC<ProjectDetailPageProps> = ({ project, allProje
           <div className="bg-[#111214] border border-[#292929] rounded-2xl p-6 sm:p-8">
             <div className="flex items-center gap-2 mb-4">
               <AlertTriangle className="w-4 h-4 text-[#F28C28]" />
-              <h2 className="text-sm font-mono uppercase tracking-widest text-[#F28C28]">
-                05 // Engineering Challenges Solved
+              <h2 className="text-sm font-semibold uppercase tracking-wider text-[#F28C28]">
+                Challenges Solved
               </h2>
             </div>
             <ul className="space-y-3">
@@ -202,13 +202,13 @@ const ProjectDetailPage: React.FC<ProjectDetailPageProps> = ({ project, allProje
         {/* Key Features */}
         {project.keyFeatures && project.keyFeatures.length > 0 && (
           <div className="bg-[#111214] border border-[#292929] rounded-2xl p-6 sm:p-8">
-            <h2 className="text-sm font-mono uppercase tracking-widest text-[#F28C28] mb-4">
-              06 // Key Features
+            <h2 className="text-sm font-semibold uppercase tracking-wider text-[#F28C28] mb-4">
+              Key Features
             </h2>
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
               {project.keyFeatures.map((item, index) => (
                 <div key={index} className="bg-[#171719] border border-[#292929] rounded-xl p-4 flex items-start gap-3">
-                  <span className="w-6 h-6 rounded-lg bg-[#111214] border border-[#292929] flex items-center justify-center font-mono text-xs text-[#F28C28] shrink-0">
+                  <span className="w-6 h-6 rounded-lg bg-[#111214] border border-[#292929] flex items-center justify-center text-xs text-[#F28C28] shrink-0 font-medium">
                     {index + 1}
                   </span>
                   <span className="text-xs sm:text-sm text-[#F5F2ED]">{item}</span>
@@ -222,8 +222,8 @@ const ProjectDetailPage: React.FC<ProjectDetailPageProps> = ({ project, allProje
       {/* Related Projects */}
       {relatedProjects.length > 0 && (
         <div className="mt-16 pt-12 border-t border-[#292929]">
-          <h2 className="text-sm font-mono uppercase tracking-widest text-[#F28C28] mb-6">
-            Related Architecture
+          <h2 className="text-sm font-semibold uppercase tracking-wider text-[#F28C28] mb-6">
+            Related Projects
           </h2>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
             {relatedProjects.map((p) => (

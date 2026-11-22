@@ -14,28 +14,23 @@ const ProjectsSection: React.FC<ProjectsSectionProps> = ({ onNavigate }) => {
 
   return (
     <section id="projects" className="mb-24 md:mb-32 scroll-mt-28">
-      {/* Editorial Header */}
+      {/* Clean Header */}
       <ScrollReveal direction="up" distance={16} duration={500}>
         <div className="flex flex-col md:flex-row md:items-end justify-between gap-4 mb-10 pb-4 border-b border-[#292929]">
           <div>
-            <div className="flex items-center gap-2 mb-2 font-mono text-xs text-[#F28C28] uppercase tracking-widest">
-              <span>03 // CODE & ARCHITECTURE</span>
-              <span className="w-2 h-px bg-[#F28C28]" />
-              <span>FEATURED WORK</span>
-            </div>
-            <h2 className="text-2xl sm:text-3xl font-extrabold text-[#F5F2ED] tracking-tight">
-              Featured Systems & Projects
+            <h2 className="text-2xl sm:text-3xl font-bold text-[#F5F2ED] tracking-tight">
+              Featured Projects
             </h2>
+            <p className="text-sm text-[#929292] mt-1">
+              Production-grade backend architectures, AI systems, and distributed platforms.
+            </p>
           </div>
-          <p className="text-xs sm:text-sm text-[#929292] font-mono max-w-md">
-            Engineered for production resilience: multi-agent AI pipelines, distributed telemetry daemons, and realtime platforms.
-          </p>
         </div>
       </ScrollReveal>
 
-      {/* Projects Grid with Varied Layouts */}
+      {/* Projects Grid */}
       <div className="space-y-8">
-        {/* Flagship Project (Avana V2) */}
+        {/* Flagship Project */}
         {flagship && (
           <ScrollReveal direction="up" distance={22} duration={650}>
             <ProjectCard key={flagship.slug} project={flagship} onNavigate={onNavigate} />
@@ -59,10 +54,10 @@ const ProjectsSection: React.FC<ProjectsSectionProps> = ({ onNavigate }) => {
             href="https://github.com/iamdevdhanush"
             target="_blank"
             rel="noopener noreferrer"
-            className="inline-flex items-center gap-2.5 px-6 py-3 rounded-full bg-[#111214] border border-[#292929] hover:border-[#F28C28]/60 text-xs font-mono text-[#F5F2ED] hover:text-[#F28C28] transition-all duration-300 group hover:-translate-y-0.5 active:scale-95"
+            className="inline-flex items-center gap-2 px-5 py-2.5 rounded-xl bg-[#111214] border border-[#292929] hover:border-[#F28C28]/60 text-xs text-[#F5F2ED] hover:text-[#F28C28] transition-all duration-200 hover:-translate-y-0.5 active:scale-95"
           >
-            <span>VIEW COMPLETE REPOSITORY ARCHIVE ON GITHUB</span>
-            <ArrowUpRight className="w-4 h-4 text-[#F28C28] transform transition-transform duration-300 group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
+            <span>View all repositories on GitHub</span>
+            <ArrowUpRight className="w-3.5 h-3.5 text-[#F28C28]" />
           </a>
         </div>
       </ScrollReveal>

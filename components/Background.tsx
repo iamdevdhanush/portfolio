@@ -3,17 +3,16 @@ import React from 'react';
 const Background: React.FC = () => {
   return (
     <div className="fixed inset-0 z-0 pointer-events-none overflow-hidden" aria-hidden="true">
-      {/* Base Canvas */}
+      {/* Base Matte Black Canvas */}
       <div className="absolute inset-0 bg-[#0B0C0E]" />
 
-      {/* Subtle Warm Orange Ambient Lighting with Gentle Breathing Motion */}
-      <div className="absolute -top-40 right-1/4 w-[700px] h-[700px] bg-[radial-gradient(circle,_rgba(242,140,40,0.06)_0%,_rgba(11,12,14,0)_70%)] blur-3xl opacity-70 animate-ambient-breathe" />
-      <div className="absolute top-1/3 -left-40 w-[600px] h-[600px] bg-[radial-gradient(circle,_rgba(242,140,40,0.035)_0%,_rgba(11,12,14,0)_70%)] blur-3xl opacity-60 animate-ambient-breathe [animation-delay:4s]" />
-      <div className="absolute bottom-10 right-10 w-[600px] h-[600px] bg-[radial-gradient(circle,_rgba(242,140,40,0.04)_0%,_rgba(11,12,14,0)_70%)] blur-3xl opacity-60 animate-ambient-breathe [animation-delay:8s]" />
+      {/* Subtle Warm Orange Ambient Lighting */}
+      <div className="absolute -top-40 right-1/4 w-[650px] h-[650px] bg-[radial-gradient(circle,_rgba(242,140,40,0.045)_0%,_rgba(11,12,14,0)_70%)] blur-3xl opacity-60 animate-ambient-breathe" />
+      <div className="absolute top-1/2 -left-40 w-[550px] h-[550px] bg-[radial-gradient(circle,_rgba(242,140,40,0.03)_0%,_rgba(11,12,14,0)_70%)] blur-3xl opacity-50 animate-ambient-breathe [animation-delay:5s]" />
 
-      {/* Primary Topographic Contour Map (Full Vector Organic Lines) */}
+      {/* Quiet, Low-Opacity Topographic Contour Lines (No Fake Labels) */}
       <svg
-        className="absolute inset-0 w-full h-full object-cover opacity-[0.22] mix-blend-screen"
+        className="absolute inset-0 w-full h-full object-cover opacity-[0.14]"
         xmlns="http://www.w3.org/2000/svg"
         viewBox="0 0 1600 1200"
         preserveAspectRatio="xMidYMid slice"
@@ -21,13 +20,13 @@ const Background: React.FC = () => {
       >
         <defs>
           <linearGradient id="contourOrange" x1="0%" y1="0%" x2="100%" y2="100%">
-            <stop offset="0%" stopColor="#F28C28" stopOpacity="0.4" />
-            <stop offset="50%" stopColor="#F28C28" stopOpacity="0.1" />
-            <stop offset="100%" stopColor="#292929" stopOpacity="0.3" />
+            <stop offset="0%" stopColor="#F28C28" stopOpacity="0.3" />
+            <stop offset="50%" stopColor="#F28C28" stopOpacity="0.08" />
+            <stop offset="100%" stopColor="#292929" stopOpacity="0.2" />
           </linearGradient>
         </defs>
 
-        {/* Contour Isolines System - High-elevation Ridge 1 (Top Right) */}
+        {/* Organic Contour Lines */}
         <path
           d="M1000,-100 C1150,80 1280,120 1450,110 C1550,105 1620,180 1700,240"
           stroke="#292929"
@@ -43,7 +42,7 @@ const Background: React.FC = () => {
         <path
           d="M900,-140 C1090,160 1220,220 1390,210 C1510,200 1570,320 1700,400"
           stroke="url(#contourOrange)"
-          strokeWidth="1.2"
+          strokeWidth="1"
           vectorEffect="non-scaling-stroke"
         />
         <path
@@ -67,11 +66,11 @@ const Background: React.FC = () => {
         <path
           d="M700,-180 C930,320 1070,420 1240,410 C1360,400 1420,560 1560,690"
           stroke="url(#contourOrange)"
-          strokeWidth="1.2"
+          strokeWidth="1"
           vectorEffect="non-scaling-stroke"
         />
 
-        {/* Contour Center Pass / Basin */}
+        {/* Center Curves */}
         <path
           d="M200,300 C450,220 700,400 950,380 C1200,360 1350,520 1500,580"
           stroke="#292929"
@@ -87,7 +86,7 @@ const Background: React.FC = () => {
         <path
           d="M100,420 C390,340 640,520 890,500 C1140,480 1280,640 1450,720"
           stroke="url(#contourOrange)"
-          strokeWidth="1.2"
+          strokeWidth="1"
           vectorEffect="non-scaling-stroke"
         />
         <path
@@ -103,7 +102,7 @@ const Background: React.FC = () => {
           vectorEffect="non-scaling-stroke"
         />
 
-        {/* Contour Valley Ridge 2 (Bottom Left to Center) */}
+        {/* Lower Curves */}
         <path
           d="M-50,600 C200,640 380,780 650,760 C900,740 1100,920 1300,940"
           stroke="#292929"
@@ -119,7 +118,7 @@ const Background: React.FC = () => {
         <path
           d="M-110,740 C140,780 320,920 590,900 C840,880 1020,1050 1220,1080"
           stroke="url(#contourOrange)"
-          strokeWidth="1.2"
+          strokeWidth="1"
           vectorEffect="non-scaling-stroke"
         />
         <path
@@ -128,54 +127,15 @@ const Background: React.FC = () => {
           strokeWidth="1"
           vectorEffect="non-scaling-stroke"
         />
-        <path
-          d="M-170,880 C80,920 260,1060 530,1040 C780,1020 940,1190 1140,1220"
-          stroke="#292929"
-          strokeWidth="1"
-          vectorEffect="non-scaling-stroke"
-        />
 
-        {/* Organic Closed Contour Rings (Topographic Peaks) */}
+        {/* Closed Natural Contours */}
         <ellipse cx="1380" cy="220" rx="90" ry="45" transform="rotate(-15 1380 220)" stroke="#292929" strokeWidth="1" />
-        <ellipse cx="1380" cy="220" rx="60" ry="30" transform="rotate(-15 1380 220)" stroke="url(#contourOrange)" strokeWidth="1" />
-        <ellipse cx="1380" cy="220" rx="30" ry="15" transform="rotate(-15 1380 220)" stroke="#F28C28" strokeWidth="1" strokeOpacity="0.4" />
-
-        <ellipse cx="280" cy="880" rx="120" ry="60" transform="rotate(25 280 880)" stroke="#292929" strokeWidth="1" />
-        <ellipse cx="280" cy="880" rx="80" ry="40" transform="rotate(25 280 880)" stroke="url(#contourOrange)" strokeWidth="1" />
-        <ellipse cx="280" cy="880" rx="40" ry="20" transform="rotate(25 280 880)" stroke="#F28C28" strokeWidth="1" strokeOpacity="0.3" />
-
-        {/* Topographic Survey Markers & Elevation Indices */}
-        <g fill="#929292" opacity="0.6" fontSize="9" fontFamily="monospace">
-          <text x="1355" y="223">710m</text>
-          <text x="1270" y="275">680m</text>
-          <text x="1190" y="325">650m</text>
-          <text x="260" y="883">640m</text>
-          <text x="350" y="850">620m</text>
-          <text x="895" y="504">590m</text>
-          <text x="100" y="100" fill="#F28C28" opacity="0.5">LAT 14°00′N · LON 75°34′E · SHIMOGA</text>
-          <text x="1420" y="1150" opacity="0.3">INDEX CONTOUR INT: 30m</text>
-        </g>
-
-        {/* Elevation Crosshairs / Benchmarks */}
-        <g stroke="#929292" opacity="0.4" strokeWidth="1">
-          <line x1="1375" y1="220" x2="1385" y2="220" />
-          <line x1="1380" y1="215" x2="1380" y2="225" />
-          <line x1="275" y1="880" x2="285" y2="880" />
-          <line x1="280" y1="875" x2="280" y2="885" />
-        </g>
+        <ellipse cx="1380" cy="220" rx="55" ry="28" transform="rotate(-15 1380 220)" stroke="url(#contourOrange)" strokeWidth="1" />
+        <ellipse cx="280" cy="880" rx="110" ry="55" transform="rotate(25 280 880)" stroke="#292929" strokeWidth="1" />
       </svg>
 
-      {/* Subtle Noise / Grid Texture */}
-      <div
-        className="absolute inset-0 opacity-[0.03]"
-        style={{
-          backgroundImage: `radial-gradient(#F5F2ED 1px, transparent 1px)`,
-          backgroundSize: '32px 32px',
-        }}
-      />
-
-      {/* Edge Vignette */}
-      <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,_transparent_40%,_#0B0C0E_100%)] opacity-85" />
+      {/* Subtle Vignette */}
+      <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,_transparent_45%,_#0B0C0E_100%)] opacity-80" />
     </div>
   );
 };
