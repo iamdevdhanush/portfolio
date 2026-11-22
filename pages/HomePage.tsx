@@ -90,13 +90,13 @@ const HomePage: React.FC<HomePageProps> = ({ onNavigate, onSectionChange }) => {
         {/* Organic deckle-edge paper transition from Deep Ink #151515 back to Warm Paper #F1EBDD */}
         <div className="w-full overflow-hidden leading-none z-20 -mt-1 pointer-events-none" aria-hidden="true">
           <svg
-            viewBox="0 0 1440 50"
+            viewBox="0 0 1440 40"
             fill="none"
             preserveAspectRatio="none"
-            className="w-full h-8 sm:h-12 md:h-14 text-[#151515]"
+            className="w-full h-6 sm:h-8 md:h-9 text-[#151515]"
           >
             <path
-              d="M0,0 L1440,0 L1440,24 C1360,16 1280,31 1200,21 C1110,11 1030,29 940,19 C860,10 780,27 700,18 C610,8 530,26 440,17 C360,9 280,25 200,16 C120,7 60,24 0,15 Z"
+              d="M0,0 L1440,0 L1440,20 C1410,18 1370,22 1300,16 C1220,24 1150,17 1080,22 C1000,15 930,22 860,18 C780,25 710,16 630,21 C550,14 480,24 410,17 C330,23 270,15 210,21 C130,12 75,20 0,16 Z"
               fill="currentColor"
             />
           </svg>

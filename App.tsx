@@ -78,18 +78,6 @@ export default function App() {
         onToggleBlobs={() => setShowBlobs(prev => !prev)}
       />
 
-      {/* Floating Editorial Command Trigger */}
-      <button
-        onClick={() => setIsCmdOpen(true)}
-        className="fixed bottom-6 right-6 z-40 p-3 bg-[#FAF7F0]/90 backdrop-blur-md border border-[#E2DAC8] hover:border-[#F04B16] rounded-xl text-[#151515] hover:text-[#F04B16] transition-all shadow-xl hover:scale-105 active:scale-95 cursor-pointer flex items-center gap-2 group"
-        aria-label="Open Command Palette (Ctrl+K)"
-      >
-        <Command className="w-4 h-4 text-[#F04B16]" />
-        <span className="hidden sm:inline font-mono text-[10px] text-[#8A877F] group-hover:text-[#151515] transition-colors">
-          ⌘K
-        </span>
-      </button>
-
       <main>
         <Routes>
           <Route

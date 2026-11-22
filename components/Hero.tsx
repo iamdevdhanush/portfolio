@@ -13,10 +13,10 @@ const Hero: React.FC<HeroProps> = ({ onNavigate }) => {
   };
 
   return (
-    <div className="relative pt-20 md:pt-28 pb-0 overflow-hidden">
+    <div className="relative pt-16 md:pt-24 pb-0 overflow-hidden">
       {/* Hero Content Container */}
-      <div className="max-w-6xl mx-auto px-5 sm:px-8 pb-12 md:pb-16">
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-8 items-center">
+      <div className="max-w-6xl mx-auto px-5 sm:px-8 pb-10 md:pb-14">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-10 items-center">
           
           {/* ========================================================= */}
           {/* LEFT: EDITORIAL TYPOGRAPHY & RESTRAINED CTAS              */}
@@ -24,13 +24,13 @@ const Hero: React.FC<HeroProps> = ({ onNavigate }) => {
           <div className="lg:col-span-7 flex flex-col items-start z-10">
             
             {/* Professional Eyebrow */}
-            <div className="hero-enter-1 flex items-center gap-2 mb-4 font-mono text-xs uppercase tracking-widest text-[#8A877F]">
+            <div className="hero-enter-1 flex items-center gap-2 mb-3 font-mono text-xs uppercase tracking-widest text-[#8A877F]">
               <span className="w-2 h-2 rounded-full bg-[#F04B16]" />
               <span>AI Engineer & Software Architect</span>
             </div>
 
             {/* Massive Two-Line Name: Heavy, Condensed, Italic Display */}
-            <h1 className="hero-enter-1 font-['Anton',sans-serif] italic text-5xl sm:text-7xl md:text-8xl lg:text-[96px] xl:text-[108px] text-[#151515] tracking-tight leading-[0.88] uppercase mb-5 select-none">
+            <h1 className="hero-enter-1 font-['Anton',sans-serif] italic text-5xl sm:text-7xl md:text-8xl lg:text-[92px] xl:text-[104px] text-[#151515] tracking-tight leading-[0.88] uppercase mb-4 select-none">
               DHANUSH D<br />
               <span className="text-[#151515] hover:text-[#F04B16] transition-colors duration-300">
                 PRABHU
@@ -38,19 +38,19 @@ const Hero: React.FC<HeroProps> = ({ onNavigate }) => {
             </h1>
 
             {/* Editorial Serif Statement */}
-            <div className="hero-enter-2 mb-4">
+            <div className="hero-enter-2 mb-3">
               <p className="font-serif italic text-2xl sm:text-3xl text-[#151515] leading-snug font-normal max-w-xl">
                 Building intelligent systems that solve real-world problems.
               </p>
             </div>
 
             {/* Professional Description */}
-            <p className="hero-enter-3 font-sans text-sm sm:text-base text-[#151515]/80 leading-relaxed max-w-lg mb-7">
+            <p className="hero-enter-3 font-sans text-sm sm:text-base text-[#151515]/80 leading-relaxed max-w-lg mb-6">
               Specialized in Python, FastAPI, PostgreSQL, and Docker. Focused on multi-agent AI pipelines, high-throughput backend services, and spatial intelligence platforms.
             </p>
 
             {/* Two Restrained CTA Buttons */}
-            <div className="hero-enter-4 flex flex-wrap items-center gap-3.5 mb-7">
+            <div className="hero-enter-4 flex flex-wrap items-center gap-3.5 mb-6">
               <button
                 onClick={() => onNavigate('projects')}
                 className="px-6 py-3 bg-[#151515] text-[#FAF7F0] hover:bg-[#F04B16] font-mono text-xs font-bold uppercase tracking-wider rounded transition-all duration-200 flex items-center gap-2 cursor-pointer active:scale-95 shadow-sm"
@@ -68,7 +68,7 @@ const Hero: React.FC<HeroProps> = ({ onNavigate }) => {
             </div>
 
             {/* Location & Academic Metadata */}
-            <div className="hero-enter-5 flex flex-wrap items-center gap-3 sm:gap-4 text-xs font-mono text-[#8A877F] pt-4 border-t border-[#E2DAC8] w-full max-w-lg">
+            <div className="hero-enter-5 flex flex-wrap items-center gap-3 sm:gap-4 text-xs font-mono text-[#8A877F] pt-3.5 border-t border-[#E2DAC8] w-full max-w-lg">
               <div className="flex items-center gap-1.5">
                 <GraduationCap className="w-3.5 h-3.5 text-[#F04B16]" />
                 <span className="text-[#151515]">PESIAMS (BCA 2024–2027)</span>
@@ -86,48 +86,56 @@ const Hero: React.FC<HeroProps> = ({ onNavigate }) => {
           {/* RIGHT: INTEGRATED PHOTOGRAPHIC COLLAGE & GEOMETRIC BACKING */}
           {/* ========================================================= */}
           <div className="lg:col-span-5 flex justify-center lg:justify-end hero-portrait">
-            <div className="relative w-[280px] sm:w-[320px] md:w-[360px] h-[390px] sm:h-[440px] md:h-[470px]">
+            <div className="flex flex-col items-center sm:items-end">
               
-              {/* 1. Vermilion-Orange Geometric Shape Backing */}
-              <div className="absolute right-2 sm:right-6 top-3 w-52 sm:w-64 md:w-72 h-[340px] sm:h-[390px] md:h-[420px] bg-[#F04B16] rounded-sm -rotate-2 shadow-lg z-0 transition-transform duration-500 hover:-rotate-1" />
-
-              {/* 2. Black Circular Graphic Behind the Subject */}
-              <div className="absolute left-1 sm:left-4 top-10 w-48 sm:w-60 h-48 sm:h-60 rounded-full bg-[#151515] z-0 opacity-95 pointer-events-none" />
-
-              {/* 3. Subtle Paper-Backing Layer for Depth */}
-              <div className="absolute -left-1 sm:-left-2 bottom-6 w-44 sm:w-56 h-48 sm:h-56 bg-[#FAF7F0] border border-[#E2DAC8] rounded-sm rotate-3 z-0 shadow-sm opacity-90" />
-
-              {/* 4. Main Portrait: Clean Cutout / Overlapping Photographic Composition */}
-              <div className="absolute left-4 sm:left-8 top-6 sm:top-8 w-52 sm:w-64 md:w-72 h-[340px] sm:h-[390px] md:h-[420px] z-10 overflow-hidden rounded-sm border border-[#151515] shadow-2xl bg-[#E2DAC8] group">
-                <img
-                  src={imgSrc}
-                  onError={handleImgError}
-                  alt="Dhanush D Prabhu"
-                  width="320"
-                  height="420"
-                  fetchPriority="high"
-                  decoding="async"
-                  className="w-full h-full object-cover grayscale contrast-125 brightness-95 group-hover:scale-102 transition-transform duration-700"
-                />
-
-                {/* Subtle bottom gradient for integration */}
-                <div className="absolute inset-0 bg-gradient-to-t from-[#151515]/75 via-transparent to-transparent pointer-events-none" />
+              {/* Layered Composition Box */}
+              <div className="relative w-[270px] sm:w-[310px] md:w-[340px] h-[340px] sm:h-[390px] md:h-[420px]">
                 
-                {/* Clean Editorial Identification Caption */}
-                <div className="absolute bottom-3 left-3 right-3 flex items-center justify-between pointer-events-none">
-                  <span className="font-mono text-[10px] text-[#FAF7F0] tracking-wider uppercase font-semibold">
-                    Dhanush D Prabhu
-                  </span>
-                  <span className="font-mono text-[9px] text-[#F04B16] font-bold">
-                    ED. 2026
-                  </span>
+                {/* 1. Vermilion-Orange Geometric Shape Backing */}
+                <div className="absolute right-1 sm:right-3 top-2 w-[240px] sm:w-[280px] md:w-[300px] h-[310px] sm:h-[360px] md:h-[390px] bg-[#F04B16] rounded-sm -rotate-2 shadow-md z-0 transition-transform duration-500 hover:-rotate-1" />
+
+                {/* 2. Black Circular Graphic Behind the Subject */}
+                <div className="absolute -left-3 sm:-left-5 top-8 w-44 sm:w-52 h-44 sm:h-52 rounded-full bg-[#151515] z-0 opacity-95 pointer-events-none" />
+
+                {/* 3. Subtle Warm Paper Layer Behind */}
+                <div className="absolute -left-1 bottom-4 w-40 sm:w-48 h-40 sm:h-48 bg-[#FAF7F0] border border-[#E2DAC8] rounded-sm rotate-2 z-0 shadow-sm opacity-80" />
+
+                {/* 4. Main Portrait: Clean, Natural Contrast & Clear Visibility */}
+                <div className="absolute left-3 sm:left-5 top-5 w-[240px] sm:w-[280px] md:w-[300px] h-[310px] sm:h-[360px] md:h-[390px] z-10 overflow-hidden rounded-sm border border-[#151515] shadow-xl bg-[#E2DAC8] group">
+                  <img
+                    src={imgSrc}
+                    onError={handleImgError}
+                    alt="Dhanush D Prabhu"
+                    width="300"
+                    height="390"
+                    fetchPriority="high"
+                    decoding="async"
+                    className="w-full h-full object-cover grayscale contrast-105 brightness-100 group-hover:contrast-110 transition-all duration-500"
+                  />
+
+                  {/* Clean Bottom Gradient for Visual Cohesion */}
+                  <div className="absolute inset-0 bg-gradient-to-t from-[#151515]/70 via-transparent to-transparent pointer-events-none" />
+                  
+                  {/* Subtle Identification Meta */}
+                  <div className="absolute bottom-2.5 left-3 right-3 flex items-center justify-between pointer-events-none text-white/90">
+                    <span className="font-mono text-[10px] tracking-wider uppercase font-semibold">
+                      Dhanush D Prabhu
+                    </span>
+                    <span className="font-mono text-[9px] text-[#F04B16] font-bold">
+                      ED. 2026
+                    </span>
+                  </div>
                 </div>
+
               </div>
 
-              {/* 5. Handwritten Personal Signature Annotation */}
-              <div className="absolute -bottom-3 -left-1 sm:-left-3 z-20 pointer-events-none">
-                <span className="font-hand text-2xl sm:text-3xl text-[#151515] -rotate-4 select-none block bg-[#F1EBDD] px-2.5 py-0.5 border border-[#151515] shadow-sm">
+              {/* 5. Intentionally Attached Signature Plaque (Below Image, Not Randomly Floating Over) */}
+              <div className="w-[270px] sm:w-[310px] md:w-[340px] mt-2.5 pt-2 border-t border-[#E2DAC8]/80 flex items-center justify-between text-xs">
+                <span className="font-hand text-xl sm:text-2xl text-[#151515] select-none">
                   ✦ Dhanush D Prabhu
+                </span>
+                <span className="font-mono text-[10px] text-[#8A877F] uppercase tracking-wider">
+                  STUDIO ARCHIVE
                 </span>
               </div>
 
@@ -138,18 +146,18 @@ const Hero: React.FC<HeroProps> = ({ onNavigate }) => {
       </div>
 
       {/* ============================================================= */}
-      {/* ORGANIC ASYMMETRIC TORN-PAPER SECTION TRANSITION              */}
-      {/* Natural, non-repeating deckle edge cutting into #151515 below  */}
+      {/* SUBTLE, ORGANIC TORN-PAPER SECTION TRANSITION                 */}
+      {/* Delicate, non-repeating deckle edge cutting into #151515      */}
       {/* ============================================================= */}
       <div className="w-full overflow-hidden leading-none z-20 -mb-1 pointer-events-none" aria-hidden="true">
         <svg
-          viewBox="0 0 1440 60"
+          viewBox="0 0 1440 40"
           fill="none"
           preserveAspectRatio="none"
-          className="w-full h-9 sm:h-12 md:h-14 text-[#151515]"
+          className="w-full h-6 sm:h-8 md:h-9 text-[#151515]"
         >
           <path
-            d="M0,28 C80,34 140,22 220,31 C310,41 380,24 470,33 C560,42 620,26 710,34 C790,40 860,25 940,32 C1030,40 1100,23 1190,33 C1270,41 1350,26 1440,32 L1440,60 L0,60 Z"
+            d="M0,16 C75,20 130,12 210,21 C270,15 330,23 410,17 C480,24 550,14 630,21 C710,16 780,25 860,18 C930,22 1000,15 1080,22 C1150,17 1220,24 1300,16 C1370,22 1410,18 1440,20 L1440,40 L0,40 Z"
             fill="currentColor"
           />
         </svg>
