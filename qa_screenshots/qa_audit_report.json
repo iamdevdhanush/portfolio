@@ -1,0 +1,177 @@
+{
+  "auditReport": {
+    "390px": {
+      "overflowMetrics": {
+        "viewportWidth": 390,
+        "docScrollWidth": 390,
+        "bodyScrollWidth": 390,
+        "hasHorizontalOverflow": false,
+        "offenderCount": 0,
+        "topOffenders": []
+      },
+      "headingMetrics": {
+        "h1Text": "DHANUSH D\nPRABHU",
+        "word1Text": "DHANUSH D",
+        "word1Rect": {},
+        "word1Right": 169,
+        "word1FitsInsideViewport": true,
+        "word2Text": "PRABHU",
+        "word2Rect": {},
+        "word2Right": 126,
+        "word2FitsInsideViewport": true,
+        "viewportWidth": 390
+      },
+      "sectionsMetrics": [
+        {
+          "id": "home",
+          "height": 795,
+          "top": 0,
+          "fitsWidth": true
+        },
+        {
+          "id": "projects",
+          "height": 2260,
+          "top": 791,
+          "fitsWidth": true
+        },
+        {
+          "id": "achievements",
+          "height": 2406,
+          "top": 3051,
+          "fitsWidth": true
+        },
+        {
+          "id": "about",
+          "height": 542,
+          "top": 5476,
+          "fitsWidth": true
+        },
+        {
+          "id": "hackathons",
+          "height": 966,
+          "top": 6018,
+          "fitsWidth": true
+        },
+        {
+          "id": "skills",
+          "height": 1173,
+          "top": 6984,
+          "fitsWidth": true
+        },
+        {
+          "id": "contact",
+          "height": 562,
+          "top": 8157,
+          "fitsWidth": true
+        }
+      ]
+    },
+    "360px": {
+      "overflowMetrics": {
+        "viewportWidth": 360,
+        "docScrollWidth": 360,
+        "bodyScrollWidth": 360,
+        "hasHorizontalOverflow": false,
+        "offenderCount": 0,
+        "topOffenders": []
+      },
+      "headingMetrics": {
+        "h1Text": "DHANUSH D\nPRABHU",
+        "word1Text": "DHANUSH D",
+        "word1Rect": {},
+        "word1Right": 169,
+        "word1FitsInsideViewport": true,
+        "word2Text": "PRABHU",
+        "word2Rect": {},
+        "word2Right": 126,
+        "word2FitsInsideViewport": true,
+        "viewportWidth": 360
+      },
+      "sectionsMetrics": [
+        {
+          "id": "home",
+          "height": 814,
+          "top": 0,
+          "fitsWidth": true
+        },
+        {
+          "id": "projects",
+          "height": 2467,
+          "top": 810,
+          "fitsWidth": true
+        },
+        {
+          "id": "achievements",
+          "height": 2331,
+          "top": 3277,
+          "fitsWidth": true
+        },
+        {
+          "id": "about",
+          "height": 568,
+          "top": 5628,
+          "fitsWidth": true
+        },
+        {
+          "id": "hackathons",
+          "height": 966,
+          "top": 6196,
+          "fitsWidth": true
+        },
+        {
+          "id": "skills",
+          "height": 1202,
+          "top": 7162,
+          "fitsWidth": true
+        },
+        {
+          "id": "contact",
+          "height": 562,
+          "top": 8364,
+          "fitsWidth": true
+        }
+      ]
+    }
+  },
+  "drawerState": {
+    "drawerExists": true,
+    "bodyOverflow": "hidden",
+    "isScrollLocked": true,
+    "navLinksCount": 8,
+    "navLinks": [
+      "Home",
+      "Work",
+      "Achievements",
+      "About",
+      "Hackathons",
+      "Skills",
+      "Contact",
+      "DOWNLOAD RESUME (PDF)"
+    ]
+  },
+  "drawerClosedState": {
+    "drawerExists": false,
+    "bodyOverflow": "",
+    "isUnlocked": true
+  },
+  "modalMetrics": {
+    "hasDialog": true,
+    "bodyOverflow": "hidden",
+    "isScrollLocked": true,
+    "title": "CodeNeura Inter-College Tech-a-Thon",
+    "containerWidth": 384,
+    "viewportWidth": 390,
+    "isWithinBounds": true,
+    "hasImage": true,
+    "imgSrc": "http://localhost:4180/profile.jpg",
+    "imgComplete": true,
+    "imgNaturalWidth": 460,
+    "returnBtnLabel": "ARCHIVE"
+  },
+  "projectMetrics": {
+    "title": "Avana V2",
+    "viewportWidth": 390,
+    "docScrollWidth": 390,
+    "hasHorizontalOverflow": false
+  }
+}

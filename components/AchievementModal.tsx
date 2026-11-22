@@ -34,8 +34,9 @@ const AchievementModal: React.FC<AchievementModalProps> = ({ achievement, onClos
   const archiveIndex = achievementsData.findIndex((a) => a.id === achievement.id);
   const displayNum = archiveIndex >= 0 ? `0${archiveIndex + 1}` : '01';
 
-  // Only use authentic photograph from public assets (/profile.jpg) for CodeNeura or verified assets
-  const hasAuthenticPhoto = achievement.id === 'codeneura' && !imgFailed;
+  // Show authentic photography from public assets (/profile.jpg) with verified role caption
+  const hasAuthenticPhoto = !imgFailed;
+  const photoCaption = achievement.personalPhotos?.[0]?.caption || `Dhanush D Prabhu — ${achievement.award}`;
 
   return (
     <div
@@ -179,7 +180,7 @@ const AchievementModal: React.FC<AchievementModalProps> = ({ achievement, onClos
                     {/* Bottom Identification Label */}
                     <div className="absolute bottom-2.5 left-3 right-3 sm:bottom-3 sm:left-4 sm:right-4 flex items-center justify-between text-white/90">
                       <div>
-                        <span className="font-serif font-bold text-xs sm:text-sm block">Dhanush D Prabhu</span>
+                        <span className="font-serif font-bold text-xs sm:text-sm block">{photoCaption}</span>
                         <span className="font-mono text-[9px] sm:text-[10px] text-[#F04B16] uppercase tracking-wider">
                           {achievement.award} · {achievement.eventName}
                         </span>

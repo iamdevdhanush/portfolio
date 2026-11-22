@@ -38,13 +38,7 @@ export const achievementsData: AchievementDetail[] = [
       'Strong fundamentals in data structures are critical under time pressure.',
       'Writing test cases before submitting prevents subtle off-by-one errors.'
     ],
-    eventPhotos: [
-      {
-        url: '',
-        caption: 'CodeNeura Tech-a-Thon at LBS College, Sagara',
-        isPlaceholder: true
-      }
-    ],
+    eventPhotos: [],
     personalPhotos: [
       {
         url: '/profile.jpg',
@@ -91,13 +85,7 @@ export const achievementsData: AchievementDetail[] = [
       'Containerizing the application early eliminates deployment discrepancies during live demos.',
       'Decoupled architecture makes rapid iteration during hackathons significantly safer.'
     ],
-    eventPhotos: [
-      {
-        url: '',
-        caption: 'National AI Hackathon at SJBIT Bengaluru',
-        isPlaceholder: true
-      }
-    ],
+    eventPhotos: [],
     personalPhotos: [
       {
         url: '/profile.jpg',
@@ -144,13 +132,7 @@ export const achievementsData: AchievementDetail[] = [
       'Ruthless feature prioritization is essential when shipping within 24 hours.',
       'Simple, dependable architectures beat overly complex ones during live evaluations.'
     ],
-    eventPhotos: [
-      {
-        url: '',
-        caption: 'State Level Hackathon at GMIT Davangere',
-        isPlaceholder: true
-      }
-    ],
+    eventPhotos: [],
     personalPhotos: [
       {
         url: '/profile.jpg',
@@ -194,13 +176,7 @@ export const achievementsData: AchievementDetail[] = [
       'Security and predictability are primary considerations in enterprise systems.',
       'Clear documentation is as important as working code.'
     ],
-    eventPhotos: [
-      {
-        url: '',
-        caption: 'EY Techathon National Challenge',
-        isPlaceholder: true
-      }
-    ],
+    eventPhotos: [],
     personalPhotos: [
       {
         url: '/profile.jpg',
@@ -245,13 +221,7 @@ export const achievementsData: AchievementDetail[] = [
       'Monitoring software must be lightweight to avoid distorting the metrics it measures.',
       'Energy-aware engineering has direct real-world economic and operational benefits.'
     ],
-    eventPhotos: [
-      {
-        url: '',
-        caption: 'Green IT Competition Showcase',
-        isPlaceholder: true
-      }
-    ],
+    eventPhotos: [],
     personalPhotos: [
       {
         url: '/profile.jpg',

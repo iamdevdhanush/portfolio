@@ -10,8 +10,8 @@ const Background: React.FC = () => {
       <div className="absolute inset-0 paper-grain opacity-70" />
 
       {/* Gentle Natural Light Ambient Diffusion */}
-      <div className="absolute -top-32 right-1/4 w-[600px] h-[600px] bg-[radial-gradient(circle,_rgba(240,75,22,0.04)_0%,_transparent_70%)] blur-3xl opacity-60" />
-      <div className="absolute top-1/2 -left-32 w-[500px] h-[500px] bg-[radial-gradient(circle,_rgba(240,75,22,0.03)_0%,_transparent_70%)] blur-3xl opacity-50" />
+      <div className="absolute -top-32 right-1/4 w-[600px] max-w-full h-[600px] bg-[radial-gradient(circle,_rgba(240,75,22,0.04)_0%,_transparent_70%)] blur-3xl opacity-60" />
+      <div className="absolute top-1/2 -left-32 w-[500px] max-w-full h-[500px] bg-[radial-gradient(circle,_rgba(240,75,22,0.03)_0%,_transparent_70%)] blur-3xl opacity-50" />
     </div>
   );
 };
