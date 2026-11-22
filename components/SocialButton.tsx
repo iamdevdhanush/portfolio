@@ -18,7 +18,7 @@ const SocialButton: React.FC<SocialButtonProps> = ({ icon, href = '#', label }) 
       href={href}
       target="_blank"
       rel="noreferrer"
-      className="w-11 h-11 rounded-xl bg-[#171719] border border-[#292929] flex items-center justify-center text-[#929292] hover:bg-[#111214] hover:text-[#F28C28] hover:border-[#F28C28]/50 hover:-translate-y-0.5 active:scale-95 transition-all duration-300 ease-out cursor-pointer"
+      className="w-11 h-11 rounded-xl bg-[#FAF7F0] border border-[#E2DAC8] flex items-center justify-center text-[#151515] hover:text-[#F04B16] hover:border-[#F04B16] hover:-translate-y-0.5 active:scale-95 transition-all duration-300 ease-out cursor-pointer shadow-sm"
       aria-label={label || fallbackLabel}
     >
       {icon}

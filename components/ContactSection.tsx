@@ -21,90 +21,98 @@ const ContactSection: React.FC = () => {
   };
 
   return (
-    <section id="contact" className="mb-24 scroll-mt-28">
-      {/* Full-Width Open Editorial Layout (Zero Boxed Containers) */}
-      <ScrollReveal direction="up" distance={20} duration={600}>
-        <div className="pt-12 pb-8 border-t border-[#292929]">
-          
-          <div className="flex items-center gap-3 mb-4">
-            <span className="w-5 h-[2px] bg-[#F28C28]" />
-            <span className="text-xs uppercase tracking-widest text-[#F28C28] font-semibold">
-              Get in Touch
-            </span>
+    <section id="contact" className="w-full px-5 sm:px-8 py-24 md:py-32 bg-[#090909] text-[#FAF7F0] ink-grain scroll-mt-20">
+      <div className="max-w-6xl mx-auto">
+        <ScrollReveal direction="up" distance={20} duration={600}>
+          <div className="pt-6">
+            
+            <div className="flex items-center gap-2 mb-4 font-mono text-xs uppercase tracking-widest text-[#F04B16]">
+              <span className="w-2 h-2 rounded-full bg-[#F04B16]" />
+              <span>Colophon // Direct Communication</span>
+            </div>
+
+            {/* Massive Display Statement */}
+            <h2 className="font-display text-5xl sm:text-7xl md:text-8xl lg:text-9xl text-[#FAF7F0] tracking-tight leading-[0.92] uppercase mb-6">
+              Let's Build Something<br />
+              <span className="text-[#FAF7F0] hover:text-[#F04B16] transition-colors duration-300">
+                That Matters.
+              </span>
+            </h2>
+
+            <div className="mb-10 flex flex-col sm:flex-row sm:items-center justify-between gap-4">
+              <p className="font-serif italic text-lg sm:text-xl text-[#8A877F] max-w-xl font-normal leading-relaxed">
+                Open to discussions regarding backend engineering roles, AI system architecture, and new engineering initiatives.
+              </p>
+              <span className="font-hand text-2xl text-[#F04B16] -rotate-2 select-none">
+                ✦ available for production engineering
+              </span>
+            </div>
+
+            {/* Direct Email Interaction */}
+            <div className="flex flex-wrap items-center gap-4 mb-12">
+              <a
+                href={`mailto:${email}`}
+                className="inline-flex items-center gap-2.5 px-7 py-4 bg-[#F04B16] text-[#FAF7F0] hover:bg-[#D93E0D] font-mono text-xs font-bold uppercase tracking-wider rounded-xl transition-colors active:scale-95 shadow-lg shadow-[#F04B16]/20"
+              >
+                <Mail className="w-4 h-4" />
+                <span>{email}</span>
+                <ArrowUpRight className="w-4 h-4" />
+              </a>
+
+              <button
+                onClick={handleCopyEmail}
+                className="px-5 py-4 rounded-xl border border-[#2A2A2A] hover:border-[#F04B16] font-mono text-xs text-[#FAF7F0] hover:text-[#F04B16] transition-colors flex items-center gap-2 cursor-pointer active:scale-95 min-h-[48px]"
+                aria-label="Copy email address"
+              >
+                {copied ? (
+                  <>
+                    <Check className="w-4 h-4 text-emerald-400" />
+                    <span className="text-emerald-400">COPIED</span>
+                  </>
+                ) : (
+                  <>
+                    <Copy className="w-4 h-4 text-[#8A877F]" />
+                    <span>COPY EMAIL</span>
+                  </>
+                )}
+              </button>
+            </div>
+
+            {/* Inline Connectors */}
+            <div className="pt-8 border-t border-[#2A2A2A] flex flex-wrap items-center gap-8 font-mono text-xs text-[#8A877F]">
+              <a
+                href="https://github.com/iamdevdhanush"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="hover:text-[#F04B16] transition-colors flex items-center gap-2 font-bold"
+              >
+                <Github className="w-4 h-4 text-[#F04B16]" />
+                <span>GITHUB</span>
+              </a>
+
+              <a
+                href="https://www.linkedin.com/in/dhanushdprabhu/"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="hover:text-[#F04B16] transition-colors flex items-center gap-2 font-bold"
+              >
+                <Linkedin className="w-4 h-4 text-[#F04B16]" />
+                <span>LINKEDIN</span>
+              </a>
+
+              <a
+                href="/Dhanush_D_Prabhu_Resume.pdf"
+                onClick={handleResumeClick}
+                className="hover:text-[#F04B16] transition-colors flex items-center gap-2 font-bold"
+              >
+                <FileText className="w-4 h-4 text-[#F04B16]" />
+                <span>DOWNLOAD RESUME (PDF)</span>
+              </a>
+            </div>
+
           </div>
-
-          <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-[#F5F2ED] tracking-tight leading-tight max-w-2xl mb-4">
-            Let's build something dependable.
-          </h2>
-
-          <p className="text-sm sm:text-base text-[#929292] max-w-xl leading-relaxed mb-8">
-            Always open to conversations regarding backend engineering, AI pipelines, system architecture, and new opportunities.
-          </p>
-
-          {/* Email Interaction Block */}
-          <div className="flex flex-wrap items-center gap-4 mb-10">
-            <a
-              href={`mailto:${email}`}
-              className="inline-flex items-center gap-2.5 px-6 py-3.5 bg-[#F28C28] text-[#0B0C0E] text-xs font-bold uppercase tracking-wider rounded-xl hover:bg-[#FA9E42] transition-colors active:scale-95 shadow-md shadow-[#F28C28]/15"
-            >
-              <Mail className="w-4 h-4" />
-              <span>{email}</span>
-              <ArrowUpRight className="w-3.5 h-3.5" />
-            </a>
-
-            <button
-              onClick={handleCopyEmail}
-              className="px-5 py-3.5 rounded-xl border border-[#292929] hover:border-[#F28C28]/50 text-xs font-medium text-[#F5F2ED] hover:text-[#F28C28] transition-colors flex items-center gap-2 cursor-pointer active:scale-95 min-h-[44px]"
-              aria-label="Copy email address"
-            >
-              {copied ? (
-                <>
-                  <Check className="w-4 h-4 text-emerald-400" />
-                  <span className="text-emerald-400">Copied</span>
-                </>
-              ) : (
-                <>
-                  <Copy className="w-4 h-4 text-[#929292]" />
-                  <span>Copy Address</span>
-                </>
-              )}
-            </button>
-          </div>
-
-          {/* Inline Links */}
-          <div className="pt-6 border-t border-[#292929]/70 flex flex-wrap items-center gap-6 text-xs text-[#929292]">
-            <a
-              href="https://github.com/iamdevdhanush"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="hover:text-[#F28C28] transition-colors flex items-center gap-1.5 font-medium"
-            >
-              <Github className="w-3.5 h-3.5 text-[#F28C28]" />
-              <span>GitHub</span>
-            </a>
-
-            <a
-              href="https://www.linkedin.com/in/dhanushdprabhu/"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="hover:text-[#F28C28] transition-colors flex items-center gap-1.5 font-medium"
-            >
-              <Linkedin className="w-3.5 h-3.5 text-[#F28C28]" />
-              <span>LinkedIn</span>
-            </a>
-
-            <a
-              href="/Dhanush_D_Prabhu_Resume.pdf"
-              onClick={handleResumeClick}
-              className="hover:text-[#F28C28] transition-colors flex items-center gap-1.5 font-medium"
-            >
-              <FileText className="w-3.5 h-3.5 text-[#F28C28]" />
-              <span>Download Resume</span>
-            </a>
-          </div>
-
-        </div>
-      </ScrollReveal>
+        </ScrollReveal>
+      </div>
     </section>
   );
 };

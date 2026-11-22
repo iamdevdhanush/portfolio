@@ -30,19 +30,19 @@ const CommandPalette: React.FC<CommandPaletteProps> = ({ isOpen, onClose, onNavi
 
   const menuItems: MenuItem[] = useMemo(() => [
     { type: 'header', label: 'Navigation' },
-    { icon: <Home className="w-4 h-4 text-[#F28C28]" />, label: 'Home', action: () => onNavigate('home'), shortcut: 'h' },
-    { icon: <Trophy className="w-4 h-4 text-[#F28C28]" />, label: 'Achievements', action: () => onNavigate('achievements'), shortcut: 'a' },
-    { icon: <User className="w-4 h-4 text-[#F28C28]" />, label: 'About', action: () => onNavigate('about'), shortcut: 'b' },
-    { icon: <Briefcase className="w-4 h-4 text-[#F28C28]" />, label: 'Projects', action: () => onNavigate('projects'), shortcut: 'p' },
-    { icon: <Zap className="w-4 h-4 text-[#F28C28]" />, label: 'Hackathons', action: () => onNavigate('hackathons'), shortcut: 'k' },
-    { icon: <Code className="w-4 h-4 text-[#F28C28]" />, label: 'Skills', action: () => onNavigate('skills'), shortcut: 's' },
-    { icon: <Terminal className="w-4 h-4 text-[#F28C28]" />, label: 'Contact', action: () => onNavigate('contact'), shortcut: 'c' },
-    { type: 'header', label: 'Settings' },
-    { icon: showBlobs ? <EyeOff className="w-4 h-4 text-[#F28C28]" /> : <Eye className="w-4 h-4 text-[#F28C28]" />, label: 'Toggle Background Pattern', action: () => { onToggleBlobs(); onClose(); }, shortcut: 't' },
-    { type: 'header', label: 'Social' },
-    { icon: <Linkedin className="w-4 h-4 text-[#F28C28]" />, label: 'LinkedIn', action: () => window.open('https://www.linkedin.com/in/dhanushdprabhu/', '_blank') },
-    { icon: <Github className="w-4 h-4 text-[#F28C28]" />, label: 'GitHub', action: () => window.open('https://github.com/iamdevdhanush', '_blank') },
-    { icon: <Mail className="w-4 h-4 text-[#F28C28]" />, label: 'Email', action: () => window.open('mailto:dhanushdprabhu18@gmail.com', '_blank') },
+    { icon: <Home className="w-4 h-4 text-[#F04B16]" />, label: 'Home', action: () => onNavigate('home'), shortcut: 'h' },
+    { icon: <Briefcase className="w-4 h-4 text-[#F04B16]" />, label: 'Work', action: () => onNavigate('projects'), shortcut: 'p' },
+    { icon: <Trophy className="w-4 h-4 text-[#F04B16]" />, label: 'Achievements', action: () => onNavigate('achievements'), shortcut: 'a' },
+    { icon: <User className="w-4 h-4 text-[#F04B16]" />, label: 'About', action: () => onNavigate('about'), shortcut: 'b' },
+    { icon: <Zap className="w-4 h-4 text-[#F04B16]" />, label: 'Hackathons', action: () => onNavigate('hackathons'), shortcut: 'k' },
+    { icon: <Code className="w-4 h-4 text-[#F04B16]" />, label: 'Skills', action: () => onNavigate('skills'), shortcut: 's' },
+    { icon: <Terminal className="w-4 h-4 text-[#F04B16]" />, label: 'Contact', action: () => onNavigate('contact'), shortcut: 'c' },
+    { type: 'header', label: 'Preferences' },
+    { icon: showBlobs ? <EyeOff className="w-4 h-4 text-[#F04B16]" /> : <Eye className="w-4 h-4 text-[#F04B16]" />, label: 'Toggle Paper Ambience', action: () => { onToggleBlobs(); onClose(); }, shortcut: 't' },
+    { type: 'header', label: 'External Channels' },
+    { icon: <Linkedin className="w-4 h-4 text-[#F04B16]" />, label: 'LinkedIn', action: () => window.open('https://www.linkedin.com/in/dhanushdprabhu/', '_blank') },
+    { icon: <Github className="w-4 h-4 text-[#F04B16]" />, label: 'GitHub', action: () => window.open('https://github.com/iamdevdhanush', '_blank') },
+    { icon: <Mail className="w-4 h-4 text-[#F04B16]" />, label: 'Email', action: () => window.open('mailto:dhanushdprabhu18@gmail.com', '_blank') },
   ], [showBlobs, onNavigate, onClose, onToggleBlobs]);
 
   const filteredItems = useMemo(() => {
@@ -81,22 +81,23 @@ const CommandPalette: React.FC<CommandPaletteProps> = ({ isOpen, onClose, onNavi
 
   return (
     <div className="fixed inset-0 z-50 flex items-start justify-center pt-[12vh] px-4">
-      <div className="absolute inset-0 bg-[#0B0C0E]/85 backdrop-blur-md animate-modal-backdrop" onClick={onClose} aria-hidden="true" />
-      <div className="relative w-full max-w-xl bg-[#111214] border border-[#292929] rounded-2xl shadow-2xl overflow-hidden animate-modal-enter text-[#F5F2ED]">
+      <div className="absolute inset-0 bg-[#090909]/80 backdrop-blur-md animate-modal-backdrop" onClick={onClose} aria-hidden="true" />
+      <div className="relative w-full max-w-xl bg-[#FAF7F0] border border-[#E2DAC8] rounded-2xl shadow-2xl overflow-hidden animate-modal-enter text-[#151515] paper-grain">
+        
         {/* Search Input Bar */}
-        <div className="flex items-center px-4 py-3.5 border-b border-[#292929] bg-[#171719]/50">
-          <Search className="w-4 h-4 text-[#F28C28] mr-3 shrink-0" />
+        <div className="flex items-center px-4 py-3.5 border-b border-[#E2DAC8] bg-[#F1EBDD]/60">
+          <Search className="w-4 h-4 text-[#F04B16] mr-3 shrink-0" />
           <input
             autoFocus
             type="text"
             placeholder="Type a command or jump to section..."
-            className="flex-1 bg-transparent border-none outline-none text-[#F5F2ED] placeholder-[#929292] text-sm font-mono h-6"
+            className="flex-1 bg-transparent border-none outline-none text-[#151515] placeholder-[#8A877F] text-sm font-mono h-6"
             value={searchQuery}
             onChange={(e) => setSearchQuery(e.target.value)}
           />
-          <div className="hidden sm:flex items-center gap-2 text-[10px] text-[#929292] font-mono">
-            <span className="bg-[#111214] px-1.5 py-0.5 rounded border border-[#292929]">↑</span>
-            <span className="bg-[#111214] px-1.5 py-0.5 rounded border border-[#292929]">↓</span>
+          <div className="hidden sm:flex items-center gap-2 text-[10px] text-[#8A877F] font-mono">
+            <span className="bg-[#FAF7F0] px-1.5 py-0.5 rounded border border-[#E2DAC8]">↑</span>
+            <span className="bg-[#FAF7F0] px-1.5 py-0.5 rounded border border-[#E2DAC8]">↓</span>
             <span>navigate</span>
           </div>
         </div>
@@ -106,7 +107,7 @@ const CommandPalette: React.FC<CommandPaletteProps> = ({ isOpen, onClose, onNavi
           {filteredItems.map((item, idx) => {
             if (item.type === 'header') {
               return (
-                <div key={idx} className="px-3 py-1.5 text-[10px] font-mono uppercase tracking-widest text-[#929292]">
+                <div key={idx} className="px-3 py-1.5 text-[10px] font-mono uppercase tracking-widest text-[#8A877F]">
                   {item.label}
                 </div>
               );
@@ -123,12 +124,12 @@ const CommandPalette: React.FC<CommandPaletteProps> = ({ isOpen, onClose, onNavi
                 }}
                 className={`flex items-center justify-between px-3 py-2.5 rounded-xl cursor-pointer text-xs font-mono transition-colors ${
                   isSelected
-                    ? 'bg-[#171719] text-[#F28C28] border border-[#F28C28]/40'
-                    : 'text-[#F5F2ED] hover:bg-[#171719] border border-transparent'
+                    ? 'bg-[#151515] text-[#FAF7F0]'
+                    : 'text-[#151515] hover:bg-[#F1EBDD]'
                 }`}
               >
                 <div className="flex items-center gap-3">
-                  <div className={`w-6 h-6 rounded-lg flex items-center justify-center ${isSelected ? 'bg-[#F28C28]/10' : 'bg-[#171719]'}`}>
+                  <div className={`w-6 h-6 rounded-lg flex items-center justify-center ${isSelected ? 'text-[#F04B16]' : 'text-[#8A877F]'}`}>
                     {item.icon}
                   </div>
                   <span className="font-medium">{item.label}</span>
@@ -136,11 +137,13 @@ const CommandPalette: React.FC<CommandPaletteProps> = ({ isOpen, onClose, onNavi
 
                 <div className="flex items-center gap-2">
                   {item.shortcut && (
-                    <span className="text-[10px] bg-[#111214] text-[#929292] px-1.5 py-0.5 rounded border border-[#292929]">
+                    <span className={`text-[10px] px-1.5 py-0.5 rounded border ${
+                      isSelected ? 'bg-[#2A2A2A] text-[#FAF7F0] border-transparent' : 'bg-[#FAF7F0] text-[#8A877F] border-[#E2DAC8]'
+                    }`}>
                       {item.shortcut}
                     </span>
                   )}
-                  {isSelected && <ArrowRight className="w-3.5 h-3.5 text-[#F28C28]" />}
+                  {isSelected && <ArrowRight className="w-3.5 h-3.5 text-[#F04B16]" />}
                 </div>
               </div>
             );
@@ -148,9 +151,9 @@ const CommandPalette: React.FC<CommandPaletteProps> = ({ isOpen, onClose, onNavi
         </div>
 
         {/* Palette Footer */}
-        <div className="px-4 py-2.5 bg-[#171719]/60 border-t border-[#292929] flex items-center justify-between text-[10px] font-mono text-[#929292]">
-          <span>Dhanush D Prabhu Portfolio</span>
-          <span className="text-[#F28C28]">ESC to cancel</span>
+        <div className="px-4 py-2.5 bg-[#F1EBDD]/60 border-t border-[#E2DAC8] flex items-center justify-between text-[10px] font-mono text-[#8A877F]">
+          <span>Dhanush D Prabhu // Studio Journal</span>
+          <span className="text-[#F04B16]">ESC to dismiss</span>
         </div>
       </div>
     </div>

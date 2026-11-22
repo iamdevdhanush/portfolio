@@ -1,22 +1,26 @@
 export const skillCategories = [
   {
-    category: 'Backend',
-    items: ['Python', 'FastAPI', 'Flask', 'REST APIs']
+    category: 'Backend Engineering',
+    items: ['Python', 'FastAPI', 'Flask', 'REST APIs', 'System Design']
   },
   {
-    category: 'Frontend',
-    items: ['React', 'TypeScript', 'TailwindCSS']
+    category: 'AI & Intelligent Systems',
+    items: ['Multi-Agent Pipelines', 'Gemini AI', 'Geospatial Scoring', 'LLM Workflows']
   },
   {
     category: 'Databases',
-    items: ['PostgreSQL', 'PostGIS', 'SQLAlchemy']
+    items: ['PostgreSQL', 'PostGIS', 'SQLAlchemy', 'Data Modeling']
   },
   {
-    category: 'DevOps',
-    items: ['Docker', 'GitHub Actions', 'Linux']
+    category: 'Frontend Development',
+    items: ['React 19', 'TypeScript', 'Tailwind CSS', 'Responsive UI']
   },
   {
-    category: 'Tools',
-    items: ['Git', 'GitHub', 'Postman', 'Figma']
+    category: 'DevOps & Infrastructure',
+    items: ['Docker Compose', 'GitHub Actions', 'Linux Environments', 'Telemetry Ingestion']
+  },
+  {
+    category: 'Tools & Workflows',
+    items: ['Git', 'GitHub', 'Postman', 'Figma', 'Vite']
   }
 ];

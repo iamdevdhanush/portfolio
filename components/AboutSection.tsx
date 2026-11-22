@@ -2,61 +2,62 @@ import React from 'react';
 import ScrollReveal from './ScrollReveal';
 
 const AboutSection: React.FC = () => {
-  const architecturalDirectives = [
+  const architecturalPillars = [
     {
       num: '01',
-      title: 'Backend & API Architecture',
+      title: 'Backend Systems & API Architecture',
       description: 'Designing production-grade services in Python and FastAPI. Focused on predictable schema modeling, JWT-authenticated REST APIs, and containerized microservices ready for deployment.'
     },
     {
       num: '02',
-      title: 'Multi-Agent AI Systems',
+      title: 'Multi-Agent AI Workflows',
       description: 'Architecting coordinated AI workflows that process unstructured incident reports into structured intelligence, geospatial hazard scoring, and real-time situational insights.'
     },
     {
       num: '03',
-      title: 'Distributed Telemetry & Monitoring',
+      title: 'Distributed Telemetry & Energy State Tracking',
       description: 'Building telemetry pipelines handling concurrent data streams, heartbeat tracking, machine lifecycle state machines (ACTIVE/IDLE/OFFLINE), and energy optimization analytics.'
     },
     {
       num: '04',
-      title: 'Hackathon Leadership & Delivery',
+      title: 'Competitive Hackathon Delivery',
       description: 'Leading engineering teams across multiple state and national hackathons. Owning architecture end-to-end and delivering full-stack solutions under strict 24–48 hour deadlines.'
     }
   ];
 
   return (
-    <section id="about" className="mb-24 md:mb-32 scroll-mt-28">
-      {/* Clean Editorial Section Header */}
+    <section id="about" className="py-24 md:py-32 scroll-mt-28">
+      {/* Section Pre-title */}
       <ScrollReveal direction="up" distance={16} duration={500}>
-        <div className="flex items-center gap-3 mb-3">
-          <span className="w-5 h-[2px] bg-[#F28C28]" />
-          <span className="text-xs uppercase tracking-widest text-[#F28C28] font-semibold">
-            Background & Philosophy
-          </span>
+        <div className="flex items-center gap-3 mb-3 font-mono text-xs uppercase tracking-widest text-[#F04B16]">
+          <span className="w-2 h-2 rounded-full bg-[#F04B16]" />
+          <span>Essay // Architectural Conviction</span>
         </div>
-        <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-[#F5F2ED] tracking-tight mb-8">
-          Architectural Discipline Under Pressure
+        <h2 className="font-serif text-3xl sm:text-5xl md:text-6xl text-[#151515] tracking-tight leading-tight mb-4">
+          The discipline of building systems that do not break.
         </h2>
       </ScrollReveal>
 
-      {/* Editorial Lead Pull Statement */}
+      {/* Editorial Pull-Quote with Handwritten Margin Note */}
       <ScrollReveal direction="up" distance={18} duration={600} delay={60}>
-        <div className="py-6 border-y border-[#292929] mb-12">
-          <p className="text-lg sm:text-xl md:text-2xl text-[#F5F2ED] font-normal leading-relaxed max-w-4xl">
-            "Software that functions reliably under real-world conditions requires clear architectural discipline: normalized data schemas, explicit service boundaries, and reproducible container environments."
+        <div className="relative my-10 pl-6 sm:pl-8 border-l-4 border-[#F04B16] py-2">
+          <p className="font-serif italic text-xl sm:text-2xl md:text-3xl text-[#151515] leading-relaxed max-w-4xl font-normal">
+            "Engineering maturity is demonstrated not by speculative abstraction, but by explicit boundaries: normalized data models, stateless handlers, and verifiable container deployments."
           </p>
+          <span className="absolute -top-7 right-4 sm:right-12 font-hand text-xl sm:text-2xl text-[#F04B16] rotate-[-2deg] select-none hidden md:block">
+            ✦ code that survives contact with reality
+          </span>
         </div>
       </ScrollReveal>
 
-      {/* Two-Column Open Editorial Composition */}
-      <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-start">
+      {/* Two-Column Editorial Spread */}
+      <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-start mt-12">
         
-        {/* Left Column: Narrative Background & Academic Context */}
-        <div className="lg:col-span-6 space-y-6 text-sm sm:text-base text-[#929292] leading-relaxed">
+        {/* Left Column: Narrative Background & Academic Foundation */}
+        <div className="lg:col-span-6 space-y-6 text-sm sm:text-base text-[#151515]/85 font-sans leading-relaxed">
           <ScrollReveal direction="up" distance={18} duration={550} delay={100}>
             <p>
-              I build <span className="text-[#F5F2ED] font-medium">backend systems</span> and <span className="text-[#F5F2ED] font-medium">AI-powered applications</span>. My work focuses on designing APIs, managing structured data pipelines, and deploying containerized services. I work primarily with Python, FastAPI, PostgreSQL, and Docker.
+              I build <strong className="text-[#151515] font-semibold">backend systems</strong> and <strong className="text-[#151515] font-semibold">AI-powered applications</strong>. My work focuses on designing APIs, managing structured data pipelines, and deploying containerized services. I work primarily with Python, FastAPI, PostgreSQL, and Docker.
             </p>
           </ScrollReveal>
 
@@ -72,48 +73,49 @@ const AboutSection: React.FC = () => {
             </p>
           </ScrollReveal>
 
-          {/* Integrated Education & Location Strip (Typographic, No Box) */}
+          {/* Integrated Academic Foundation (Editorial Stamp) */}
           <ScrollReveal direction="up" distance={18} duration={550} delay={250}>
-            <div className="pt-6 border-t border-[#292929] space-y-3">
-              <span className="text-xs uppercase tracking-wider text-[#F28C28] font-semibold block">
+            <div className="pt-6 border-t border-[#E2DAC8] space-y-3">
+              <span className="font-mono text-xs uppercase tracking-widest text-[#F04B16] font-bold block">
                 Academic Foundation
               </span>
-              <div className="text-xs space-y-1">
-                <p className="text-[#F5F2ED] font-medium">
+              <div className="bg-[#FAF7F0] border border-[#E2DAC8] rounded-xl p-5 space-y-2">
+                <p className="font-serif font-bold text-base text-[#151515]">
                   PES Institute of Advanced Management Studies
                 </p>
-                <p className="text-[#929292]">
+                <p className="font-mono text-xs text-[#8A877F]">
                   Bachelor of Computer Applications (BCA) · 2024–2027
                 </p>
-                <p className="text-[#F5F2ED]">
-                  Cumulative CGPA: <span className="text-[#F28C28] font-semibold">8.53 / 10</span> · Shimoga, Karnataka, India
-                </p>
+                <div className="flex flex-wrap items-center gap-3 pt-1 text-xs font-mono">
+                  <span className="px-2 py-0.5 rounded bg-[#F1EBDD] text-[#151515] border border-[#E2DAC8]">
+                    CGPA: <strong className="text-[#F04B16]">8.53 / 10</strong>
+                  </span>
+                  <span className="text-[#8A877F]">Shimoga, Karnataka, India</span>
+                </div>
               </div>
             </div>
           </ScrollReveal>
         </div>
 
-        {/* Right Column: Architectural Focus Directives (Typographic List, No Cards) */}
-        <div className="lg:col-span-6 space-y-8">
-          <div className="pb-2">
-            <span className="text-xs uppercase tracking-wider text-[#929292] font-semibold block">
-              Core Engineering Focus
-            </span>
+        {/* Right Column: Four Architectural Focus Pillars */}
+        <div className="lg:col-span-6 space-y-6">
+          <div className="pb-2 font-mono text-xs uppercase tracking-widest text-[#8A877F] border-b border-[#E2DAC8]">
+            Core Directives & Focus
           </div>
 
           <div className="space-y-6">
-            {architecturalDirectives.map((item, idx) => (
+            {architecturalPillars.map((item, idx) => (
               <ScrollReveal key={item.num} delay={100 + idx * 75} direction="up" distance={16} duration={500}>
-                <div className="pb-6 border-b border-[#292929]/70 group">
-                  <div className="flex items-baseline gap-3 mb-1.5">
-                    <span className="text-xs font-mono text-[#F28C28] font-semibold">
-                      {item.num}
+                <div className="pb-6 border-b border-[#E2DAC8] group">
+                  <div className="flex items-baseline gap-3 mb-2">
+                    <span className="font-mono text-sm text-[#F04B16] font-bold">
+                      {item.num} //
                     </span>
-                    <h3 className="text-base font-semibold text-[#F5F2ED] group-hover:text-[#F28C28] transition-colors">
+                    <h3 className="font-serif text-lg font-bold text-[#151515] group-hover:text-[#F04B16] transition-colors">
                       {item.title}
                     </h3>
                   </div>
-                  <p className="text-xs sm:text-sm text-[#929292] leading-relaxed pl-7">
+                  <p className="font-sans text-xs sm:text-sm text-[#151515]/75 leading-relaxed pl-8">
                     {item.description}
                   </p>
                 </div>

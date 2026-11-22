@@ -28,7 +28,6 @@ const HomePage: React.FC<HomePageProps> = ({ onNavigate, onSectionChange }) => {
   useEffect(() => {
     const hash = location.hash.replace('#', '');
     if (hash && SECTION_IDS.includes(hash)) {
-      // Use refined smooth scroll with header offset
       setTimeout(() => {
         scrollToSection(hash, 88);
       }, 50);
@@ -38,7 +37,6 @@ const HomePage: React.FC<HomePageProps> = ({ onNavigate, onSectionChange }) => {
   }, [location.hash]);
 
   useEffect(() => {
-    // Window scroll boundary detection for top and bottom of page
     const handleScroll = () => {
       if (window.scrollY < 120) {
         onSectionChange('home');
@@ -51,7 +49,6 @@ const HomePage: React.FC<HomePageProps> = ({ onNavigate, onSectionChange }) => {
 
     window.addEventListener('scroll', handleScroll, { passive: true });
 
-    // IntersectionObserver for middle section scrollspy
     const observer = new IntersectionObserver(
       (entries) => {
         entries.forEach((entry) => {
@@ -77,15 +74,34 @@ const HomePage: React.FC<HomePageProps> = ({ onNavigate, onSectionChange }) => {
   return (
     <>
       <SEO {...homeSEO} jsonLd={jsonLd} />
-      <div className="max-w-5xl mx-auto px-5 sm:px-8 pt-8 md:pt-14 relative z-10">
-        <Hero onNavigate={onNavigate} />
+      <div className="relative z-10 w-full overflow-x-hidden">
+        
+        {/* 1. Hero: Light Warm Paper */}
+        <div className="max-w-6xl mx-auto px-5 sm:px-8">
+          <Hero onNavigate={onNavigate} />
+        </div>
+
+        {/* 2. Achievements: Deep Ink Dark Section (100% Full-Width) */}
         <AchievementStrip />
-        <AboutSection />
+
+        {/* 3. About: Light Warm Paper */}
+        <div className="max-w-6xl mx-auto px-5 sm:px-8">
+          <AboutSection />
+        </div>
+
+        {/* 4. Projects: Deep Ink Dark Section (100% Full-Width) */}
         <ProjectsSection onNavigate={onNavigate} />
-        <HackathonsSection />
-        <SkillsSection />
+
+        {/* 5 & 6. Hackathons & Skills: Light Warm Paper */}
+        <div className="max-w-6xl mx-auto px-5 sm:px-8">
+          <HackathonsSection />
+          <SkillsSection />
+        </div>
+
+        {/* 7 & 8. Contact & Footer: Deep Ink Dark Section (100% Full-Width) */}
         <ContactSection />
         <Footer />
+
       </div>
     </>
   );

@@ -62,7 +62,7 @@ export default function App() {
   }, [isCmdOpen, performSafeNavigation]);
 
   return (
-    <div className="min-h-screen bg-[#0B0C0E] text-[#F5F2ED] relative font-sans overflow-x-hidden selection:bg-[#F28C28] selection:text-[#0B0C0E]">
+    <div className="min-h-screen bg-[#F1EBDD] text-[#151515] relative font-sans overflow-x-hidden selection:bg-[#F04B16] selection:text-[#FAF7F0]">
       {showBlobs && <Background />}
 
       <Navbar
@@ -78,14 +78,14 @@ export default function App() {
         onToggleBlobs={() => setShowBlobs(prev => !prev)}
       />
 
-      {/* Floating Command Trigger */}
+      {/* Floating Editorial Command Trigger */}
       <button
         onClick={() => setIsCmdOpen(true)}
-        className="fixed bottom-6 right-6 z-40 p-3 bg-[#171719]/90 backdrop-blur-md border border-[#292929] hover:border-[#F28C28]/60 rounded-xl text-[#929292] hover:text-[#F28C28] transition-all shadow-2xl hover:scale-105 active:scale-95 cursor-pointer flex items-center gap-2 group"
+        className="fixed bottom-6 right-6 z-40 p-3 bg-[#FAF7F0]/90 backdrop-blur-md border border-[#E2DAC8] hover:border-[#F04B16] rounded-xl text-[#151515] hover:text-[#F04B16] transition-all shadow-xl hover:scale-105 active:scale-95 cursor-pointer flex items-center gap-2 group"
         aria-label="Open Command Palette (Ctrl+K)"
       >
-        <Command className="w-4 h-4 text-[#F28C28]" />
-        <span className="hidden sm:inline font-mono text-[10px] text-[#929292] group-hover:text-[#F5F2ED] transition-colors">
+        <Command className="w-4 h-4 text-[#F04B16]" />
+        <span className="hidden sm:inline font-mono text-[10px] text-[#8A877F] group-hover:text-[#151515] transition-colors">
           ⌘K
         </span>
       </button>
@@ -111,10 +111,10 @@ export default function App() {
 
 function NavigateToHome() {
   return (
-    <div className="max-w-4xl mx-auto px-6 pt-36 pb-20 relative z-10 text-center text-[#929292]">
-      <h1 className="text-2xl font-bold text-[#F5F2ED] mb-3">Page Not Found</h1>
-      <p className="text-sm mb-6">The requested page could not be located.</p>
-      <a href="/" className="px-5 py-2.5 bg-[#F28C28] text-[#0B0C0E] text-xs font-semibold rounded-lg hover:bg-[#FA9E42] transition-colors inline-block">
+    <div className="max-w-4xl mx-auto px-6 pt-36 pb-20 relative z-10 text-center text-[#8A877F]">
+      <h1 className="font-serif text-3xl font-bold text-[#151515] mb-3">Page Not Found</h1>
+      <p className="font-sans text-sm mb-6">The requested resource could not be resolved.</p>
+      <a href="/" className="px-6 py-3 bg-[#151515] text-[#FAF7F0] hover:bg-[#F04B16] font-mono text-xs font-bold uppercase rounded-lg transition-colors inline-block">
         Return to Home
       </a>
     </div>

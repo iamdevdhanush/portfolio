@@ -30,50 +30,48 @@ const HackathonsSection: React.FC = () => {
   ];
 
   return (
-    <section id="hackathons" className="mb-24 md:mb-32 scroll-mt-28">
-      {/* Clean Editorial Header */}
+    <section id="hackathons" className="py-24 md:py-32 scroll-mt-28">
+      {/* Section Header */}
       <ScrollReveal direction="up" distance={16} duration={500}>
-        <div className="flex flex-col md:flex-row md:items-end justify-between gap-4 mb-10 pb-4 border-b border-[#292929]">
+        <div className="flex flex-col md:flex-row md:items-end justify-between gap-4 mb-10 pb-6 border-b border-[#E2DAC8]">
           <div>
-            <div className="flex items-center gap-3 mb-2">
-              <span className="w-5 h-[2px] bg-[#F28C28]" />
-              <span className="text-xs uppercase tracking-widest text-[#F28C28] font-semibold">
-                Engineering Leadership
-              </span>
+            <div className="flex items-center gap-2 mb-2 font-mono text-xs uppercase tracking-widest text-[#F04B16]">
+              <span className="w-2 h-2 rounded-full bg-[#F04B16]" />
+              <span>Leadership // Crucible Constraints</span>
             </div>
-            <h2 className="text-2xl sm:text-3xl font-bold text-[#F5F2ED] tracking-tight">
-              Execution Under Crucible Constraints
+            <h2 className="font-display text-4xl sm:text-6xl text-[#151515] tracking-tight uppercase">
+              Execution Under Pressure
             </h2>
           </div>
-          <span className="text-xs text-[#929292]">
-            Lessons from collegiate, state, and national hackathon leadership
+          <span className="font-hand text-2xl text-[#F04B16] -rotate-2 hidden sm:inline select-none">
+            ✦ 48 hours. Zero room for bloat.
           </span>
         </div>
       </ScrollReveal>
 
       {/* Narrative Lead Paragraph */}
       <ScrollReveal direction="up" distance={18} duration={600} delay={60}>
-        <div className="mb-12 max-w-3xl">
-          <p className="text-base sm:text-lg text-[#929292] leading-relaxed">
-            In competitive 24 to 48-hour sprints, software architecture either holds up under pressure or collapses. Leading teams in these environments requires quick, pragmatic triage: establishing system contracts early, avoiding speculative complexity, and shipping verifiable code.
+        <div className="mb-14 max-w-3xl">
+          <p className="font-serif italic text-lg sm:text-xl text-[#151515]/90 leading-relaxed font-normal">
+            In competitive hackathons, software architecture either survives contact with reality or collapses. Leading teams in these high-stress sprints requires rapid, pragmatic triage: locking down system contracts early, containerizing immediately, and shipping verifiable code.
           </p>
         </div>
       </ScrollReveal>
 
-      {/* Asymmetric Numbered Narrative Matrix (Zero Cards, Zero Boxed Icons) */}
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-x-12 gap-y-10 border-t border-[#292929] pt-8">
+      {/* Asymmetric Numbered Plates */}
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-x-12 gap-y-10 border-t border-[#E2DAC8] pt-10">
         {leadershipPrinciples.map((item, idx) => (
           <ScrollReveal key={item.num} delay={idx * 75} direction="up" distance={16} duration={500}>
-            <div className="space-y-3 group">
-              <div className="flex items-center gap-3">
-                <span className="text-sm font-mono text-[#F28C28] font-bold">
-                  {item.num}.
+            <div className="space-y-2.5 group">
+              <div className="flex items-baseline gap-3">
+                <span className="font-mono text-sm font-bold text-[#F04B16]">
+                  {item.num} //
                 </span>
-                <h3 className="text-base font-semibold text-[#F5F2ED] group-hover:text-[#F28C28] transition-colors">
+                <h3 className="font-serif text-lg sm:text-xl font-bold text-[#151515] group-hover:text-[#F04B16] transition-colors">
                   {item.title}
                 </h3>
               </div>
-              <p className="text-xs sm:text-sm text-[#929292] leading-relaxed pl-7">
+              <p className="font-sans text-xs sm:text-sm text-[#151515]/75 leading-relaxed pl-8">
                 {item.narrative}
               </p>
             </div>
