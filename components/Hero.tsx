@@ -13,7 +13,7 @@ const Hero: React.FC<HeroProps> = ({ onNavigate }) => {
   };
 
   return (
-    <div className="relative pt-16 md:pt-24 pb-0 overflow-hidden">
+    <div className="relative pt-16 md:pt-24 pb-0">
       {/* Hero Content Container */}
       <div className="max-w-6xl mx-auto px-5 sm:px-8 pb-10 md:pb-14">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-10 items-center">
@@ -21,7 +21,7 @@ const Hero: React.FC<HeroProps> = ({ onNavigate }) => {
           {/* ========================================================= */}
           {/* LEFT: EDITORIAL TYPOGRAPHY & RESTRAINED CTAS              */}
           {/* ========================================================= */}
-          <div className="lg:col-span-7 flex flex-col items-start z-10">
+          <div className="lg:col-span-7 xl:col-span-8 flex flex-col items-start z-10 w-full min-w-0">
             
             {/* Professional Eyebrow */}
             <div className="hero-enter-1 flex items-center gap-2 mb-3 font-mono text-xs uppercase tracking-widest text-[#8A877F]">
@@ -30,12 +30,14 @@ const Hero: React.FC<HeroProps> = ({ onNavigate }) => {
             </div>
 
             {/* Massive Two-Line Name: Staggered Word Reveal with Condensed Display */}
-            <h1 className="font-['Anton',sans-serif] italic text-4xl sm:text-6xl md:text-8xl lg:text-[92px] xl:text-[104px] text-[#151515] tracking-tight leading-[0.88] uppercase mb-4 select-none">
-              <span className="hero-word-wrap block">
-                <span className="hero-word-1">DHANUSH D</span>
+            <h1 className="font-['Anton',sans-serif] italic text-4xl sm:text-6xl md:text-8xl lg:text-[88px] xl:text-[100px] text-[#151515] tracking-tight leading-[0.9] uppercase mb-4 select-none w-full overflow-visible">
+              <span className="block w-full overflow-visible">
+                <span className="hero-word-1 inline-block whitespace-nowrap pr-4 sm:pr-6">
+                  DHANUSH D
+                </span>
               </span>
-              <span className="hero-word-wrap block">
-                <span className="hero-word-2 text-[#151515] hover:text-[#F04B16] transition-colors duration-300">
+              <span className="block w-full overflow-visible">
+                <span className="hero-word-2 inline-block whitespace-nowrap pr-4 sm:pr-6 text-[#151515] hover:text-[#F04B16] transition-colors duration-300">
                   PRABHU
                 </span>
               </span>
@@ -89,7 +91,7 @@ const Hero: React.FC<HeroProps> = ({ onNavigate }) => {
           {/* ========================================================= */}
           {/* RIGHT: INTEGRATED PHOTOGRAPHIC COLLAGE & GEOMETRIC BACKING */}
           {/* ========================================================= */}
-          <div className="lg:col-span-5 flex justify-center lg:justify-end hero-portrait">
+          <div className="lg:col-span-5 xl:col-span-4 flex justify-center lg:justify-end hero-portrait">
             <div className="flex flex-col items-center sm:items-end">
               
               {/* Layered Composition Box */}

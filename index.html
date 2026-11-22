@@ -172,17 +172,17 @@
         animation: modalBackdrop 0.25s ease-out forwards;
       }
       .hero-word-wrap {
-        display: inline-block;
-        overflow: hidden;
-        vertical-align: bottom;
+        display: block;
+        overflow: visible;
+        width: 100%;
       }
       .hero-word-1 {
         display: inline-block;
-        animation: heroWordReveal 800ms cubic-bezier(0.16, 1, 0.3, 1) 60ms backwards;
+        animation: heroFadeUp 700ms cubic-bezier(0.16, 1, 0.3, 1) 60ms backwards;
       }
       .hero-word-2 {
         display: inline-block;
-        animation: heroWordReveal 850ms cubic-bezier(0.16, 1, 0.3, 1) 160ms backwards;
+        animation: heroFadeUp 750ms cubic-bezier(0.16, 1, 0.3, 1) 160ms backwards;
       }
       .hero-portrait-reveal {
         animation: portraitMaskReveal 1000ms cubic-bezier(0.16, 1, 0.3, 1) 180ms backwards;
