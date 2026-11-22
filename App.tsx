@@ -56,7 +56,7 @@ export default function App() {
   }, [isCmdOpen, performSafeNavigation]);
 
   return (
-    <div className="min-h-screen bg-black text-zinc-200 selection:bg-zinc-800 selection:text-white relative font-sans overflow-x-hidden">
+    <div className="min-h-screen bg-[#0B0C0E] text-[#F5F2ED] relative font-sans overflow-x-hidden selection:bg-[#F28C28] selection:text-[#0B0C0E]">
       {showBlobs && <Background />}
 
       <Navbar
@@ -72,12 +72,16 @@ export default function App() {
         onToggleBlobs={() => setShowBlobs(prev => !prev)}
       />
 
+      {/* Floating Command Trigger */}
       <button
         onClick={() => setIsCmdOpen(true)}
-        className="fixed bottom-8 right-8 z-40 p-3 bg-zinc-900 border border-zinc-800 rounded-lg text-zinc-300 hover:text-white hover:border-zinc-700 transition-[color,border-color,transform] shadow-2xl hover:scale-105 active:scale-95"
-        aria-label="Open Command Palette"
+        className="fixed bottom-6 right-6 z-40 p-3 bg-[#171719]/90 backdrop-blur-md border border-[#292929] hover:border-[#F28C28]/60 rounded-xl text-[#929292] hover:text-[#F28C28] transition-all shadow-2xl hover:scale-105 active:scale-95 cursor-pointer flex items-center gap-2 group"
+        aria-label="Open Command Palette (Ctrl+K)"
       >
-        <Command className="w-5 h-5" />
+        <Command className="w-4 h-4 text-[#F28C28]" />
+        <span className="hidden sm:inline font-mono text-[10px] text-[#929292] group-hover:text-[#F5F2ED] transition-colors">
+          ⌘K
+        </span>
       </button>
 
       <main>
@@ -101,8 +105,12 @@ export default function App() {
 
 function NavigateToHome() {
   return (
-    <div className="max-w-4xl mx-auto px-6 pt-32 relative z-10 text-center">
-      <h1 className="text-base font-normal text-zinc-400">Page not found. <a href="/" className="text-blue-400 hover:text-blue-300">Return home.</a></h1>
+    <div className="max-w-4xl mx-auto px-6 pt-36 pb-20 relative z-10 text-center text-[#929292] font-mono">
+      <h1 className="text-xl font-bold text-[#F5F2ED] mb-3">404 // Target Route Not Found</h1>
+      <p className="text-sm mb-6">The requested resource could not be resolved in this system space.</p>
+      <a href="/" className="px-5 py-2.5 bg-[#F28C28] text-[#0B0C0E] text-xs font-semibold rounded-lg hover:bg-[#FA9E42] transition-colors inline-block">
+        Return to Root Coordinates
+      </a>
     </div>
   );
 }

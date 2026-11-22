@@ -7,8 +7,8 @@
     <meta name="description" content="Portfolio of Dhanush D Prabhu, an AI engineer and software developer. Features AI platforms, FastAPI backends, distributed monitoring systems, and hackathon-winning projects." />
     <meta name="author" content="Dhanush D Prabhu" />
     <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1" />
-    <meta name="theme-color" content="#000000" />
-    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='6' fill='%230a0a0a'/%3E%3Ctext x='16' y='22' text-anchor='middle' font-family='monospace' font-size='18' font-weight='bold' fill='%23e5e5e5'%3ED%3C/text%3E%3C/svg%3E" />
+    <meta name="theme-color" content="#0B0C0E" />
+    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='6' fill='%230B0C0E' stroke='%23F28C28' stroke-width='1.5'/%3E%3Ctext x='16' y='22' text-anchor='middle' font-family='sans-serif' font-size='18' font-weight='bold' fill='%23F5F2ED'%3ED%3C/text%3E%3C/svg%3E" />
     <link rel="canonical" href="https://dhanushdprabhu.is-a.dev/" />
 
     <meta property="og:type" content="website" />
@@ -32,22 +32,90 @@
 
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600&family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
     <meta name="google-site-verification" content="PGrn0geeko-CSL9UIY4cr4xpplprVF9vrlkiF4IT0kc" />
 
     <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+      tailwind = {
+        config: {
+          theme: {
+            extend: {
+              colors: {
+                canvas: '#0B0C0E',
+                surface: '#111214',
+                card: '#171719',
+                border: '#292929',
+                accent: {
+                  DEFAULT: '#F28C28',
+                  hover: '#FA9E42',
+                  muted: 'rgba(242, 140, 40, 0.12)',
+                  glow: 'rgba(242, 140, 40, 0.22)',
+                },
+                cream: '#F5F2ED',
+                muted: '#929292',
+              },
+              fontFamily: {
+                sans: ['"Plus Jakarta Sans"', 'Inter', 'sans-serif'],
+                mono: ['"JetBrains Mono"', 'monospace'],
+              }
+            }
+          }
+        }
+      }
+    </script>
     <style>
-      @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
-      body { font-family: 'Inter', sans-serif; background-color: #000000; color: #e5e5e5; }
-      html { scroll-behavior: smooth; }
-      ::-webkit-scrollbar { width: 8px; }
-      ::-webkit-scrollbar-track { background: #0f172a; }
-      ::-webkit-scrollbar-thumb { background: #334155; border-radius: 4px; }
-      ::-webkit-scrollbar-thumb:hover { background: #475569; }
-      @keyframes fade-in { from { opacity: 0; transform: scale(0.95); } to { opacity: 1; transform: scale(1); } }
-      @keyframes slide-in-from-top-5 { from { opacity: 0; transform: translateY(-5px); } to { opacity: 1; transform: translateY(0); } }
-      .animate-in { animation: fade-in 0.2s ease-out; }
-      .slide-in-from-top-5 { animation: slide-in-from-top-5 0.2s ease-out; }
-      .zoom-in-95 { animation: fade-in 0.2s ease-out; }
+      :root {
+        --bg-canvas: #0B0C0E;
+        --bg-surface: #111214;
+        --bg-card: #171719;
+        --accent: #F28C28;
+        --text-primary: #F5F2ED;
+        --text-secondary: #929292;
+        --border: #292929;
+      }
+      body {
+        font-family: 'Plus Jakarta Sans', Inter, sans-serif;
+        background-color: #0B0C0E;
+        color: #F5F2ED;
+        overflow-x: hidden;
+      }
+      html {
+        scroll-behavior: smooth;
+        background-color: #0B0C0E;
+      }
+      ::selection {
+        background-color: #F28C28;
+        color: #0B0C0E;
+      }
+      ::-webkit-scrollbar {
+        width: 6px;
+      }
+      ::-webkit-scrollbar-track {
+        background: #0B0C0E;
+      }
+      ::-webkit-scrollbar-thumb {
+        background: #292929;
+        border-radius: 3px;
+      }
+      ::-webkit-scrollbar-thumb:hover {
+        background: #F28C28;
+      }
+      @keyframes fadeIn {
+        from { opacity: 0; transform: translateY(6px); }
+        to { opacity: 1; transform: translateY(0); }
+      }
+      .animate-fade-in {
+        animation: fadeIn 0.25s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+      }
+      @media (prefers-reduced-motion: reduce) {
+        *, ::before, ::after {
+          animation-duration: 0.01ms !important;
+          animation-iteration-count: 1 !important;
+          transition-duration: 0.01ms !important;
+          scroll-behavior: auto !important;
+        }
+      }
     </style>
     <script type="importmap">
       {

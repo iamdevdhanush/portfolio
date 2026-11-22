@@ -42,7 +42,7 @@ const HomePage: React.FC<HomePageProps> = ({ onNavigate, onSectionChange }) => {
           if (entry.isIntersecting) onSectionChange(entry.target.id);
         });
       },
-      { rootMargin: '-50% 0px -50% 0px' }
+      { rootMargin: '-40% 0px -40% 0px' }
     );
     SECTION_IDS.forEach(id => {
       const el = document.getElementById(id);
@@ -54,7 +54,7 @@ const HomePage: React.FC<HomePageProps> = ({ onNavigate, onSectionChange }) => {
   return (
     <>
       <SEO {...homeSEO} jsonLd={jsonLd} />
-      <div className="max-w-4xl mx-auto px-6 pt-12 md:pt-20 relative z-10">
+      <div className="max-w-5xl mx-auto px-5 sm:px-8 pt-8 md:pt-14 relative z-10">
         <Hero onNavigate={onNavigate} />
         <AchievementStrip />
         <AboutSection />
