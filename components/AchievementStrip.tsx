@@ -13,6 +13,7 @@ const AchievementStrip: React.FC = () => {
     'national-ai-hackathon': 'Selected in the top 5 finalists out of 100+ state engineering teams for Avana V2 spatial intelligence.',
     'state-hackathon-gmit': 'Delivered an end-to-end community emergency support platform under strict 24-hour sprint constraints.',
     'ey-techathon': 'Advanced to Round 2 by designing scalable enterprise data pipelines for distributed workflows.',
+    'green-it': 'Awarded 1st place for architectural modeling of machine state tracking and compute energy reduction.',
     'green-it-competition': 'Awarded 1st place for architectural modeling of machine state tracking and compute energy reduction.',
   };
 

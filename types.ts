@@ -71,4 +71,5 @@ export interface AchievementDetail {
   badge?: string;
   rank?: string;
   highlightStat?: string;
+  category?: string;
 }
