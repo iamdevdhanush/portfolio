@@ -1,7 +1,8 @@
 import React, { useState } from 'react';
-import { ArrowUpRight, Trophy, Calendar, Award, ShieldCheck } from 'lucide-react';
+import { ArrowUpRight, Calendar } from 'lucide-react';
 import { achievementsData } from '../data/achievements';
 import AchievementModal from './AchievementModal';
+import AchievementPlaque from './AchievementPlaque';
 import ScrollReveal from './ScrollReveal';
 import type { AchievementDetail } from '../types';
 
@@ -46,7 +47,6 @@ const AchievementStrip: React.FC = () => {
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6">
           {achievementsData.map((item, idx) => {
             const shortDesc = conciseDescriptions[item.id] || item.subtitle;
-            const hasPhoto = item.id === 'codeneura';
 
             return (
               <ScrollReveal key={item.id} delay={idx * 50} direction="up" distance={18} duration={550}>
@@ -65,42 +65,8 @@ const AchievementStrip: React.FC = () => {
                 >
                   <div>
                     {/* Consistent Aspect Ratio Visual Banner */}
-                    <div className="relative w-full aspect-[16/10] rounded-lg overflow-hidden border border-[#2A2A2A] bg-[#151515] mb-3 sm:mb-4 flex items-center justify-center">
-                      {hasPhoto ? (
-                        <>
-                          <img
-                            src="/profile.jpg"
-                            alt={`${item.eventName} — Dhanush D Prabhu`}
-                            width="400"
-                            height="250"
-                            loading="lazy"
-                            className="w-full h-full object-cover grayscale contrast-110 group-hover:grayscale-0 group-hover:scale-105 transition-all duration-500"
-                          />
-                          <div className="absolute inset-0 bg-gradient-to-t from-[#090909] via-transparent to-transparent pointer-events-none" />
-                          <div className="absolute bottom-2 left-2.5 right-2.5 flex items-center justify-between text-[10px] sm:text-[11px] font-mono text-[#FAF7F0]">
-                            <span>Dhanush D Prabhu</span>
-                            <span className="text-[#F04B16] font-bold">1st Place</span>
-                          </div>
-                        </>
-                      ) : (
-                        /* Archival Certificate Plaque Visual */
-                        <div className="w-full h-full flex flex-col items-center justify-center p-3 sm:p-4 bg-gradient-to-b from-[#181818] via-[#121212] to-[#0d0d0d] text-center relative group-hover:from-[#1f1917] transition-colors">
-                          <div className="w-8 h-8 sm:w-10 sm:h-10 rounded-full bg-[#F04B16]/10 border border-[#F04B16]/40 flex items-center justify-center text-[#F04B16] mb-1.5 group-hover:scale-110 group-hover:bg-[#F04B16]/20 transition-all">
-                            {item.award.includes('1st') ? (
-                              <Trophy className="w-3.5 h-3.5 sm:w-4 sm:h-4 text-[#F04B16]" />
-                            ) : (
-                              <Award className="w-3.5 h-3.5 sm:w-4 sm:h-4 text-[#F04B16]" />
-                            )}
-                          </div>
-                          <span className="font-serif italic text-xs text-[#FAF7F0] font-medium line-clamp-1">
-                            {item.organization}
-                          </span>
-                          <span className="font-mono text-[9px] sm:text-[10px] text-[#8A877F] uppercase tracking-wider mt-0.5 sm:mt-1 flex items-center gap-1">
-                            <ShieldCheck className="w-3 h-3 text-[#F04B16]" />
-                            Official Citation · {item.date}
-                          </span>
-                        </div>
-                      )}
+                    <div className="mb-3 sm:mb-4">
+                      <AchievementPlaque achievement={item} variant="card" />
                     </div>
 
                     {/* Meta: Award & Year */}

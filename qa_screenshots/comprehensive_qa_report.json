@@ -1,0 +1,924 @@
+{
+  "viewportsTested": 10,
+  "results": {
+    "320px": {
+      "viewport": {
+        "name": "320px",
+        "width": 320,
+        "height": 600,
+        "isMobile": true
+      },
+      "overflowCheck": {
+        "winW": 320,
+        "docW": 320,
+        "bodyW": 320,
+        "hasHorizontalOverflow": false,
+        "offenderCount": 5,
+        "topOffenders": [
+          {
+            "tag": "SPAN",
+            "id": "",
+            "className": "font-mono text-[42px] sm:text-[72px] font-black up",
+            "right": 482,
+            "width": 645
+          },
+          {
+            "tag": "SPAN",
+            "id": "",
+            "className": "font-mono text-[42px] sm:text-[72px] font-black up",
+            "right": 526,
+            "width": 732
+          },
+          {
+            "tag": "SPAN",
+            "id": "",
+            "className": "font-mono text-[42px] sm:text-[72px] font-black up",
+            "right": 482,
+            "width": 645
+          }
+        ]
+      },
+      "headingCheck": {
+        "h1Text": "DHANUSH D\nPRABHU",
+        "word1Text": "DHANUSH D",
+        "word1Right": 169,
+        "word1Width": 153,
+        "word1FitsInside": true,
+        "word2FitsInside": true,
+        "winW": 320
+      },
+      "sectionsCheck": [
+        {
+          "id": "home",
+          "height": 823,
+          "fitsWidth": true
+        },
+        {
+          "id": "projects",
+          "height": 2536,
+          "fitsWidth": true
+        },
+        {
+          "id": "achievements",
+          "height": 2245,
+          "fitsWidth": true
+        },
+        {
+          "id": "about",
+          "height": 647,
+          "fitsWidth": true
+        },
+        {
+          "id": "hackathons",
+          "height": 983,
+          "fitsWidth": true
+        },
+        {
+          "id": "skills",
+          "height": 1275,
+          "fitsWidth": true
+        },
+        {
+          "id": "contact",
+          "height": 562,
+          "fitsWidth": true
+        }
+      ],
+      "navCheck": {
+        "mobileBtnVisible": true,
+        "desktopNavVisible": false
+      }
+    },
+    "360px": {
+      "viewport": {
+        "name": "360px",
+        "width": 360,
+        "height": 800,
+        "isMobile": true
+      },
+      "overflowCheck": {
+        "winW": 360,
+        "docW": 360,
+        "bodyW": 360,
+        "hasHorizontalOverflow": false,
+        "offenderCount": 5,
+        "topOffenders": [
+          {
+            "tag": "SPAN",
+            "id": "",
+            "className": "font-mono text-[42px] sm:text-[72px] font-black up",
+            "right": 502,
+            "width": 645
+          },
+          {
+            "tag": "SPAN",
+            "id": "",
+            "className": "font-mono text-[42px] sm:text-[72px] font-black up",
+            "right": 546,
+            "width": 732
+          },
+          {
+            "tag": "SPAN",
+            "id": "",
+            "className": "font-mono text-[42px] sm:text-[72px] font-black up",
+            "right": 502,
+            "width": 645
+          }
+        ]
+      },
+      "headingCheck": {
+        "h1Text": "DHANUSH D\nPRABHU",
+        "word1Text": "DHANUSH D",
+        "word1Right": 169,
+        "word1Width": 153,
+        "word1FitsInside": true,
+        "word2FitsInside": true,
+        "winW": 360
+      },
+      "sectionsCheck": [
+        {
+          "id": "home",
+          "height": 814,
+          "fitsWidth": true
+        },
+        {
+          "id": "projects",
+          "height": 2467,
+          "fitsWidth": true
+        },
+        {
+          "id": "achievements",
+          "height": 2331,
+          "fitsWidth": true
+        },
+        {
+          "id": "about",
+          "height": 568,
+          "fitsWidth": true
+        },
+        {
+          "id": "hackathons",
+          "height": 966,
+          "fitsWidth": true
+        },
+        {
+          "id": "skills",
+          "height": 1202,
+          "fitsWidth": true
+        },
+        {
+          "id": "contact",
+          "height": 562,
+          "fitsWidth": true
+        }
+      ],
+      "navCheck": {
+        "mobileBtnVisible": true,
+        "desktopNavVisible": false
+      }
+    },
+    "375px": {
+      "viewport": {
+        "name": "375px",
+        "width": 375,
+        "height": 667,
+        "isMobile": true
+      },
+      "overflowCheck": {
+        "winW": 375,
+        "docW": 375,
+        "bodyW": 375,
+        "hasHorizontalOverflow": false,
+        "offenderCount": 5,
+        "topOffenders": [
+          {
+            "tag": "SPAN",
+            "id": "",
+            "className": "font-mono text-[42px] sm:text-[72px] font-black up",
+            "right": 510,
+            "width": 645
+          },
+          {
+            "tag": "SPAN",
+            "id": "",
+            "className": "font-mono text-[42px] sm:text-[72px] font-black up",
+            "right": 553,
+            "width": 732
+          },
+          {
+            "tag": "SPAN",
+            "id": "",
+            "className": "font-mono text-[42px] sm:text-[72px] font-black up",
+            "right": 510,
+            "width": 645
+          }
+        ]
+      },
+      "headingCheck": {
+        "h1Text": "DHANUSH D\nPRABHU",
+        "word1Text": "DHANUSH D",
+        "word1Right": 169,
+        "word1Width": 153,
+        "word1FitsInside": true,
+        "word2FitsInside": true,
+        "winW": 375
+      },
+      "sectionsCheck": [
+        {
+          "id": "home",
+          "height": 814,
+          "fitsWidth": true
+        },
+        {
+          "id": "projects",
+          "height": 2350,
+          "fitsWidth": true
+        },
+        {
+          "id": "achievements",
+          "height": 2378,
+          "fitsWidth": true
+        },
+        {
+          "id": "about",
+          "height": 542,
+          "fitsWidth": true
+        },
+        {
+          "id": "hackathons",
+          "height": 966,
+          "fitsWidth": true
+        },
+        {
+          "id": "skills",
+          "height": 1173,
+          "fitsWidth": true
+        },
+        {
+          "id": "contact",
+          "height": 562,
+          "fitsWidth": true
+        }
+      ],
+      "navCheck": {
+        "mobileBtnVisible": true,
+        "desktopNavVisible": false
+      }
+    },
+    "390px": {
+      "viewport": {
+        "name": "390px",
+        "width": 390,
+        "height": 844,
+        "isMobile": true
+      },
+      "overflowCheck": {
+        "winW": 390,
+        "docW": 390,
+        "bodyW": 390,
+        "hasHorizontalOverflow": false,
+        "offenderCount": 5,
+        "topOffenders": [
+          {
+            "tag": "SPAN",
+            "id": "",
+            "className": "font-mono text-[42px] sm:text-[72px] font-black up",
+            "right": 517,
+            "width": 645
+          },
+          {
+            "tag": "SPAN",
+            "id": "",
+            "className": "font-mono text-[42px] sm:text-[72px] font-black up",
+            "right": 561,
+            "width": 732
+          },
+          {
+            "tag": "SPAN",
+            "id": "",
+            "className": "font-mono text-[42px] sm:text-[72px] font-black up",
+            "right": 517,
+            "width": 645
+          }
+        ]
+      },
+      "headingCheck": {
+        "h1Text": "DHANUSH D\nPRABHU",
+        "word1Text": "DHANUSH D",
+        "word1Right": 169,
+        "word1Width": 153,
+        "word1FitsInside": true,
+        "word2FitsInside": true,
+        "winW": 390
+      },
+      "sectionsCheck": [
+        {
+          "id": "home",
+          "height": 795,
+          "fitsWidth": true
+        },
+        {
+          "id": "projects",
+          "height": 2260,
+          "fitsWidth": true
+        },
+        {
+          "id": "achievements",
+          "height": 2406,
+          "fitsWidth": true
+        },
+        {
+          "id": "about",
+          "height": 542,
+          "fitsWidth": true
+        },
+        {
+          "id": "hackathons",
+          "height": 966,
+          "fitsWidth": true
+        },
+        {
+          "id": "skills",
+          "height": 1173,
+          "fitsWidth": true
+        },
+        {
+          "id": "contact",
+          "height": 562,
+          "fitsWidth": true
+        }
+      ],
+      "navCheck": {
+        "mobileBtnVisible": true,
+        "desktopNavVisible": false
+      }
+    },
+    "414px": {
+      "viewport": {
+        "name": "414px",
+        "width": 414,
+        "height": 896,
+        "isMobile": true
+      },
+      "overflowCheck": {
+        "winW": 414,
+        "docW": 414,
+        "bodyW": 414,
+        "hasHorizontalOverflow": false,
+        "offenderCount": 5,
+        "topOffenders": [
+          {
+            "tag": "SPAN",
+            "id": "",
+            "className": "font-mono text-[42px] sm:text-[72px] font-black up",
+            "right": 529,
+            "width": 645
+          },
+          {
+            "tag": "SPAN",
+            "id": "",
+            "className": "font-mono text-[42px] sm:text-[72px] font-black up",
+            "right": 573,
+            "width": 732
+          },
+          {
+            "tag": "SPAN",
+            "id": "",
+            "className": "font-mono text-[42px] sm:text-[72px] font-black up",
+            "right": 529,
+            "width": 645
+          }
+        ]
+      },
+      "headingCheck": {
+        "h1Text": "DHANUSH D\nPRABHU",
+        "word1Text": "DHANUSH D",
+        "word1Right": 169,
+        "word1Width": 153,
+        "word1FitsInside": true,
+        "word2FitsInside": true,
+        "winW": 414
+      },
+      "sectionsCheck": [
+        {
+          "id": "home",
+          "height": 795,
+          "fitsWidth": true
+        },
+        {
+          "id": "projects",
+          "height": 2216,
+          "fitsWidth": true
+        },
+        {
+          "id": "achievements",
+          "height": 2442,
+          "fitsWidth": true
+        },
+        {
+          "id": "about",
+          "height": 526,
+          "fitsWidth": true
+        },
+        {
+          "id": "hackathons",
+          "height": 966,
+          "fitsWidth": true
+        },
+        {
+          "id": "skills",
+          "height": 1173,
+          "fitsWidth": true
+        },
+        {
+          "id": "contact",
+          "height": 562,
+          "fitsWidth": true
+        }
+      ],
+      "navCheck": {
+        "mobileBtnVisible": true,
+        "desktopNavVisible": false
+      }
+    },
+    "430px": {
+      "viewport": {
+        "name": "430px",
+        "width": 430,
+        "height": 932,
+        "isMobile": true
+      },
+      "overflowCheck": {
+        "winW": 430,
+        "docW": 430,
+        "bodyW": 430,
+        "hasHorizontalOverflow": false,
+        "offenderCount": 5,
+        "topOffenders": [
+          {
+            "tag": "SPAN",
+            "id": "",
+            "className": "font-mono text-[42px] sm:text-[72px] font-black up",
+            "right": 537,
+            "width": 645
+          },
+          {
+            "tag": "SPAN",
+            "id": "",
+            "className": "font-mono text-[42px] sm:text-[72px] font-black up",
+            "right": 581,
+            "width": 732
+          },
+          {
+            "tag": "SPAN",
+            "id": "",
+            "className": "font-mono text-[42px] sm:text-[72px] font-black up",
+            "right": 537,
+            "width": 645
+          }
+        ]
+      },
+      "headingCheck": {
+        "h1Text": "DHANUSH D\nPRABHU",
+        "word1Text": "DHANUSH D",
+        "word1Right": 169,
+        "word1Width": 153,
+        "word1FitsInside": true,
+        "word2FitsInside": true,
+        "winW": 430
+      },
+      "sectionsCheck": [
+        {
+          "id": "home",
+          "height": 795,
+          "fitsWidth": true
+        },
+        {
+          "id": "projects",
+          "height": 2176,
+          "fitsWidth": true
+        },
+        {
+          "id": "achievements",
+          "height": 2492,
+          "fitsWidth": true
+        },
+        {
+          "id": "about",
+          "height": 510,
+          "fitsWidth": true
+        },
+        {
+          "id": "hackathons",
+          "height": 966,
+          "fitsWidth": true
+        },
+        {
+          "id": "skills",
+          "height": 1173,
+          "fitsWidth": true
+        },
+        {
+          "id": "contact",
+          "height": 562,
+          "fitsWidth": true
+        }
+      ],
+      "navCheck": {
+        "mobileBtnVisible": true,
+        "desktopNavVisible": false
+      }
+    },
+    "768px": {
+      "viewport": {
+        "name": "768px",
+        "width": 768,
+        "height": 1024,
+        "isMobile": false
+      },
+      "overflowCheck": {
+        "winW": 768,
+        "docW": 762,
+        "bodyW": 762,
+        "hasHorizontalOverflow": false,
+        "offenderCount": 3,
+        "topOffenders": [
+          {
+            "tag": "SPAN",
+            "id": "",
+            "className": "font-mono text-[42px] sm:text-[72px] font-black up",
+            "right": 1190,
+            "width": 1258
+          },
+          {
+            "tag": "SPAN",
+            "id": "",
+            "className": "font-mono text-[42px] sm:text-[72px] font-black up",
+            "right": 1265,
+            "width": 1407
+          },
+          {
+            "tag": "SPAN",
+            "id": "",
+            "className": "font-mono text-[42px] sm:text-[72px] font-black up",
+            "right": 854,
+            "width": 1308
+          }
+        ]
+      },
+      "headingCheck": {
+        "h1Text": "DHANUSH D\nPRABHU",
+        "word1Text": "DHANUSH D",
+        "word1Right": 431,
+        "word1Width": 399,
+        "word1FitsInside": true,
+        "word2FitsInside": true,
+        "winW": 768
+      },
+      "sectionsCheck": [
+        {
+          "id": "home",
+          "height": 1158,
+          "fitsWidth": true
+        },
+        {
+          "id": "projects",
+          "height": 2404,
+          "fitsWidth": true
+        },
+        {
+          "id": "achievements",
+          "height": 1814,
+          "fitsWidth": true
+        },
+        {
+          "id": "about",
+          "height": 622,
+          "fitsWidth": true
+        },
+        {
+          "id": "hackathons",
+          "height": 689,
+          "fitsWidth": true
+        },
+        {
+          "id": "skills",
+          "height": 852,
+          "fitsWidth": true
+        },
+        {
+          "id": "contact",
+          "height": 595,
+          "fitsWidth": true
+        }
+      ],
+      "navCheck": {
+        "mobileBtnVisible": true,
+        "desktopNavVisible": true
+      }
+    },
+    "1024px": {
+      "viewport": {
+        "name": "1024px",
+        "width": 1024,
+        "height": 768,
+        "isMobile": false
+      },
+      "overflowCheck": {
+        "winW": 1024,
+        "docW": 1018,
+        "bodyW": 1018,
+        "hasHorizontalOverflow": false,
+        "offenderCount": 3,
+        "topOffenders": [
+          {
+            "tag": "SPAN",
+            "id": "",
+            "className": "font-mono text-[42px] sm:text-[72px] font-black up",
+            "right": 1138,
+            "width": 1258
+          },
+          {
+            "tag": "SPAN",
+            "id": "",
+            "className": "font-mono text-[42px] sm:text-[72px] font-black up",
+            "right": 1389,
+            "width": 1109
+          },
+          {
+            "tag": "SPAN",
+            "id": "",
+            "className": "font-mono text-[42px] sm:text-[72px] font-black up",
+            "right": 1163,
+            "width": 1308
+          }
+        ]
+      },
+      "headingCheck": {
+        "h1Text": "DHANUSH D\nPRABHU",
+        "word1Text": "DHANUSH D",
+        "word1Right": 401,
+        "word1Width": 369,
+        "word1FitsInside": true,
+        "word2FitsInside": true,
+        "winW": 1024
+      },
+      "sectionsCheck": [
+        {
+          "id": "home",
+          "height": 637,
+          "fitsWidth": true
+        },
+        {
+          "id": "projects",
+          "height": 1979,
+          "fitsWidth": true
+        },
+        {
+          "id": "achievements",
+          "height": 1286,
+          "fitsWidth": true
+        },
+        {
+          "id": "about",
+          "height": 438,
+          "fitsWidth": true
+        },
+        {
+          "id": "hackathons",
+          "height": 689,
+          "fitsWidth": true
+        },
+        {
+          "id": "skills",
+          "height": 695,
+          "fitsWidth": true
+        },
+        {
+          "id": "contact",
+          "height": 835,
+          "fitsWidth": true
+        }
+      ],
+      "navCheck": {
+        "mobileBtnVisible": true,
+        "desktopNavVisible": true
+      }
+    },
+    "1280px": {
+      "viewport": {
+        "name": "1280px",
+        "width": 1280,
+        "height": 800,
+        "isMobile": false
+      },
+      "overflowCheck": {
+        "winW": 1280,
+        "docW": 1274,
+        "bodyW": 1274,
+        "hasHorizontalOverflow": false,
+        "offenderCount": 2,
+        "topOffenders": [
+          {
+            "tag": "SPAN",
+            "id": "",
+            "className": "font-mono text-[42px] sm:text-[72px] font-black up",
+            "right": 1583,
+            "width": 1109
+          },
+          {
+            "tag": "SPAN",
+            "id": "",
+            "className": "font-mono text-[42px] sm:text-[72px] font-black up",
+            "right": 1291,
+            "width": 1308
+          }
+        ]
+      },
+      "headingCheck": {
+        "h1Text": "DHANUSH D\nPRABHU",
+        "word1Text": "DHANUSH D",
+        "word1Right": 508,
+        "word1Width": 415,
+        "word1FitsInside": true,
+        "word2FitsInside": true,
+        "winW": 1280
+      },
+      "sectionsCheck": [
+        {
+          "id": "home",
+          "height": 661,
+          "fitsWidth": true
+        },
+        {
+          "id": "projects",
+          "height": 1875,
+          "fitsWidth": true
+        },
+        {
+          "id": "achievements",
+          "height": 1293,
+          "fitsWidth": true
+        },
+        {
+          "id": "about",
+          "height": 436,
+          "fitsWidth": true
+        },
+        {
+          "id": "hackathons",
+          "height": 689,
+          "fitsWidth": true
+        },
+        {
+          "id": "skills",
+          "height": 663,
+          "fitsWidth": true
+        },
+        {
+          "id": "contact",
+          "height": 707,
+          "fitsWidth": true
+        }
+      ],
+      "navCheck": {
+        "mobileBtnVisible": true,
+        "desktopNavVisible": true
+      }
+    },
+    "1440px": {
+      "viewport": {
+        "name": "1440px",
+        "width": 1440,
+        "height": 900,
+        "isMobile": false
+      },
+      "overflowCheck": {
+        "winW": 1440,
+        "docW": 1434,
+        "bodyW": 1434,
+        "hasHorizontalOverflow": false,
+        "offenderCount": 1,
+        "topOffenders": [
+          {
+            "tag": "SPAN",
+            "id": "",
+            "className": "font-mono text-[42px] sm:text-[72px] font-black up",
+            "right": 1663,
+            "width": 1109
+          }
+        ]
+      },
+      "headingCheck": {
+        "h1Text": "DHANUSH D\nPRABHU",
+        "word1Text": "DHANUSH D",
+        "word1Right": 588,
+        "word1Width": 415,
+        "word1FitsInside": true,
+        "word2FitsInside": true,
+        "winW": 1440
+      },
+      "sectionsCheck": [
+        {
+          "id": "home",
+          "height": 661,
+          "fitsWidth": true
+        },
+        {
+          "id": "projects",
+          "height": 1875,
+          "fitsWidth": true
+        },
+        {
+          "id": "achievements",
+          "height": 1293,
+          "fitsWidth": true
+        },
+        {
+          "id": "about",
+          "height": 436,
+          "fitsWidth": true
+        },
+        {
+          "id": "hackathons",
+          "height": 689,
+          "fitsWidth": true
+        },
+        {
+          "id": "skills",
+          "height": 663,
+          "fitsWidth": true
+        },
+        {
+          "id": "contact",
+          "height": 707,
+          "fitsWidth": true
+        }
+      ],
+      "navCheck": {
+        "mobileBtnVisible": true,
+        "desktopNavVisible": true
+      }
+    }
+  },
+  "drawerState": {
+    "isOpen": false,
+    "bodyOverflow": "",
+    "isScrollLocked": false,
+    "linkCount": 0
+  },
+  "drawerClosedState": {
+    "isOpen": false,
+    "bodyOverflow": "",
+    "isUnlocked": true
+  },
+  "modalMobileState": {
+    "hasDialog": true,
+    "bodyOverflow": "hidden",
+    "isScrollLocked": true,
+    "title": "CodeNeura Inter-College Tech-a-Thon",
+    "containerWidth": 384,
+    "winW": 390,
+    "fitsInside": true,
+    "hasPlaque": true,
+    "hasUnrelatedPhoto": false
+  },
+  "modalDesktopState": {
+    "hasDialog": true,
+    "title": "National Level AI Hackathon",
+    "bodyOverflow": "hidden"
+  },
+  "caseStudyResults": {
+    "avana-v2": {
+      "title": "Avana V2",
+      "winW": 1440,
+      "docW": 1434,
+      "hasOverflow": false,
+      "hasBackLink": true,
+      "hasSourceLink": true
+    },
+    "greenops": {
+      "title": "GreenOps",
+      "winW": 1440,
+      "docW": 1434,
+      "hasOverflow": false,
+      "hasBackLink": true,
+      "hasSourceLink": true
+    },
+    "little-heartbeat": {
+      "title": "Little Heartbeat",
+      "winW": 1440,
+      "docW": 1434,
+      "hasOverflow": false,
+      "hasBackLink": true,
+      "hasSourceLink": true
+    }
+  },
+  "resumeBytes": 68239,
+  "copyResult": {
+    "textBefore": "COPY EMAIL",
+    "textAfter": "COPIED"
+  },
+  "consoleErrorsCount": 0,
+  "consoleErrors": []
+}

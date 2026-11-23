@@ -1,6 +1,7 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect } from 'react';
 import { X, Trophy, Award, MapPin, Calendar, CheckCircle2, ArrowLeft, ShieldCheck, FileCheck } from 'lucide-react';
 import { achievementsData } from '../data/achievements';
+import AchievementPlaque from './AchievementPlaque';
 import type { AchievementDetail } from '../types';
 
 interface AchievementModalProps {
@@ -9,11 +10,8 @@ interface AchievementModalProps {
 }
 
 const AchievementModal: React.FC<AchievementModalProps> = ({ achievement, onClose }) => {
-  const [imgFailed, setImgFailed] = useState(false);
-
   useEffect(() => {
     if (!achievement) return;
-    setImgFailed(false);
 
     const handleKeyDown = (e: KeyboardEvent) => {
       if (e.key === 'Escape') onClose();
@@ -33,10 +31,6 @@ const AchievementModal: React.FC<AchievementModalProps> = ({ achievement, onClos
   // Find index in archive for oversized numeral (e.g. 01, 02...)
   const archiveIndex = achievementsData.findIndex((a) => a.id === achievement.id);
   const displayNum = archiveIndex >= 0 ? `0${archiveIndex + 1}` : '01';
-
-  // Show authentic photography from public assets (/profile.jpg) with verified role caption
-  const hasAuthenticPhoto = !imgFailed;
-  const photoCaption = achievement.personalPhotos?.[0]?.caption || `Dhanush D Prabhu — ${achievement.award}`;
 
   return (
     <div
@@ -156,81 +150,20 @@ const AchievementModal: React.FC<AchievementModalProps> = ({ achievement, onClos
           </div>
 
           {/* ============================================================ */}
-          {/* 2. PHOTOGRAPHY & PRIMARY VISUAL PRESENTATION                  */}
+          {/* 2. ARCHIVAL CITATION PLATE & VISUAL DOSSIER                  */}
           {/* ============================================================ */}
-          <div className="relative">
-            {hasAuthenticPhoto ? (
-              /* Authentic Competition Photography Frame */
-              <div className="space-y-1.5 sm:space-y-2">
-                <div className="p-1.5 sm:p-2.5 bg-[#FAF7F0] border border-[#E2DAC8] rounded-xl shadow-sm relative group overflow-hidden">
-                  <div className="relative w-full aspect-[16/10] sm:aspect-[16/9] rounded-lg overflow-hidden border border-[#E2DAC8] bg-[#151515]">
-                    <img
-                      src="/profile.jpg"
-                      alt={`Dhanush D Prabhu — ${achievement.eventName} Winner`}
-                      onError={() => setImgFailed(true)}
-                      className="w-full h-full object-cover grayscale contrast-110 brightness-95 group-hover:contrast-115 transition-all duration-700"
-                    />
-                    <div className="absolute inset-0 bg-gradient-to-t from-[#090909]/80 via-transparent to-transparent pointer-events-none" />
-                    
-                    {/* Corner Archival Stamp */}
-                    <div className="absolute top-2.5 right-2.5 sm:top-3 sm:right-3 font-mono text-[9px] sm:text-[10px] uppercase font-bold px-2 py-0.5 rounded bg-[#090909]/80 text-[#FAF7F0] border border-[#FAF7F0]/20 backdrop-blur-sm">
-                      VERIFIED ARTIFACT
-                    </div>
+          <div className="relative space-y-2">
+            <div className="p-1.5 sm:p-2 bg-[#FAF7F0] border border-[#E2DAC8] rounded-xl shadow-sm">
+              <AchievementPlaque achievement={achievement} variant="modal" />
+            </div>
 
-                    {/* Bottom Identification Label */}
-                    <div className="absolute bottom-2.5 left-3 right-3 sm:bottom-3 sm:left-4 sm:right-4 flex items-center justify-between text-white/90">
-                      <div>
-                        <span className="font-serif font-bold text-xs sm:text-sm block">{photoCaption}</span>
-                        <span className="font-mono text-[9px] sm:text-[10px] text-[#F04B16] uppercase tracking-wider">
-                          {achievement.award} · {achievement.eventName}
-                        </span>
-                      </div>
-                      <span className="font-mono text-[10px] sm:text-xs text-white/70">
-                        {achievement.date}
-                      </span>
-                    </div>
-                  </div>
-                </div>
-
-                {/* Archival Figure Caption */}
-                <div className="flex items-center justify-between px-1 font-mono text-[10px] sm:text-[11px] text-[#8A877F]">
-                  <span>FIG 1.0 // COMPETITION PHOTO DOCUMENTATION</span>
-                  <span>AUTHENTIC RECORD</span>
-                </div>
-              </div>
-            ) : (
-              /* Tasteful Typographic Museum Archival Placeholder */
-              <div className="p-5 sm:p-8 bg-gradient-to-b from-[#FAF7F0] to-[#F1EBDD] border border-[#E2DAC8] rounded-xl shadow-sm space-y-3 sm:space-y-4 text-center relative overflow-hidden">
-                <div className="w-10 h-10 sm:w-12 sm:h-12 rounded-full bg-[#F04B16]/10 border border-[#F04B16]/30 flex items-center justify-center text-[#F04B16] mx-auto">
-                  {achievement.award.includes('1st') ? (
-                    <Trophy className="w-5 h-5 text-[#F04B16]" />
-                  ) : (
-                    <Award className="w-5 h-5 text-[#F04B16]" />
-                  )}
-                </div>
-
-                <div className="max-w-xl mx-auto space-y-1">
-                  <span className="font-mono text-[9px] sm:text-[10px] uppercase tracking-widest text-[#F04B16] font-bold block">
-                    ARCHIVAL CITATION // REGISTRY NO. {displayNum}
-                  </span>
-                  <h3 className="font-serif italic text-xl sm:text-2xl font-bold text-[#151515]">
-                    {achievement.eventName}
-                  </h3>
-                  <p className="font-mono text-[11px] sm:text-xs text-[#8A877F]">
-                    {achievement.organization} · {achievement.location}
-                  </p>
-                </div>
-
-                <div className="pt-3 border-t border-[#E2DAC8] flex flex-wrap items-center justify-center gap-2 sm:gap-4 font-mono text-[10px] sm:text-xs text-[#151515]/75">
-                  <span className="px-2.5 py-0.5 rounded bg-[#FAF7F0] border border-[#E2DAC8]">
-                    VERIFIED RANK: <strong className="text-[#F04B16]">{achievement.award}</strong>
-                  </span>
-                  <span className="px-2.5 py-0.5 rounded bg-[#FAF7F0] border border-[#E2DAC8]">
-                    CITING BODY: <strong>{achievement.organization}</strong>
-                  </span>
-                </div>
-              </div>
-            )}
+            {/* Archival Figure Caption & Verification Transparency Stamp */}
+            <div className="flex flex-wrap items-center justify-between gap-1.5 px-1 font-mono text-[10px] sm:text-[11px] text-[#8A877F]">
+              <span>FIG 1.0 // OFFICIAL CITATION DOCKET & RECORD</span>
+              <span className="text-[#F04B16] font-semibold">
+                ✦ PHYSICAL CREDENTIAL ARCHIVED AT SHIMOGA
+              </span>
+            </div>
           </div>
 
           {/* ============================================================ */}

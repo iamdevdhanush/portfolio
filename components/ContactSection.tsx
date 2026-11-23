@@ -7,7 +7,11 @@ const ContactSection: React.FC = () => {
   const email = 'dhanushdprabhu18@gmail.com';
 
   const handleCopyEmail = () => {
-    navigator.clipboard.writeText(email);
+    try {
+      if (navigator.clipboard && navigator.clipboard.writeText) {
+        navigator.clipboard.writeText(email).catch(() => {});
+      }
+    } catch {}
     setCopied(true);
     setTimeout(() => setCopied(false), 2000);
   };

@@ -1,6 +1,5 @@
 import { Routes, Route, useNavigate, useLocation } from 'react-router-dom';
 import { useState, useEffect, useCallback } from 'react';
-import { Command } from 'lucide-react';
 import Background from './components/Background';
 import Navbar from './components/Navbar';
 import CommandPalette from './components/CommandPalette';
